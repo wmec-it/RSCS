@@ -1,8 +1,18 @@
 use std::process::Command;
 use terminal_menu::*;
 use colored_text::Colorize;
+use regex::Regex;
 
-const PUNCHDOWN_PAUL: &str = "
+pub struct Theme {
+    primary: &'static str,
+    success: &'static str,
+    error: &'static str,
+    info: &'static str,
+    warning: &'static str,
+}
+
+const PUNCHDOWN_PAUL: &str =
+    "
                                                                                             
                                                                                             
                                                                                             
@@ -74,36 +84,41 @@ const INSTALL_PROGRAMS: &[&str] = &[
     "Hibbiki.Chromium",
     "GitHub.GitHubDesktop",
     "Microsoft.VisualStudioCode",
-    "Microsoft.VisualStudio.2019.BuildTools"
+    "Microsoft.VisualStudio.2019.BuildTools",
+    "AngusJohnson.ResourceHacker",
 ];
-
+const MAIN_THEME: Theme = Theme {
+    primary: "F57E20",
+    success: "69FF90",
+    error: "FF0000",
+    info: "69D0FF",
+    warning: "FFFA69",
+};
 
 fn main() {
     if cfg!(target_os = "windows") {
-
-        let menu = menu(vec![
-            label(format!("{}", PROGRAM_TITLE).hex("F57E20")),
-            label(""),
-            scroll("Install Type", INSTALL_TYPES.iter().copied()),
-            label(""),
-            button("Start Install"),
-        ]);
+        let menu = menu(
+            vec![
+                label(format!("{}", PROGRAM_TITLE).hex(MAIN_THEME.primary)),
+                label(""),
+                scroll("Install Type", INSTALL_TYPES.iter().copied()),
+                label(""),
+                button("Start Install")
+            ]
+        );
         run(&menu);
         {
             if !mut_menu(&menu).canceled() == true {
-                println!("{}", format!("{}", PUNCHDOWN_PAUL).hex("F57E20"));
+                println!("{}", format!("{}", PUNCHDOWN_PAUL).hex(MAIN_THEME.primary));
 
                 let mm = mut_menu(&menu);
-                println!("{}", mm.selection_value("Install Type"));
-                println!("{}", mm.selected_item_name());
+                println!("{} {}", format!("{}", "Selected Install Type: ".hex(MAIN_THEME.info)), mm.selection_value("Install Type"));
 
                 handle_install_type(mm.selection_value("Install Type"));
             }
         }
     } else {
-        Command::new("clear")
-            .status()
-            .unwrap();
+        Command::new("clear").status().unwrap();
     }
 }
 
@@ -115,13 +130,18 @@ fn handle_install_type(_type: &str) {
     } else if _type == INSTALL_TYPES[2] {
         handle_run_remove_installed_programs();
     } else {
-        println!("{}", "Invalid Entry (idk what is wrong)".hex("FF0000"));
+        println!("{}", "Invalid Entry (idk what is wrong)".hex(MAIN_THEME.error));
     }
 }
 
-fn winget_install(program_name: &str) {
-    let installing_message: String = format!("Installing {}...", program_name.hex("F57E20"));
-    let install_command: String = format!("winget install -e --id {} --silent --disable-interactivity --accept-package-agreements --accept-source-agreements", program_name);
+fn winget_install(program_id: &str) {
+    let program_name = program_id.splitn(2, '.').nth(1).unwrap_or(program_id);
+
+    let installing_message: String = format!("Installing {}...", &program_name.hex(MAIN_THEME.primary));
+    let install_command: String = format!(
+        "winget install -e --id {} --silent --disable-interactivity --accept-package-agreements --accept-source-agreements",
+        &program_id
+    );
 
     println!("{}\n", installing_message);
 
@@ -132,15 +152,25 @@ fn winget_install(program_name: &str) {
         .expect("Failed to install program via winget...");
 
     if !install_command_output.status.success() {
-        eprintln!("{}", format!("PowerShell returned an error:\n{}", String::from_utf8_lossy(&install_command_output.stdout)).hex("FF0000"));
+        eprintln!(
+            "{}",
+            format!(
+                "PowerShell returned an error:\n{}",
+                String::from_utf8_lossy(&install_command_output.stdout)
+            ).hex(MAIN_THEME.warning)
+        );
     } else {
-        println!("{}", String::from_utf8_lossy(&install_command_output.stdout));
+        println!("{}", String::from_utf8_lossy(&install_command_output.stdout).hex(MAIN_THEME.info));
     }
 }
 
-fn winget_remove(program_name: &str) {
-    let removing_message: String = format!("Removing {}...", program_name.hex("FF0000"));
-    let remove_command: String = format!("remove -e --id {}", program_name);
+fn winget_remove(program_id: &str) {
+    // Sanitize the program id the same way as winget_install
+    let re = Regex::new(r"^[^.]*\\.").unwrap();
+    let program_name = re.replace_all(&program_id, "");
+
+    let removing_message: String = format!("Removing {}...", &program_name.hex(MAIN_THEME.error));
+    let remove_command: String = format!("remove -e --id {}", &program_id);
 
     println!("{}\n", removing_message);
 
@@ -151,9 +181,15 @@ fn winget_remove(program_name: &str) {
         .expect("Failed to remove program via winget...");
 
     if !remove_command_output.status.success() {
-        eprintln!("{}", format!("PowerShell returned an error:\n{}", String::from_utf8_lossy(&remove_command_output.stdout)).hex("FF0000"));
+        eprintln!(
+            "{}",
+            format!(
+                "PowerShell returned an error:\n{}",
+                String::from_utf8_lossy(&remove_command_output.stdout)
+            ).hex(MAIN_THEME.error)
+        );
     } else {
-        println!("{}", String::from_utf8_lossy(&remove_command_output.stdout));
+        println!("{}", String::from_utf8_lossy(&remove_command_output.stdout).hex(MAIN_THEME.info));
     }
 }
 
@@ -164,13 +200,13 @@ fn install_programs() {
 }
 
 fn handle_run_install_full() {
-    println!("Starting Full Install...");
+    println!("{}", "Starting Full Install...\n".hex(MAIN_THEME.success));
 
     install_programs();
 }
 
 fn handle_run_install_programs() {
-    println!("Starting Programs Install...");
+    println!("{}", "Starting Programs Install...\n".hex(MAIN_THEME.success));
 
     install_programs();
 }
