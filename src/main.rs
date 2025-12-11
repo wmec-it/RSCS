@@ -112,7 +112,11 @@ fn main() {
                 println!("{}", format!("{}", PUNCHDOWN_PAUL).hex(MAIN_THEME.primary));
 
                 let mm = mut_menu(&menu);
-                println!("{} {}", format!("{}", "Selected Install Type: ".hex(MAIN_THEME.info)), mm.selection_value("Install Type"));
+                println!(
+                    "{} {}",
+                    format!("{}", "Selected Install Type: ".hex(MAIN_THEME.info)),
+                    mm.selection_value("Install Type")
+                );
 
                 handle_install_type(mm.selection_value("Install Type"));
             }
@@ -137,13 +141,16 @@ fn handle_install_type(_type: &str) {
 fn winget_install(program_id: &str) {
     let program_name = program_id.splitn(2, '.').nth(1).unwrap_or(program_id);
 
-    let installing_message: String = format!("Installing {}...", &program_name.hex(MAIN_THEME.primary));
+    let installing_message: String = format!(
+        "Installing {}...",
+        &program_name.hex(MAIN_THEME.primary)
+    );
     let install_command: String = format!(
         "winget install -e --id {} --silent --disable-interactivity --accept-package-agreements --accept-source-agreements",
         &program_id
     );
 
-    println!("{}\n", installing_message);
+    println!("{}", installing_message);
 
     let install_command_output = Command::new("powershell")
         .arg("-Command")
@@ -152,15 +159,26 @@ fn winget_install(program_id: &str) {
         .expect("Failed to install program via winget...");
 
     if !install_command_output.status.success() {
-        eprintln!(
-            "{}",
-            format!(
-                "PowerShell returned an error:\n{}",
-                String::from_utf8_lossy(&install_command_output.stdout)
-            ).hex(MAIN_THEME.warning)
-        );
+        if
+            String::from_utf8_lossy(&install_command_output.stdout).contains(
+                "Found an existing package"
+            )
+        {
+            eprintln!("{}", "   This package is already installed!".hex(MAIN_THEME.warning));
+        } else {
+            eprintln!(
+                "{}",
+                format!(
+                    "PowerShell returned an error:\n{}",
+                    String::from_utf8_lossy(&install_command_output.stdout)
+                ).hex(MAIN_THEME.error)
+            );
+        }
     } else {
-        println!("{}", String::from_utf8_lossy(&install_command_output.stdout).hex(MAIN_THEME.info));
+        println!(
+            "{}",
+            String::from_utf8_lossy(&install_command_output.stdout).hex(MAIN_THEME.info)
+        );
     }
 }
 
@@ -197,22 +215,32 @@ fn install_programs() {
     for program in INSTALL_PROGRAMS {
         winget_install(program);
     }
+
+    println!("");
+
+    println!("{}", "+ Finished Installing Programs Successfully!\n".hex(MAIN_THEME.success));
 }
 
 fn handle_run_install_full() {
-    println!("{}", "Starting Full Install...\n".hex(MAIN_THEME.success));
+    println!("{}", "+ Starting Full Install...\n".hex(MAIN_THEME.success));
 
     install_programs();
+
+    println!("{}", "-- Full Install Finished Successfully!!! --\n".hex(MAIN_THEME.success));
 }
 
 fn handle_run_install_programs() {
     println!("{}", "Starting Programs Install...\n".hex(MAIN_THEME.success));
 
     install_programs();
+
+    println!("{}", "Programs Install Finished Successfully!!!\n".hex(MAIN_THEME.success));
 }
 
 fn handle_run_remove_installed_programs() {
     for program in INSTALL_PROGRAMS {
         winget_remove(program);
     }
+
+    println!("{}", "Finished Removing Installed Programs Successfully!\n".hex(MAIN_THEME.success));
 }
