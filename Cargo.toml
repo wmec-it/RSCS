@@ -7,3 +7,6 @@ edition = "2024"
 colored_text = "0.3.0"
 crossterm = "0.29.0"
 terminal-menu = "3.1.0"
+
+[build-dependencies]
+winresource = "0.1.28"
