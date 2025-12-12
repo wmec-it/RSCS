@@ -2,7 +2,7 @@
 name = "RSCS"
 description = "CLI program for configuring machines in the West-Mec IT Security Repair Shop (Nerd Heard)."
 authors = ["Caden Finkelstein <me@cadenf.com>"]
-version = "0.0.2"
+version = "0.0.3"
 edition = "2024"
 homepage = "https://github.com/wmec-it/RSCS"
 repository = "https://github.com/wmec-it/RSCS"
@@ -15,7 +15,6 @@ license-file = "LICENSE"
 [dependencies]
 colored_text = "0.3.0"
 crossterm = "0.29.0"
-regex = "1.12.2"
 terminal-menu = "3.1.0"
 
 [build-dependencies]

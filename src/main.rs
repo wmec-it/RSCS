@@ -1,103 +1,13 @@
 use std::process::Command;
 use terminal_menu::*;
 use colored_text::Colorize;
-use regex::Regex;
 
 use utils::wait;
+use conf::vars::{PROGRAM_TITLE, MAIN_THEME, INSTALL_TYPES, PUNCHDOWN_PAUL, INSTALL_PROGRAMS};
 
 mod utils;
-
-pub struct Theme {
-    primary: &'static str,
-    success: &'static str,
-    error: &'static str,
-    info: &'static str,
-    warning: &'static str,
-}
-
-const PUNCHDOWN_PAUL: &str =
-    "
-                                                                                            
-                                                                                            
-                                                                                            
-                            5µµOµµµµOµµµOxyTÎO                                                
-                    yµµµµµµµµµµµµµµµµµµµµµµµµµµO6OOOyxxU                                   
-                OOµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµOOy¾f                       
-            µµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµOµOf              
-            µµµµµµµµµµµµµµµµµµµµµµµUkàZähS6µµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµ              
-            µµµµµµµµµµµµµµµûpÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆBZµµµµµµµµµµµµµµµµµµµµµµµµµµµ              
-            µµµµµµµµµµUêÆÆÆÆÆÆÆÆÆÆÆÆŒØÈÈØŒÆÆÆÆÆÆÆÆÆÆëµµµµµµµ§ÉÆÆÆÆÆÆÆÆÆÆÆØÖ6µ              
-            Oµµµµµµ6ÆÆÆÆÆÆÆÆÀSµµµµµµµµµµµµµµµµµSÆÆÆÆÆWµµµµÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆ            
-            µµµµµµÞÆÆÆÆÆÆÆÆµµµµµµµµµµµµµµµµµµµµµµëÆÆÆÂµµµ6ÆÆÆØ6µµµµµµµµµµUNÆÆÆÆÆÆÆÆ        
-            µµµµµµµÆÆÆÆÆÆÆÆ6µµµµµµµµµµµµµµµµµµµµµèÆÆÆÅµµµAÆÆÆµµµµµµµµµµµµµµµµ ÆÆÆÆÆÆÆ      
-            µµµµµµµµµµµ9ÆÆÆÂµµµµµµµµµµµµµµµµµµµµµpÆÆÆÒD¶ÝœÆÆÆµµµµµµµµµµµµµµµy   ÆÆÆÆÆÆÆ    
-            µµµµµµ6hëqHþØÆÆÆµµµµµµµµµµµµµµµµµµµµµßÆÆÆÆÆÆÆÆÆÆWµµµµµµµµµµµµµµµ6  ÆÆÆÆÆÆÆÆ    
-            ÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆHµµµµµµµµµµµµµµµµµµµµÆÆÆÆÆÆÆÆÆÆÆqµµµµµµµµµµµµµµµ5  ÆÆÆ   Æ     
-        ÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆR9µµÆÆÆµµµµµµµµµµµµµµµµµµµeÆÆÆeµµµµûÆÆqµµµµµµµµµµµµµµµ  ÆÆÆÆ         
-    ÆÆÆÆÆÆÆÆÆÆÆÆÉÖ6µµµµµµµSÆÆÆµµµµµµµµµµµµµµµµµµÈÆÆ®µµµµµµÑÆŒµµµµµµµµµµµµµµ6 ÆÆÆÆ          
-    ÆÆÆÆÆÆÆÆÆÆÆ6µµµµµµµµµµµµµkÆÆHµµµµµµµµµµµµµµµµµÆÆÞµµµµµµµàÆÆµµµµµµµµµµµµµµµÆÆÆÆ           
-    ÆÆÆÆÆÆÆÆ    µµµµµµµµµµµµµµµUÆÆÆøFÝ9UUUS§DèøœÆÆÆÆgµµµµµµµµµŠÆÆÆqD6µµµµµµµµµÆÆÆ             
-    ÆÆÆÆÆ       OµµµµµµµµµµµµµµµµäØÆÆÆÆÆÆÆÆÆÆÆÆÆÁ¶Ýµµµµµµµµµµµµµ9¶ØÆÆÆÆÆÆÆÆÆÆÆÆÆ              
-    ÆÆ          UOµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµ9hZäU                
-                OµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµO                
-                µµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµ                 
-                eµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµOOOµµOy                   
-                µµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµOµ¾                              
-                    yµµOOµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµy                                  
-                                ¾O6OOµµµµµµµµµµµµµµµµµµµµµµµOOx                            
-                            ¾OµOµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµµOµ                        
-                        eµµµµµµµµµµyOO OµµµµµµµµUµµµUµµµµµµµµO  5OOµµµµµ                      
-                    TµOµµµµµµ6Oµ      6µµµµµµµ8ÆÆšÜÆÆ¥µµµµµµµy   6Oµµµx                      
-                    ÎµµµµµµµµOO       µµµµµµµµ8ÆÆÆÆþÆÆÆàµµµµµµxµOµµµµµ                       
-                    eµµµµµµµµµµµOOOOµµµµµµµµ8ÆÆÆÆÆÒÆÆÆŒµµµµµµµµµµO5                        
-                        ¾µµµµµµµµµµµµµµµµµµµµµ8ÆÆÆÆWÆÆÆÞµµµµµµµµµµy                          
-                            xOµµµµµµµµµµµµµµµµ8ÆÆFÜÆÆZµµµµµµµµµOO                            
-                                üµµµµµµµµµµµµµµµ®µµµSµµµµµµµµµµO                              
-                                    µÎOOµµµµµµµµµµµµµµµµµµµµµµµµ                              
-                                    ¾µµµµµµµµµµµµµµµµµµµµµµµµ                              
-                                        yµµµµµµµµµµµµµµµµµµµµµµy                              
-                                        eµµµµµµµµµµµµµµµµµµµµO                                
-                                    OOµµµ¾  OµOµOOOµOyOµµµx                                
-                                    µµµµµõ            yµµµO                                
-                                    µµµµµµ             xµµµµ                                
-                                    Oµµµµµ              eµµµµÎ                               
-                                    Oµµµµµµ              xµµµµO                               
-                                µµµµµµµ               µµµµµµ                               
-                                OµµµµµµO              yOµµµµµ                               
-                        yyOµOµµµµµµµµµOOÎ             µµµµµµµ6OµµOµµµµOµµT                  
-                    OOµµµµµµµµµµµµµµµµµµµy           Oµµµµµµµµµµµµµµµµµµµy                 
-                    µµµµµµµµµµµµµµµµµµµµµx          µµµµµµµµµµµµµµµµµµµµµµx                
-                    eµµµµµµµµµµµµµµµµµµµµµU         yµµµµµµµµµµµµµµµµµµµµµµO                
-                                                                                            
-                                                                                            
-";
-const PROGRAM_TITLE: &str = "West-Mec Repair Shop Configuration Tool";
-const INSTALL_TYPES: &[&str] = &[
-    "Full Install",
-    "Install Programs",
-    "Remove Installed Programs (from this script)",
-    "Remove Unecessary Programs (or bad ones)",
-];
-const INSTALL_PROGRAMS: &[&str] = &[
-    "NZXT.CAM",
-    "WhirlwindFX.SignalRgb",
-    "CrystalRich.LockHunter",
-    "Klocman.BulkCrapUninstaller",
-    "valinet.ExplorerPatcher",
-    "Git.Git",
-    "Hibbiki.Chromium",
-    "GitHub.GitHubDesktop",
-    "Microsoft.VisualStudioCode",
-    "Microsoft.VisualStudio.2019.BuildTools",
-    "AngusJohnson.ResourceHacker",
-];
-const MAIN_THEME: Theme = Theme {
-    primary: "F57E20",
-    success: "69FF90",
-    error: "FF0000",
-    info: "69D0FF",
-    warning: "FFFA69",
-};
+mod conf;
+mod winget;
 
 fn main() {
     if cfg!(target_os = "windows") {
@@ -146,82 +56,9 @@ fn handle_install_type(_type: &str) {
     }
 }
 
-fn winget_install(program_id: &str) {
-    let program_name = program_id.splitn(2, '.').nth(1).unwrap_or(program_id);
-
-    let installing_message: String = format!(
-        "Installing {}...",
-        &program_name.hex(MAIN_THEME.primary)
-    );
-    let install_command: String = format!(
-        "winget install -e --id {} --silent --disable-interactivity --accept-package-agreements --accept-source-agreements",
-        &program_id
-    );
-
-    println!("{}", installing_message);
-
-    let install_command_output = Command::new("powershell")
-        .arg("-Command")
-        .arg(install_command)
-        .output()
-        .expect("Failed to install program via winget...");
-
-    if !install_command_output.status.success() {
-        if
-            String::from_utf8_lossy(&install_command_output.stdout).contains(
-                "Found an existing package"
-            )
-        {
-            eprintln!("{}", "   This package is already installed!".hex(MAIN_THEME.warning));
-        } else {
-            eprintln!(
-                "{}",
-                format!(
-                    "PowerShell returned an error:\n{}",
-                    String::from_utf8_lossy(&install_command_output.stdout)
-                ).hex(MAIN_THEME.error)
-            );
-        }
-    } else {
-        println!(
-            "{}",
-            String::from_utf8_lossy(&install_command_output.stdout).hex(MAIN_THEME.info)
-        );
-    }
-}
-
-fn winget_remove(program_id: &str) {
-    // Sanitize the program id the same way as winget_install
-    let re = Regex::new(r"^[^.]*\\.").unwrap();
-    let program_name = re.replace_all(&program_id, "");
-
-    let removing_message: String = format!("Removing {}...", &program_name.hex(MAIN_THEME.error));
-    let remove_command: String = format!("remove -e --id {}", &program_id);
-
-    println!("{}\n", removing_message);
-
-    let remove_command_output = Command::new("powershell")
-        .arg("-Command")
-        .arg(remove_command)
-        .output()
-        .expect("Failed to remove program via winget...");
-
-    if !remove_command_output.status.success() {
-        eprintln!(
-            "{}",
-            format!(
-                "PowerShell returned an error:\n{}",
-                String::from_utf8_lossy(&remove_command_output.stdout)
-            ).hex(MAIN_THEME.error)
-        );
-    } else {
-        println!("{}", String::from_utf8_lossy(&remove_command_output.stdout).hex(MAIN_THEME.info));
-    }
-}
-
 fn install_programs() {
     for program in INSTALL_PROGRAMS {
-        winget_install(program);
+        winget::winget_install(program);
     }
 
     println!("");
@@ -247,7 +84,7 @@ fn handle_run_install_programs() {
 
 fn handle_run_remove_installed_programs() {
     for program in INSTALL_PROGRAMS {
-        winget_remove(program);
+        winget::winget_remove(program);
     }
 
     println!("{}", "Finished Removing Installed Programs Successfully!\n".hex(MAIN_THEME.success));
