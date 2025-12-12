@@ -1,14 +1,12 @@
-use std::process::Command;
+use crate::conf::vars::MAIN_THEME;
 use colored_text::Colorize;
-use crate::conf::vars::{MAIN_THEME};
+use std::process::Command;
 
 pub fn winget_install(program_id: &str) {
     let program_name = program_id.splitn(2, '.').nth(1).unwrap_or(program_id);
 
-    let installing_message: String = format!(
-        "Installing {}...",
-        &program_name.hex(MAIN_THEME.primary)
-    );
+    let installing_message: String =
+        format!("Installing {}...", &program_name.hex(MAIN_THEME.primary));
     let install_command: String = format!(
         "winget install -e --id {} --silent --disable-interactivity --accept-package-agreements --accept-source-agreements",
         &program_id
@@ -23,19 +21,21 @@ pub fn winget_install(program_id: &str) {
         .expect("Failed to install program via winget...");
 
     if !install_command_output.status.success() {
-        if
-            String::from_utf8_lossy(&install_command_output.stdout).contains(
-                "Found an existing package"
-            )
+        if String::from_utf8_lossy(&install_command_output.stdout)
+            .contains("Found an existing package")
         {
-            eprintln!("{}", "   This package is already installed!".hex(MAIN_THEME.warning));
+            eprintln!(
+                "{}",
+                "   This package is already installed!".hex(MAIN_THEME.warning)
+            );
         } else {
             eprintln!(
                 "{}",
                 format!(
                     "PowerShell returned an error:\n{}",
                     String::from_utf8_lossy(&install_command_output.stdout)
-                ).hex(MAIN_THEME.error)
+                )
+                .hex(MAIN_THEME.error)
             );
         }
     } else {
@@ -66,9 +66,13 @@ pub fn winget_remove(program_id: &str) {
             format!(
                 "PowerShell returned an error:\n{}",
                 String::from_utf8_lossy(&remove_command_output.stdout)
-            ).hex(MAIN_THEME.error)
+            )
+            .hex(MAIN_THEME.error)
         );
     } else {
-        println!("{}", String::from_utf8_lossy(&remove_command_output.stdout).hex(MAIN_THEME.info));
+        println!(
+            "{}",
+            String::from_utf8_lossy(&remove_command_output.stdout).hex(MAIN_THEME.info)
+        );
     }
 }

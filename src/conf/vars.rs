@@ -1,7 +1,6 @@
 use crate::conf::structs::Theme;
 
-pub const PUNCHDOWN_PAUL: &str =
-    "
+pub const PUNCHDOWN_PAUL: &str = "
                                                                                             
                                                                                             
                                                                                             

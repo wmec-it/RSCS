@@ -1,25 +1,23 @@
+use colored_text::Colorize;
 use std::process::Command;
 use terminal_menu::*;
-use colored_text::Colorize;
 
+use conf::vars::{INSTALL_PROGRAMS, INSTALL_TYPES, MAIN_THEME, PROGRAM_TITLE, PUNCHDOWN_PAUL};
 use utils::wait;
-use conf::vars::{PROGRAM_TITLE, MAIN_THEME, INSTALL_TYPES, PUNCHDOWN_PAUL, INSTALL_PROGRAMS};
 
-mod utils;
 mod conf;
+mod utils;
 mod winget;
 
 fn main() {
     if cfg!(target_os = "windows") {
-        let menu = menu(
-            vec![
-                label(format!("{}", PROGRAM_TITLE).hex(MAIN_THEME.primary)),
-                label(""),
-                scroll("Install Type", INSTALL_TYPES.iter().copied()),
-                label(""),
-                button("Start Install")
-            ]
-        );
+        let menu = menu(vec![
+            label(format!("{}", PROGRAM_TITLE).hex(MAIN_THEME.primary)),
+            label(""),
+            scroll("Install Type", INSTALL_TYPES.iter().copied()),
+            label(""),
+            button("Start Install"),
+        ]);
         run(&menu);
         {
             if !mut_menu(&menu).canceled() == true {
@@ -36,8 +34,11 @@ fn main() {
             }
         }
     } else {
-        println!("{}", "You cannot run this script on Linux!".hex(MAIN_THEME.error));
-        
+        println!(
+            "{}",
+            "You cannot run this script on Linux!".hex(MAIN_THEME.error)
+        );
+
         wait::miliseconds(2000);
 
         Command::new("clear").status().unwrap();
@@ -52,7 +53,10 @@ fn handle_install_type(_type: &str) {
     } else if _type == INSTALL_TYPES[2] {
         handle_run_remove_installed_programs();
     } else {
-        println!("{}", "Invalid Entry (idk what is wrong)".hex(MAIN_THEME.error));
+        println!(
+            "{}",
+            "Invalid Entry (idk what is wrong)".hex(MAIN_THEME.error)
+        );
     }
 }
 
@@ -63,7 +67,10 @@ fn install_programs() {
 
     println!("");
 
-    println!("{}", "+ Finished Installing Programs Successfully!\n".hex(MAIN_THEME.success));
+    println!(
+        "{}",
+        "+ Finished Installing Programs Successfully!\n".hex(MAIN_THEME.success)
+    );
 }
 
 fn handle_run_install_full() {
@@ -71,15 +78,24 @@ fn handle_run_install_full() {
 
     install_programs();
 
-    println!("{}", "-- Full Install Finished Successfully!!! --\n".hex(MAIN_THEME.success));
+    println!(
+        "{}",
+        "-- Full Install Finished Successfully!!! --\n".hex(MAIN_THEME.success)
+    );
 }
 
 fn handle_run_install_programs() {
-    println!("{}", "Starting Programs Install...\n".hex(MAIN_THEME.success));
+    println!(
+        "{}",
+        "Starting Programs Install...\n".hex(MAIN_THEME.success)
+    );
 
     install_programs();
 
-    println!("{}", "Programs Install Finished Successfully!!!\n".hex(MAIN_THEME.success));
+    println!(
+        "{}",
+        "Programs Install Finished Successfully!!!\n".hex(MAIN_THEME.success)
+    );
 }
 
 fn handle_run_remove_installed_programs() {
@@ -87,5 +103,8 @@ fn handle_run_remove_installed_programs() {
         winget::winget_remove(program);
     }
 
-    println!("{}", "Finished Removing Installed Programs Successfully!\n".hex(MAIN_THEME.success));
+    println!(
+        "{}",
+        "Finished Removing Installed Programs Successfully!\n".hex(MAIN_THEME.success)
+    );
 }
