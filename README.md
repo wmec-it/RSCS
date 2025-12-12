@@ -28,6 +28,14 @@ sudo apt install mingw-w64
 sudo dnf install mingw64-gcc
 ```
 
+## Builds
+
+Run `build.*` depending on which OS you are on (Linux is `.sh`, and Windows is `.bat`).
+
+### Release
+
+Run `build-release.*` depending on which OS you are on (Linux is `.sh`, and Windows is `.bat`).
+
 ## Reference PS1 Script
 
 ```ps1
