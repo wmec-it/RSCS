@@ -2,7 +2,33 @@
 
 For use configuring machines in the West-Mec IT Security Repair Shop (Nerd Heard).
 
-## Referance PS1 Script
+## Dev Setup on Windows
+
+1. [Rustup](https://rustup.rs/)
+   - Or run: `winget install -e --id Rustlang.Rustup`
+
+## Dev Setup on Linux
+
+### Arch
+
+```sh
+sudo paru -S mingw-w64-gcc rustup
+```
+
+### Debian
+
+```sh
+sudo apt update
+sudo apt install mingw-w64
+```
+
+### Fedora
+
+```sh
+sudo dnf install mingw64-gcc
+```
+
+## Reference PS1 Script
 
 ```ps1
 $WINGET_PROGRAMS = @('Inkscape.Inkscape')
