@@ -3,7 +3,7 @@ use std::process::Command;
 use terminal_menu::*;
 
 use conf::vars::{INSTALL_PROGRAMS, INSTALL_TYPES, MAIN_THEME, PROGRAM_TITLE, PUNCHDOWN_PAUL};
-use utils::wait;
+use utils::{message, message::MessageType, wait};
 
 mod conf;
 mod utils;
@@ -11,37 +11,43 @@ mod winget;
 
 fn main() {
     if cfg!(target_os = "windows") {
-        let menu = menu(vec![
-            label(format!("{}", PROGRAM_TITLE).hex(MAIN_THEME.primary)),
-            label(""),
-            scroll("Install Type", INSTALL_TYPES.iter().copied()),
-            label(""),
-            button("Start Install"),
-        ]);
-        run(&menu);
-        {
-            if !mut_menu(&menu).canceled() == true {
-                println!("{}", format!("{}", PUNCHDOWN_PAUL).hex(MAIN_THEME.primary));
-
-                let mm = mut_menu(&menu);
-                println!(
-                    "{} {}",
-                    format!("{}", "Selected Install Type: ".hex(MAIN_THEME.info)),
-                    mm.selection_value("Install Type")
-                );
-
-                handle_install_type(mm.selection_value("Install Type"));
-            }
-        }
+        open_menu();
     } else {
-        println!(
-            "{}",
-            "You cannot run this script on Linux!".hex(MAIN_THEME.error)
-        );
+        message::error(MessageType::Print, "You cannot run this script on Linux!");
 
         wait::miliseconds(2000);
 
         Command::new("clear").status().unwrap();
+    }
+}
+
+fn open_menu() {
+    let menu = menu(vec![
+        label(format!("{}", PROGRAM_TITLE).hex(MAIN_THEME.primary)),
+        label(""),
+        scroll("Install Type", INSTALL_TYPES.iter().copied()),
+        label(""),
+        button("Start Install"),
+    ]);
+    run(&menu);
+    {
+        if !mut_menu(&menu).canceled() == true {
+            println!("{}", format!("{}", PUNCHDOWN_PAUL).hex(MAIN_THEME.primary));
+
+            message::warning(
+                MessageType::Print,
+                "Make sure you have permission from Mr. Getz if you are using this program...\n",
+            );
+
+            let mm = mut_menu(&menu);
+            println!(
+                "{} {}",
+                message::info(MessageType::Return, "Selected Install Type: ").unwrap(),
+                mm.selection_value("Install Type")
+            );
+
+            handle_install_type(mm.selection_value("Install Type"));
+        }
     }
 }
 
@@ -53,10 +59,7 @@ fn handle_install_type(_type: &str) {
     } else if _type == INSTALL_TYPES[2] {
         handle_run_remove_installed_programs();
     } else {
-        println!(
-            "{}",
-            "Invalid Entry (idk what is wrong)".hex(MAIN_THEME.error)
-        );
+        message::error(MessageType::Print, "Invalid Entry (idk what is wrong)");
     }
 }
 
@@ -67,34 +70,31 @@ fn install_programs() {
 
     println!("");
 
-    println!(
-        "{}",
-        "+ Finished Installing Programs Successfully!\n".hex(MAIN_THEME.success)
+    message::success(
+        MessageType::Print,
+        "+ Finished Installing Programs Successfully!\n",
     );
 }
 
 fn handle_run_install_full() {
-    println!("{}", "+ Starting Full Install...\n".hex(MAIN_THEME.success));
+    message::success(MessageType::Print, "+ Starting Full Install...\n");
 
     install_programs();
 
-    println!(
-        "{}",
-        "-- Full Install Finished Successfully!!! --\n".hex(MAIN_THEME.success)
+    message::success(
+        MessageType::Print,
+        "-- Full Install Finished Successfully!!! --\n",
     );
 }
 
 fn handle_run_install_programs() {
-    println!(
-        "{}",
-        "Starting Programs Install...\n".hex(MAIN_THEME.success)
-    );
+    message::success(MessageType::Print, "Starting Programs Install...\n");
 
     install_programs();
 
-    println!(
-        "{}",
-        "Programs Install Finished Successfully!!!\n".hex(MAIN_THEME.success)
+    message::success(
+        MessageType::Print,
+        "Programs Install Finished Successfully!!!\n",
     );
 }
 
@@ -103,8 +103,8 @@ fn handle_run_remove_installed_programs() {
         winget::winget_remove(program);
     }
 
-    println!(
-        "{}",
-        "Finished Removing Installed Programs Successfully!\n".hex(MAIN_THEME.success)
+    message::success(
+        MessageType::Print,
+        "Finished Removing Installed Programs Successfully!\n",
     );
 }
