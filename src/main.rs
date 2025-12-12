@@ -3,6 +3,10 @@ use terminal_menu::*;
 use colored_text::Colorize;
 use regex::Regex;
 
+use utils::wait;
+
+mod utils;
+
 pub struct Theme {
     primary: &'static str,
     success: &'static str,
@@ -122,6 +126,10 @@ fn main() {
             }
         }
     } else {
+        println!("{}", "You cannot run this script on Linux!".hex(MAIN_THEME.error));
+        
+        wait::miliseconds(2000);
+
         Command::new("clear").status().unwrap();
     }
 }
