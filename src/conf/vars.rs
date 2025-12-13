@@ -56,6 +56,12 @@ pub const PUNCHDOWN_PAUL: &str = "
                                                                                             
 ";
 pub const PROGRAM_TITLE: &str = "West-Mec Repair Shop Configuration Tool";
+
+// &[&str]
+// &1 = Infinitely extendable and accessable
+// [] = Defining Typed Vector
+// &2 = Values can be strings as long as you want
+// &3 = Force it to be infinite (extends &1)
 pub const INSTALL_TYPES: &[&str] = &[
     "Full Install",
     "Install Programs",
