@@ -42,6 +42,37 @@ fn open_menu() {
                 "   Make sure you have permission from Mr. Getz if you are using this program...    \n",
             );
 
+            let install_command_output = Command::new("powershell")
+                .arg("-Command")
+                .arg("sudo config --enable normal")
+                .output()
+                .expect("Failed to install program via winget...");
+
+            if !install_command_output.status.success() {
+                if String::from_utf8_lossy(&install_command_output.stdout)
+                    .contains("Found an existing package")
+                {
+                    eprintln!(
+                        "{}",
+                        "--> This package is already installed!".hex(MAIN_THEME.warning)
+                    );
+                } else {
+                    eprintln!(
+                        "{}",
+                        format!(
+                            "--! PowerShell returned an error:\n{}",
+                            String::from_utf8_lossy(&install_command_output.stdout)
+                        )
+                        .hex(MAIN_THEME.error)
+                    );
+                }
+            } else {
+                println!(
+                    "{}",
+                    String::from_utf8_lossy(&install_command_output.stdout).hex(MAIN_THEME.info)
+                );
+            }
+
             let mm = mut_menu(&menu);
             println!(
                 "{} {}",
