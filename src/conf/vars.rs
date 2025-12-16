@@ -1,4 +1,4 @@
-use crate::conf::structs::Theme;
+use crate::conf::structs::{Delimiters, Theme};
 
 pub const PUNCHDOWN_PAUL: &str = "
                                                                                             
@@ -87,4 +87,18 @@ pub const MAIN_THEME: Theme = Theme {
     error: "FF0000",
     info: "69D0FF",
     warning: "FFFA69",
+};
+pub const DELIMITERS: Delimiters = Delimiters {
+    layer1: "->",
+    layer1info: "-[i]>",
+    layer1error: "-[!]>",
+    layer1success: "=>",
+    layer2: "-->",
+    layer2info: "--[i]>",
+    layer2error: "--[!]>",
+    layer2success: "==>",
+    layer3: "--->",
+    layer3info: "---[i]>",
+    layer3error: "---[!]>",
+    layer3success: "===>",
 };
