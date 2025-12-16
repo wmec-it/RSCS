@@ -6,7 +6,7 @@ pub fn winget_install(program_id: &str) {
     let program_name = program_id.splitn(2, '.').nth(1).unwrap_or(program_id);
 
     let installing_message: String =
-        format!("Installing {}...", &program_name.hex(MAIN_THEME.primary));
+        format!("-> Installing {}...", &program_name.hex(MAIN_THEME.primary));
     let install_command: String = format!(
         "winget install -e --id {} --silent --disable-interactivity --accept-package-agreements --accept-source-agreements",
         &program_id
@@ -26,13 +26,13 @@ pub fn winget_install(program_id: &str) {
         {
             eprintln!(
                 "{}",
-                "   This package is already installed!".hex(MAIN_THEME.warning)
+                "--> This package is already installed!".hex(MAIN_THEME.warning)
             );
         } else {
             eprintln!(
                 "{}",
                 format!(
-                    "PowerShell returned an error:\n{}",
+                    "--! PowerShell returned an error:\n{}",
                     String::from_utf8_lossy(&install_command_output.stdout)
                 )
                 .hex(MAIN_THEME.error)

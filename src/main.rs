@@ -13,7 +13,10 @@ fn main() {
     if cfg!(target_os = "windows") {
         open_menu();
     } else {
-        message::error(MessageType::Print, "You cannot run this script on Linux!");
+        message::error(
+            MessageType::Print,
+            "--! You cannot run this script on Linux!",
+        );
 
         wait::miliseconds(2000);
 
@@ -34,15 +37,15 @@ fn open_menu() {
         if !mut_menu(&menu).canceled() == true {
             println!("{}", format!("{}", PUNCHDOWN_PAUL).hex(MAIN_THEME.primary));
 
-            message::warning(
+            message::error_banner(
                 MessageType::Print,
-                "Make sure you have permission from Mr. Getz if you are using this program...\n",
+                "   Make sure you have permission from Mr. Getz if you are using this program...    \n",
             );
 
             let mm = mut_menu(&menu);
             println!(
                 "{} {}",
-                message::info(MessageType::Return, "Selected Install Type: ").unwrap(),
+                message::info(MessageType::Return, "-[i]> Selected Install Type: ").unwrap(),
                 mm.selection_value("Install Type")
             );
 
@@ -59,7 +62,7 @@ fn handle_install_type(_type: &str) {
     } else if _type == INSTALL_TYPES[2] {
         handle_run_remove_installed_programs();
     } else {
-        message::error(MessageType::Print, "Invalid Entry (idk what is wrong)");
+        message::error(MessageType::Print, "--! Invalid Entry (idk what is wrong)");
     }
 }
 
@@ -72,7 +75,7 @@ fn install_programs() {
 
     message::success(
         MessageType::Print,
-        "+ Finished Installing Programs Successfully!\n",
+        "--> Finished Installing Programs Successfully!\n",
     );
 }
 
@@ -83,18 +86,18 @@ fn handle_run_install_full() {
 
     message::success(
         MessageType::Print,
-        "-- Full Install Finished Successfully!!! --\n",
+        "=> Full Install Finished Successfully!!!\n",
     );
 }
 
 fn handle_run_install_programs() {
-    message::success(MessageType::Print, "Starting Programs Install...\n");
+    message::success(MessageType::Print, "+ Starting Programs Install...\n");
 
     install_programs();
 
     message::success(
         MessageType::Print,
-        "Programs Install Finished Successfully!!!\n",
+        "--> Programs Install Finished Successfully!!!\n",
     );
 }
 
@@ -105,6 +108,6 @@ fn handle_run_remove_installed_programs() {
 
     message::success(
         MessageType::Print,
-        "Finished Removing Installed Programs Successfully!\n",
+        "--> Finished Removing Installed Programs Successfully!\n",
     );
 }
