@@ -12,15 +12,19 @@ fn main() -> io::Result<()> {
     if env::var_os("CARGO_CFG_WINDOWS").is_some() {
         WindowsResource::new()
             .set_icon("assets/punchdown_paul.ico")
-            .set("FileDescription", "Repair Shop Configuration Superintendant CLI program.")
+            .set(
+                "FileDescription",
+                "Repair Shop Configuration Superintendant CLI program.",
+            )
             .set("ProductName", "Repair Shop Configuration Superintendant")
             .set("CompanyName", "West-Mec Southwest, IT Security")
             .set("LegalCopyright", "© 2025 West-Mec Southwest, IT Security")
             .set("OriginalFilename", "rscs.exe")
             .set("InternalName", "rscs")
-            .set("FileVersion",  &format!("{}.0", version))
+            .set("FileVersion", &format!("{}.0", version))
             .set("ProductVersion", &version)
-            .set_manifest(r#"
+            .set_manifest(
+                r#"
                 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
                 <assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0">
                 <trustInfo xmlns="urn:schemas-microsoft-com:asm.v3">
@@ -31,7 +35,8 @@ fn main() -> io::Result<()> {
                     </security>
                 </trustInfo>
                 </assembly>
-                "#)
+                "#,
+            )
             .compile()?;
     }
     Ok(())
