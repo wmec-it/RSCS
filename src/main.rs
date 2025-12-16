@@ -37,10 +37,10 @@ fn open_menu() {
         if !mut_menu(&menu).canceled() == true {
             println!("{}", format!("{}", PUNCHDOWN_PAUL).hex(MAIN_THEME.primary));
 
-            message::error_banner(
-                MessageType::Print,
-                "   Make sure you have permission from Mr. Getz if you are using this program...    \n",
-            );
+            println!("{}{}", message::error_banner(
+                MessageType::Return,
+                "   Make sure you have permission from Mr. Getz if you are using this program...    ",
+            ).unwrap(), "\n");
 
             let install_command_output = Command::new("powershell")
                 .arg("-Command")
