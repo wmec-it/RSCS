@@ -4,7 +4,7 @@ use terminal_menu::*;
 
 use conf::enums::MessageType;
 use conf::vars::{INSTALL_PROGRAMS, INSTALL_TYPES, MAIN_THEME, PROGRAM_TITLE, PUNCHDOWN_PAUL};
-use utils::{message, user, wait};
+use utils::{errors::idk, message, user, wait};
 
 mod conf;
 mod utils;
@@ -38,10 +38,16 @@ fn open_menu() {
         if !mut_menu(&menu).canceled() == true {
             println!("{}", format!("{}", PUNCHDOWN_PAUL).hex(MAIN_THEME.primary));
 
-            println!("{}{}", message::error_banner(
-                MessageType::Return,
-                "   Make sure you have permission from Mr. Getz if you are using this program...    ",
-            ).unwrap(), "\n");
+            println!(
+                "{}{}",
+                message
+                    ::error_banner(
+                        MessageType::Return,
+                        "   Make sure you have permission from Mr. Getz if you are using this program...    "
+                    )
+                    .unwrap(),
+                "\n"
+            );
 
             user::enable_sudo();
 
@@ -58,15 +64,13 @@ fn open_menu() {
 }
 
 fn handle_install_type(_type: &str) {
-    if _type == INSTALL_TYPES[0] {
-        handle_run_install_full();
-    } else if _type == INSTALL_TYPES[1] {
-        handle_run_install_programs();
-    } else if _type == INSTALL_TYPES[2] {
-        handle_run_remove_installed_programs();
-    } else {
-        message::error(MessageType::Print, "--! Invalid Entry (idk what is wrong)");
-    }
+    INSTALL_TYPES.iter().for_each(|_type| match *_type {
+        "Full Install" => handle_run_install_full(),
+        "Install Programs" => handle_run_install_programs(),
+        "Remove Installed Programs (from this script)" => handle_run_remove_installed_programs(),
+        "Remove Unecessary Programs (or bad ones)" => handle_run_remove_unnecessary_programs(),
+        _ => idk(),
+    });
 }
 
 fn install_programs() {
@@ -113,4 +117,8 @@ fn handle_run_remove_installed_programs() {
         MessageType::Print,
         "--> Finished Removing Installed Programs Successfully!\n",
     );
+}
+
+fn handle_run_remove_unnecessary_programs() {
+    // Nothing for now...
 }
