@@ -84,7 +84,7 @@ pub const INSTALL_PROGRAMS: &[&str] = &[
 pub const MAIN_THEME: Theme = Theme {
     primary: "F57E20",
     success: "69FF90",
-    error: "FF0000",
+    error: "E63C3C",
     info: "69D0FF",
     warning: "FFFA69",
 };

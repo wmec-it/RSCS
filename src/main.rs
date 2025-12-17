@@ -63,14 +63,14 @@ fn open_menu() {
     }
 }
 
-fn handle_install_type(_type: &str) {
-    INSTALL_TYPES.iter().for_each(|_type| match *_type {
+fn handle_install_type(install_type: &str) {
+    match install_type {
         "Full Install" => handle_run_install_full(),
         "Install Programs" => handle_run_install_programs(),
         "Remove Installed Programs (from this script)" => handle_run_remove_installed_programs(),
         "Remove Unecessary Programs (or bad ones)" => handle_run_remove_unnecessary_programs(),
         _ => idk(),
-    });
+    }
 }
 
 fn install_programs() {

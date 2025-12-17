@@ -47,10 +47,17 @@ pub fn info(info_type: MessageType, value: &str) -> Option<String> {
 
 #[allow(dead_code)]
 pub fn error_banner(error_banner_type: MessageType, value: &str) -> Option<String> {
+    let text_color: &str = "000000";
     match error_banner_type {
-        MessageType::Return => Some(value.on_hex(MAIN_THEME.error).hex("FFFFFF").to_string()),
+        MessageType::Return => Some(
+            value
+                .on_hex(MAIN_THEME.error)
+                .hex(&text_color)
+                .bold()
+                .to_string(),
+        ),
         MessageType::Print => {
-            println!("{}", value.on_hex(MAIN_THEME.error).hex("FFFFFF"));
+            println!("{}", value.on_hex(MAIN_THEME.error).hex(&text_color).bold());
             None
         }
     }
