@@ -68,32 +68,43 @@ pub fn add_delimiter(
     delimiter_type: DelimiterType,
     value: String,
     is_inside_section: Option<bool>,
+    is_first_item_inside_section: Option<bool>,
     is_last_item_inside_section: Option<bool>,
 ) -> Option<String> {
+    let delimiter = match delimiter_type {
+        DelimiterType::Layer1 => DELIMITERS.layer1,
+        DelimiterType::Layer1Info => DELIMITERS.layer1info,
+        DelimiterType::Layer1Error => DELIMITERS.layer1error,
+        DelimiterType::Layer1Success => DELIMITERS.layer1success,
+        DelimiterType::Layer1Add => DELIMITERS.layer1add,
+        DelimiterType::Layer2 => DELIMITERS.layer2,
+        DelimiterType::Layer2Info => DELIMITERS.layer2info,
+        DelimiterType::Layer2Error => DELIMITERS.layer2error,
+        DelimiterType::Layer2Success => DELIMITERS.layer2success,
+        DelimiterType::Layer2Add => DELIMITERS.layer2add,
+        DelimiterType::Layer3 => DELIMITERS.layer3,
+        DelimiterType::Layer3Info => DELIMITERS.layer3info,
+        DelimiterType::Layer3Error => DELIMITERS.layer3error,
+        DelimiterType::Layer3Success => DELIMITERS.layer3success,
+        DelimiterType::Layer3Add => DELIMITERS.layer3add,
+        DelimiterType::Frown => DELIMITERS.frown,
+    };
+
     let mut result = value;
 
+    result = format!("{} {}", delimiter, result);
+
     if is_inside_section.unwrap_or(false) {
-        result = format!("| {}", result);
+        result = format!("{}", result);
+    }
+
+    if is_first_item_inside_section.unwrap_or(false) {
+        result = format!("\n{}", result);
     }
 
     if is_last_item_inside_section.unwrap_or(false) {
         result.push('\n');
     }
 
-    let delimiter = match delimiter_type {
-        DelimiterType::Layer1 => DELIMITERS.layer1,
-        DelimiterType::Layer1Info => DELIMITERS.layer1info,
-        DelimiterType::Layer1Error => DELIMITERS.layer1error,
-        DelimiterType::Layer1Success => DELIMITERS.layer1success,
-        DelimiterType::Layer2 => DELIMITERS.layer2,
-        DelimiterType::Layer2Info => DELIMITERS.layer2info,
-        DelimiterType::Layer2Error => DELIMITERS.layer2error,
-        DelimiterType::Layer2Success => DELIMITERS.layer2success,
-        DelimiterType::Layer3 => DELIMITERS.layer3,
-        DelimiterType::Layer3Info => DELIMITERS.layer3info,
-        DelimiterType::Layer3Error => DELIMITERS.layer3error,
-        DelimiterType::Layer3Success => DELIMITERS.layer3success,
-    };
-
-    Some(format!("{} {}", delimiter, result))
+    Some(result)
 }

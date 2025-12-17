@@ -2,7 +2,7 @@ use colored_text::Colorize;
 use std::process::Command;
 use terminal_menu::*;
 
-use conf::enums::MessageType;
+use conf::enums::{DelimiterType, MessageType};
 use conf::vars::{INSTALL_PROGRAMS, INSTALL_TYPES, MAIN_THEME, PROGRAM_TITLE, PUNCHDOWN_PAUL};
 use utils::{errors::idk, message, user, wait};
 
@@ -16,7 +16,15 @@ fn main() {
     } else {
         message::error(
             MessageType::Print,
-            "--! You cannot run this script on Linux!",
+            message::add_delimiter(
+                DelimiterType::Layer1Error,
+                "You cannot run this script on Linux!".to_string(),
+                Some(true),
+                None,
+                Some(true),
+            )
+            .unwrap()
+            .as_str(),
         );
 
         wait::miliseconds(2000);
@@ -54,7 +62,19 @@ fn open_menu() {
             let mm = mut_menu(&menu);
             println!(
                 "{} {}",
-                message::info(MessageType::Return, "-[i]> Selected Install Type: ").unwrap(),
+                message::info(
+                    MessageType::Return,
+                    message::add_delimiter(
+                        DelimiterType::Layer1Info,
+                        "Selected Install Type: ".to_string(),
+                        Some(true),
+                        None,
+                        None,
+                    )
+                    .unwrap()
+                    .as_str(),
+                )
+                .unwrap(),
                 mm.selection_value("Install Type")
             );
 
@@ -78,33 +98,79 @@ fn install_programs() {
         winget::winget_install(program);
     }
 
-    println!("");
+    println!("|");
 
     message::success(
         MessageType::Print,
-        "--> Finished Installing Programs Successfully!\n",
+        message::add_delimiter(
+            DelimiterType::Layer2Success,
+            "Finished Installing Programs Successfully!".to_string(),
+            Some(true),
+            None,
+            Some(true),
+        )
+        .unwrap()
+        .as_str(),
     );
 }
 
 fn handle_run_install_full() {
-    message::success(MessageType::Print, "+ Starting Full Install...\n");
+    message::success(
+        MessageType::Print,
+        message::add_delimiter(
+            DelimiterType::Layer1Add,
+            "Starting Full Install...\n|".to_string(),
+            Some(true),
+            None,
+            None,
+        )
+        .unwrap()
+        .as_str(),
+    );
 
     install_programs();
 
     message::success(
         MessageType::Print,
-        "=> Full Install Finished Successfully!!!\n",
+        message::add_delimiter(
+            DelimiterType::Layer1Success,
+            "Full Install Finished Successfully!!!".to_string(),
+            Some(true),
+            None,
+            Some(true),
+        )
+        .unwrap()
+        .as_str(),
     );
 }
 
 fn handle_run_install_programs() {
-    message::success(MessageType::Print, "+ Starting Programs Install...\n");
+    message::success(
+        MessageType::Print,
+        message::add_delimiter(
+            DelimiterType::Layer1Add,
+            "Starting Programs Install...\n|".to_string(),
+            Some(true),
+            None,
+            None,
+        )
+        .unwrap()
+        .as_str(),
+    );
 
     install_programs();
 
     message::success(
         MessageType::Print,
-        "--> Programs Install Finished Successfully!!!\n",
+        message::add_delimiter(
+            DelimiterType::Layer2Success,
+            "Programs Install Finished Successfully!!!".to_string(),
+            Some(true),
+            None,
+            Some(true),
+        )
+        .unwrap()
+        .as_str(),
     );
 }
 

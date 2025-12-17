@@ -5,8 +5,9 @@ pub fn idk() -> () {
     message::error(
         MessageType::Print,
         message::add_delimiter(
-            DelimiterType::Layer1Error,
-            "Invalid Entry (idk what is wrong)".to_string(),
+            DelimiterType::Frown,
+            "IDK what is wrong, something just isn't working... :(".to_string(),
+            None,
             None,
             None,
         )

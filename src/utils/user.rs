@@ -15,8 +15,9 @@ pub fn enable_sudo() {
             add_delimiter(
                 DelimiterType::Layer1Error,
                 String::from_utf8_lossy(&enable_sudo_command_output.stdout).to_string(),
+                Some(true),
                 None,
-                None,
+                Some(true),
             )
             .unwrap()
             .as_str(),
@@ -27,8 +28,9 @@ pub fn enable_sudo() {
             add_delimiter(
                 DelimiterType::Layer1Info,
                 String::from_utf8_lossy(&enable_sudo_command_output.stdout).to_string(),
+                Some(true),
                 None,
-                None,
+                Some(true),
             )
             .unwrap()
             .as_str(),
