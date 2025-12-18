@@ -35,8 +35,6 @@ fn main() {
 
         Command::new("clear").status().unwrap();
     }
-
-    wait::miliseconds(7200000);
 }
 
 fn open_menu(is_testing: bool) {
@@ -90,6 +88,8 @@ fn open_menu(is_testing: bool) {
                     );
 
                     handle_install_type(mm.selection_value("Install Type"));
+
+                    wait::miliseconds(7200000);
                 }
             }
         }
