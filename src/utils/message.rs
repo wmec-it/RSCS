@@ -82,28 +82,130 @@ pub fn add_delimiter(
     is_first_item_inside_section: Option<bool>,
     is_last_item_inside_section: Option<bool>,
 ) -> Option<String> {
+    let delimiters_enabled: bool = true;
+
     let delimiter = match delimiter_type {
-        DelimiterType::Layer1 => DELIMITERS.layer1,
-        DelimiterType::Layer1Info => DELIMITERS.layer1info,
-        DelimiterType::Layer1Error => DELIMITERS.layer1error,
-        DelimiterType::Layer1Success => DELIMITERS.layer1success,
-        DelimiterType::Layer1Add => DELIMITERS.layer1add,
-        DelimiterType::Layer2 => DELIMITERS.layer2,
-        DelimiterType::Layer2Info => DELIMITERS.layer2info,
-        DelimiterType::Layer2Error => DELIMITERS.layer2error,
-        DelimiterType::Layer2Success => DELIMITERS.layer2success,
-        DelimiterType::Layer2Add => DELIMITERS.layer2add,
-        DelimiterType::Layer3 => DELIMITERS.layer3,
-        DelimiterType::Layer3Info => DELIMITERS.layer3info,
-        DelimiterType::Layer3Error => DELIMITERS.layer3error,
-        DelimiterType::Layer3Success => DELIMITERS.layer3success,
-        DelimiterType::Layer3Add => DELIMITERS.layer3add,
-        DelimiterType::Frown => DELIMITERS.frown,
+        DelimiterType::Layer1 => {
+            if delimiters_enabled {
+                DELIMITERS.layer1
+            } else {
+                ""
+            }
+        }
+        DelimiterType::Layer1Info => {
+            if delimiters_enabled {
+                DELIMITERS.layer1info
+            } else {
+                ""
+            }
+        }
+        DelimiterType::Layer1Error => {
+            if delimiters_enabled {
+                DELIMITERS.layer1error
+            } else {
+                ""
+            }
+        }
+        DelimiterType::Layer1Success => {
+            if delimiters_enabled {
+                DELIMITERS.layer1success
+            } else {
+                ""
+            }
+        }
+        DelimiterType::Layer1Add => {
+            if delimiters_enabled {
+                DELIMITERS.layer1add
+            } else {
+                ""
+            }
+        }
+        DelimiterType::Layer2 => {
+            if delimiters_enabled {
+                DELIMITERS.layer2
+            } else {
+                "   "
+            }
+        }
+        DelimiterType::Layer2Info => {
+            if delimiters_enabled {
+                DELIMITERS.layer2info
+            } else {
+                "   "
+            }
+        }
+        DelimiterType::Layer2Error => {
+            if delimiters_enabled {
+                DELIMITERS.layer2error
+            } else {
+                "   "
+            }
+        }
+        DelimiterType::Layer2Success => {
+            if delimiters_enabled {
+                DELIMITERS.layer2success
+            } else {
+                "   "
+            }
+        }
+        DelimiterType::Layer2Add => {
+            if delimiters_enabled {
+                DELIMITERS.layer2add
+            } else {
+                "   "
+            }
+        }
+        DelimiterType::Layer3 => {
+            if delimiters_enabled {
+                DELIMITERS.layer3
+            } else {
+                "       "
+            }
+        }
+        DelimiterType::Layer3Info => {
+            if delimiters_enabled {
+                DELIMITERS.layer3info
+            } else {
+                "       "
+            }
+        }
+        DelimiterType::Layer3Error => {
+            if delimiters_enabled {
+                DELIMITERS.layer3error
+            } else {
+                "       "
+            }
+        }
+        DelimiterType::Layer3Success => {
+            if delimiters_enabled {
+                DELIMITERS.layer3success
+            } else {
+                "       "
+            }
+        }
+        DelimiterType::Layer3Add => {
+            if delimiters_enabled {
+                DELIMITERS.layer3add
+            } else {
+                "       "
+            }
+        }
+        DelimiterType::Frown => {
+            if delimiters_enabled {
+                DELIMITERS.frown
+            } else {
+                ""
+            }
+        }
     };
 
     let mut result = value;
 
-    result = format!("{} {}", delimiter, result);
+    if delimiters_enabled {
+        result = format!("{} {}", delimiter, result);
+    } else {
+        result = format!("{}{}", delimiter, result);
+    }
 
     if is_inside_section.unwrap_or(false) {
         result = format!("{}", result);

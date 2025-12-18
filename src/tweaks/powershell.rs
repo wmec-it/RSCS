@@ -15,7 +15,7 @@ pub fn ps7() {
     message::info(
         MessageType::Print,
         message::add_delimiter(
-            DelimiterType::Layer2Info,
+            DelimiterType::Layer1Info,
             "Setting Powershell 7 as default".to_string(),
             Some(true),
             None,
@@ -44,7 +44,7 @@ pub fn ps7() {
         .arg("-Command")
         .arg("Get-Command \"wt\" -ErrorAction SilentlyContinue")
         .output()
-        .expect("sadasdsd");
+        .expect("Windows Terminal not installed...");
     if String::from_utf8_lossy(&check_wt_output.stdout).to_string() == "" {
         has_failed_customization = true;
         message::error(
@@ -74,7 +74,7 @@ pub fn ps7() {
             message::normal(
                 MessageType::Print,
                 message::add_delimiter(
-                    DelimiterType::Layer2,
+                    DelimiterType::Layer1,
                     "Windows Terminal is installed. Continuing...".to_string(),
                     Some(true),
                     None,
@@ -87,7 +87,7 @@ pub fn ps7() {
             message::normal(
                 MessageType::Print,
                 message::add_delimiter(
-                    DelimiterType::Layer2,
+                    DelimiterType::Layer1,
                     "Settings file found.".to_string(),
                     Some(true),
                     None,
@@ -100,7 +100,7 @@ pub fn ps7() {
             message::info(
                 MessageType::Print,
                 message::add_delimiter(
-                    DelimiterType::Layer2Info,
+                    DelimiterType::Layer1Info,
                     "Updating default Windows Terminal profile...".to_string(),
                     Some(true),
                     None,
@@ -158,10 +158,11 @@ pub fn ps7() {
     }
 
     if !has_failed_customization && !has_failed_install {
+        message::success(MessageType::Print, "|");
         message::success(
             MessageType::Print,
             message::add_delimiter(
-                DelimiterType::Layer2Success,
+                DelimiterType::Layer1Success,
                 "Successfully Installed and set Powershell 7 as default in Windows Terminal!"
                     .to_string(),
                 Some(true),
@@ -172,10 +173,11 @@ pub fn ps7() {
             .as_str(),
         );
     } else if !has_failed_customization && has_failed_install {
+        message::error(MessageType::Print, "|");
         message::error(
             MessageType::Print,
             message::add_delimiter(
-                DelimiterType::Layer2Error,
+                DelimiterType::Layer1Error,
                 "Failed Installing and setting Powershell 7 as default in Windows Terminal..."
                     .to_string(),
                 Some(true),
@@ -186,11 +188,12 @@ pub fn ps7() {
             .as_str(),
         );
     } else if has_failed_customization && !has_failed_install {
+        message::error(MessageType::Print, "|");
         message::error(
             MessageType::Print,
             message
                 ::add_delimiter(
-                    DelimiterType::Layer2Error,
+                    DelimiterType::Layer1Error,
                     "Successfully Installed Powershell 7, but failed setting it as default in Windows Terminal...".to_string(),
                     Some(true),
                     None,

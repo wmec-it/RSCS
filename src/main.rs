@@ -111,12 +111,12 @@ fn install_programs() {
         winget::winget_install(program);
     }
 
-    println!("|");
+    println!("{}", "|".hex(MAIN_THEME.success));
 
     message::success(
         MessageType::Print,
         message::add_delimiter(
-            DelimiterType::Layer2Success,
+            DelimiterType::Layer1Success,
             "Finished Installing Programs Successfully!".to_string(),
             Some(true),
             None,
