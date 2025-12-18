@@ -4,15 +4,19 @@ use terminal_menu::*;
 
 use conf::enums::{DelimiterType, MessageType};
 use conf::vars::{INSTALL_PROGRAMS, INSTALL_TYPES, MAIN_THEME, PROGRAM_TITLE, PUNCHDOWN_PAUL};
+use testing::testing;
+use tweaks::powershell::PS7;
 use utils::{errors::idk, message, user, wait};
 
 mod conf;
+mod testing;
+mod tweaks;
 mod utils;
 mod winget;
 
 fn main() {
     if cfg!(target_os = "windows") {
-        open_menu();
+        open_menu(false);
     } else {
         message::error(
             MessageType::Print,
@@ -33,52 +37,59 @@ fn main() {
     }
 }
 
-fn open_menu() {
-    let menu = menu(vec![
-        label(format!("{}", PROGRAM_TITLE).hex(MAIN_THEME.primary)),
-        label(""),
-        scroll("Install Type", INSTALL_TYPES.iter().copied()),
-        label(""),
-        button("Start Install"),
-    ]);
-    run(&menu);
-    {
-        if !mut_menu(&menu).canceled() == true {
-            println!("{}", format!("{}", PUNCHDOWN_PAUL).hex(MAIN_THEME.primary));
+fn open_menu(is_testing: bool) {
+    match is_testing {
+        true => {
+            testing();
+        }
+        _ => {
+            let menu = menu(vec![
+                label(format!("{}", PROGRAM_TITLE).hex(MAIN_THEME.primary)),
+                label(""),
+                scroll("Install Type", INSTALL_TYPES.iter().copied()),
+                label(""),
+                button("Start Install"),
+            ]);
+            run(&menu);
+            {
+                if !mut_menu(&menu).canceled() == true {
+                    println!("{}", format!("{}", PUNCHDOWN_PAUL).hex(MAIN_THEME.primary));
 
-            println!(
-                "{}{}",
-                message
-                    ::error_banner(
-                        MessageType::Return,
-                        "   Make sure you have permission from Mr. Getz if you are using this program...    "
-                    )
-                    .unwrap(),
-                "\n"
-            );
+                    println!(
+                        "{}{}",
+                        message
+                            ::error_banner(
+                                MessageType::Return,
+                                "   Make sure you have permission from Mr. Getz if you are using this program...    "
+                            )
+                            .unwrap(),
+                        "\n"
+                    );
 
-            user::enable_sudo();
+                    user::enable_sudo();
 
-            let mm = mut_menu(&menu);
-            println!(
-                "{} {}",
-                message::info(
-                    MessageType::Return,
-                    message::add_delimiter(
-                        DelimiterType::Layer1Info,
-                        "Selected Install Type: ".to_string(),
-                        Some(true),
-                        None,
-                        None,
-                    )
-                    .unwrap()
-                    .as_str(),
-                )
-                .unwrap(),
-                mm.selection_value("Install Type")
-            );
+                    let mm = mut_menu(&menu);
+                    println!(
+                        "{} {}",
+                        message::info(
+                            MessageType::Return,
+                            message::add_delimiter(
+                                DelimiterType::Layer1Info,
+                                "Selected Install Type: ".to_string(),
+                                Some(true),
+                                None,
+                                None
+                            )
+                            .unwrap()
+                            .as_str()
+                        )
+                        .unwrap(),
+                        mm.selection_value("Install Type")
+                    );
 
-            handle_install_type(mm.selection_value("Install Type"));
+                    handle_install_type(mm.selection_value("Install Type"));
+                }
+            }
         }
     }
 }
@@ -114,6 +125,23 @@ fn install_programs() {
     );
 }
 
+fn run_tweaks() {
+    message::success(
+        MessageType::Print,
+        message::add_delimiter(
+            DelimiterType::Layer1Add,
+            "Running Tweaks...\n|".to_string(),
+            Some(true),
+            Some(true),
+            None,
+        )
+        .unwrap()
+        .as_str(),
+    );
+
+    tweaks::powershell::PS7();
+}
+
 fn handle_run_install_full() {
     message::success(
         MessageType::Print,
@@ -129,6 +157,8 @@ fn handle_run_install_full() {
     );
 
     install_programs();
+    message::seperator();
+    run_tweaks();
 
     message::success(
         MessageType::Print,

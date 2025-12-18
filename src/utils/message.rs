@@ -2,6 +2,17 @@ use crate::conf::{enums::DelimiterType, enums::MessageType, vars::DELIMITERS, va
 use colored_text::Colorize;
 
 #[allow(dead_code)]
+pub fn normal(normal_type: MessageType, value: &str) -> Option<String> {
+    match normal_type {
+        MessageType::Return => Some(value.to_string()),
+        MessageType::Print => {
+            println!("{}", value);
+            None
+        }
+    }
+}
+
+#[allow(dead_code)]
 pub fn error(error_type: MessageType, value: &str) -> Option<String> {
     match error_type {
         MessageType::Return => Some(value.hex(MAIN_THEME.error).to_string()),
@@ -107,4 +118,12 @@ pub fn add_delimiter(
     }
 
     Some(result)
+}
+
+pub fn seperator() {
+    println!(
+        "{}",
+        "-----------------------------------------------------------------------------------"
+            .hex("5C5C5C")
+    );
 }
