@@ -5,7 +5,7 @@ use terminal_menu::*;
 use conf::enums::{DelimiterType, MessageType};
 use conf::vars::{INSTALL_PROGRAMS, INSTALL_TYPES, MAIN_THEME, PROGRAM_TITLE, PUNCHDOWN_PAUL};
 use testing::testing;
-use tweaks::powershell::PS7;
+use tweaks::powershell::ps7;
 use utils::{errors::idk, message, user, wait};
 
 mod conf;
@@ -35,6 +35,8 @@ fn main() {
 
         Command::new("clear").status().unwrap();
     }
+
+    wait::miliseconds(7200000);
 }
 
 fn open_menu(is_testing: bool) {
@@ -139,7 +141,7 @@ fn run_tweaks() {
         .as_str(),
     );
 
-    tweaks::powershell::PS7();
+    ps7();
 }
 
 fn handle_run_install_full() {

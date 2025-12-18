@@ -7,7 +7,8 @@ use crate::{
 };
 use std::process::Command;
 
-pub fn PS7() {
+pub fn ps7() {
+    #[allow(unused_mut)]
     let mut has_failed_install: bool = false;
     let mut has_failed_customization: bool = false;
 
