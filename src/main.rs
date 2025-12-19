@@ -142,7 +142,8 @@ fn run_tweaks() {
     );
 
     powershell::ps7::full();
-    powershell::disable_telemetry::main();
+    powershell::disable_telemetry::enable();
+    powershell::rclick_end_task::enable();
 }
 
 fn handle_run_install_full() {

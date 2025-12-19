@@ -1,4 +1,4 @@
-// https://winutil.christitus.com/dev/tweaks/essential-tweaks/powershell7tele/
+// https://winutil.christitus.com/dev/tweaks/essential-tweaks/endtaskontaskbar/
 
 use crate::{
     conf::enums::{DelimiterType, MessageType},
@@ -12,7 +12,7 @@ pub fn enable() {
         MessageType::Print,
         message::add_delimiter(
             DelimiterType::Layer1,
-            "Disabling Powershell 7 Telemetry...".to_string(),
+            "Enabling End Task with right click on taskbar...".to_string(),
             Some(true),
             None,
             None,
@@ -21,17 +21,26 @@ pub fn enable() {
         .as_str(),
     );
     let output = Command::new("powershell")
+        .arg("-NoProfile")
         .arg("-Command")
-        .arg("[Environment]::SetEnvironmentVariable('POWERSHELL_TELEMETRY_OPTOUT', '1', 'Machine')")
+        .arg(
+            "$path = \"HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\TaskbarDeveloperSettings\"
+      $name = \"TaskbarEndTask\"
+      $value = 1
+      if (-not (Test-Path $path)) {
+        New-Item -Path $path -Force | Out-Null
+      }
+      New-ItemProperty -Path $path -Name $name -PropertyType DWord -Value $value -Force | Out-Null"
+        )
         .output()
-        .expect("Failed to run PowerShell");
+        .expect("Error...");
 
     if output.status.success() {
         message::success(
             MessageType::Print,
             message::add_delimiter(
                 DelimiterType::Layer2Success,
-                "Disabled Powershell 7 Telemetry!".to_string(),
+                "Enabled End Task with right click on taskbar!".to_string(),
                 Some(true),
                 None,
                 Some(true),
@@ -46,7 +55,7 @@ pub fn enable() {
                 DelimiterType::Layer2Error,
                 format!(
                     "{}\nExit Code: {:?}\n{}",
-                    "Failed to Disable Powershell 7 Telemetry...",
+                    "Failed to Enable End Task with right click on taskbar...",
                     output.status.code(),
                     String::from_utf8_lossy(&output.stderr)
                 ),
@@ -66,7 +75,7 @@ pub fn disable() {
         MessageType::Print,
         message::add_delimiter(
             DelimiterType::Layer1,
-            "Enabling Powershell 7 Telemetry...".to_string(),
+            "Disabling End Task with right click on taskbar...".to_string(),
             Some(true),
             None,
             None,
@@ -75,17 +84,26 @@ pub fn disable() {
         .as_str(),
     );
     let output = Command::new("powershell")
+        .arg("-NoProfile")
         .arg("-Command")
-        .arg("[Environment]::SetEnvironmentVariable('POWERSHELL_TELEMETRY_OPTOUT', '', 'Machine')")
+        .arg(
+            "$path = \"HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\\TaskbarDeveloperSettings\"
+      $name = \"TaskbarEndTask\"
+      $value = 0
+      if (-not (Test-Path $path)) {
+        New-Item -Path $path -Force | Out-Null
+      }
+      New-ItemProperty -Path $path -Name $name -PropertyType DWord -Value $value -Force | Out-Null"
+        )
         .output()
-        .expect("Failed to run PowerShell");
+        .expect("Error...");
 
     if output.status.success() {
         message::success(
             MessageType::Print,
             message::add_delimiter(
                 DelimiterType::Layer2Success,
-                "Enabled Powershell 7 Telemetry!".to_string(),
+                "Disabled End Task with right click on taskbar!".to_string(),
                 Some(true),
                 None,
                 Some(true),
@@ -100,7 +118,7 @@ pub fn disable() {
                 DelimiterType::Layer2Error,
                 format!(
                     "{}\nExit Code: {:?}\n{}",
-                    "Failed to Enable Powershell 7 Telemetry...",
+                    "Failed to Disable End Task with right click on taskbar...",
                     output.status.code(),
                     String::from_utf8_lossy(&output.stderr)
                 ),
