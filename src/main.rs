@@ -5,7 +5,6 @@ use terminal_menu::*;
 use conf::enums::{DelimiterType, MessageType};
 use conf::vars::{INSTALL_PROGRAMS, INSTALL_TYPES, MAIN_THEME, PROGRAM_TITLE, PUNCHDOWN_PAUL};
 use testing::testing;
-use tweaks::powershell;
 use utils::{errors::idk, message, user, wait};
 
 mod conf;
@@ -127,26 +126,6 @@ fn install_programs() {
     );
 }
 
-fn run_tweaks() {
-    message::success(
-        MessageType::Print,
-        message::add_delimiter(
-            DelimiterType::Layer1Add,
-            "Running Tweaks...\n|".to_string(),
-            Some(true),
-            Some(true),
-            None,
-        )
-        .unwrap()
-        .as_str(),
-    );
-
-    powershell::ps7::full();
-    powershell::disable_telemetry::enable();
-    powershell::rclick_end_task::enable();
-    powershell::prefer_ipv4::enable();
-}
-
 fn handle_run_install_full() {
     message::success(
         MessageType::Print,
@@ -163,7 +142,7 @@ fn handle_run_install_full() {
 
     install_programs();
     message::seperator();
-    run_tweaks();
+    tweaks::run_tweaks();
 
     message::success(
         MessageType::Print,
