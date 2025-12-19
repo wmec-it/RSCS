@@ -5,7 +5,7 @@ use terminal_menu::*;
 use conf::enums::{DelimiterType, MessageType};
 use conf::vars::{INSTALL_PROGRAMS, INSTALL_TYPES, MAIN_THEME, PROGRAM_TITLE, PUNCHDOWN_PAUL};
 use testing::testing;
-use tweaks::powershell::ps7;
+use tweaks::powershell;
 use utils::{errors::idk, message, user, wait};
 
 mod conf;
@@ -141,7 +141,8 @@ fn run_tweaks() {
         .as_str(),
     );
 
-    ps7::full();
+    powershell::ps7::full();
+    powershell::disable_telemetry::main();
 }
 
 fn handle_run_install_full() {
