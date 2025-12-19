@@ -1,13 +1,10 @@
 use crate::{
     conf::{
-        enums::{
-            MessageType,
-            DelimiterType
-        },
-        vars::INSTALL_PROGRAMS
+        enums::{DelimiterType, MessageType},
+        vars::INSTALL_PROGRAMS,
     },
+    system::programs::winget,
     utils::message,
-    system::programs::winget
 };
 
 pub fn remove_installed_programs() {
