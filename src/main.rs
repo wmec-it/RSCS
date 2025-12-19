@@ -8,10 +8,9 @@ use testing::testing;
 use utils::{errors::idk, message, user, wait};
 
 mod conf;
+mod system;
 mod testing;
-mod tweaks;
 mod utils;
-mod winget;
 
 fn main() {
     if cfg!(target_os = "windows") {
@@ -107,7 +106,7 @@ fn handle_install_type(install_type: &str) {
 
 fn install_programs() {
     for program in INSTALL_PROGRAMS {
-        winget::winget_install(program);
+        system::programs::winget::winget_install(program);
     }
 
     println!("{}", "|".hex(MAIN_THEME.success));
@@ -142,7 +141,7 @@ fn handle_run_install_full() {
 
     install_programs();
     message::seperator();
-    tweaks::run_tweaks();
+    system::tweaks::run_tweaks();
 
     message::success(
         MessageType::Print,
@@ -190,7 +189,7 @@ fn handle_run_install_programs() {
 
 fn handle_run_remove_installed_programs() {
     for program in INSTALL_PROGRAMS {
-        winget::winget_remove(program);
+        system::programs::winget::winget_remove(program);
     }
 
     message::success(

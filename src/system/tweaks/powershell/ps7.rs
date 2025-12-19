@@ -2,8 +2,8 @@
 
 use crate::{
     conf::enums::{DelimiterType, MessageType},
+    system::programs::winget::winget_install,
     utils::message,
-    winget::winget_install,
 };
 use std::process::Command;
 
