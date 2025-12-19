@@ -82,7 +82,7 @@ pub fn add_delimiter(
     is_first_item_inside_section: Option<bool>,
     is_last_item_inside_section: Option<bool>,
 ) -> Option<String> {
-    let delimiters_enabled: bool = false;
+    let delimiters_enabled: bool = true;
 
     let delimiter = match delimiter_type {
         DelimiterType::Layer1 => {
