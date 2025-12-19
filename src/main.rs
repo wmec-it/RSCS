@@ -144,6 +144,7 @@ fn run_tweaks() {
     powershell::ps7::full();
     powershell::disable_telemetry::enable();
     powershell::rclick_end_task::enable();
+    powershell::prefer_ipv4::enable();
 }
 
 fn handle_run_install_full() {
