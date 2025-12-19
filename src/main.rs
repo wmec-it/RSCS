@@ -141,7 +141,7 @@ fn run_tweaks() {
         .as_str(),
     );
 
-    ps7();
+    ps7::full();
 }
 
 fn handle_run_install_full() {
