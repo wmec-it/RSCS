@@ -40,7 +40,7 @@ pub fn enable() {
             MessageType::Print,
             message::add_delimiter(
                 DelimiterType::Layer2Success,
-                "Enabled End Task with right click on taskbar!".to_string(),
+                "Successfully Enabled End Task with right click on taskbar!".to_string(),
                 Some(true),
                 None,
                 Some(true),
@@ -103,7 +103,7 @@ pub fn disable() {
             MessageType::Print,
             message::add_delimiter(
                 DelimiterType::Layer2Success,
-                "Disabled End Task with right click on taskbar!".to_string(),
+                "Successfully Disabled End Task with right click on taskbar!".to_string(),
                 Some(true),
                 None,
                 Some(true),

@@ -31,7 +31,7 @@ pub fn enable() {
             MessageType::Print,
             message::add_delimiter(
                 DelimiterType::Layer2Success,
-                "Disabled Powershell 7 Telemetry!".to_string(),
+                "Successfully Disabled Powershell 7 Telemetry!".to_string(),
                 Some(true),
                 None,
                 Some(true),
@@ -85,7 +85,7 @@ pub fn disable() {
             MessageType::Print,
             message::add_delimiter(
                 DelimiterType::Layer2Success,
-                "Enabled Powershell 7 Telemetry!".to_string(),
+                "Successfully Enabled Powershell 7 Telemetry!".to_string(),
                 Some(true),
                 None,
                 Some(true),

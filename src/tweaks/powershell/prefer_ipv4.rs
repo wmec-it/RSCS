@@ -40,7 +40,7 @@ if (Get-ItemProperty -Path $path -Name $name -ErrorAction SilentlyContinue) {
             MessageType::Print,
             message::add_delimiter(
                 DelimiterType::Layer2Success,
-                "Set registry key to prefer IPv4 over IPv6!".to_string(),
+                "Successfully Set registry key to prefer IPv4 over IPv6!".to_string(),
                 Some(true),
                 None,
                 Some(true),
@@ -103,7 +103,8 @@ if (Get-ItemProperty -Path $path -Name $name -ErrorAction SilentlyContinue) {
             MessageType::Print,
             message::add_delimiter(
                 DelimiterType::Layer2Success,
-                "Reverted registry key to prefer IPv4 over IPv6 to 0 (disabled)!".to_string(),
+                "Successfully Reverted registry key to prefer IPv4 over IPv6 to 0 (disabled)!"
+                    .to_string(),
                 Some(true),
                 None,
                 Some(true),
