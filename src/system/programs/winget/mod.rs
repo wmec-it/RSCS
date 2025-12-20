@@ -9,7 +9,7 @@ pub fn winget_install(program_id: &str) {
     let program_name = program_id.splitn(2, '.').nth(1).unwrap_or(program_id);
 
     let install_command: String = format!(
-        "winget install -e --id {} --silent --disable-interactivity --accept-package-agreements --accept-source-agreements",
+        "winget install -e --source winget --id {} --silent --disable-interactivity --accept-package-agreements --accept-source-agreements",
         &program_id
     );
 
@@ -64,11 +64,11 @@ pub fn winget_install(program_id: &str) {
             );
         }
     } else {
-        message::info(
+        message::success(
             MessageType::Print,
             message::add_delimiter(
-                DelimiterType::Layer2Info,
-                String::from_utf8_lossy(&install_command_output.stdout).to_string(),
+                DelimiterType::Layer2Success,
+                format!("Successfully Installed {}!", &program_name),
                 Some(true),
                 None,
                 None,
