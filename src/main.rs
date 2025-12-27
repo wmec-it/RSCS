@@ -87,7 +87,7 @@ fn open_menu(is_testing: bool) {
 
                     handle_install_type(mm.selection_value("Install Type"));
 
-                    wait::miliseconds(7200000);
+                    wait::seconds(720);
                 }
             }
         }
