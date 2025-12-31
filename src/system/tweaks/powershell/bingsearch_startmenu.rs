@@ -36,7 +36,8 @@ $Path = \"HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Search\"
             MessageType::Print,
             message::add_delimiter(
                 DelimiterType::Layer2Success,
-                "Successfully enabled web search results from Bing in Start Menu search!".to_string(),
+                "Successfully enabled web search results from Bing in Start Menu search!"
+                    .to_string(),
                 Some(true),
                 None,
                 Some(true),
@@ -95,7 +96,8 @@ $Path = \"HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Search\"
             MessageType::Print,
             message::add_delimiter(
                 DelimiterType::Layer2Success,
-                "Successfully disabled web search results from Bing in Start Menu search!".to_string(),
+                "Successfully disabled web search results from Bing in Start Menu search!"
+                    .to_string(),
                 Some(true),
                 None,
                 Some(true),

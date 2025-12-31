@@ -1,34 +1,34 @@
 // https://winutil.christitus.com/dev/tweaks/essential-tweaks/restorepoint/
 
-use crate::{ conf::enums::{ DelimiterType, MessageType }, utils::message };
+use crate::{
+    conf::enums::{DelimiterType, MessageType},
+    utils::message,
+};
 use std::process::Command;
 use terminal_menu::*;
 
 pub fn create_restore_point() {
-    let menu = menu(
-        vec![
-            label("Do you want to create a restore point?"),
-            label(""),
-            button("Yes"),
-            button("No")
-        ]
-    );
+    let menu = menu(vec![
+        label("Do you want to create a restore point?"),
+        label(""),
+        button("Yes"),
+        button("No"),
+    ]);
     run(&menu);
     {
         if !mut_menu(&menu).canceled() == true {
             if mut_menu(&menu).selected_item_name() == "Yes" {
                 message::normal(
                     MessageType::Print,
-                    message
-                        ::add_delimiter(
-                            DelimiterType::Layer1,
-                            "Creating restore point...".to_string(),
-                            Some(true),
-                            None,
-                            None
-                        )
-                        .unwrap()
-                        .as_str()
+                    message::add_delimiter(
+                        DelimiterType::Layer1,
+                        "Creating restore point...".to_string(),
+                        Some(true),
+                        None,
+                        None,
+                    )
+                    .unwrap()
+                    .as_str(),
                 );
                 let output = Command::new("powershell")
                     .arg("-Command")
@@ -84,35 +84,33 @@ pub fn create_restore_point() {
                 if output.status.success() {
                     message::success(
                         MessageType::Print,
-                        message
-                            ::add_delimiter(
-                                DelimiterType::Layer2Success,
-                                "Successfully created restore point!".to_string(),
-                                Some(true),
-                                None,
-                                Some(true)
-                            )
-                            .unwrap()
-                            .as_str()
+                        message::add_delimiter(
+                            DelimiterType::Layer2Success,
+                            "Successfully created restore point!".to_string(),
+                            Some(true),
+                            None,
+                            Some(true),
+                        )
+                        .unwrap()
+                        .as_str(),
                     );
                 } else {
                     message::error(
                         MessageType::Print,
-                        message
-                            ::add_delimiter(
-                                DelimiterType::Layer2Error,
-                                format!(
-                                    "{}\nExit Code: {:?}\n{}",
-                                    "Failed to create a restore point...",
-                                    output.status.code(),
-                                    String::from_utf8_lossy(&output.stderr)
-                                ),
-                                Some(true),
-                                None,
-                                Some(true)
-                            )
-                            .unwrap()
-                            .as_str()
+                        message::add_delimiter(
+                            DelimiterType::Layer2Error,
+                            format!(
+                                "{}\nExit Code: {:?}\n{}",
+                                "Failed to create a restore point...",
+                                output.status.code(),
+                                String::from_utf8_lossy(&output.stderr)
+                            ),
+                            Some(true),
+                            None,
+                            Some(true),
+                        )
+                        .unwrap()
+                        .as_str(),
                     );
                 }
             }
