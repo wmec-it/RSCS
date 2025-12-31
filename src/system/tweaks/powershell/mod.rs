@@ -1,4 +1,5 @@
-pub mod disable_telemetry;
+pub mod ps7telemetry;
 pub mod prefer_ipv4;
 pub mod ps7;
 pub mod rclick_end_task;
+pub mod bingsearch_startmenu;

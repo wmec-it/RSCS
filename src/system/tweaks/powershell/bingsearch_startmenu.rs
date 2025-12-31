@@ -12,7 +12,7 @@ pub fn enable() {
         MessageType::Print,
         message::add_delimiter(
             DelimiterType::Layer1,
-            "Disabling Powershell 7 Telemetry...".to_string(),
+            "Enabling web search results from Bing in Start Menu search...".to_string(),
             Some(true),
             None,
             None,
@@ -22,7 +22,12 @@ pub fn enable() {
     );
     let output = Command::new("powershell")
         .arg("-Command")
-        .arg("[Environment]::SetEnvironmentVariable('POWERSHELL_TELEMETRY_OPTOUT', '1', 'Machine')")
+        .arg(
+            "
+$Path = \"HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Search\"
+        Set-ItemProperty -Path $Path -Name BingSearchEnabled -Value 1
+",
+        )
         .output()
         .expect("Failed to run PowerShell");
 
@@ -31,7 +36,7 @@ pub fn enable() {
             MessageType::Print,
             message::add_delimiter(
                 DelimiterType::Layer2Success,
-                "Successfully Disabled Powershell 7 Telemetry!".to_string(),
+                "Successfully enabled web search results from Bing in Start Menu search!".to_string(),
                 Some(true),
                 None,
                 Some(true),
@@ -46,7 +51,7 @@ pub fn enable() {
                 DelimiterType::Layer2Error,
                 format!(
                     "{}\nExit Code: {:?}\n{}",
-                    "Failed to Disable Powershell 7 Telemetry...",
+                    "Failed to enable web search results from Bing in Start Menu search...",
                     output.status.code(),
                     String::from_utf8_lossy(&output.stderr)
                 ),
@@ -66,7 +71,7 @@ pub fn disable() {
         MessageType::Print,
         message::add_delimiter(
             DelimiterType::Layer1,
-            "Enabling Powershell 7 Telemetry...".to_string(),
+            "Disabling web search results from Bing in Start Menu search...".to_string(),
             Some(true),
             None,
             None,
@@ -76,7 +81,12 @@ pub fn disable() {
     );
     let output = Command::new("powershell")
         .arg("-Command")
-        .arg("[Environment]::SetEnvironmentVariable('POWERSHELL_TELEMETRY_OPTOUT', '', 'Machine')")
+        .arg(
+            "
+$Path = \"HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Search\"
+        Set-ItemProperty -Path $Path -Name BingSearchEnabled -Value 0
+",
+        )
         .output()
         .expect("Failed to run PowerShell");
 
@@ -85,7 +95,7 @@ pub fn disable() {
             MessageType::Print,
             message::add_delimiter(
                 DelimiterType::Layer2Success,
-                "Successfully Enabled Powershell 7 Telemetry!".to_string(),
+                "Successfully disabled web search results from Bing in Start Menu search!".to_string(),
                 Some(true),
                 None,
                 Some(true),
@@ -100,7 +110,7 @@ pub fn disable() {
                 DelimiterType::Layer2Error,
                 format!(
                     "{}\nExit Code: {:?}\n{}",
-                    "Failed to Enable Powershell 7 Telemetry...",
+                    "Failed to disable web search results from Bing in Start Menu search...",
                     output.status.code(),
                     String::from_utf8_lossy(&output.stderr)
                 ),
