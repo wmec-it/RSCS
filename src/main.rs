@@ -3,11 +3,12 @@ use std::process::Command;
 use terminal_menu::*;
 
 use conf::enums::{DelimiterType, MessageType};
-use conf::vars::{INSTALL_PROGRAMS, INSTALL_TYPES, MAIN_THEME, PROGRAM_TITLE, PUNCHDOWN_PAUL};
+use conf::vars::{INSTALL_TYPES, MAIN_THEME, PROGRAM_TITLE, PUNCHDOWN_PAUL};
 use testing::testing;
-use utils::{errors::idk, message, user, wait};
+use utils::{message, user, wait};
 
 mod conf;
+mod handles;
 mod system;
 mod testing;
 mod utils;
@@ -85,119 +86,11 @@ fn open_menu(is_testing: bool) {
                         mm.selection_value("Install Type")
                     );
 
-                    handle_install_type(mm.selection_value("Install Type"));
+                    handles::install_type(mm.selection_value("Install Type"));
 
                     wait::seconds(720);
                 }
             }
         }
     }
-}
-
-fn handle_install_type(install_type: &str) {
-    match install_type {
-        "Full Install" => handle_run_install_full(),
-        "Install Programs" => handle_run_install_programs(),
-        "Remove Installed Programs (from this script)" => handle_run_remove_installed_programs(),
-        "Remove Unecessary Programs (or bad ones)" => handle_run_remove_unnecessary_programs(),
-        _ => idk(),
-    }
-}
-
-fn install_programs() {
-    for program in INSTALL_PROGRAMS {
-        system::programs::winget::winget_install(program);
-    }
-
-    println!("{}", "|".hex(MAIN_THEME.success));
-
-    message::success(
-        MessageType::Print,
-        message::add_delimiter(
-            DelimiterType::Layer1Success,
-            "Finished Installing Programs Successfully!".to_string(),
-            Some(true),
-            None,
-            Some(true),
-        )
-        .unwrap()
-        .as_str(),
-    );
-}
-
-fn handle_run_install_full() {
-    message::success(
-        MessageType::Print,
-        message::add_delimiter(
-            DelimiterType::Layer1Add,
-            "Starting Full Install...\n|".to_string(),
-            Some(true),
-            None,
-            None,
-        )
-        .unwrap()
-        .as_str(),
-    );
-
-    install_programs();
-    message::seperator();
-    system::tweaks::run_tweaks();
-
-    message::success(
-        MessageType::Print,
-        message::add_delimiter(
-            DelimiterType::Layer1Success,
-            "Full Install Finished Successfully!!!".to_string(),
-            Some(true),
-            None,
-            Some(true),
-        )
-        .unwrap()
-        .as_str(),
-    );
-}
-
-fn handle_run_install_programs() {
-    message::success(
-        MessageType::Print,
-        message::add_delimiter(
-            DelimiterType::Layer1Add,
-            "Starting Programs Install...\n|".to_string(),
-            Some(true),
-            None,
-            None,
-        )
-        .unwrap()
-        .as_str(),
-    );
-
-    install_programs();
-
-    message::success(
-        MessageType::Print,
-        message::add_delimiter(
-            DelimiterType::Layer2Success,
-            "Programs Install Finished Successfully!!!".to_string(),
-            Some(true),
-            None,
-            Some(true),
-        )
-        .unwrap()
-        .as_str(),
-    );
-}
-
-fn handle_run_remove_installed_programs() {
-    for program in INSTALL_PROGRAMS {
-        system::programs::winget::winget_remove(program);
-    }
-
-    message::success(
-        MessageType::Print,
-        "--> Finished Removing Installed Programs Successfully!\n",
-    );
-}
-
-fn handle_run_remove_unnecessary_programs() {
-    // Nothing for now...
 }

@@ -3,8 +3,6 @@ use crate::utils::message;
 use colored_text::Colorize;
 use std::process::Command;
 
-pub mod handles;
-
 pub fn winget_install(program_id: &str) {
     let program_name = program_id.splitn(2, '.').nth(1).unwrap_or(program_id);
 
