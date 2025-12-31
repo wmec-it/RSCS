@@ -8,9 +8,9 @@ use std::process::Command;
 
 #[allow(dead_code)]
 pub fn enable() {
-    let runMessage: String = "Enabling dark mode...".to_string();
-    let successMessage: String = "Successfully enabled dark mode!".to_string();
-    let errorMessage: String = "Error enabling dark mode...".to_string();
+    let run_message: String = "Enabling dark mode...".to_string();
+    let success_message: String = "Successfully enabled dark mode!".to_string();
+    let error_message: String = "Error enabling dark mode...".to_string();
     let command: &str =
         "$Path = \"HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\"
         Set-ItemProperty -Path $Path -Name AppsUseLightTheme -Value 0
@@ -18,7 +18,7 @@ pub fn enable() {
 
     message::normal(
         MessageType::Print,
-        message::add_delimiter(DelimiterType::Layer1, runMessage, Some(true), None, None)
+        message::add_delimiter(DelimiterType::Layer1, run_message, Some(true), None, None)
             .unwrap()
             .as_str(),
     );
@@ -33,7 +33,7 @@ pub fn enable() {
             MessageType::Print,
             message::add_delimiter(
                 DelimiterType::Layer2Success,
-                successMessage,
+                success_message,
                 Some(true),
                 None,
                 Some(true),
@@ -48,7 +48,7 @@ pub fn enable() {
                 DelimiterType::Layer2Error,
                 format!(
                     "{}\nExit Code: {:?}\n{}",
-                    errorMessage,
+                    error_message,
                     output.status.code(),
                     String::from_utf8_lossy(&output.stderr)
                 ),
@@ -64,9 +64,9 @@ pub fn enable() {
 
 #[allow(dead_code)]
 pub fn disable() {
-    let runMessage: String = "Disabling dark mode...".to_string();
-    let successMessage: String = "Successfully disabled dark mode!".to_string();
-    let errorMessage: String = "Error disabling dark mode...".to_string();
+    let run_message: String = "Disabling dark mode...".to_string();
+    let success_message: String = "Successfully disabled dark mode!".to_string();
+    let error_message: String = "Error disabling dark mode...".to_string();
     let command: &str =
         "$Path = \"HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\"
         Set-ItemProperty -Path $Path -Name AppsUseLightTheme -Value 1
@@ -74,7 +74,7 @@ pub fn disable() {
 
     message::normal(
         MessageType::Print,
-        message::add_delimiter(DelimiterType::Layer1, runMessage, Some(true), None, None)
+        message::add_delimiter(DelimiterType::Layer1, run_message, Some(true), None, None)
             .unwrap()
             .as_str(),
     );
@@ -89,7 +89,7 @@ pub fn disable() {
             MessageType::Print,
             message::add_delimiter(
                 DelimiterType::Layer2Success,
-                successMessage,
+                success_message,
                 Some(true),
                 None,
                 Some(true),
@@ -104,7 +104,7 @@ pub fn disable() {
                 DelimiterType::Layer2Error,
                 format!(
                     "{}\nExit Code: {:?}\n{}",
-                    errorMessage,
+                    error_message,
                     output.status.code(),
                     String::from_utf8_lossy(&output.stderr)
                 ),

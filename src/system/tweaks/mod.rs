@@ -4,6 +4,7 @@ use crate::{
 };
 
 pub mod powershell;
+pub mod registry;
 
 pub fn run_tweaks() {
     message::success(
@@ -21,8 +22,8 @@ pub fn run_tweaks() {
 
     powershell::ps7::full();
     powershell::ps7telemetry::disable();
-    powershell::rclick_end_task::enable();
-    powershell::prefer_ipv4::enable();
-    powershell::bingsearch_startmenu::disable();
-    powershell::darkmode::enable();
+    registry::rclick_end_task::enable();
+    registry::prefer_ipv4::enable();
+    registry::bingsearch_startmenu::disable();
+    registry::darkmode::enable();
 }
