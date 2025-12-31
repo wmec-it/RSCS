@@ -86,6 +86,8 @@ fn open_menu(is_testing: bool) {
                         mm.selection_value("Install Type")
                     );
 
+                    prerequisites();
+
                     handles::install_type(mm.selection_value("Install Type"));
 
                     wait::seconds(720);
@@ -93,4 +95,8 @@ fn open_menu(is_testing: bool) {
             }
         }
     }
+}
+
+fn prerequisites() {
+    system::manage::backups::create_restore_point();
 }
