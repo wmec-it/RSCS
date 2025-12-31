@@ -26,4 +26,5 @@ pub fn run_tweaks() {
     registry::prefer_ipv4::enable();
     registry::bingsearch_startmenu::disable();
     registry::darkmode::enable();
+    registry::explorerpatcher_config::enable();
 }

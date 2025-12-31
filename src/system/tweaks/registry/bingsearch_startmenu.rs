@@ -1,4 +1,4 @@
-// https://winutil.christitus.com/dev/tweaks/essential-tweaks/powershell7tele/
+// https://winutil.christitus.com/dev/tweaks/customize-preferences/bingsearch/
 
 use crate::{
     conf::enums::{DelimiterType, MessageType},
