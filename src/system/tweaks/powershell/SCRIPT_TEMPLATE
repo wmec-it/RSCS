@@ -1,0 +1,131 @@
+// Link to script (if applicable)
+
+use crate::{
+    conf::enums::{DelimiterType, MessageType},
+    utils::message,
+};
+use std::process::Command;
+
+#[allow(dead_code)]
+pub fn enable() {
+    let runMessage: String = "Running script...".to_string();
+    let successMessage: String = "Successfully ran script!".to_string();
+    let errorMessage: String = "Error running script...".to_string();
+    let command: &str = "
+$Path = \"HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Search\"
+        Set-ItemProperty -Path $Path -Name BingSearchEnabled -Value 1
+";
+
+    message::normal(
+        MessageType::Print,
+        message::add_delimiter(
+            DelimiterType::Layer1,
+            runMessage,
+            Some(true),
+            None,
+            None,
+        )
+        .unwrap()
+        .as_str(),
+    );
+    let output = Command::new("powershell")
+        .arg("-Command")
+        .arg(command)
+        .output()
+        .expect("Failed to run PowerShell");
+
+    if output.status.success() {
+        message::success(
+            MessageType::Print,
+            message::add_delimiter(
+                DelimiterType::Layer2Success,
+                successMessage,
+                Some(true),
+                None,
+                Some(true),
+            )
+            .unwrap()
+            .as_str(),
+        );
+    } else {
+        message::error(
+            MessageType::Print,
+            message::add_delimiter(
+                DelimiterType::Layer2Error,
+                format!(
+                    "{}\nExit Code: {:?}\n{}",
+                    errorMessage,
+                    output.status.code(),
+                    String::from_utf8_lossy(&output.stderr)
+                ),
+                Some(true),
+                None,
+                Some(true),
+            )
+            .unwrap()
+            .as_str(),
+        );
+    }
+}
+
+#[allow(dead_code)]
+pub fn disable() {
+    let runMessage: String = "Running script...".to_string();
+    let successMessage: String = "Successfully ran script!".to_string();
+    let errorMessage: String = "Error running script...".to_string();
+    let command: &str = "
+$Path = \"HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Search\"
+        Set-ItemProperty -Path $Path -Name BingSearchEnabled -Value 1
+";
+
+    message::normal(
+        MessageType::Print,
+        message::add_delimiter(
+            DelimiterType::Layer1,
+            runMessage,
+            Some(true),
+            None,
+            None,
+        )
+        .unwrap()
+        .as_str(),
+    );
+    let output = Command::new("powershell")
+        .arg("-Command")
+        .arg(command)
+        .output()
+        .expect("Failed to run PowerShell");
+
+    if output.status.success() {
+        message::success(
+            MessageType::Print,
+            message::add_delimiter(
+                DelimiterType::Layer2Success,
+                successMessage,
+                Some(true),
+                None,
+                Some(true),
+            )
+            .unwrap()
+            .as_str(),
+        );
+    } else {
+        message::error(
+            MessageType::Print,
+            message::add_delimiter(
+                DelimiterType::Layer2Error,
+                format!(
+                    "{}\nExit Code: {:?}\n{}",
+                    errorMessage,
+                    output.status.code(),
+                    String::from_utf8_lossy(&output.stderr)
+                ),
+                Some(true),
+                None,
+                Some(true),
+            )
+            .unwrap()
+            .as_str(),
+        );
+    }
+}
