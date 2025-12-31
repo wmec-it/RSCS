@@ -24,4 +24,5 @@ pub fn run_tweaks() {
     powershell::rclick_end_task::enable();
     powershell::prefer_ipv4::enable();
     powershell::bingsearch_startmenu::disable();
+    powershell::darkmode::enable();
 }
