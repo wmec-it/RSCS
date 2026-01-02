@@ -4,14 +4,10 @@ use crate::system::tweaks::templates;
 
 #[allow(dead_code)]
 pub fn enable() {
-    templates::default("Running script...", "Successfully ran script!", "Error running script...", "
-$Path = \"HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Search\"
-        Set-ItemProperty -Path $Path -Name BingSearchEnabled -Value 1");
+    templates::default(run_message, success_message, error_message, command);
 }
 
 #[allow(dead_code)]
 pub fn disable() {
-    templates::default("Running script...", "Successfully ran script!", "Error running script...", "
-$Path = \"HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Search\"
-        Set-ItemProperty -Path $Path -Name BingSearchEnabled -Value 1");
+    templates::default(run_message, success_message, error_message, command);
 }
