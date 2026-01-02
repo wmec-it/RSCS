@@ -11,7 +11,7 @@ pub fn disable() {
     message::normal(
         MessageType::Print,
         message::add_delimiter(
-            DelimiterType::Layer1,
+            DelimiterType::Layer2,
             "Disabling Powershell 7 Telemetry...".to_string(),
             Some(true),
             None,
@@ -65,7 +65,7 @@ pub fn enable() {
     message::normal(
         MessageType::Print,
         message::add_delimiter(
-            DelimiterType::Layer1,
+            DelimiterType::Layer2,
             "Enabling Powershell 7 Telemetry...".to_string(),
             Some(true),
             None,

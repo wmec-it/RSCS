@@ -15,7 +15,7 @@ pub fn full() {
     message::info(
         MessageType::Print,
         message::add_delimiter(
-            DelimiterType::Layer1Info,
+            DelimiterType::Layer2Info,
             "Setting Powershell 7 as default".to_string(),
             Some(true),
             None,
@@ -74,7 +74,7 @@ pub fn full() {
             message::normal(
                 MessageType::Print,
                 message::add_delimiter(
-                    DelimiterType::Layer1,
+                    DelimiterType::Layer2,
                     "Windows Terminal is installed. Continuing...".to_string(),
                     Some(true),
                     None,
@@ -87,7 +87,7 @@ pub fn full() {
             message::normal(
                 MessageType::Print,
                 message::add_delimiter(
-                    DelimiterType::Layer1,
+                    DelimiterType::Layer2,
                     "Settings file found.".to_string(),
                     Some(true),
                     None,
@@ -100,7 +100,7 @@ pub fn full() {
             message::info(
                 MessageType::Print,
                 message::add_delimiter(
-                    DelimiterType::Layer1Info,
+                    DelimiterType::Layer2Info,
                     "Updating default Windows Terminal profile...".to_string(),
                     Some(true),
                     None,
@@ -162,7 +162,7 @@ pub fn full() {
         message::success(
             MessageType::Print,
             message::add_delimiter(
-                DelimiterType::Layer1Success,
+                DelimiterType::Layer2Success,
                 "Successfully Installed and set Powershell 7 as default in Windows Terminal!"
                     .to_string(),
                 Some(true),
@@ -177,7 +177,7 @@ pub fn full() {
         message::error(
             MessageType::Print,
             message::add_delimiter(
-                DelimiterType::Layer1Error,
+                DelimiterType::Layer2Error,
                 "Failed Installing and setting Powershell 7 as default in Windows Terminal..."
                     .to_string(),
                 Some(true),
@@ -193,7 +193,7 @@ pub fn full() {
             MessageType::Print,
             message
                 ::add_delimiter(
-                    DelimiterType::Layer1Error,
+                    DelimiterType::Layer2Error,
                     "Successfully Installed Powershell 7, but failed setting it as default in Windows Terminal...".to_string(),
                     Some(true),
                     None,

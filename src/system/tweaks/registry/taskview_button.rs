@@ -26,15 +26,9 @@ pub fn enable() {
 
     message::normal(
         MessageType::Print,
-        message::add_delimiter(
-            DelimiterType::Layer1,
-            run_message,
-            Some(true),
-            None,
-            None,
-        )
-        .unwrap()
-        .as_str(),
+        message::add_delimiter(DelimiterType::Layer1, run_message, Some(true), None, None)
+            .unwrap()
+            .as_str(),
     );
     let output = Command::new("powershell")
         .arg("-Command")
@@ -96,15 +90,9 @@ pub fn disable() {
 
     message::normal(
         MessageType::Print,
-        message::add_delimiter(
-            DelimiterType::Layer1,
-            run_message,
-            Some(true),
-            None,
-            None,
-        )
-        .unwrap()
-        .as_str(),
+        message::add_delimiter(DelimiterType::Layer1, run_message, Some(true), None, None)
+            .unwrap()
+            .as_str(),
     );
     let output = Command::new("powershell")
         .arg("-Command")
