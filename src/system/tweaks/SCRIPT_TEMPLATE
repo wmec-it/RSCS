@@ -4,10 +4,20 @@ use crate::system::tweaks::templates;
 
 #[allow(dead_code)]
 pub fn enable() {
-    templates::default(run_message, success_message, error_message, command);
+    templates::default(
+        run_message,
+        success_message,
+        error_message,
+        command
+    );
 }
 
 #[allow(dead_code)]
 pub fn disable() {
-    templates::default(run_message, success_message, error_message, command);
+    templates::default(
+        run_message,
+        success_message,
+        error_message,
+        command
+    );
 }
