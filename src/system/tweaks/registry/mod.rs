@@ -3,5 +3,5 @@ pub mod darkmode;
 pub mod explorerpatcher_config;
 pub mod prefer_ipv4;
 pub mod rclick_end_task;
-pub mod taskview_button;
 pub mod stickykeys_startup;
+pub mod taskview_button;
