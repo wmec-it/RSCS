@@ -1,8 +1,8 @@
-use crate::system::tweaks::tweak;
+use crate::system::tweaks::templates;
 
 #[allow(dead_code)]
 pub fn enable() {
-    tweak(
+    templates::default(
         "Enabling Sticky Keys on startup...",
         "Successfully enabled Sticky Keys on startup!",
         "Error enabling Sticky Keys on startup...",
@@ -24,7 +24,7 @@ pub fn enable() {
 
 #[allow(dead_code)]
 pub fn disable() {
-    tweak(
+    templates::default(
         "Disabling Sticky Keys on startup...",
         "Successfully disabled Sticky Keys on startup!",
         "Error disabling Sticky Keys on startup...",

@@ -1,8 +1,8 @@
-use crate::system::tweaks::tweak;
+use crate::system::tweaks::templates;
 
 #[allow(dead_code)]
 pub fn enable() {
-    tweak(
+    templates::default(
         "Enabling End Task with right click on taskbar...",
         "Successfully Enabled End Task with right click on taskbar!",
         "Failed to Enable End Task with right click on taskbar...",
@@ -18,7 +18,7 @@ pub fn enable() {
 
 #[allow(dead_code)]
 pub fn disable() {
-    tweak(
+    templates::default(
         "Disabling End Task with right click on taskbar...",
         "Successfully Disabled End Task with right click on taskbar!",
         "Failed to Disable End Task with right click on taskbar...",
