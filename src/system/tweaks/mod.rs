@@ -31,6 +31,7 @@ pub fn run_tweaks() {
     registry::bingsearch_startmenu::disable();
     registry::darkmode::enable();
     registry::explorerpatcher_config::enable();
+    registry::taskview_button::disable();
 
     // Power Tweaks
     power::ultimate_powerplan::enable();
