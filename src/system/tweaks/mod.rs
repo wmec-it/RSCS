@@ -60,6 +60,7 @@ pub fn run_tweaks() {
     registry::explorerpatcher_config::enable();
     registry::taskview_button::disable();
     registry::stickykeys_startup::disable();
+    registry::taskbar_widgets::disable();
 
     // Power Tweaks
     message::info(
