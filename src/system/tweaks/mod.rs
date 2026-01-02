@@ -58,6 +58,7 @@ pub fn run_tweaks() {
     registry::darkmode::enable();
     registry::explorerpatcher_config::enable();
     registry::taskview_button::disable();
+    registry::stickykeys_startup::disable();
 
     // Power Tweaks
     message::info(
