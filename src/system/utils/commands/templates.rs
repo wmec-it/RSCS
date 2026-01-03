@@ -75,20 +75,20 @@ pub fn admin(run_message: &str, success_message: &str, error_message: &str, comm
     // Create temp files
     let temp_dir = env::temp_dir();
     let script_file: PathBuf = temp_dir.join("rscs_admin_script.ps1");
-    let stderr_file: PathBuf = temp_dir.join("rscs_admin_stderr. txt");
+    let stderr_file: PathBuf = temp_dir.join("rscs_admin_stderr.txt");
     let exitcode_file: PathBuf = temp_dir.join("rscs_admin_exitcode.txt");
 
     // Write the command to a temp script file to avoid escaping issues
     let script_content = format!(
         r#"
-try {{
-    {}
-    $LASTEXITCODE | Out-File -FilePath '{}' -Encoding ASCII
-}} catch {{
-    $_. Exception.Message | Out-File -FilePath '{}' -Encoding ASCII
-    1 | Out-File -FilePath '{}' -Encoding ASCII
-}}
-"#,
+            try {{
+                {}
+                $LASTEXITCODE | Out-File -FilePath '{}' -Encoding ASCII
+            }} catch {{
+                $_. Exception.Message | Out-File -FilePath '{}' -Encoding ASCII
+                1 | Out-File -FilePath '{}' -Encoding ASCII
+            }}
+        "#,
         command,
         exitcode_file.display(),
         stderr_file.display(),
