@@ -4,7 +4,7 @@ use crate::system::tweaks::templates;
 
 #[allow(dead_code)]
 pub fn enable() {
-    templates::admin(
+    templates::default(
         "Enabling dark mode...",
         "Successfully enabled dark mode!",
         "Error enabling dark mode...",
@@ -16,7 +16,7 @@ pub fn enable() {
 
 #[allow(dead_code)]
 pub fn disable() {
-    templates::admin(
+    templates::default(
         "Disabling dark mode...",
         "Successfully disabled dark mode!",
         "Error disabling dark mode...",

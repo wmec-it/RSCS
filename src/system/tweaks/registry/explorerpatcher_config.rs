@@ -2,7 +2,7 @@ use crate::system::tweaks::templates;
 
 #[allow(dead_code)]
 pub fn enable() {
-    templates::admin("Configuring ExplorerPatcher...", "Successfully configured ExplorerPatcher!", "Error configuring ExplorerPatcher...", "
+    templates::default("Configuring ExplorerPatcher...", "Successfully configured ExplorerPatcher!", "Error configuring ExplorerPatcher...", "
         $registryEntries = @(
             @{Path = \"HKCU:\\Software\\ExplorerPatcher\"; Name = \"ImportOK\"; Value = 1},
             @{Path = \"HKCU:\\Software\\ExplorerPatcher\"; Name = \"OldTaskbar\"; Value = 2},
@@ -71,8 +71,8 @@ pub fn enable() {
             @{Path = \"HKCU:\\Software\\ExplorerPatcher\"; Name = \"UpdatePreferStaging\"; Value = 0},
             @{Path = \"HKCU:\\Software\\ExplorerPatcher\"; Name = \"UpdateAllowDowngrades\"; Value = 0},
             @{Path = \"HKCU:\\Software\\ExplorerPatcher\"; Name = \"UpdateUseLocal\"; Value = 0},
-            @{Path = \"HKCU:\\Software\\ExplorerPatcher\"; Name = \"UpdateURL\"; Value = \"\"},
-            @{Path = \"HKCU:\\Software\\ExplorerPatcher\"; Name = \"UpdateURLStaging\"; Value = \"\"},
+            @{Path = \"HKCU:\\Software\\ExplorerPatcher\"; Name = \"UpdateURL\"; Value = ''},
+            @{Path = \"HKCU:\\Software\\ExplorerPatcher\"; Name = \"UpdateURLStaging\"; Value = ''},
             @{Path = \"HKCU:\\Software\\ExplorerPatcher\"; Name = \"AllocConsole\"; Value = 0},
             @{Path = \"HKCU:\\Software\\ExplorerPatcher\"; Name = \"Memcheck\"; Value = 0},
             @{Path = \"HKCU:\\Software\\ExplorerPatcher\"; Name = \"TaskbarAutohideOnDoubleClick\"; Value = 0},

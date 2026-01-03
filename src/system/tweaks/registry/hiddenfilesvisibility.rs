@@ -25,7 +25,7 @@ pub fn enable() {
 
 #[allow(dead_code)]
 pub fn disable() {
-    templates::admin(
+    templates::default(
         "Making hidden files hidden...",
         "Successfully made hidden files hidden!",
         "Failed to make hidden files hidden...",

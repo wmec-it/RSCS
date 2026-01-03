@@ -4,7 +4,7 @@ use crate::system::tweaks::templates;
 
 #[allow(dead_code)]
 pub fn enable() {
-    templates::admin(
+    templates::default(
         "Enabling web search results from Bing in Start Menu search...",
         "Successfully enabled web search results from Bing in Start Menu search!",
         "Failed to enable web search results from Bing in Start Menu search...",
@@ -17,7 +17,7 @@ $Path = \"HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Search\"
 
 #[allow(dead_code)]
 pub fn disable() {
-    templates::admin(
+    templates::default(
         "Disabling web search results from Bing in Start Menu search...",
         "Successfully disabled web search results from Bing in Start Menu search!",
         "Failed to disable web search results from Bing in Start Menu search...",

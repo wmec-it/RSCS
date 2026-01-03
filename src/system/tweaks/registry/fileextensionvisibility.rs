@@ -4,7 +4,7 @@ use crate::system::tweaks::templates;
 
 #[allow(dead_code)]
 pub fn enable() {
-    templates::admin(
+    templates::default(
         "Making file extensions visible...",
         "Successfully made file extensions visible!",
         "Failed to make file extensions visible...",
@@ -25,7 +25,7 @@ pub fn enable() {
 
 #[allow(dead_code)]
 pub fn disable() {
-    templates::admin(
+    templates::default(
         "Making file extensions hidden...",
         "Successfully made file extensions hidden!",
         "Failed to make file extensions hidden...",
