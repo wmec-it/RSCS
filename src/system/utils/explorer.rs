@@ -1,4 +1,4 @@
-use crate::system::utils::templates;
+use crate::system::utils::commands::templates;
 
 pub fn restart() {
     templates::default(

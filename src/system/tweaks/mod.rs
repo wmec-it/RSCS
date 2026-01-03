@@ -1,12 +1,12 @@
 use crate::{
     conf::enums::{DelimiterType, MessageType},
+    system::{utils, utils::commands::templates},
     utils::message,
 };
 
 pub mod power;
 pub mod powershell;
 pub mod registry;
-pub mod templates;
 
 pub fn run_tweaks() {
     message::success(
@@ -65,6 +65,8 @@ pub fn run_tweaks() {
     registry::hiddenfilesvisibility::enable();
     registry::fileextensionvisibility::enable();
     registry::detailedbsod::enable();
+
+    utils::explorer::restart();
 
     // Power Tweaks
     message::info(

@@ -1,7 +1,7 @@
-use std::process::Command;
-use std::fs;
 use std::env;
+use std::fs;
 use std::path::PathBuf;
+use std::process::Command;
 use std::thread;
 use std::time::Duration;
 
@@ -11,9 +11,9 @@ use crate::{
 };
 
 pub fn default(run_message: &str, success_message: &str, error_message: &str, command: &str) {
-    let run_message:  String = run_message.to_string();
+    let run_message: String = run_message.to_string();
     let success_message: String = success_message.to_string();
-    let error_message: String = error_message. to_string();
+    let error_message: String = error_message.to_string();
     let command: &str = command;
 
     message::normal(
@@ -32,7 +32,7 @@ pub fn default(run_message: &str, success_message: &str, error_message: &str, co
         message::success(
             MessageType::Print,
             message::add_delimiter(
-                DelimiterType:: Layer2Success,
+                DelimiterType::Layer2Success,
                 success_message,
                 Some(true),
                 None,
@@ -44,12 +44,12 @@ pub fn default(run_message: &str, success_message: &str, error_message: &str, co
     } else {
         message::error(
             MessageType::Print,
-            message:: add_delimiter(
+            message::add_delimiter(
                 DelimiterType::Layer2Error,
                 format!(
                     "{}\nExit Code: {:?}\n{}",
                     error_message,
-                    output.status. code(),
+                    output.status.code(),
                     String::from_utf8_lossy(&output.stderr)
                 ),
                 Some(true),
@@ -64,19 +64,19 @@ pub fn default(run_message: &str, success_message: &str, error_message: &str, co
 
 pub fn admin(run_message: &str, success_message: &str, error_message: &str, command: &str) {
     let run_message: String = run_message.to_string();
-    let success_message: String = success_message. to_string();
+    let success_message: String = success_message.to_string();
     let error_message: String = error_message.to_string();
 
     message::normal(
-        MessageType:: Print,
-        message::add_delimiter(DelimiterType:: Layer1, run_message, Some(true), None, None)
+        MessageType::Print,
+        message::add_delimiter(DelimiterType::Layer1, run_message, Some(true), None, None)
             .unwrap()
             .as_str(),
     );
 
     // Create temp files
     let temp_dir = env::temp_dir();
-    let script_file:  PathBuf = temp_dir.join("rscs_admin_script.ps1");
+    let script_file: PathBuf = temp_dir.join("rscs_admin_script.ps1");
     let stderr_file: PathBuf = temp_dir.join("rscs_admin_stderr. txt");
     let exitcode_file: PathBuf = temp_dir.join("rscs_admin_exitcode.txt");
 
@@ -126,7 +126,7 @@ try {{
 
     // Read results
     let stderr_content = fs::read_to_string(&stderr_file).unwrap_or_default();
-    let exit_code:  i32 = fs::read_to_string(&exitcode_file)
+    let exit_code: i32 = fs::read_to_string(&exitcode_file)
         .unwrap_or_else(|_| "0".to_string())
         .trim()
         .parse()
@@ -140,7 +140,7 @@ try {{
     if output.status.success() && exit_code == 0 && stderr_content.is_empty() {
         message::success(
             MessageType::Print,
-            message:: add_delimiter(
+            message::add_delimiter(
                 DelimiterType::Layer2Success,
                 success_message,
                 Some(true),
@@ -151,15 +151,13 @@ try {{
             .as_str(),
         );
     } else {
-        message:: error(
+        message::error(
             MessageType::Print,
             message::add_delimiter(
                 DelimiterType::Layer2Error,
                 format!(
                     "{}\nExit Code: {}\n{}",
-                    error_message,
-                    exit_code,
-                    stderr_content
+                    error_message, exit_code, stderr_content
                 ),
                 Some(true),
                 None,
