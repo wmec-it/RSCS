@@ -1,20 +1,22 @@
 use std::process:: Command;
 use std::fs;
-use std::env;
+use std:: env;
 use std:: path::PathBuf;
+use std::thread;
+use std:: time::Duration;
 
 use crate: :{
     conf::enums: :{DelimiterType, MessageType},
     utils::message,
 };
 
-pub fn default(run_message: &str, success_message: &str, error_message:  &str, command: &str) {
+pub fn default(run_message: &str, success_message: &str, error_message: &str, command: &str) {
     let run_message:  String = run_message.to_string();
     let success_message: String = success_message.to_string();
     let error_message: String = error_message. to_string();
     let command: &str = command;
 
-    message:: normal(
+    message::normal(
         MessageType::Print,
         message::add_delimiter(DelimiterType::Layer1, run_message, Some(true), None, None)
             .unwrap()
@@ -27,10 +29,10 @@ pub fn default(run_message: &str, success_message: &str, error_message:  &str, c
         .expect("Failed to run PowerShell");
 
     if output.status.success() {
-        message:: success(
+        message::success(
             MessageType::Print,
             message::add_delimiter(
-                DelimiterType::Layer2Success,
+                DelimiterType:: Layer2Success,
                 success_message,
                 Some(true),
                 None,
@@ -42,7 +44,7 @@ pub fn default(run_message: &str, success_message: &str, error_message:  &str, c
     } else {
         message::error(
             MessageType::Print,
-            message::add_delimiter(
+            message:: add_delimiter(
                 DelimiterType::Layer2Error,
                 format!(
                     "{}\nExit Code: {: ?}\n{}",
@@ -60,10 +62,10 @@ pub fn default(run_message: &str, success_message: &str, error_message:  &str, c
     }
 }
 
-pub fn admin(run_message: &str, success_message: &str, error_message: &str, command: &str) {
-    let run_message: String = run_message.to_string();
-    let success_message: String = success_message. to_string();
-    let error_message: String = error_message.to_string();
+pub fn admin(run_message:  &str, success_message: &str, error_message: &str, command: &str) {
+    let run_message:  String = run_message.to_string();
+    let success_message: String = success_message.to_string();
+    let error_message: String = error_message. to_string();
 
     message::normal(
         MessageType:: Print,
@@ -72,36 +74,51 @@ pub fn admin(run_message: &str, success_message: &str, error_message: &str, comm
             .as_str(),
     );
 
-    // Create temp files
-    let temp_dir = env::temp_dir();
-    let script_file:  PathBuf = temp_dir.join("rscs_admin_script.ps1");
-    let stderr_file: PathBuf = temp_dir.join("rscs_admin_stderr. txt");
-    let exitcode_file: PathBuf = temp_dir.join("rscs_admin_exitcode.txt");
+    // Create temp files with unique names using timestamp
+    let temp_dir = env:: temp_dir();
+    let timestamp = std::time::SystemTime::now()
+        .duration_since(std::time:: UNIX_EPOCH)
+        .unwrap()
+        .as_millis();
+    
+    let script_file: PathBuf = temp_dir.join(format!("rscs_admin_script_{}.ps1", timestamp));
+    let stderr_file: PathBuf = temp_dir.join(format!("rscs_admin_stderr_{}. txt", timestamp));
+    let exitcode_file: PathBuf = temp_dir. join(format!("rscs_admin_exitcode_{}.txt", timestamp));
+    let done_file: PathBuf = temp_dir.join(format! ("rscs_admin_done_{}.txt", timestamp));
 
-    // Write the command to a temp script file to avoid escaping issues
+    // Clean up any existing files first
+    let _ = fs::remove_file(&script_file);
+    let _ = fs::remove_file(&stderr_file);
+    let _ = fs::remove_file(&exitcode_file);
+    let _ = fs::remove_file(&done_file);
+
+    // Write the command to a temp script file
     let script_content = format!(
         r#"
+$ErrorActionPreference = "Stop"
 try {{
     {}
-    $LASTEXITCODE | Out-File -FilePath '{}' -Encoding ASCII
+    "0" | Out-File -FilePath '{}' -Encoding ASCII -NoNewline
 }} catch {{
     $_. Exception.Message | Out-File -FilePath '{}' -Encoding ASCII
-    1 | Out-File -FilePath '{}' -Encoding ASCII
+    "1" | Out-File -FilePath '{}' -Encoding ASCII -NoNewline
 }}
+"done" | Out-File -FilePath '{}' -Encoding ASCII -NoNewline
 "#,
         command,
         exitcode_file.display(),
         stderr_file.display(),
-        exitcode_file.display()
+        exitcode_file.display(),
+        done_file.display()
     );
 
     // Write script to temp file
     if let Err(e) = fs::write(&script_file, &script_content) {
         message::error(
-            MessageType::Print,
+            MessageType:: Print,
             message::add_delimiter(
                 DelimiterType::Layer2Error,
-                format!("{}\nFailed to write temp script:  {}", error_message, e),
+                format! ("{}\nFailed to write temp script:  {}", error_message, e),
                 Some(true),
                 None,
                 Some(true),
@@ -113,17 +130,28 @@ try {{
     }
 
     // Run the script with elevation
-    let output = Command::new("powershell")
+    let output = Command:: new("powershell")
         .arg("-Command")
         .arg(format!(
-            "Start-Process -FilePath 'powershell' -ArgumentList '-ExecutionPolicy', 'Bypass', '-File', '{}' -Verb RunAs -Wait -WindowStyle Hidden",
+            "Start-Process -FilePath 'powershell' -ArgumentList '-ExecutionPolicy', 'Bypass', '-File', '{}' -Verb RunAs -Wait",
             script_file.display()
         ))
         .output()
         .expect("Failed to run PowerShell");
 
+    // Wait for the done file to appear (indicates script completed)
+    let max_wait = 30; // seconds
+    let mut waited = 0;
+    while !done_file. exists() && waited < max_wait {
+        thread::sleep(Duration::from_millis(100));
+        waited += 1;
+    }
+
+    // Small additional delay to ensure file writes are flushed
+    thread::sleep(Duration:: from_millis(200));
+
     // Read results
-    let stderr_content = fs::read_to_string(&stderr_file).unwrap_or_default();
+    let stderr_content = fs:: read_to_string(&stderr_file).unwrap_or_default();
     let exit_code:  i32 = fs::read_to_string(&exitcode_file)
         .unwrap_or_else(|_| "0".to_string())
         .trim()
@@ -134,10 +162,11 @@ try {{
     let _ = fs::remove_file(&script_file);
     let _ = fs::remove_file(&stderr_file);
     let _ = fs::remove_file(&exitcode_file);
+    let _ = fs::remove_file(&done_file);
 
-    if output.status.success() && exit_code == 0 && stderr_content.is_empty() {
+    if output. status.success() && exit_code == 0 && stderr_content.is_empty() {
         message::success(
-            MessageType::Print,
+            MessageType:: Print,
             message:: add_delimiter(
                 DelimiterType::Layer2Success,
                 success_message,
