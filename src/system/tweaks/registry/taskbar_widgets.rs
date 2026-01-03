@@ -4,7 +4,7 @@ use crate::system::tweaks::templates;
 
 #[allow(dead_code)]
 pub fn enable() {
-    templates::default(
+    templates::admin(
         "Enabling Taskbar Widgets...",
         "Successfully enabled Taskbar Widgets!",
         "Failed to enable Taskbar Widgets...",
@@ -25,7 +25,7 @@ pub fn enable() {
 
 #[allow(dead_code)]
 pub fn disable() {
-    templates::default(
+    templates::admin(
         "Disabling Taskbar Widgets...",
         "Successfully disabled Taskbar Widgets!",
         "Failed to disable Taskbar Widgets...",
