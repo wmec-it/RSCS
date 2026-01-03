@@ -18,7 +18,7 @@ fn main() -> io::Result<()> {
             )
             .set("ProductName", "Repair Shop Configuration Superintendant")
             .set("CompanyName", "West-Mec Southwest, IT Security")
-            .set("LegalCopyright", "© 2025 West-Mec Southwest, IT Security")
+            .set("LegalCopyright", "© 2026 West-Mec Southwest, IT Security")
             .set("OriginalFilename", "rscs.exe")
             .set("InternalName", "rscs")
             .set("FileVersion", &format!("{}.0", version))
