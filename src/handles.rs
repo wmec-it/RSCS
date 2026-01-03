@@ -30,7 +30,7 @@ pub fn run_install_full() {
 
     system::programs::install_programs();
     message::seperator();
-    system::tweaks::run_tweaks();
+    system::tweaks::handles::run_tweaks();
 
     message::success(
         MessageType::Print,
