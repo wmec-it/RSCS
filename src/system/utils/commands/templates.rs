@@ -2,8 +2,6 @@ use std::env;
 use std::fs;
 use std::path::PathBuf;
 use std::process::Command;
-use std::thread;
-use std::time::Duration;
 
 use crate::{
     conf::enums::{DelimiterType, MessageType},
