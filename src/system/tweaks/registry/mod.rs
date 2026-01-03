@@ -6,3 +6,4 @@ pub mod rclick_end_task;
 pub mod stickykeys_startup;
 pub mod taskbar_widgets;
 pub mod taskview_button;
+pub mod verbose_logon_messages;
