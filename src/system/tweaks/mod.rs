@@ -63,6 +63,7 @@ pub fn run_tweaks() {
     registry::taskbar_widgets::disable();
     registry::verbose_logon_messages::enable();
     registry::hiddenfilesvisibility::enable();
+    registry::fileextensionvisibility::enable();
 
     // Power Tweaks
     message::info(
