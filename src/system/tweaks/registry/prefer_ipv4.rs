@@ -4,7 +4,7 @@ use crate::system::tweaks::templates;
 
 #[allow(dead_code)]
 pub fn enable() {
-    templates::default(
+    templates::admin(
         "Setting registry key to prefer IPv4 over IPv6...",
         "Successfully Set registry key to prefer IPv4 over IPv6!",
         "Failed to set registry key to prefer IPv4 over IPv6...",
@@ -21,7 +21,7 @@ pub fn enable() {
 
 #[allow(dead_code)]
 pub fn disable() {
-    templates::default(
+    templates::admin(
         "Reverting registry key to prefer IPv4 over IPv6 to 0 (disabled)...",
         "Successfully Reverted registry key to prefer IPv4 over IPv6 to 0 (disabled)!",
         "Failed to revert registry key to prefer IPv4 over IPv6 to 0 (disabled)...",

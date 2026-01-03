@@ -2,7 +2,7 @@ use crate::system::tweaks::templates;
 
 #[allow(dead_code)]
 pub fn enable() {
-    templates::default("Configuring ExplorerPatcher...", "Successfully configured ExplorerPatcher!", "Error configuring ExplorerPatcher...", "
+    templates::admin("Configuring ExplorerPatcher...", "Successfully configured ExplorerPatcher!", "Error configuring ExplorerPatcher...", "
         $registryEntries = @(
             @{Path = \"HKCU:\\Software\\ExplorerPatcher\"; Name = \"ImportOK\"; Value = 1},
             @{Path = \"HKCU:\\Software\\ExplorerPatcher\"; Name = \"OldTaskbar\"; Value = 2},

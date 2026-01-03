@@ -62,6 +62,7 @@ pub fn run_tweaks() {
     registry::stickykeys_startup::disable();
     registry::taskbar_widgets::disable();
     registry::verbose_logon_messages::enable();
+    registry::hiddenfilesvisibility::enable();
 
     // Power Tweaks
     message::info(

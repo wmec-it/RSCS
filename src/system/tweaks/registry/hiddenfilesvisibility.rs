@@ -1,17 +1,17 @@
-// https://winutil.christitus.com/dev/tweaks/customize-preferences/verboselogon/
+// https://winutil.christitus.com/dev/tweaks/customize-preferences/hiddenfiles/
 
 use crate::system::tweaks::templates;
 
 #[allow(dead_code)]
 pub fn enable() {
-    templates::admin(
-        "Enabling Verbose Logon Messages...",
-        "Successfully enabled Verbose Logon Messages!",
-        "Failed to enable Verbose Logon Messages...",
+    templates::default(
+        "Making hidden files visible...",
+        "Successfully made hidden files visible!",
+        "Failed to make hidden files visible...",
         "try {
             $value = 1
-            $Path = \"HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\"
-            Set-ItemProperty -Path $Path -Name VerboseStatus -Value $value
+            $Path = \"HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\"
+            Set-ItemProperty -Path $Path -Name Hidden -Value $value
         } catch [System.Security.SecurityException] {
             Write-Warning \"Unable to set $Path\\$Name to $Value due to a Security Exception\"
         } catch [System.Management.Automation.ItemNotFoundException] {
@@ -26,13 +26,13 @@ pub fn enable() {
 #[allow(dead_code)]
 pub fn disable() {
     templates::admin(
-        "Disabling Verbose Logon Messages...",
-        "Successfully disabled Verbose Logon Messages!",
-        "Failed to disable Verbose Logon Messages...",
+        "Making hidden files hidden...",
+        "Successfully made hidden files hidden!",
+        "Failed to make hidden files hidden...",
         "try {
             $value = 0
-            $Path = \"HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\"
-            Set-ItemProperty -Path $Path -Name VerboseStatus -Value $value
+            $Path = \"HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\"
+            Set-ItemProperty -Path $Path -Name Hidden -Value $value
         } catch [System.Security.SecurityException] {
             Write-Warning \"Unable to set $Path\\$Name to $Value due to a Security Exception\"
         } catch [System.Management.Automation.ItemNotFoundException] {
