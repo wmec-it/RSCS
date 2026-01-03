@@ -89,13 +89,6 @@ pub fn enable() {
             Write-Host \"Added registry entry: $($entry.Path)\\$($entry.Name) = $($entry.Value)\"
         }"
     );
-
-    templates::default(
-        "Restarting explorer...",
-        "Successfully restarted Explorer!",
-        "Failed to restart Explorer...",
-        "Stop-Process -Name explorer -Force; Start-Process explorer",
-    );
 }
 
 #[allow(dead_code)]
