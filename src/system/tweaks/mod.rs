@@ -64,6 +64,7 @@ pub fn run_tweaks() {
     registry::verbose_logon_messages::enable();
     registry::hiddenfilesvisibility::enable();
     registry::fileextensionvisibility::enable();
+    registry::detailedbsod::enable();
 
     // Power Tweaks
     message::info(
