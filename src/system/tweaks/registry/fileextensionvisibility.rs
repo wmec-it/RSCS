@@ -1,4 +1,4 @@
-// Link to script (if applicable)
+// https://winutil.christitus.com/dev/tweaks/customize-preferences/showext/
 
 use crate::system::tweaks::templates;
 
