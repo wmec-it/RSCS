@@ -61,6 +61,7 @@ pub fn run_tweaks() {
     tweaks::registry::hiddenfilesvisibility::enable();
     tweaks::registry::fileextensionvisibility::enable();
     tweaks::registry::detailedbsod::enable();
+    tweaks::registry::explorer_homegallery::disable();
 
     utils::explorer::restart();
 

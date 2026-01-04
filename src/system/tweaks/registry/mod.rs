@@ -1,6 +1,7 @@
 pub mod bingsearch_startmenu;
 pub mod darkmode;
 pub mod detailedbsod;
+pub mod explorer_homegallery;
 pub mod explorerpatcher_config;
 pub mod fileextensionvisibility;
 pub mod hiddenfilesvisibility;
