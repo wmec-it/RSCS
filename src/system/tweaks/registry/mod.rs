@@ -6,6 +6,7 @@ pub mod explorer_homegallery;
 pub mod explorerpatcher_config;
 pub mod fileextensionvisibility;
 pub mod hiddenfilesvisibility;
+pub mod intel_mm_lms;
 pub mod microsoftcopilot;
 pub mod notificationtray;
 pub mod onedrive;

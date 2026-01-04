@@ -68,6 +68,7 @@ pub fn run_tweaks() {
     tweaks::registry::taskbar_search_button::enable();
     tweaks::registry::taskbar_alignment::left();
     tweaks::registry::notificationtray::disable();
+    tweaks::registry::intel_mm_lms::disable();
 
     utils::explorer::restart();
 
