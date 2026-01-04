@@ -63,6 +63,7 @@ pub fn run_tweaks() {
     tweaks::registry::detailedbsod::enable();
     tweaks::registry::explorer_homegallery::disable();
     tweaks::registry::onedrive::disable();
+    tweaks::registry::displayperformance_mode::enable();
 
     utils::explorer::restart();
 
