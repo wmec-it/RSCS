@@ -11,6 +11,7 @@ pub mod onedrive;
 pub mod prefer_ipv4;
 pub mod rclick_end_task;
 pub mod stickykeys_startup;
+pub mod taskbar_alignment;
 pub mod taskbar_search_button;
 pub mod taskbar_taskview_button;
 pub mod taskbar_widgets_button;

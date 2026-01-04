@@ -66,6 +66,7 @@ pub fn run_tweaks() {
     tweaks::registry::displayperformance_mode::enable();
     tweaks::registry::microsoftcopilot::disable();
     tweaks::registry::taskbar_search_button::enable();
+    tweaks::registry::taskbar_alignment::left();
 
     utils::explorer::restart();
 
