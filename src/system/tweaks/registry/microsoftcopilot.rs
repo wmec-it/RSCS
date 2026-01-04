@@ -1,4 +1,6 @@
 // https://winutil.christitus.com/dev/tweaks/z--advanced-tweaks---caution/removecopilot/
+// https://github.com/ChrisTitusTech/winutil/blob/main/config/tweaks.json
+// -    WPFTweaksRemoveCopilot
 
 use crate::system::tweaks::templates;
 
