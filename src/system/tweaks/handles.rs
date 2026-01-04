@@ -64,6 +64,7 @@ pub fn run_tweaks() {
     tweaks::registry::explorer_homegallery::disable();
     tweaks::registry::onedrive::disable();
     tweaks::registry::displayperformance_mode::enable();
+    tweaks::registry::microsoftcopilot::disable();
 
     utils::explorer::restart();
 
