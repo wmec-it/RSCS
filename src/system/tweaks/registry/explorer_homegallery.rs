@@ -1,4 +1,4 @@
-// Link to script (if applicable)
+// https://winutil.christitus.com/dev/tweaks/z--advanced-tweaks---caution/removehomegallery/
 
 use crate::system::tweaks::templates;
 
