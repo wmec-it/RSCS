@@ -67,6 +67,7 @@ pub fn run_tweaks() {
     tweaks::registry::microsoftcopilot::disable();
     tweaks::registry::taskbar_search_button::enable();
     tweaks::registry::taskbar_alignment::left();
+    tweaks::registry::notificationtray::disable();
 
     utils::explorer::restart();
 

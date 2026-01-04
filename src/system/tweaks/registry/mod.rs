@@ -7,6 +7,7 @@ pub mod explorerpatcher_config;
 pub mod fileextensionvisibility;
 pub mod hiddenfilesvisibility;
 pub mod microsoftcopilot;
+pub mod notificationtray;
 pub mod onedrive;
 pub mod prefer_ipv4;
 pub mod rclick_end_task;
