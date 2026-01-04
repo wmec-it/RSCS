@@ -5,6 +5,7 @@ pub mod explorer_homegallery;
 pub mod explorerpatcher_config;
 pub mod fileextensionvisibility;
 pub mod hiddenfilesvisibility;
+pub mod onedrive;
 pub mod prefer_ipv4;
 pub mod rclick_end_task;
 pub mod stickykeys_startup;

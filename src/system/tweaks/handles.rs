@@ -62,6 +62,7 @@ pub fn run_tweaks() {
     tweaks::registry::fileextensionvisibility::enable();
     tweaks::registry::detailedbsod::enable();
     tweaks::registry::explorer_homegallery::disable();
+    tweaks::registry::onedrive::disable();
 
     utils::explorer::restart();
 
