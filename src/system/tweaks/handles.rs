@@ -54,9 +54,9 @@ pub fn run_tweaks() {
     tweaks::registry::bingsearch_startmenu::disable();
     tweaks::registry::darkmode::enable();
     tweaks::registry::explorerpatcher_config::enable();
-    tweaks::registry::taskview_button::disable();
+    tweaks::registry::taskbar_taskview_button::disable();
     tweaks::registry::stickykeys_startup::disable();
-    tweaks::registry::taskbarwidgets_button::disable();
+    tweaks::registry::taskbar_widgets_button::disable();
     tweaks::registry::verbose_logon_messages::enable();
     tweaks::registry::hiddenfilesvisibility::enable();
     tweaks::registry::fileextensionvisibility::enable();
@@ -65,6 +65,7 @@ pub fn run_tweaks() {
     tweaks::registry::onedrive::disable();
     tweaks::registry::displayperformance_mode::enable();
     tweaks::registry::microsoftcopilot::disable();
+    tweaks::registry::taskbar_search_button::enable();
 
     utils::explorer::restart();
 
