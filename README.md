@@ -7,7 +7,7 @@ For use configuring machines in the West-Mec IT Security Repair Shop (Nerd Heard
 1. [Rustup](https://rustup.rs/)
    - Or run: `winget install -e --id Rustlang.Rustup`
 2. Visual Studio Build Tools
-   ```
+   ```powershell
    winget install Microsoft.VisualStudio.2022.Community --silent --override "--wait --quiet --add ProductLang En-us --add Microsoft.VisualStudio.Workload.NativeDesktop --includeRecommended"
    ```
 
