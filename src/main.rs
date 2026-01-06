@@ -15,7 +15,7 @@ mod testing;
 mod utils;
 
 fn main() -> ExitCode {
-    if cfg!(target_os = "linux") {
+    if cfg!(target_os = "windows") {
         open_menu("");
         return ExitCode::SUCCESS;
     } else {
