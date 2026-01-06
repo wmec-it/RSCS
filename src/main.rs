@@ -12,6 +12,7 @@ mod handles;
 mod system;
 mod testing;
 mod utils;
+mod external;
 
 fn main() {
     if cfg!(target_os = "windows") {
