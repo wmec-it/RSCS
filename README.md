@@ -6,6 +6,8 @@ For use configuring machines in the West-Mec IT Security Repair Shop (Nerd Heard
 
 1. [Rustup](https://rustup.rs/)
    - Or run: `winget install -e --id Rustlang.Rustup`
+2. Visual Studio Build Tools
+   - `winget install -e --source winget --id Microsoft.VisualStudio.BuildTools`
 
 ## Dev Setup on Linux
 
