@@ -1,5 +1,5 @@
 use colored_text::Colorize;
-use std::process::Command;
+use std::process::{Command, ExitCode};
 use terminal_menu::*;
 
 use conf::enums::{DelimiterType, MessageType};
@@ -8,15 +8,16 @@ use testing::testing;
 use utils::{message, user, wait};
 
 mod conf;
+mod external;
 mod handles;
 mod system;
 mod testing;
 mod utils;
-mod external;
 
-fn main() {
-    if cfg!(target_os = "windows") {
-        open_menu(false);
+fn main() -> ExitCode {
+    if cfg!(target_os = "linux") {
+        open_menu("");
+        return ExitCode::SUCCESS;
     } else {
         message::error(
             MessageType::Print,
@@ -34,13 +35,20 @@ fn main() {
         wait::miliseconds(2000);
 
         Command::new("clear").status().unwrap();
+
+        return ExitCode::FAILURE;
     }
 }
 
-fn open_menu(is_testing: bool) {
-    match is_testing {
-        true => {
+fn open_menu(operation_type: &str) {
+    match operation_type {
+        "testing" => {
             testing();
+        }
+        "skip" => {
+            user::enable_sudo();
+            prerequisites();
+            handles::install_type("Full Install");
         }
         _ => {
             let menu = menu(vec![
@@ -52,10 +60,17 @@ fn open_menu(is_testing: bool) {
             ]);
             run(&menu);
             {
-                if !mut_menu(&menu).canceled() == true {
-                    println!("{}", format!("{}", PUNCHDOWN_PAUL).hex(MAIN_THEME.primary));
+                menu_logic(menu);
+            }
+        }
+    }
+}
 
-                    println!(
+fn menu_logic(menu: std::sync::Arc<std::sync::RwLock<TerminalMenuStruct>>) {
+    if !mut_menu(&menu).canceled() == true {
+        println!("{}", format!("{}", PUNCHDOWN_PAUL).hex(MAIN_THEME.primary));
+
+        println!(
                         "{}{}",
                         message
                             ::error_banner(
@@ -66,35 +81,32 @@ fn open_menu(is_testing: bool) {
                         "\n"
                     );
 
-                    user::enable_sudo();
+        user::enable_sudo();
 
-                    let mm = mut_menu(&menu);
-                    println!(
-                        "{} {}",
-                        message::info(
-                            MessageType::Return,
-                            message::add_delimiter(
-                                DelimiterType::Layer1Info,
-                                "Selected Install Type: ".to_string(),
-                                Some(true),
-                                None,
-                                None
-                            )
-                            .unwrap()
-                            .as_str()
-                        )
-                        .unwrap(),
-                        mm.selection_value("Install Type")
-                    );
+        let mm = mut_menu(&menu);
+        println!(
+            "{} {}",
+            message::info(
+                MessageType::Return,
+                message::add_delimiter(
+                    DelimiterType::Layer1Info,
+                    "Selected Install Type: ".to_string(),
+                    Some(true),
+                    None,
+                    None
+                )
+                .unwrap()
+                .as_str()
+            )
+            .unwrap(),
+            mm.selection_value("Install Type")
+        );
 
-                    prerequisites();
+        prerequisites();
 
-                    handles::install_type(mm.selection_value("Install Type"));
+        handles::install_type(mm.selection_value("Install Type"));
 
-                    wait::seconds(720);
-                }
-            }
-        }
+        wait::seconds(720);
     }
 }
 
