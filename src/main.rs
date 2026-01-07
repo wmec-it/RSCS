@@ -1,5 +1,5 @@
 use colored_text::Colorize;
-use std::process::{Command, ExitCode};
+use std::process::Command;
 use terminal_menu::*;
 
 use conf::enums::{DelimiterType, MessageType};
@@ -14,10 +14,10 @@ mod system;
 mod testing;
 mod utils;
 
-fn main() -> ExitCode {
+fn main() {
     if cfg!(target_os = "windows") {
         open_menu("");
-        return ExitCode::SUCCESS;
+        std::process::exit(1);
     } else {
         message::error(
             MessageType::Print,
@@ -36,7 +36,7 @@ fn main() -> ExitCode {
 
         Command::new("clear").status().unwrap();
 
-        return ExitCode::FAILURE;
+        std::process::exit(2);
     }
 }
 
@@ -48,7 +48,7 @@ fn open_menu(operation_type: &str) {
         "skip" => {
             user::enable_sudo();
             prerequisites();
-            handles::install_type("Full Install");
+            handles::install_type("Skip all tweaks");
         }
         _ => {
             let menu = menu(vec![

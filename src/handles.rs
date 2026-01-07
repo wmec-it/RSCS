@@ -10,6 +10,7 @@ pub fn install_type(install_type: &str) {
         "Install Programs" => run_install_programs(),
         "Remove Installed Programs (from this script)" => remove_installed_programs(),
         "Remove Unecessary Programs (or bad ones)" => run_remove_unnecessary_programs(),
+        "Skip all tweaks" => skip_all_tweaks(),
         _ => errors::idk(),
     }
 }
@@ -97,4 +98,32 @@ pub fn remove_installed_programs() {
 
 fn run_remove_unnecessary_programs() {
     // Nothing for now...
+}
+
+fn skip_all_tweaks() {
+    message::success(
+        MessageType::Print,
+        message::add_delimiter(
+            DelimiterType::Layer1Add,
+            "Starting Full Install...\n|".to_string(),
+            Some(true),
+            None,
+            None,
+        )
+        .unwrap()
+        .as_str(),
+    );
+
+    message::success(
+        MessageType::Print,
+        message::add_delimiter(
+            DelimiterType::Layer1Success,
+            "Full Install Finished Successfully!!!".to_string(),
+            Some(true),
+            None,
+            Some(true),
+        )
+        .unwrap()
+        .as_str(),
+    );
 }
