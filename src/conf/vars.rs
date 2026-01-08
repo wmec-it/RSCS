@@ -80,6 +80,8 @@ pub const INSTALL_PROGRAMS: &[&str] = &[
     "Microsoft.VisualStudioCode",
     "Microsoft.VisualStudio.2019.BuildTools",
     "AngusJohnson.ResourceHacker",
+    "Genymobile.scrcpy",
+    "Google.PlatformTools",
 ];
 pub const MAIN_THEME: Theme = Theme {
     primary: "F57E20",
