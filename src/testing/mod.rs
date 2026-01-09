@@ -1,9 +1,12 @@
-use std::process::Command;
+use crate::{system::utils::commands::exec::ps1, utils::files::create_temp_file};
 
 pub fn testing() {
-    let out = Command::new("powershell").arg("-Command").arg("$settingsContent = Get-Content -Path $settingsPath | ConvertFrom-Json; $ps7Profile = $settingsContent.profiles.list | Where-Object { $_.name -eq $targetTerminalName }; if ($ps7Profile) {$settingsContent.defaultProfile = $ps7Profile.guid; $updatedSettings = $settingsContent | ConvertTo-Json -Depth 100;Set-Content -Path $settingsPath -Value $updatedSettings}").output().expect("sadasdsd");
-    println!("{:#?}", String::from_utf8_lossy(&out.stdout).to_string());
-    // if String::from_utf8_lossy(&out.stdout).to_string() == "" {
-    //     println!("Meow");
-    // }
+    let script_path =
+        create_temp_file(include_bytes!("../external/scripts/popup.ps1"), "popup.ps1")
+            .expect("Failed to create temp file");
+
+    match ps1(&script_path) {
+        Ok(()) => println!("\x1b[92mSuccessfully ran script!\x1b[0m"),
+        Err(error) => println!("Error: {}", error),
+    };
 }
