@@ -1,11 +1,11 @@
 use colored_text::Colorize;
-use std::process::Command;
+use std::{io, process::Command};
 use terminal_menu::*;
 
 use conf::enums::{DelimiterType, MessageType};
 use conf::vars::{INSTALL_TYPES, MAIN_THEME, PROGRAM_TITLE, PUNCHDOWN_PAUL};
 use testing::testing;
-use utils::{message, user, wait};
+use utils::{message, user};
 
 mod conf;
 mod external;
@@ -14,11 +14,22 @@ mod system;
 mod testing;
 mod utils;
 
-fn main() {
+fn main() -> Result<(), io::Error> {
+    // Check if OS is Windows
     if cfg!(target_os = "windows") {
+        // Open menu
         open_menu("");
-        std::process::exit(1);
+
+        // Prompt user to exit
+        let mut buffer = String::new();
+        let stdin = io::stdin();
+        println!("Press enter to exit...");
+        stdin.read_line(&mut buffer)?;
+
+        // Exit
+        Ok(())
     } else {
+        // Show error
         message::error(
             MessageType::Print,
             message::add_delimiter(
@@ -32,11 +43,14 @@ fn main() {
             .as_str(),
         );
 
-        wait::miliseconds(2000);
+        // Clear terminal
+        Command::new("clear").status()?;
 
-        Command::new("clear").status().unwrap();
-
-        std::process::exit(2);
+        // Return error
+        Err(io::Error::new(
+            io::ErrorKind::Unsupported,
+            "You cannot run this script on Linux!",
+        ))
     }
 }
 
@@ -105,8 +119,6 @@ fn menu_logic(menu: std::sync::Arc<std::sync::RwLock<TerminalMenuStruct>>) {
         prerequisites();
 
         handles::install_type(mm.selection_value("Install Type"));
-
-        wait::seconds(720);
     }
 }
 
