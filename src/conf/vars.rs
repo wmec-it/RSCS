@@ -82,6 +82,7 @@ pub const INSTALL_PROGRAMS: &[&str] = &[
     "AngusJohnson.ResourceHacker",
     "Genymobile.scrcpy",
     "Google.PlatformTools",
+    "Rufus.Rufus",
 ];
 pub const MAIN_THEME: Theme = Theme {
     primary: "F57E20",
