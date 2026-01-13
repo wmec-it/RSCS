@@ -80,14 +80,19 @@ fn open_menu(operation_type: &str) -> Result<(), io::Error> {
             ]);
             run(&menu);
             {
-                menu_logic(menu);
+                match menu_logic(menu) {
+                    Ok(()) => (),
+                    Err(error) => println!("{}", error),
+                };
             }
             Ok(())
         }
     }
 }
 
-fn menu_logic(menu: std::sync::Arc<std::sync::RwLock<TerminalMenuStruct>>) {
+fn menu_logic(
+    menu: std::sync::Arc<std::sync::RwLock<TerminalMenuStruct>>,
+) -> Result<(), io::Error> {
     if !mut_menu(&menu).canceled() == true {
         println!("{}", format!("{}", PUNCHDOWN_PAUL).hex(MAIN_THEME.primary));
 
@@ -127,6 +132,7 @@ fn menu_logic(menu: std::sync::Arc<std::sync::RwLock<TerminalMenuStruct>>) {
 
         handles::install_type(mm.selection_value("Install Type"));
     }
+    Ok(())
 }
 
 fn prerequisites() {
