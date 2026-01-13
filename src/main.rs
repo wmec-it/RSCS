@@ -18,8 +18,11 @@ mod utils;
 fn main() -> Result<(), io::Error> {
     // Check if OS is Windows
     if cfg!(target_os = "windows") {
-        // Open menu
-        open_menu("");
+        // Open menu and catch any errors
+        match open_menu("") {
+            Ok(()) => (),
+            Err(error) => println!("{}", error),
+        };
 
         // Prompt user to exit
         let mut buffer = String::new();
@@ -55,15 +58,17 @@ fn main() -> Result<(), io::Error> {
     }
 }
 
-fn open_menu(operation_type: &str) {
+fn open_menu(operation_type: &str) -> Result<(), io::Error> {
     match operation_type {
         "testing" => {
             testing();
+            Ok(())
         }
         "skip" => {
             user::enable_sudo();
             prerequisites();
             handles::install_type("Skip all tweaks");
+            Ok(())
         }
         _ => {
             let menu = menu(vec![
@@ -77,6 +82,7 @@ fn open_menu(operation_type: &str) {
             {
                 menu_logic(menu);
             }
+            Ok(())
         }
     }
 }
