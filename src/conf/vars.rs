@@ -83,6 +83,7 @@ pub const INSTALL_PROGRAMS: &[&str] = &[
     "Genymobile.scrcpy",
     "Google.PlatformTools",
     "Rufus.Rufus",
+    "WinsiderSS.SystemInformer",
 ];
 pub const MAIN_THEME: Theme = Theme {
     primary: "F57E20",
