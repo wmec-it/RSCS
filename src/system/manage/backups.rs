@@ -4,10 +4,10 @@ use crate::{
     conf::enums::{DelimiterType, MessageType},
     utils::message,
 };
-use std::process::Command;
+use std::{io, process::Command};
 use terminal_menu::*;
 
-pub fn create_restore_point() {
+pub fn create_restore_point() -> Result<(), io::Error> {
     let menu = menu(vec![
         label("Do you want to create a restore point?"),
         label(""),
@@ -94,6 +94,7 @@ pub fn create_restore_point() {
                         .unwrap()
                         .as_str(),
                     );
+                    Ok(())
                 } else {
                     message::error(
                         MessageType::Print,
@@ -112,8 +113,23 @@ pub fn create_restore_point() {
                         .unwrap()
                         .as_str(),
                     );
+                    // Return error
+                    Err(io::Error::new(
+                        io::ErrorKind::Other,
+                        "Failed to create a restore point...",
+                    ))
                 }
+            } else {
+                Err(io::Error::new(
+                    io::ErrorKind::Other,
+                    "Failed to create a restore point...",
+                ))
             }
+        } else {
+            Err(io::Error::new(
+                io::ErrorKind::Other,
+                "Failed to create a restore point...",
+            ))
         }
     }
 }

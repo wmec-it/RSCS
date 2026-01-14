@@ -135,6 +135,7 @@ fn menu_logic(
     Ok(())
 }
 
-fn prerequisites() {
+fn prerequisites() -> Result<(), io::Error> {
     system::manage::backups::create_restore_point();
+    Ok(())
 }
