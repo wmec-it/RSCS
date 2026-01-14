@@ -1,6 +1,7 @@
 use crate::conf::enums::{DelimiterType, MessageType};
 use crate::utils::message;
 
+#[allow(dead_code)]
 pub fn idk() -> () {
     message::error(
         MessageType::Print,
@@ -13,5 +14,41 @@ pub fn idk() -> () {
         )
         .unwrap()
         .as_str(),
+    );
+}
+
+#[allow(dead_code)]
+pub fn function(error: &str) -> () {
+    message::error(
+        MessageType::Print,
+        message::add_delimiter(
+            DelimiterType::Layer1Error,
+            error.to_string(),
+            Some(true),
+            None,
+            Some(true),
+        )
+        .unwrap()
+        .as_str(),
+    );
+}
+
+#[allow(dead_code)]
+pub fn return_formatted(error: &str) -> std::io::Error {
+    return std::io::Error::new(
+        std::io::ErrorKind::Other,
+        message::error(
+            MessageType::Return,
+            message::add_delimiter(
+                DelimiterType::Layer1Error,
+                error.to_string(),
+                Some(true),
+                None,
+                Some(true),
+            )
+            .unwrap()
+            .as_str(),
+        )
+        .unwrap(),
     );
 }

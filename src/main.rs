@@ -148,18 +148,7 @@ fn menu_logic(
         match prerequisites() {
             Ok(()) => (),
             Err(error) => {
-                message::error(
-                    MessageType::Print,
-                    message::add_delimiter(
-                        DelimiterType::Layer1Error,
-                        "Prerequisites failed to run...".to_string(),
-                        Some(true),
-                        None,
-                        Some(true),
-                    )
-                    .unwrap()
-                    .as_str(),
-                );
+                utils::errors::function("Prerequisites failed to run...");
                 return Err(error);
             }
         }
@@ -178,6 +167,9 @@ fn menu_logic(
 fn prerequisites() -> Result<(), io::Error> {
     match system::manage::backups::create_restore_point() {
         Ok(()) => Ok(()),
-        Err(error) => Err(error),
+        Err(error) => {
+            utils::errors::function("Failed to handle menu logic...");
+            return Err(error);
+        }
     }
 }
