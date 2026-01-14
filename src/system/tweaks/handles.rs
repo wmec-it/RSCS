@@ -1,10 +1,33 @@
-use crate::{
-    conf::enums::{DelimiterType, MessageType},
-    system::{tweaks, utils},
+use crate: :{
+    conf:: enums::{DelimiterType, MessageType},
+    system: :{tweaks, utils},
     utils::message,
+    utils::progress::SharedProgressBar,
 };
 
 pub fn run_tweaks() {
+    // Original implementation without progress bar
+    run_tweaks_internal(None, 0);
+}
+
+pub fn run_tweaks_with_progress(progress_bar:  &SharedProgressBar, offset: usize) {
+    run_tweaks_internal(Some(progress_bar), offset);
+}
+
+fn run_tweaks_internal(progress_bar: Option<&SharedProgressBar>, offset: usize) {
+    let mut current_tweak = 0;
+    
+    // Helper macro to update progress after each tweak
+    macro_rules! run_tweak {
+        ($tweak: expr) => {
+            $tweak;
+            current_tweak += 1;
+            if let Some(pb) = &progress_bar {
+                pb.lock().unwrap().set_progress(offset + current_tweak);
+            }
+        };
+    }
+
     message::success(
         MessageType::Print,
         message::add_delimiter(
@@ -23,7 +46,7 @@ pub fn run_tweaks() {
         MessageType::Print,
         message::add_delimiter(
             DelimiterType::Layer1Info,
-            "Running Powershell tweaks".to_string(),
+            "Running Powershell tweaks". to_string(),
             Some(true),
             Some(true),
             None,
@@ -32,13 +55,13 @@ pub fn run_tweaks() {
         .as_str(),
     );
 
-    tweaks::powershell::ps7::full();
-    tweaks::powershell::ps7telemetry::disable();
+    run_tweak!(tweaks::powershell::ps7:: full());
+    run_tweak!(tweaks::powershell:: ps7telemetry::disable());
 
     // Registry Tweaks
     message::info(
         MessageType::Print,
-        message::add_delimiter(
+        message:: add_delimiter(
             DelimiterType::Layer1Info,
             "Running Registry tweaks".to_string(),
             Some(true),
@@ -49,31 +72,31 @@ pub fn run_tweaks() {
         .as_str(),
     );
 
-    tweaks::registry::rclick_end_task::enable();
-    tweaks::registry::prefer_ipv4::enable();
-    tweaks::registry::bingsearch_startmenu::disable();
-    tweaks::registry::darkmode::enable();
-    tweaks::registry::explorerpatcher_config::enable();
-    tweaks::registry::taskbar_taskview_button::disable();
-    tweaks::registry::stickykeys_startup::disable();
-    tweaks::registry::taskbar_widgets_button::disable();
-    tweaks::registry::verbose_logon_messages::enable();
-    tweaks::registry::hiddenfilesvisibility::enable();
-    tweaks::registry::fileextensionvisibility::enable();
-    tweaks::registry::detailedbsod::enable();
-    tweaks::registry::explorer_homegallery::disable();
-    tweaks::registry::onedrive::disable();
-    tweaks::registry::displayperformance_mode::enable();
-    tweaks::registry::microsoftcopilot::disable();
-    tweaks::registry::taskbar_search_button::enable();
-    tweaks::registry::taskbar_alignment::left();
-    tweaks::registry::notificationtray::disable();
-    tweaks::registry::intel_mm_lms::disable();
+    run_tweak!(tweaks::registry::rclick_end_task:: enable());
+    run_tweak!(tweaks::registry::prefer_ipv4:: enable());
+    run_tweak!(tweaks::registry::bingsearch_startmenu::disable());
+    run_tweak!(tweaks::registry::darkmode::enable());
+    run_tweak!(tweaks::registry::explorerpatcher_config::enable());
+    run_tweak!(tweaks::registry:: taskbar_taskview_button::disable());
+    run_tweak!(tweaks::registry::stickykeys_startup::disable());
+    run_tweak!(tweaks::registry:: taskbar_widgets_button::disable());
+    run_tweak!(tweaks::registry:: verbose_logon_messages::enable());
+    run_tweak!(tweaks::registry::hiddenfilesvisibility::enable());
+    run_tweak!(tweaks::registry::fileextensionvisibility::enable());
+    run_tweak!(tweaks::registry::detailedbsod::enable());
+    run_tweak!(tweaks::registry:: explorer_homegallery::disable());
+    run_tweak!(tweaks::registry::onedrive:: disable());
+    run_tweak!(tweaks::registry::displayperformance_mode::enable());
+    run_tweak!(tweaks::registry::microsoftcopilot:: disable());
+    run_tweak!(tweaks::registry::taskbar_search_button::enable());
+    run_tweak!(tweaks::registry::taskbar_alignment::left());
+    run_tweak!(tweaks::registry::notificationtray:: disable());
+    run_tweak!(tweaks::registry::intel_mm_lms::disable());
 
     utils::explorer::restart();
 
     // Power Tweaks
-    message::info(
+    message:: info(
         MessageType::Print,
         message::add_delimiter(
             DelimiterType::Layer1Info,
@@ -86,5 +109,5 @@ pub fn run_tweaks() {
         .as_str(),
     );
 
-    tweaks::power::ultimate_powerplan::enable();
+    run_tweak!(tweaks:: power::ultimate_powerplan::enable());
 }
