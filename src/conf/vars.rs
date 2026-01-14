@@ -84,7 +84,7 @@ pub const INSTALL_PROGRAMS: &[&str] = &[
     "Google.PlatformTools",
     "Rufus.Rufus",
     "WinsiderSS.SystemInformer",
-    "usbipd-win",
+    "dorssel.usbipd-win",
 ];
 pub const MAIN_THEME: Theme = Theme {
     primary: "F57E20",
