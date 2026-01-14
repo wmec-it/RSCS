@@ -1,10 +1,10 @@
 // https://winutil.christitus.com/dev/tweaks/z--advanced-tweaks---caution/removehomegallery/
 
-use crate::system::tweaks::templates;
+use crate::{AppContext, system::tweaks::templates};
 
 #[allow(dead_code)]
-pub fn enable() {
-    templates::default(
+pub fn enable(ctx: &mut AppContext) {
+    templates::default(ctx, 
         "Adding Home and Gallery to Explorer...",
         "Successfully added Home and Gallery to Explorer!",
         "Failed to add Home and Gallery to Explorer...",
@@ -17,8 +17,8 @@ pub fn enable() {
 }
 
 #[allow(dead_code)]
-pub fn disable() {
-    templates::default(
+pub fn disable(ctx: &mut AppContext) {
+    templates::default(ctx, 
         "Removing Home and Gallery from Explorer...",
         "Successfully removed Home and Gallery from Explorer!",
         "Failed to remove Home and Gallery from Explorer...",

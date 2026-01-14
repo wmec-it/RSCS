@@ -1,10 +1,10 @@
 // https://winutil.christitus.com/dev/tweaks/z--advanced-tweaks---caution/disablenotifications/
 
-use crate::system::tweaks::templates;
+use crate::{AppContext, system::tweaks::templates};
 
 #[allow(dead_code)]
-pub fn enable() {
-    templates::default(
+pub fn enable(ctx: &mut AppContext) {
+    templates::default(ctx, 
         "Enabling Notification Center and Calendar...",
         "Successfully enabled Notification Center and Calendar!",
         "Failed to enable Notification Center and Calendar...",
@@ -16,8 +16,8 @@ pub fn enable() {
 }
 
 #[allow(dead_code)]
-pub fn disable() {
-    templates::default(
+pub fn disable(ctx: &mut AppContext) {
+    templates::default(ctx, 
         "Disabling Notification Center and Calendar...",
         "Successfully disabled Notification Center and Calendar!",
         "Failed to disable Notification Center and Calendar...",

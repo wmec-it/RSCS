@@ -1,18 +1,23 @@
 // https://winutil.christitus.com/dev/tweaks/essential-tweaks/powershell7/
 
 use crate::{
+    AppContext,
     conf::enums::{DelimiterType, MessageType},
     system::programs::winget::winget_install,
     utils::message,
 };
 use std::process::Command;
 
-pub fn full() {
+pub fn full(ctx: &mut AppContext) {
+    let new_value: u8 = ctx.pbl + 1;
+    ctx.set_pbl_value(new_value);
+
     #[allow(unused_mut)]
     let mut has_failed_install: bool = false;
     let mut has_failed_customization: bool = false;
 
     message::info(
+        ctx,
         MessageType::Print,
         message::add_delimiter(
             DelimiterType::Layer2Info,
@@ -25,9 +30,10 @@ pub fn full() {
         .as_str(),
     );
 
-    winget_install("Microsoft.PowerShell");
+    winget_install(ctx, "Microsoft.PowerShell");
 
     message::success(
+        ctx,
         MessageType::Print,
         message::add_delimiter(
             DelimiterType::Layer2Success,
@@ -48,6 +54,7 @@ pub fn full() {
     if String::from_utf8_lossy(&check_wt_output.stdout).to_string() == "" {
         has_failed_customization = true;
         message::error(
+            ctx,
             MessageType::Print,
             message::add_delimiter(
                 DelimiterType::Layer2Error,
@@ -72,6 +79,7 @@ pub fn full() {
             .contains("True")
         {
             message::normal(
+                ctx,
                 MessageType::Print,
                 message::add_delimiter(
                     DelimiterType::Layer2,
@@ -85,6 +93,7 @@ pub fn full() {
             );
 
             message::normal(
+                ctx,
                 MessageType::Print,
                 message::add_delimiter(
                     DelimiterType::Layer2,
@@ -98,6 +107,7 @@ pub fn full() {
             );
 
             message::info(
+                ctx,
                 MessageType::Print,
                 message::add_delimiter(
                     DelimiterType::Layer2Info,
@@ -128,6 +138,7 @@ pub fn full() {
                 .expect("Error...");
 
             message::success(
+                ctx,
                 MessageType::Print,
                 message::add_delimiter(
                     DelimiterType::Layer2Success,
@@ -141,7 +152,7 @@ pub fn full() {
             );
         } else {
             has_failed_customization = true;
-            message::error(
+            message::error(ctx, 
                 MessageType::Print,
                 message
                     ::add_delimiter(
@@ -158,8 +169,9 @@ pub fn full() {
     }
 
     if !has_failed_customization && !has_failed_install {
-        message::success(MessageType::Print, "|");
+        message::success(ctx, MessageType::Print, "|");
         message::success(
+            ctx,
             MessageType::Print,
             message::add_delimiter(
                 DelimiterType::Layer2Success,
@@ -173,8 +185,9 @@ pub fn full() {
             .as_str(),
         );
     } else if !has_failed_customization && has_failed_install {
-        message::error(MessageType::Print, "|");
+        message::error(ctx, MessageType::Print, "|");
         message::error(
+            ctx,
             MessageType::Print,
             message::add_delimiter(
                 DelimiterType::Layer2Error,
@@ -188,8 +201,8 @@ pub fn full() {
             .as_str(),
         );
     } else if has_failed_customization && !has_failed_install {
-        message::error(MessageType::Print, "|");
-        message::error(
+        message::error(ctx, MessageType::Print, "|");
+        message::error(ctx, 
             MessageType::Print,
             message
                 ::add_delimiter(
@@ -203,4 +216,5 @@ pub fn full() {
                 .as_str()
         );
     }
+    ctx.pb.inc(1);
 }

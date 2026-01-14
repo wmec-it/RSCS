@@ -1,10 +1,10 @@
 // Link to script (if applicable)
 
-use crate::system::tweaks::templates;
+use crate::{AppContext, system::tweaks::templates};
 
 #[allow(dead_code)]
-pub fn enable() {
-    templates::default(
+pub fn enable(ctx: &mut AppContext) {
+    templates::default(ctx, 
         run_message,
         success_message,
         error_message,
@@ -13,8 +13,8 @@ pub fn enable() {
 }
 
 #[allow(dead_code)]
-pub fn disable() {
-    templates::default(
+pub fn disable(ctx: &mut AppContext) {
+    templates::default(ctx, 
         run_message,
         success_message,
         error_message,

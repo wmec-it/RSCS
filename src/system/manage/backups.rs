@@ -1,13 +1,14 @@
 // https://winutil.christitus.com/dev/tweaks/essential-tweaks/restorepoint/
 
 use crate::{
+    AppContext,
     conf::enums::{DelimiterType, MessageType},
     utils::message,
 };
 use std::{io, process::Command};
 use terminal_menu::*;
 
-pub fn create_restore_point() -> Result<(), io::Error> {
+pub fn create_restore_point(ctx: &mut AppContext) -> Result<(), io::Error> {
     let menu = menu(vec![
         label("Do you want to create a restore point?"),
         label(""),
@@ -19,6 +20,7 @@ pub fn create_restore_point() -> Result<(), io::Error> {
         if !mut_menu(&menu).canceled() == true {
             if mut_menu(&menu).selected_item_name() == "Yes" {
                 message::normal(
+                    ctx,
                     MessageType::Print,
                     message::add_delimiter(
                         DelimiterType::Layer1,
@@ -83,6 +85,7 @@ pub fn create_restore_point() -> Result<(), io::Error> {
 
                 if output.status.success() {
                     message::success(
+                        ctx,
                         MessageType::Print,
                         message::add_delimiter(
                             DelimiterType::Layer2Success,
@@ -97,6 +100,7 @@ pub fn create_restore_point() -> Result<(), io::Error> {
                     Ok(())
                 } else {
                     message::error(
+                        ctx,
                         MessageType::Print,
                         message::add_delimiter(
                             DelimiterType::Layer2Error,
@@ -121,6 +125,7 @@ pub fn create_restore_point() -> Result<(), io::Error> {
                 }
             } else if mut_menu(&menu).selected_item_name() == "No" {
                 message::info(
+                    ctx,
                     MessageType::Print,
                     message::add_delimiter(
                         DelimiterType::Layer1Info,

@@ -1,4 +1,5 @@
 use crate::{
+    AppContext,
     conf::{
         enums::{DelimiterType, MessageType},
         vars::INSTALL_PROGRAMS,
@@ -7,12 +8,13 @@ use crate::{
     utils::message,
 };
 
-pub fn installed_programs() {
+pub fn installed_programs(ctx: &mut AppContext) {
     for program in INSTALL_PROGRAMS {
-        system::programs::winget::winget_remove(program);
+        system::programs::winget::winget_remove(ctx, program);
     }
 
     message::success(
+        ctx,
         MessageType::Print,
         message::add_delimiter(
             DelimiterType::Layer1,
@@ -26,6 +28,7 @@ pub fn installed_programs() {
     );
 }
 
-pub fn unnecessary_programs() {
+#[allow(unused)]
+pub fn unnecessary_programs(ctx: &mut AppContext) {
     // Nothing for now...
 }

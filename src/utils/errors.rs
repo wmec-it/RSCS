@@ -1,9 +1,11 @@
+use crate::AppContext;
 use crate::conf::enums::{DelimiterType, MessageType};
 use crate::utils::message;
 
 #[allow(dead_code)]
-pub fn idk() -> () {
+pub fn idk(ctx: &mut AppContext) -> () {
     message::error(
+        ctx,
         MessageType::Print,
         message::add_delimiter(
             DelimiterType::Frown,
@@ -18,8 +20,9 @@ pub fn idk() -> () {
 }
 
 #[allow(dead_code)]
-pub fn function(error: &str) -> () {
+pub fn function(ctx: &mut AppContext, error: &str) -> () {
     message::error(
+        ctx,
         MessageType::Print,
         message::add_delimiter(
             DelimiterType::Layer1Error,
@@ -34,10 +37,11 @@ pub fn function(error: &str) -> () {
 }
 
 #[allow(dead_code)]
-pub fn return_formatted(error: &str) -> std::io::Error {
+pub fn return_formatted(ctx: &mut AppContext, error: &str) -> std::io::Error {
     return std::io::Error::new(
         std::io::ErrorKind::Other,
         message::error(
+            ctx,
             MessageType::Return,
             message::add_delimiter(
                 DelimiterType::Layer1Error,

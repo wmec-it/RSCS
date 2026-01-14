@@ -1,10 +1,11 @@
 // https://winutil.christitus.com/dev/tweaks/customize-preferences/taskbaralignment/
 
-use crate::system::tweaks::templates;
+use crate::{AppContext, system::tweaks::templates};
 
 #[allow(dead_code)]
-pub fn center() {
+pub fn center(ctx: &mut AppContext) {
     templates::default(
+        ctx,
         "Setting Taskbar alignment to center...",
         "Successfully set Taskbar alignment to center!",
         "Failed to set Taskbar alignment to center...",
@@ -13,8 +14,9 @@ pub fn center() {
 }
 
 #[allow(dead_code)]
-pub fn left() {
+pub fn left(ctx: &mut AppContext) {
     templates::default(
+        ctx,
         "Setting Taskbar alignment to the left...",
         "Successfully set Taskbar alignment to the left!",
         "Failed to set Taskbar alignment to the left...",

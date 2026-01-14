@@ -1,8 +1,9 @@
+use crate::AppContext;
 use crate::conf::enums::{DelimiterType, MessageType};
 use crate::utils::message::{add_delimiter, error, info};
 use std::process::Command;
 
-pub fn enable_sudo() {
+pub fn enable_sudo(ctx: &mut AppContext) {
     let enable_sudo_command_output = Command::new("powershell")
         .arg("-Command")
         .arg("sudo config --enable normal")
@@ -11,6 +12,7 @@ pub fn enable_sudo() {
 
     if !enable_sudo_command_output.status.success() {
         error(
+            ctx,
             MessageType::Print,
             add_delimiter(
                 DelimiterType::Layer1Error,
@@ -24,6 +26,7 @@ pub fn enable_sudo() {
         );
     } else {
         info(
+            ctx,
             MessageType::Print,
             add_delimiter(
                 DelimiterType::Layer1Info,

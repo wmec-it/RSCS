@@ -1,8 +1,8 @@
-use crate::system::tweaks::templates;
+use crate::{AppContext, system::tweaks::templates};
 
 #[allow(dead_code)]
-pub fn enable() {
-    templates::default("Configuring ExplorerPatcher...", "Successfully configured ExplorerPatcher!", "Error configuring ExplorerPatcher...", "
+pub fn enable(ctx: &mut AppContext) {
+    templates::default(ctx, "Configuring ExplorerPatcher...", "Successfully configured ExplorerPatcher!", "Error configuring ExplorerPatcher...", "
         $registryEntries = @(
             @{Path = \"HKCU:\\Software\\ExplorerPatcher\"; Name = \"ImportOK\"; Value = 1},
             @{Path = \"HKCU:\\Software\\ExplorerPatcher\"; Name = \"OldTaskbar\"; Value = 2},
@@ -91,7 +91,7 @@ pub fn enable() {
     );
 }
 
-#[allow(dead_code)]
-pub fn disable() {
+#[allow(unused)]
+pub fn disable(ctx: &mut AppContext) {
     // TODO: Add disabling (revert to defaults)
 }

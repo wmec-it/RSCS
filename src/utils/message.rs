@@ -1,63 +1,73 @@
-use crate::conf::{enums::DelimiterType, enums::MessageType, vars::DELIMITERS, vars::MAIN_THEME};
+use crate::{
+    AppContext,
+    conf::{
+        enums::{DelimiterType, MessageType},
+        vars::{DELIMITERS, MAIN_THEME},
+    },
+};
 use colored_text::Colorize;
 
 #[allow(dead_code)]
-pub fn normal(normal_type: MessageType, value: &str) -> Option<String> {
+pub fn normal(ctx: &mut AppContext, normal_type: MessageType, value: &str) -> Option<String> {
     match normal_type {
         MessageType::Return => Some(value.to_string()),
         MessageType::Print => {
-            println!("{}", value);
+            ctx.pb.println(value);
             None
         }
     }
 }
 
 #[allow(dead_code)]
-pub fn error(error_type: MessageType, value: &str) -> Option<String> {
+pub fn error(ctx: &mut AppContext, error_type: MessageType, value: &str) -> Option<String> {
     match error_type {
         MessageType::Return => Some(value.hex(MAIN_THEME.error).to_string()),
         MessageType::Print => {
-            println!("{}", value.hex(MAIN_THEME.error));
+            ctx.pb.println(value.hex(MAIN_THEME.error));
             None
         }
     }
 }
 
 #[allow(dead_code)]
-pub fn success(success_type: MessageType, value: &str) -> Option<String> {
+pub fn success(ctx: &mut AppContext, success_type: MessageType, value: &str) -> Option<String> {
     match success_type {
         MessageType::Return => Some(value.hex(MAIN_THEME.success).to_string()),
         MessageType::Print => {
-            println!("{}", value.hex(MAIN_THEME.success));
+            ctx.pb.println(value.hex(MAIN_THEME.success));
             None
         }
     }
 }
 
 #[allow(dead_code)]
-pub fn warning(warning_type: MessageType, value: &str) -> Option<String> {
+pub fn warning(ctx: &mut AppContext, warning_type: MessageType, value: &str) -> Option<String> {
     match warning_type {
         MessageType::Return => Some(value.hex(MAIN_THEME.warning).to_string()),
         MessageType::Print => {
-            println!("{}", value.hex(MAIN_THEME.warning));
+            ctx.pb.println(value.hex(MAIN_THEME.warning));
             None
         }
     }
 }
 
 #[allow(dead_code)]
-pub fn info(info_type: MessageType, value: &str) -> Option<String> {
+pub fn info(ctx: &mut AppContext, info_type: MessageType, value: &str) -> Option<String> {
     match info_type {
         MessageType::Return => Some(value.hex(MAIN_THEME.info).to_string()),
         MessageType::Print => {
-            println!("{}", value.hex(MAIN_THEME.info));
+            ctx.pb.println(value.hex(MAIN_THEME.info));
             None
         }
     }
 }
 
 #[allow(dead_code)]
-pub fn error_banner(error_banner_type: MessageType, value: &str) -> Option<String> {
+pub fn error_banner(
+    ctx: &mut AppContext,
+    error_banner_type: MessageType,
+    value: &str,
+) -> Option<String> {
     let text_color: &str = "000000";
     match error_banner_type {
         MessageType::Return => Some(
@@ -68,7 +78,8 @@ pub fn error_banner(error_banner_type: MessageType, value: &str) -> Option<Strin
                 .to_string(),
         ),
         MessageType::Print => {
-            println!("{}", value.on_hex(MAIN_THEME.error).hex(&text_color).bold());
+            ctx.pb
+                .println(value.on_hex(MAIN_THEME.error).hex(&text_color).bold());
             None
         }
     }
@@ -222,10 +233,9 @@ pub fn add_delimiter(
     Some(result)
 }
 
-pub fn seperator() {
-    println!(
-        "{}",
+pub fn seperator(ctx: &mut AppContext) {
+    ctx.pb.println(
         "-----------------------------------------------------------------------------------"
-            .hex("5C5C5C")
+            .hex("5C5C5C"),
     );
 }

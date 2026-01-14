@@ -1,11 +1,13 @@
 use crate::{
+    AppContext,
     conf::enums::{DelimiterType, MessageType},
     system,
     utils::message,
 };
 
-pub fn full() {
+pub fn full(ctx: &mut AppContext) {
     message::success(
+        ctx,
         MessageType::Print,
         message::add_delimiter(
             DelimiterType::Layer1Add,
@@ -18,11 +20,12 @@ pub fn full() {
         .as_str(),
     );
 
-    system::programs::install_programs();
-    message::seperator();
-    system::tweaks::handles::run_tweaks();
+    system::programs::install_programs(ctx);
+    message::seperator(ctx);
+    system::tweaks::handles::run_tweaks(ctx);
 
     message::success(
+        ctx,
         MessageType::Print,
         message::add_delimiter(
             DelimiterType::Layer1Success,
@@ -36,8 +39,9 @@ pub fn full() {
     );
 }
 
-pub fn programs() {
+pub fn programs(ctx: &mut AppContext) {
     message::success(
+        ctx,
         MessageType::Print,
         message::add_delimiter(
             DelimiterType::Layer1Add,
@@ -50,9 +54,10 @@ pub fn programs() {
         .as_str(),
     );
 
-    system::programs::install_programs();
+    system::programs::install_programs(ctx);
 
     message::success(
+        ctx,
         MessageType::Print,
         message::add_delimiter(
             DelimiterType::Layer2Success,

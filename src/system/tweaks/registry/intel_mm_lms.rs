@@ -1,16 +1,16 @@
 // https://winutil.christitus.com/dev/tweaks/z--advanced-tweaks---caution/disablelms1/
 
-use crate::system::tweaks::templates;
+use crate::{AppContext, system::tweaks::templates};
 
-#[allow(dead_code)]
-pub fn enable() {
+#[allow(unused)]
+pub fn enable(ctx: &mut AppContext) {
     // You can't...
     // Go to intel.com and install it again.
 }
 
 #[allow(dead_code)]
-pub fn disable() {
-    templates::default(
+pub fn disable(ctx: &mut AppContext) {
+    templates::default(ctx, 
         "Disabling Intel MM LMS...",
         "Successfully disabled Intel MM LMS!",
         "Failed to disable Intel MM LMS...",

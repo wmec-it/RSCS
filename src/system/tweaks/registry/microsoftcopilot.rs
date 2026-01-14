@@ -2,11 +2,12 @@
 // https://github.com/ChrisTitusTech/winutil/blob/main/config/tweaks.json
 // -    WPFTweaksRemoveCopilot
 
-use crate::system::tweaks::templates;
+use crate::{AppContext, system::tweaks::templates};
 
 #[allow(dead_code)]
-pub fn enable() {
+pub fn enable(ctx: &mut AppContext) {
     templates::admin(
+        ctx,
         "Enabling Microsoft Copilot...",
         "Successfully enabled Microsoft Copilot!",
         "Failed to enable Microsoft Copilot",
@@ -15,8 +16,8 @@ pub fn enable() {
 }
 
 #[allow(dead_code)]
-pub fn disable() {
-    templates::admin(
+pub fn disable(ctx: &mut AppContext) {
+    templates::admin(ctx, 
         "Removing Microsoft Copilot...",
         "Successfully removed Microsoft Copilot!",
         "Failed to remove Microsoft Copilot",

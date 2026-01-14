@@ -1,4 +1,5 @@
 use colored_text::Colorize;
+use indicatif::ProgressBar;
 use std::{io, process::Command};
 use terminal_menu::*;
 
@@ -6,6 +7,8 @@ use conf::enums::{DelimiterType, MessageType};
 use conf::vars::{INSTALL_TYPES, MAIN_THEME, PROGRAM_TITLE, PUNCHDOWN_PAUL};
 use testing::testing;
 use utils::{message, user};
+
+use crate::conf::vars::INSTALL_PROGRAMS;
 
 mod conf;
 mod external;
@@ -15,19 +18,59 @@ mod testing;
 mod types;
 mod utils;
 
+struct AppContext {
+    pbl: u8,
+    pb: ProgressBar,
+}
+
+impl AppContext {
+    pub fn new(initial_value: u8) -> Self {
+        let pb = Self::create_progressbar(initial_value);
+        Self {
+            pbl: initial_value,
+            pb,
+        }
+    }
+
+    fn create_progressbar(value: u8) -> ProgressBar {
+        ProgressBar::new(value as u64)
+    }
+
+    // Mutator method with custom logic
+    pub fn set_pbl_value(&mut self, new_value: u8) {
+        self.pbl = new_value;
+        // You can run any other function or logic here
+        self.run_extra_pbl_logic();
+    }
+
+    // Accessor method
+    pub fn get_pbl_value(&self) -> u8 {
+        self.pbl
+    }
+
+    // Additional function to run on update
+    fn run_extra_pbl_logic(&self) {
+        self.pb.set_length(self.pbl as u64);
+    }
+}
+
 fn main() -> Result<(), io::Error> {
+    let mut ctx = AppContext::new(0);
+    ctx.set_pbl_value(INSTALL_PROGRAMS.len() as u8);
     // Check if OS is Windows
     if cfg!(target_os = "windows") {
         // Open menu and catch any errors
-        match open_menu("") {
+        match open_menu(&mut ctx, "") {
             Ok(()) => (),
-            Err(error) => println!("{}", error),
+            Err(error) => ctx.pb.println(error.to_string()),
         }
+
+        ctx.pb.finish();
 
         // Prompt user to exit
         let mut buffer = String::new();
         let stdin = io::stdin();
-        println!("Press enter to exit...");
+        ctx.pb.println("Press enter to exit...");
         stdin.read_line(&mut buffer)?;
 
         // Exit
@@ -35,6 +78,7 @@ fn main() -> Result<(), io::Error> {
     } else {
         // Show error for nerds on Linux
         message::error(
+            &mut ctx,
             MessageType::Print,
             message::add_delimiter(
                 DelimiterType::Layer1Error,
@@ -59,21 +103,22 @@ fn main() -> Result<(), io::Error> {
 }
 
 // Opens menu
-fn open_menu(operation_type: &str) -> Result<(), io::Error> {
+fn open_menu(ctx: &mut AppContext, operation_type: &str) -> Result<(), io::Error> {
     match operation_type {
         "testing" => {
             // Lets you use the PROJECT_ROOT/src/testing/testing.rs file for testing stuff
-            testing();
+            testing(ctx);
             Ok(())
         }
         "skip" => {
             // Enables sudo
-            user::enable_sudo();
+            user::enable_sudo(ctx);
             // Run prerequisites and catch errors
-            match prerequisites() {
+            match prerequisites(ctx) {
                 Ok(()) => (),
                 Err(error) => {
                     message::error(
+                        ctx,
                         MessageType::Print,
                         message::add_delimiter(
                             DelimiterType::Layer1Error,
@@ -89,7 +134,7 @@ fn open_menu(operation_type: &str) -> Result<(), io::Error> {
                 }
             }
             // Handle install type selection
-            handles::install_type("Skip all tweaks");
+            handles::install_type(ctx, "Skip all tweaks");
             Ok(())
         }
         _ => {
@@ -105,9 +150,9 @@ fn open_menu(operation_type: &str) -> Result<(), io::Error> {
             run(&menu);
             {
                 // Catch if there is an oopsie in the menu logic
-                match menu_logic(menu) {
+                match menu_logic(ctx, menu) {
                     Ok(()) => (),
-                    Err(error) => println!("{}", error),
+                    Err(error) => ctx.pb.println(error.to_string()),
                 };
             }
             Ok(())
@@ -116,27 +161,31 @@ fn open_menu(operation_type: &str) -> Result<(), io::Error> {
 }
 
 fn menu_logic(
+    ctx: &mut AppContext,
     menu: std::sync::Arc<std::sync::RwLock<TerminalMenuStruct>>,
 ) -> Result<(), io::Error> {
     if !mut_menu(&menu).canceled() == true {
         // Prints the orange god
-        println!("{}", format!("{}", PUNCHDOWN_PAUL).hex(MAIN_THEME.primary));
+        ctx.pb
+            .println(format!("{}", PUNCHDOWN_PAUL).hex(MAIN_THEME.primary));
 
         // Warning banner to make sure Mr. Getz doesn't smite you
         message::error_banner(
+            ctx,
             MessageType::Print,
             "   Make sure you have permission from Mr. Getz if you are using this program...    ",
         );
 
         // Obviously enables sudo
-        user::enable_sudo();
+        user::enable_sudo(ctx);
 
         let mm = mut_menu(&menu);
         // Displays install type
-        // Using println!("{} {}") So that the selection value is just normal text color but formatting is the same
-        println!(
+        // Using ctx.pb.println("{} {}") So that the selection value is just normal text color but formatting is the same
+        let formatted_install_type_message = format!(
             "{} {}",
             message::info(
+                ctx,
                 MessageType::Return,
                 message::add_delimiter(
                     DelimiterType::Layer1Info,
@@ -151,19 +200,20 @@ fn menu_logic(
             .unwrap(),
             mm.selection_value("Install Type")
         );
+        ctx.pb.println(formatted_install_type_message);
 
         // Run prerequisites and catch errors
-        match prerequisites() {
+        match prerequisites(ctx) {
             Ok(()) => (),
             Err(error) => {
                 // Display error message
-                utils::errors::function("Prerequisites failed to run...");
+                utils::errors::function(ctx, "Prerequisites failed to run...");
                 return Err(error);
             }
         }
 
         // Handle install type selection
-        handles::install_type(mm.selection_value("Install Type"));
+        handles::install_type(ctx, mm.selection_value("Install Type"));
 
         // Everything is fine :3
         Ok(())
@@ -176,14 +226,14 @@ fn menu_logic(
     }
 }
 
-fn prerequisites() -> Result<(), io::Error> {
+fn prerequisites(ctx: &mut AppContext) -> Result<(), io::Error> {
     // Handle errors from restore point
-    match system::manage::backups::create_restore_point() {
+    match system::manage::backups::create_restore_point(ctx) {
         // Everything is ok
         Ok(()) => Ok(()),
         Err(error) => {
             // Display error message
-            utils::errors::function("Failed to handle menu logic...");
+            utils::errors::function(ctx, "Failed to handle menu logic...");
             return Err(error);
         }
     }

@@ -1,7 +1,9 @@
 use std::process::Command;
 
+use crate::AppContext;
+
 #[allow(dead_code)]
-pub fn ps1(path: &str) -> std::io::Result<()> {
+pub fn ps1(ctx: &mut AppContext, path: &str) -> std::io::Result<()> {
     let output = Command::new("powershell")
         .arg("-NoProfile")
         .arg("-ExecutionPolicy")
@@ -14,7 +16,10 @@ pub fn ps1(path: &str) -> std::io::Result<()> {
     let stderr = String::from_utf8_lossy(&output.stderr);
 
     if !stdout.trim().is_empty() {
-        println!("\x1b[1mOutput:\x1b[0m\n\x1b[51m{}\x1b[0m", stdout.trim());
+        ctx.pb.println(format!(
+            "\x1b[1mOutput:\x1b[0m\n\x1b[51m{}\x1b[0m",
+            stdout.trim()
+        ));
         return Ok(());
     }
 

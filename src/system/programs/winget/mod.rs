@@ -1,9 +1,10 @@
+use crate::AppContext;
 use crate::conf::{enums::DelimiterType, enums::MessageType, vars::MAIN_THEME};
 use crate::utils::message;
 use colored_text::Colorize;
 use std::process::Command;
 
-pub fn winget_install(program_id: &str) {
+pub fn winget_install(ctx: &mut AppContext, program_id: &str) {
     let program_name = program_id.splitn(2, '.').nth(1).unwrap_or(program_id);
 
     let install_command: String = format!(
@@ -11,7 +12,7 @@ pub fn winget_install(program_id: &str) {
         &program_id
     );
 
-    println!(
+    ctx.pb.println(format!(
         "{} {}...",
         message::add_delimiter(
             DelimiterType::Layer1,
@@ -23,7 +24,7 @@ pub fn winget_install(program_id: &str) {
         .unwrap()
         .as_str(),
         &program_name.hex(MAIN_THEME.primary)
-    );
+    ));
 
     let install_command_output = Command::new("powershell")
         .arg("-Command")
@@ -36,6 +37,7 @@ pub fn winget_install(program_id: &str) {
             .contains("Found an existing package")
         {
             message::warning(
+                ctx,
                 MessageType::Print,
                 message::add_delimiter(
                     DelimiterType::Layer2,
@@ -49,6 +51,7 @@ pub fn winget_install(program_id: &str) {
             );
         } else {
             message::error(
+                ctx,
                 MessageType::Print,
                 message::add_delimiter(
                     DelimiterType::Layer2Error,
@@ -63,6 +66,7 @@ pub fn winget_install(program_id: &str) {
         }
     } else {
         message::success(
+            ctx,
             MessageType::Print,
             message::add_delimiter(
                 DelimiterType::Layer2Success,
@@ -77,12 +81,12 @@ pub fn winget_install(program_id: &str) {
     }
 }
 
-pub fn winget_remove(program_id: &str) {
+pub fn winget_remove(ctx: &mut AppContext, program_id: &str) {
     let program_name = program_id.splitn(2, '.').nth(1).unwrap_or(program_id);
 
     let remove_command: String = format!("remove -e --id {}", &program_id);
 
-    println!(
+    ctx.pb.println(format!(
         "{} {}...",
         message::add_delimiter(
             DelimiterType::Layer1,
@@ -94,7 +98,7 @@ pub fn winget_remove(program_id: &str) {
         .unwrap()
         .as_str(),
         &program_name.hex(MAIN_THEME.error)
-    );
+    ));
 
     let remove_command_output = Command::new("powershell")
         .arg("-Command")
@@ -104,6 +108,7 @@ pub fn winget_remove(program_id: &str) {
 
     if !remove_command_output.status.success() {
         message::error(
+            ctx,
             MessageType::Print,
             message::add_delimiter(
                 DelimiterType::Layer2Error,
@@ -120,11 +125,10 @@ pub fn winget_remove(program_id: &str) {
             .as_str(),
         );
     } else {
-        println!(
-            "{}",
-            String::from_utf8_lossy(&remove_command_output.stdout).hex(MAIN_THEME.info)
-        );
+        ctx.pb
+            .println(String::from_utf8_lossy(&remove_command_output.stdout).hex(MAIN_THEME.info));
         message::info(
+            ctx,
             MessageType::Print,
             message::add_delimiter(
                 DelimiterType::Layer2Info,

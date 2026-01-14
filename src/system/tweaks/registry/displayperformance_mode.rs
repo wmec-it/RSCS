@@ -1,10 +1,11 @@
 // https://winutil.christitus.com/dev/tweaks/z--advanced-tweaks---caution/display/
 
-use crate::system::tweaks::templates;
+use crate::{AppContext, system::tweaks::templates};
 
 #[allow(dead_code)]
-pub fn enable() {
+pub fn enable(ctx: &mut AppContext) {
     templates::default(
+        ctx,
         "Enabling Display Performance Mode...",
         "Successfully enabled Display Performance Mode!",
         "Failed to enable Display Performance Mode...",
@@ -13,8 +14,9 @@ pub fn enable() {
 }
 
 #[allow(dead_code)]
-pub fn disable() {
+pub fn disable(ctx: &mut AppContext) {
     templates::default(
+        ctx,
         "Disabling Display Performance Mode...",
         "Successfully disabled Display Performance Mode!",
         "Failed to disable Display Performance Mode...",

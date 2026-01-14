@@ -1,10 +1,10 @@
 // https://winutil.christitus.com/dev/tweaks/essential-tweaks/endtaskontaskbar/
 
-use crate::system::tweaks::templates;
+use crate::{AppContext, system::tweaks::templates};
 
 #[allow(dead_code)]
-pub fn enable() {
-    templates::default(
+pub fn enable(ctx: &mut AppContext) {
+    templates::default(ctx, 
         "Enabling End Task with right click on taskbar...",
         "Successfully Enabled End Task with right click on taskbar!",
         "Failed to Enable End Task with right click on taskbar...",
@@ -19,8 +19,8 @@ pub fn enable() {
 }
 
 #[allow(dead_code)]
-pub fn disable() {
-    templates::default(
+pub fn disable(ctx: &mut AppContext) {
+    templates::default(ctx, 
         "Disabling End Task with right click on taskbar...",
         "Successfully Disabled End Task with right click on taskbar!",
         "Failed to Disable End Task with right click on taskbar...",

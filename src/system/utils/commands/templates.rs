@@ -3,18 +3,29 @@ use std::fs;
 use std::path::PathBuf;
 use std::process::Command;
 
+use crate::AppContext;
 use crate::{
     conf::enums::{DelimiterType, MessageType},
     utils::message,
 };
 
-pub fn default(run_message: &str, success_message: &str, error_message: &str, command: &str) {
+pub fn default(
+    ctx: &mut AppContext,
+    run_message: &str,
+    success_message: &str,
+    error_message: &str,
+    command: &str,
+) {
+    let new_value: u8 = ctx.pbl + 1;
+    ctx.set_pbl_value(new_value);
+
     let run_message: String = run_message.to_string();
     let success_message: String = success_message.to_string();
     let error_message: String = error_message.to_string();
     let command: &str = command;
 
     message::normal(
+        ctx,
         MessageType::Print,
         message::add_delimiter(DelimiterType::Layer1, run_message, Some(true), None, None)
             .unwrap()
@@ -28,6 +39,7 @@ pub fn default(run_message: &str, success_message: &str, error_message: &str, co
 
     if output.status.success() {
         message::success(
+            ctx,
             MessageType::Print,
             message::add_delimiter(
                 DelimiterType::Layer2Success,
@@ -41,6 +53,7 @@ pub fn default(run_message: &str, success_message: &str, error_message: &str, co
         );
     } else {
         message::error(
+            ctx,
             MessageType::Print,
             message::add_delimiter(
                 DelimiterType::Layer2Error,
@@ -58,14 +71,25 @@ pub fn default(run_message: &str, success_message: &str, error_message: &str, co
             .as_str(),
         );
     }
+    ctx.pb.inc(1);
 }
 
-pub fn admin(run_message: &str, success_message: &str, error_message: &str, command: &str) {
+pub fn admin(
+    ctx: &mut AppContext,
+    run_message: &str,
+    success_message: &str,
+    error_message: &str,
+    command: &str,
+) {
+    let new_value: u8 = ctx.pbl + 1;
+    ctx.set_pbl_value(new_value);
+
     let run_message: String = run_message.to_string();
     let success_message: String = success_message.to_string();
     let error_message: String = error_message.to_string();
 
     message::normal(
+        ctx,
         MessageType::Print,
         message::add_delimiter(DelimiterType::Layer1, run_message, Some(true), None, None)
             .unwrap()
@@ -98,6 +122,7 @@ pub fn admin(run_message: &str, success_message: &str, error_message: &str, comm
     // Write script to temp file
     if let Err(e) = fs::write(&script_file, &script_content) {
         message::error(
+            ctx,
             MessageType::Print,
             message::add_delimiter(
                 DelimiterType::Layer2Error,
@@ -137,6 +162,7 @@ pub fn admin(run_message: &str, success_message: &str, error_message: &str, comm
 
     if output.status.success() && exit_code == 0 && stderr_content.is_empty() {
         message::success(
+            ctx,
             MessageType::Print,
             message::add_delimiter(
                 DelimiterType::Layer2Success,
@@ -150,6 +176,7 @@ pub fn admin(run_message: &str, success_message: &str, error_message: &str, comm
         );
     } else {
         message::error(
+            ctx,
             MessageType::Print,
             message::add_delimiter(
                 DelimiterType::Layer2Error,
@@ -165,4 +192,5 @@ pub fn admin(run_message: &str, success_message: &str, error_message: &str, comm
             .as_str(),
         );
     }
+    ctx.pb.inc(1);
 }

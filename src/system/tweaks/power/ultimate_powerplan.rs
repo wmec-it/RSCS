@@ -1,10 +1,10 @@
 // https://winutil.christitus.com/dev/tweaks/performance-plans/addultperf/
 
-use crate::system::tweaks::templates;
+use crate::{AppContext, system::tweaks::templates};
 
 #[allow(dead_code)]
-pub fn enable() {
-    templates::default("Activating Ultimate power plan...", "Successfully activated Ultimate power plan!", "Failed to activate Ultimate power plan....", "
+pub fn enable(ctx: &mut AppContext) {
+    templates::default(ctx, "Activating Ultimate power plan...", "Successfully activated Ultimate power plan!", "Failed to activate Ultimate power plan....", "
         try {
             $ultimatePlan = powercfg -list | Select-String -Pattern \"Ultimate Performance\"
             $ultimatePlanGUID = (powercfg -list | Select-String -Pattern \"Ultimate Performance\").Line.Split()[3]
@@ -17,8 +17,8 @@ pub fn enable() {
 }
 
 #[allow(dead_code)]
-pub fn disable() {
-    templates::default("Disabling Ultimate power plan...", "Successfully disabled Ultimate power plan!", "Failed to disable Ultimate power plan...", "
+pub fn disable(ctx: &mut AppContext) {
+    templates::default(ctx, "Disabling Ultimate power plan...", "Successfully disabled Ultimate power plan!", "Failed to disable Ultimate power plan...", "
         try {
             $ultimatePlan = powercfg -list | Select-String -Pattern \"Ultimate Performance\"
                 if ($ultimatePlan) {

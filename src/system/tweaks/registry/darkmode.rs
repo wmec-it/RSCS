@@ -1,10 +1,11 @@
 // https://winutil.christitus.com/dev/tweaks/customize-preferences/darkmode/
 
-use crate::system::tweaks::templates;
+use crate::{AppContext, system::tweaks::templates};
 
 #[allow(dead_code)]
-pub fn enable() {
+pub fn enable(ctx: &mut AppContext) {
     templates::default(
+        ctx,
         "Enabling dark mode...",
         "Successfully enabled dark mode!",
         "Error enabling dark mode...",
@@ -15,8 +16,9 @@ pub fn enable() {
 }
 
 #[allow(dead_code)]
-pub fn disable() {
+pub fn disable(ctx: &mut AppContext) {
     templates::default(
+        ctx,
         "Disabling dark mode...",
         "Successfully disabled dark mode!",
         "Error disabling dark mode...",

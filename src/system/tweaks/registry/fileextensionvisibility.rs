@@ -1,10 +1,11 @@
 // https://winutil.christitus.com/dev/tweaks/customize-preferences/showext/
 
-use crate::system::tweaks::templates;
+use crate::{AppContext, system::tweaks::templates};
 
 #[allow(dead_code)]
-pub fn enable() {
+pub fn enable(ctx: &mut AppContext) {
     templates::default(
+        ctx,
         "Making file extensions visible...",
         "Successfully made file extensions visible!",
         "Failed to make file extensions visible...",
@@ -24,8 +25,9 @@ pub fn enable() {
 }
 
 #[allow(dead_code)]
-pub fn disable() {
+pub fn disable(ctx: &mut AppContext) {
     templates::default(
+        ctx,
         "Making file extensions hidden...",
         "Successfully made file extensions hidden!",
         "Failed to make file extensions hidden...",

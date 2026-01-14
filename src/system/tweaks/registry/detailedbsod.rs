@@ -1,10 +1,11 @@
 // https://winutil.christitus.com/dev/tweaks/customize-preferences/detailedbsod/
 
-use crate::system::tweaks::templates;
+use crate::{AppContext, system::tweaks::templates};
 
 #[allow(dead_code)]
-pub fn enable() {
+pub fn enable(ctx: &mut AppContext) {
     templates::admin(
+        ctx,
         "Enabling detailed BSOD...",
         "Successfully enabled detailed BSOD!",
         "Failed to enable detailed BSOD...",
@@ -24,8 +25,9 @@ pub fn enable() {
 }
 
 #[allow(dead_code)]
-pub fn disable() {
+pub fn disable(ctx: &mut AppContext) {
     templates::admin(
+        ctx,
         "Disabling detailed BSOD...",
         "Successfully disabled detailed BSOD!",
         "Failed to disable detailed BSOD...",

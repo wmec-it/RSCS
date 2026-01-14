@@ -1,10 +1,11 @@
 // https://winutil.christitus.com/dev/tweaks/z--advanced-tweaks---caution/removeonedrive/
 
-use crate::system::tweaks::templates;
+use crate::{AppContext, system::tweaks::templates};
 
 #[allow(dead_code)]
-pub fn enable() {
+pub fn enable(ctx: &mut AppContext) {
     templates::default(
+        ctx,
         "Installing OneDrive...",
         "Successfully installed OneDrive!",
         "Failed to install OneDrive...",
@@ -13,8 +14,8 @@ pub fn enable() {
 }
 
 #[allow(dead_code)]
-pub fn disable() {
-    templates::default(
+pub fn disable(ctx: &mut AppContext) {
+    templates::default(ctx, 
         "Removing OneDrive...",
         "Successfully removed OneDrive!",
         "Failed to remove OneDrive...",

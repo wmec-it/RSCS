@@ -1,10 +1,11 @@
 // https://winutil.christitus.com/dev/tweaks/essential-tweaks/ipv46/
 
-use crate::system::tweaks::templates;
+use crate::{AppContext, system::tweaks::templates};
 
 #[allow(dead_code)]
-pub fn enable() {
+pub fn enable(ctx: &mut AppContext) {
     templates::admin(
+        ctx,
         "Setting registry key to prefer IPv4 over IPv6...",
         "Successfully Set registry key to prefer IPv4 over IPv6!",
         "Failed to set registry key to prefer IPv4 over IPv6...",
@@ -20,8 +21,9 @@ pub fn enable() {
 }
 
 #[allow(dead_code)]
-pub fn disable() {
+pub fn disable(ctx: &mut AppContext) {
     templates::admin(
+        ctx,
         "Reverting registry key to prefer IPv4 over IPv6 to 0 (disabled)...",
         "Successfully Reverted registry key to prefer IPv4 over IPv6 to 0 (disabled)!",
         "Failed to revert registry key to prefer IPv4 over IPv6 to 0 (disabled)...",

@@ -1,10 +1,11 @@
 // https://winutil.christitus.com/dev/tweaks/customize-preferences/verboselogon/
 
-use crate::system::tweaks::templates;
+use crate::{AppContext, system::tweaks::templates};
 
 #[allow(dead_code)]
-pub fn enable() {
+pub fn enable(ctx: &mut AppContext) {
     templates::admin(
+        ctx,
         "Enabling Verbose Logon Messages...",
         "Successfully enabled Verbose Logon Messages!",
         "Failed to enable Verbose Logon Messages...",
@@ -24,8 +25,9 @@ pub fn enable() {
 }
 
 #[allow(dead_code)]
-pub fn disable() {
+pub fn disable(ctx: &mut AppContext) {
     templates::admin(
+        ctx,
         "Disabling Verbose Logon Messages...",
         "Successfully disabled Verbose Logon Messages!",
         "Failed to disable Verbose Logon Messages...",

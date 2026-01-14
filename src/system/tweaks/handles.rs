@@ -1,11 +1,13 @@
 use crate::{
+    AppContext,
     conf::enums::{DelimiterType, MessageType},
     system::{tweaks, utils},
     utils::message,
 };
 
-pub fn run_tweaks() {
+pub fn run_tweaks(ctx: &mut AppContext) {
     message::success(
+        ctx,
         MessageType::Print,
         message::add_delimiter(
             DelimiterType::Layer1Add,
@@ -20,6 +22,7 @@ pub fn run_tweaks() {
 
     // Powershell Tweaks
     message::info(
+        ctx,
         MessageType::Print,
         message::add_delimiter(
             DelimiterType::Layer1Info,
@@ -32,11 +35,12 @@ pub fn run_tweaks() {
         .as_str(),
     );
 
-    tweaks::powershell::ps7::full();
-    tweaks::powershell::ps7telemetry::disable();
+    tweaks::powershell::ps7::full(ctx);
+    tweaks::powershell::ps7telemetry::disable(ctx);
 
     // Registry Tweaks
     message::info(
+        ctx,
         MessageType::Print,
         message::add_delimiter(
             DelimiterType::Layer1Info,
@@ -49,31 +53,32 @@ pub fn run_tweaks() {
         .as_str(),
     );
 
-    tweaks::registry::rclick_end_task::enable();
-    tweaks::registry::prefer_ipv4::enable();
-    tweaks::registry::bingsearch_startmenu::disable();
-    tweaks::registry::darkmode::enable();
-    tweaks::registry::explorerpatcher_config::enable();
-    tweaks::registry::taskbar_taskview_button::disable();
-    tweaks::registry::stickykeys_startup::disable();
-    tweaks::registry::taskbar_widgets_button::disable();
-    tweaks::registry::verbose_logon_messages::enable();
-    tweaks::registry::hiddenfilesvisibility::enable();
-    tweaks::registry::fileextensionvisibility::enable();
-    tweaks::registry::detailedbsod::enable();
-    tweaks::registry::explorer_homegallery::disable();
-    tweaks::registry::onedrive::disable();
-    tweaks::registry::displayperformance_mode::enable();
-    tweaks::registry::microsoftcopilot::disable();
-    tweaks::registry::taskbar_search_button::enable();
-    tweaks::registry::taskbar_alignment::left();
-    tweaks::registry::notificationtray::disable();
-    tweaks::registry::intel_mm_lms::disable();
+    tweaks::registry::rclick_end_task::enable(ctx);
+    tweaks::registry::prefer_ipv4::enable(ctx);
+    tweaks::registry::bingsearch_startmenu::disable(ctx);
+    tweaks::registry::darkmode::enable(ctx);
+    tweaks::registry::explorerpatcher_config::enable(ctx);
+    tweaks::registry::taskbar_taskview_button::disable(ctx);
+    tweaks::registry::stickykeys_startup::disable(ctx);
+    tweaks::registry::taskbar_widgets_button::disable(ctx);
+    tweaks::registry::verbose_logon_messages::enable(ctx);
+    tweaks::registry::hiddenfilesvisibility::enable(ctx);
+    tweaks::registry::fileextensionvisibility::enable(ctx);
+    tweaks::registry::detailedbsod::enable(ctx);
+    tweaks::registry::explorer_homegallery::disable(ctx);
+    tweaks::registry::onedrive::disable(ctx);
+    tweaks::registry::displayperformance_mode::enable(ctx);
+    tweaks::registry::microsoftcopilot::disable(ctx);
+    tweaks::registry::taskbar_search_button::enable(ctx);
+    tweaks::registry::taskbar_alignment::left(ctx);
+    tweaks::registry::notificationtray::disable(ctx);
+    tweaks::registry::intel_mm_lms::disable(ctx);
 
-    utils::explorer::restart();
+    utils::explorer::restart(ctx);
 
     // Power Tweaks
     message::info(
+        ctx,
         MessageType::Print,
         message::add_delimiter(
             DelimiterType::Layer1Info,
@@ -86,5 +91,5 @@ pub fn run_tweaks() {
         .as_str(),
     );
 
-    tweaks::power::ultimate_powerplan::enable();
+    tweaks::power::ultimate_powerplan::enable(ctx);
 }

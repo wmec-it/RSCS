@@ -1,10 +1,11 @@
 // https://winutil.christitus.com/dev/tweaks/customize-preferences/hiddenfiles/
 
-use crate::system::tweaks::templates;
+use crate::{AppContext, system::tweaks::templates};
 
 #[allow(dead_code)]
-pub fn enable() {
+pub fn enable(ctx: &mut AppContext) {
     templates::default(
+        ctx,
         "Making hidden files visible...",
         "Successfully made hidden files visible!",
         "Failed to make hidden files visible...",
@@ -24,8 +25,9 @@ pub fn enable() {
 }
 
 #[allow(dead_code)]
-pub fn disable() {
+pub fn disable(ctx: &mut AppContext) {
     templates::default(
+        ctx,
         "Making hidden files hidden...",
         "Successfully made hidden files hidden!",
         "Failed to make hidden files hidden...",

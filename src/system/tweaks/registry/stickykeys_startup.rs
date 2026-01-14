@@ -1,10 +1,11 @@
 // https://winutil.christitus.com/dev/tweaks/customize-preferences/stickykeys/
 
-use crate::system::tweaks::templates;
+use crate::{AppContext, system::tweaks::templates};
 
 #[allow(dead_code)]
-pub fn enable() {
+pub fn enable(ctx: &mut AppContext) {
     templates::default(
+        ctx,
         "Enabling Sticky Keys on startup...",
         "Successfully enabled Sticky Keys on startup!",
         "Error enabling Sticky Keys on startup...",
@@ -25,8 +26,9 @@ pub fn enable() {
 }
 
 #[allow(dead_code)]
-pub fn disable() {
+pub fn disable(ctx: &mut AppContext) {
     templates::default(
+        ctx,
         "Disabling Sticky Keys on startup...",
         "Successfully disabled Sticky Keys on startup!",
         "Error disabling Sticky Keys on startup...",

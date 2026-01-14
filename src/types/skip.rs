@@ -1,10 +1,12 @@
 use crate::{
+    AppContext,
     conf::enums::{DelimiterType, MessageType},
     utils::message,
 };
 
-pub fn all_tweaks() {
+pub fn all_tweaks(ctx: &mut AppContext) {
     message::success(
+        ctx,
         MessageType::Print,
         message::add_delimiter(
             DelimiterType::Layer1Add,
@@ -18,6 +20,7 @@ pub fn all_tweaks() {
     );
 
     message::success(
+        ctx,
         MessageType::Print,
         message::add_delimiter(
             DelimiterType::Layer1Success,

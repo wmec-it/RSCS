@@ -1,10 +1,11 @@
 // https://winutil.christitus.com/dev/tweaks/customize-preferences/taskview/
 
-use crate::system::tweaks::templates;
+use crate::{AppContext, system::tweaks::templates};
 
 #[allow(dead_code)]
-pub fn enable() {
+pub fn enable(ctx: &mut AppContext) {
     templates::admin(
+        ctx,
         "Enabling Taskbar Task View Button...",
         "Successfully enabled Taskbar Task View Button!",
         "Failed to disable Taskbar Task View Button...",
@@ -25,8 +26,9 @@ pub fn enable() {
 }
 
 #[allow(dead_code)]
-pub fn disable() {
+pub fn disable(ctx: &mut AppContext) {
     templates::admin(
+        ctx,
         "Disabling Taskbar Task View Button...",
         "Successfully disabled Taskbar Task View Button!",
         "Failed to disable Taskbar Task View Button...",
