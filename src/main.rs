@@ -152,7 +152,7 @@ fn menu_logic(
                     MessageType::Print,
                     message::add_delimiter(
                         DelimiterType::Layer1Error,
-                        "You cannot run this script on Linux!".to_string(),
+                        "Prerequisites failed to run...".to_string(),
                         Some(true),
                         None,
                         Some(true),
