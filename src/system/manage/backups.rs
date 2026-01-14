@@ -119,6 +119,20 @@ pub fn create_restore_point() -> Result<(), io::Error> {
                         "Failed to create a restore point...",
                     ))
                 }
+            } else if mut_menu(&menu).selected_item_name() == "No" {
+                message::info(
+                    MessageType::Print,
+                    message::add_delimiter(
+                        DelimiterType::Layer1Info,
+                        "No restore point is being created!".to_string(),
+                        Some(true),
+                        None,
+                        Some(true),
+                    )
+                    .unwrap()
+                    .as_str(),
+                );
+                Ok(())
             } else {
                 Err(io::Error::new(
                     io::ErrorKind::Other,
@@ -126,10 +140,7 @@ pub fn create_restore_point() -> Result<(), io::Error> {
                 ))
             }
         } else {
-            Err(io::Error::new(
-                io::ErrorKind::Other,
-                "Failed to create a restore point...",
-            ))
+            Ok(())
         }
     }
 }

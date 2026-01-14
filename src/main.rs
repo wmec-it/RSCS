@@ -22,7 +22,7 @@ fn main() -> Result<(), io::Error> {
         match open_menu("") {
             Ok(()) => (),
             Err(error) => println!("{}", error),
-        };
+        }
 
         // Prompt user to exit
         let mut buffer = String::new();
@@ -66,7 +66,24 @@ fn open_menu(operation_type: &str) -> Result<(), io::Error> {
         }
         "skip" => {
             user::enable_sudo();
-            prerequisites();
+            match prerequisites() {
+                Ok(()) => (),
+                Err(error) => {
+                    message::error(
+                        MessageType::Print,
+                        message::add_delimiter(
+                            DelimiterType::Layer1Error,
+                            "You cannot run this script on Linux!".to_string(),
+                            Some(true),
+                            None,
+                            Some(true),
+                        )
+                        .unwrap()
+                        .as_str(),
+                    );
+                    return Err(error);
+                }
+            }
             handles::install_type("Skip all tweaks");
             Ok(())
         }
@@ -97,15 +114,15 @@ fn menu_logic(
         println!("{}", format!("{}", PUNCHDOWN_PAUL).hex(MAIN_THEME.primary));
 
         println!(
-                        "{}{}",
-                        message
-                            ::error_banner(
-                                MessageType::Return,
-                                "   Make sure you have permission from Mr. Getz if you are using this program...    "
-                            )
-                            .unwrap(),
-                        "\n"
-                    );
+            "{}{}",
+            message
+                ::error_banner(
+                    MessageType::Return,
+                    "   Make sure you have permission from Mr. Getz if you are using this program...    "
+                )
+                .unwrap(),
+            "\n"
+        );
 
         user::enable_sudo();
 
@@ -128,14 +145,39 @@ fn menu_logic(
             mm.selection_value("Install Type")
         );
 
-        prerequisites();
+        match prerequisites() {
+            Ok(()) => (),
+            Err(error) => {
+                message::error(
+                    MessageType::Print,
+                    message::add_delimiter(
+                        DelimiterType::Layer1Error,
+                        "You cannot run this script on Linux!".to_string(),
+                        Some(true),
+                        None,
+                        Some(true),
+                    )
+                    .unwrap()
+                    .as_str(),
+                );
+                return Err(error);
+            }
+        }
 
         handles::install_type(mm.selection_value("Install Type"));
+
+        Ok(())
+    } else {
+        Err(io::Error::new(
+            io::ErrorKind::Other,
+            "Failed to handle menu logic...",
+        ))
     }
-    Ok(())
 }
 
 fn prerequisites() -> Result<(), io::Error> {
-    system::manage::backups::create_restore_point();
-    Ok(())
+    match system::manage::backups::create_restore_point() {
+        Ok(()) => Ok(()),
+        Err(error) => Err(error),
+    }
 }
