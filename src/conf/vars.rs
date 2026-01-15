@@ -85,6 +85,7 @@ pub const INSTALL_PROGRAMS: &[&str] = &[
     "Rufus.Rufus",
     "WinsiderSS.SystemInformer",
     "dorssel.usbipd-win",
+    "Microsoft.DotNet.SDK.10",
 ];
 pub const MAIN_THEME: Theme = Theme {
     primary: "F57E20",
