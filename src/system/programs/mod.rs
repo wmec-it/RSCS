@@ -5,6 +5,7 @@ use crate::conf::vars::{INSTALL_PROGRAMS, MAIN_THEME};
 use crate::system;
 use crate::utils::message;
 
+pub mod debloat;
 pub mod winget;
 
 pub fn install_programs() {

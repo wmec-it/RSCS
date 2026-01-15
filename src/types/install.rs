@@ -22,6 +22,10 @@ pub fn full() {
     message::seperator();
     system::tweaks::handles::run_tweaks();
 
+    // TODO: Finish this shit
+    // message::seperator();
+    // system::programs::debloat::start();
+
     message::success(
         MessageType::Print,
         message::add_delimiter(

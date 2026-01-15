@@ -57,6 +57,32 @@ pub const PUNCHDOWN_PAUL: &str = "
 ";
 pub const PROGRAM_TITLE: &str = "West-Mec Repair Shop Configuration Tool";
 
+pub const MAIN_THEME: Theme = Theme {
+    primary: "F57E20",
+    success: "69FF90",
+    error: "E63C3C",
+    info: "69D0FF",
+    warning: "FFFA69",
+};
+pub const DELIMITERS: Delimiters = Delimiters {
+    layer1: "->",
+    layer1info: "-[i]>",
+    layer1error: "-[!]>",
+    layer1success: "=>",
+    layer1add: "+",
+    layer2: "-->",
+    layer2info: "--[i]>",
+    layer2error: "--[!]>",
+    layer2success: "==>",
+    layer2add: "-[+]>",
+    layer3: "--->",
+    layer3info: "---[i]>",
+    layer3error: "---[!]>",
+    layer3success: "===>",
+    layer3add: "--[+]>",
+    frown: "-[ :( ]>",
+};
+
 // &[&str]
 // &1 = Infinitely extendable and accessable
 // [] = Defining Typed Vector
@@ -87,28 +113,5 @@ pub const INSTALL_PROGRAMS: &[&str] = &[
     "dorssel.usbipd-win",
     "Microsoft.DotNet.SDK.10",
 ];
-pub const MAIN_THEME: Theme = Theme {
-    primary: "F57E20",
-    success: "69FF90",
-    error: "E63C3C",
-    info: "69D0FF",
-    warning: "FFFA69",
-};
-pub const DELIMITERS: Delimiters = Delimiters {
-    layer1: "->",
-    layer1info: "-[i]>",
-    layer1error: "-[!]>",
-    layer1success: "=>",
-    layer1add: "+",
-    layer2: "-->",
-    layer2info: "--[i]>",
-    layer2error: "--[!]>",
-    layer2success: "==>",
-    layer2add: "-[+]>",
-    layer3: "--->",
-    layer3info: "---[i]>",
-    layer3error: "---[!]>",
-    layer3success: "===>",
-    layer3add: "--[+]>",
-    frown: "-[ :( ]>",
-};
+pub const REMOVE_PROGRAMS_STOREHELPER: &[&str] =
+    &["Microsoft.StartExperiencesApp_1.195.0.0_x64__8wekyb3d8bbwe"];
