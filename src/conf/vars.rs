@@ -1,5 +1,7 @@
 use crate::conf::structs::{Delimiters, Theme};
 
+// TODO: Make all ts read from a config file or something, this is getting too cluttered
+
 pub const PUNCHDOWN_PAUL: &str = "
                                                                                             
                                                                                             

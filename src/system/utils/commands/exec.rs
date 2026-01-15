@@ -28,7 +28,7 @@ pub fn ps1(path: &str) -> std::io::Result<()> {
     Ok(())
 }
 
-// TODO: Fix this shit / make it work
+// TODO: Fix this shit / make it work (it doesn't actually run as admin yet)
 #[allow(dead_code)]
 pub fn bat(path: &str) -> std::io::Result<Vec<String>> {
     let output = Command::new("cmd")
