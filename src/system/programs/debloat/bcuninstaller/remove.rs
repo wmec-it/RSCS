@@ -1,3 +1,5 @@
+// DOCS: https://htmlpreview.github.io/?https://github.com/Klocman/Bulk-Crap-Uninstaller/blob/master/doc/BCU_manual.html#__RefHeading___Toc524_1610471585
+
 use crate::system::utils::commands::templates;
 
 // TODO: Add other removal methods
