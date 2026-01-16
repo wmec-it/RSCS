@@ -114,6 +114,7 @@ pub const INSTALL_PROGRAMS: &[&str] = &[
     "WinsiderSS.SystemInformer",
     "dorssel.usbipd-win",
     "Microsoft.DotNet.SDK.10",
+    "TigerVNC.TigerVNC",
 ];
 pub const REMOVE_PROGRAMS_STOREHELPER: &[&str] =
     &["Microsoft.StartExperiencesApp_1.195.0.0_x64__8wekyb3d8bbwe"];
