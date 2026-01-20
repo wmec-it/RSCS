@@ -1,0 +1,14 @@
+{
+    "recommendations": [
+        "gruntfuggly.todo-tree",
+        "rust-lang.rust-analyzer",
+        "yzhang.markdown-all-in-one",
+        "bierner.markdown-preview-github-styles",
+        "darkriszty.markdown-table-prettify",
+        "mads-hartmann.bash-ide-vscode",
+        "ms-vscode.powershell",
+        "formulahendry.code-runner",
+        "nguyenngoclong.terminal-keeper",
+        "nilssoderman.batch-runner"
+    ]
+}
