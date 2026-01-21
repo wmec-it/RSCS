@@ -93,6 +93,10 @@ pub const DELIMITERS: Delimiters = Delimiters {
 pub const INSTALL_TYPES: &[&str] = &[
     "Full Install",
     "Install Programs",
+    #[cfg(feature = "bambulabs")]
+    "Full Install + Bambu Labs Slicer",
+    #[cfg(feature = "bambulabs")]
+    "Bambu Labs Slicer",
     "Remove Installed Programs (from this script)",
     "Remove Unecessary Programs (or bad ones)",
 ];

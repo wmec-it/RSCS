@@ -69,3 +69,34 @@ pub fn programs() {
         .as_str(),
     );
 }
+
+#[cfg(feature = "bambulabs")]
+pub fn bambu() {
+    message::success(
+        MessageType::Print,
+        message::add_delimiter(
+            DelimiterType::Layer1Add,
+            "Starting Bambu Labs Install...\n|".to_string(),
+            Some(true),
+            None,
+            None,
+        )
+        .unwrap()
+        .as_str(),
+    );
+
+    system::programs::winget::winget_install("Bambulab.Bambustudio");
+
+    message::success(
+        MessageType::Print,
+        message::add_delimiter(
+            DelimiterType::Layer2Success,
+            "Bambu Labs Install Finished Successfully!!!".to_string(),
+            Some(true),
+            None,
+            Some(true),
+        )
+        .unwrap()
+        .as_str(),
+    );
+}
