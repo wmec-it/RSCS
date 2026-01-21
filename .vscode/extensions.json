@@ -21,6 +21,7 @@
         "ionutvmi.reg",
         "ms-vscode.remote-explorer",
         "shardulm94.trailing-spaces",
-        "redhat.vscode-yaml"
+        "redhat.vscode-yaml",
+        "tamasfe.even-better-toml"
     ]
 }
