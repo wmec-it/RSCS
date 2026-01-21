@@ -9,6 +9,18 @@
         "ms-vscode.powershell",
         "formulahendry.code-runner",
         "nguyenngoclong.terminal-keeper",
-        "nilssoderman.batch-runner"
+        "nilssoderman.batch-runner",
+        "usernamehw.errorlens",
+        "mkxml.vscode-filesize",
+        "eamodio.gitlens",
+        "kisstkondoros.vscode-gutter-preview",
+        "oderwat.indent-rainbow",
+        "zainchen.json",
+        "viktorqvarfordt.vscode-pitch-black-theme",
+        "natqe.reload",
+        "ionutvmi.reg",
+        "ms-vscode.remote-explorer",
+        "shardulm94.trailing-spaces",
+        "redhat.vscode-yaml"
     ]
 }
