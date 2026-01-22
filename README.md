@@ -13,6 +13,11 @@ For use configuring machines in the West-Mec IT Security Repair Shop (Nerd Heard
 
 ## Dev Setup on Linux
 
+After setting it up, you should also install `tokei` to see the repo's code stats.
+```sh
+tokei .
+```
+
 ### Arch
 
 ```sh
