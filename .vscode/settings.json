@@ -18,7 +18,16 @@
     "ERROR",
     ":!",
     "PLACEHOLDER",
-    ":*"
+    ":*",
+    "RESOURCE",
+    ":@",
+    "DOCUMENTATION",
+    "DOCS",
+    "WIKI",
+    "INACTIVE",
+    "DONT DELETE",
+    "STOP",
+    "DO NOT TOUCH"
   ],
   "todo-tree.general.tagGroups": {
     "TODO": ["TODO", ":>"],
@@ -28,7 +37,10 @@
     "FIXME": ["FIXME", ":#"],
     "WARNING": ["WARNING", ":%"],
     "ERROR": ["ERROR", ":!"],
-    "PLACEHOLDER": ["PLACEHOLDER", ":*"]
+    "PLACEHOLDER": ["PLACEHOLDER", ":*"],
+    "RESOURCE": ["RESOURCE", ":@", "DOCUMENTATION", "DOCS", "WIKI"],
+    "INACTIVE": ["INACTIVE", "DONT DELETE"],
+    "STOP": ["STOP", "DO NOT TOUCH"]
   },
   "todo-tree.highlights.defaultHighlight": {
     "icon": "alert",
@@ -36,7 +48,8 @@
     "foreground": "red",
     "background": "none",
     "opacity": 50,
-    "iconColour": "blue"
+    "iconColour": "blue",
+    "borderRadius": "0"
   },
   "todo-tree.highlights.customHighlight": {
     "TODO": {
@@ -101,11 +114,35 @@
       "fontWeight": "900"
     },
     "PLACEHOLDER": {
-      "icon": "circle-slash",
+      "icon": "bold",
       "type": "line",
       "background": "#2A2E20",
       "foreground": "#C9D6A9",
       "iconColour": "#DDF2AA",
+      "gutterIcon": true
+    },
+    "RESOURCE": {
+      "icon": "repo",
+      "type": "whole-line",
+      "background": "#172942",
+      "foreground": "#86ADE3",
+      "iconColour": "#599FFF",
+      "gutterIcon": true
+    },
+    "INACTIVE": {
+      "icon": "x",
+      "type": "line",
+      "background": "#382C18",
+      "foreground": "#F0C67F",
+      "iconColour": "#FFBC4A",
+      "gutterIcon": true
+    },
+    "STOP": {
+      "icon": "stop",
+      "type": "whole-line",
+      "background": "#3D1212",
+      "foreground": "#F77777",
+      "iconColour": "#F22C2C",
       "gutterIcon": true
     }
   }

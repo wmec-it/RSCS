@@ -72,13 +72,13 @@ pub fn admin(run_message: &str, success_message: &str, error_message: &str, comm
             .as_str(),
     );
 
-    // Create temp files
+    //:& Create temp files
     let temp_dir = env::temp_dir();
     let script_file: PathBuf = temp_dir.join("rscs_admin_script.ps1");
     let stderr_file: PathBuf = temp_dir.join("rscs_admin_stderr.txt");
     let exitcode_file: PathBuf = temp_dir.join("rscs_admin_exitcode.txt");
 
-    // Write the command to a temp script file to avoid escaping issues
+    //:& Write the command to a temp script file to avoid escaping issues
     let script_content = format!(
         r#"
             try {{
@@ -95,7 +95,7 @@ pub fn admin(run_message: &str, success_message: &str, error_message: &str, comm
         exitcode_file.display()
     );
 
-    // Write script to temp file
+    //:& Write script to temp file
     if let Err(e) = fs::write(&script_file, &script_content) {
         message::error(
             MessageType::Print,
@@ -112,7 +112,7 @@ pub fn admin(run_message: &str, success_message: &str, error_message: &str, comm
         return;
     }
 
-    // Run the script with elevation
+    //:& Run the script with elevation
     let output = Command::new("powershell")
         .arg("-Command")
         .arg(format!(
@@ -122,7 +122,7 @@ pub fn admin(run_message: &str, success_message: &str, error_message: &str, comm
         .output()
         .expect("Failed to run PowerShell");
 
-    // Read results
+    //:& Read results
     let stderr_content = fs::read_to_string(&stderr_file).unwrap_or_default();
     let exit_code: i32 = fs::read_to_string(&exitcode_file)
         .unwrap_or_else(|_| "0".to_string())
@@ -130,7 +130,7 @@ pub fn admin(run_message: &str, success_message: &str, error_message: &str, comm
         .parse()
         .unwrap_or(0);
 
-    // Clean up temp files
+    //:& Clean up temp files
     let _ = fs::remove_file(&script_file);
     let _ = fs::remove_file(&stderr_file);
     let _ = fs::remove_file(&exitcode_file);

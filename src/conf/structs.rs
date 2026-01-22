@@ -1,6 +1,6 @@
-// &'static str = Compacts &str to static length after definition
-// &'a str      = Only defined for as long as what uses it is defined
-// <'a>         = Defines the same as above, but for the entire Struct
+//:& &'static str = Compacts &str to static length after definition
+//:& &'a str      = Only defined for as long as what uses it is defined
+//:& <'a>         = Defines the same as above, but for the entire Struct
 #[allow(dead_code)]
 pub struct Theme<'a> {
     pub primary: &'a str,

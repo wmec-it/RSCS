@@ -18,7 +18,7 @@ pub fn run_tweaks() {
         .as_str(),
     );
 
-    // Powershell Tweaks
+    //:& Powershell Tweaks
     message::info(
         MessageType::Print,
         message::add_delimiter(
@@ -35,7 +35,7 @@ pub fn run_tweaks() {
     tweaks::powershell::ps7::full();
     tweaks::powershell::ps7telemetry::disable();
 
-    // Registry Tweaks
+    //:& Registry Tweaks
     message::info(
         MessageType::Print,
         message::add_delimiter(
@@ -72,7 +72,7 @@ pub fn run_tweaks() {
 
     utils::explorer::restart();
 
-    // Power Tweaks
+    //:& Power Tweaks
     message::info(
         MessageType::Print,
         message::add_delimiter(

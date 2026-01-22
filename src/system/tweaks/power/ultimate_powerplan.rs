@@ -1,4 +1,4 @@
-// https://winutil.christitus.com/dev/tweaks/performance-plans/addultperf/
+//:& https://winutil.christitus.com/dev/tweaks/performance-plans/addultperf/
 
 use crate::system::tweaks::templates;
 

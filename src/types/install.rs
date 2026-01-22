@@ -23,8 +23,8 @@ pub fn full() {
     system::tweaks::handles::run_tweaks();
 
     // TODO: Finish this shit
-    // message::seperator();
-    // system::programs::debloat::start();
+    // DONT DELETE: message::seperator();
+    // DONT DELETE: system::programs::debloat::start();
 
     message::success(
         MessageType::Print,

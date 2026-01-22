@@ -1,4 +1,4 @@
-// https://winutil.christitus.com/dev/tweaks/z--advanced-tweaks---caution/disablelms1/
+//:& https://winutil.christitus.com/dev/tweaks/z--advanced-tweaks---caution/disablelms1/
 
 use crate::system::tweaks::templates;
 
