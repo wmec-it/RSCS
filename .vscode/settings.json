@@ -182,22 +182,22 @@
       "hideFromActivityBar": true
     },
     "SECTION_LAYER_1": {
+      "icon": "square-fill",
       "type": "whole-line",
       "background": "#3B3B3B",
       "foreground": "#E3E3E3",
-      "iconColour": "#E3E3E3",
-      "hideFromTree": true,
-      "hideFromStatusBar": true,
-      "hideFromActivityBar": true
+      "iconColour": "#8f8f8f",
+      "gutterIcon": true,
+      "hideFromTree": true
     },
     "SECTION_LAYER_2": {
+      "icon": "square-fill",
       "type": "whole-line",
       "background": "#262626",
       "foreground": "#E3E3E3",
-      "iconColour": "#E3E3E3",
-      "hideFromTree": true,
-      "hideFromStatusBar": true,
-      "hideFromActivityBar": true
+      "iconColour": "#4a4a4a",
+      "gutterIcon": true,
+      "hideFromTree": true
     },
     "HEADER": {
       "icon": "megaphone",

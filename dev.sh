@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Check if user installed rustup / cargo
+#:& Check if user installed rustup / cargo
 if ! command -v cargo >/dev/null 2>&1; then
     echo -e "\033[33mTrying to install rustup...\033[0m"
     if command -v apt >/dev/null 2>&1; then
