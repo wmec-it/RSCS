@@ -1,5 +1,48 @@
 {
-    "files.exclude": {
-        "**/.git": false
-    }
+  "files.exclude": {
+    "**/.git": false
+  },
+  "todo-tree.general.tags": ["TODO", "FIXME", "WARNING", "ERROR"],
+  "todo-tree.highlights.defaultHighlight": {
+    "icon": "alert",
+    "type": "text",
+    "foreground": "red",
+    "background": "none",
+    "opacity": 50,
+    "iconColour": "blue"
+  },
+  "todo-tree.highlights.customHighlight": {
+    "TODO": {
+      "icon": "check",
+      "type": "whole-line",
+      "background": "#5E265B",
+      "foreground": "#F285ED",
+      "iconColour": "#B39CB8",
+      "gutterIcon": true
+    },
+    "FIXME": {
+      "icon": "tools",
+      "type": "whole-line",
+      "background": "#10394A",
+      "foreground": "#32B5ED",
+      "iconColour": "#2EC4FF",
+      "gutterIcon": true
+    },
+    "WARNING": {
+      "icon": "alert",
+      "type": "whole-line",
+      "background": "#523212",
+      "foreground": "#F09F4F",
+      "iconColour": "#FFA629",
+      "gutterIcon": true
+    },
+    "ERROR": {
+      "icon": "circle-slash",
+      "type": "whole-line",
+      "background": "#541313",
+      "foreground": "#F75C5C",
+      "iconColour": "#FF2929",
+      "gutterIcon": true
+    },
+  }
 }
