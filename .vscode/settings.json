@@ -2,7 +2,24 @@
   "files.exclude": {
     "**/.git": false
   },
-  "todo-tree.general.tags": ["TODO", "FIXME", "WARNING", "ERROR"],
+  "todo-tree.general.tags": [
+    "TODO",
+    ":>",
+    "INFO",
+    ":&",
+    "QUESTION",
+    ":?",
+    "HELP",
+    ":<",
+    "FIXME",
+    ":#",
+    "WARNING",
+    ":%",
+    "ERROR",
+    ":!",
+    "PLACEHOLDER",
+    ":*"
+  ],
   "todo-tree.highlights.defaultHighlight": {
     "icon": "alert",
     "type": "text",
@@ -20,7 +37,23 @@
       "iconColour": "#B39CB8",
       "gutterIcon": true
     },
+    ":>": {
+      "icon": "check",
+      "type": "whole-line",
+      "background": "#5E265B",
+      "foreground": "#F285ED",
+      "iconColour": "#B39CB8",
+      "gutterIcon": true
+    },
     "INFO": {
+      "icon": "info",
+      "type": "line",
+      "background": "#142942",
+      "foreground": "#4088DE",
+      "iconColour": "#2E8CFF",
+      "gutterIcon": true
+    },
+    ":&": {
       "icon": "info",
       "type": "line",
       "background": "#142942",
@@ -36,7 +69,23 @@
       "iconColour": "#36FFB5",
       "gutterIcon": true
     },
+    ":?": {
+      "icon": "question",
+      "type": "line",
+      "background": "#184232",
+      "foreground": "#53E6AF",
+      "iconColour": "#36FFB5",
+      "gutterIcon": true
+    },
     "HELP": {
+      "icon": "broadcast",
+      "type": "whole-line",
+      "background": "#171642",
+      "foreground": "#7D7BE8",
+      "iconColour": "#4D4AE0",
+      "gutterIcon": true
+    },
+    ":<": {
       "icon": "broadcast",
       "type": "whole-line",
       "background": "#171642",
@@ -52,7 +101,23 @@
       "iconColour": "#2EC4FF",
       "gutterIcon": true
     },
+    ":#": {
+      "icon": "tools",
+      "type": "whole-line",
+      "background": "#10394A",
+      "foreground": "#32B5ED",
+      "iconColour": "#2EC4FF",
+      "gutterIcon": true
+    },
     "WARNING": {
+      "icon": "alert",
+      "type": "whole-line",
+      "background": "#523212",
+      "foreground": "#F09F4F",
+      "iconColour": "#FFA629",
+      "gutterIcon": true
+    },
+    ":%": {
       "icon": "alert",
       "type": "whole-line",
       "background": "#523212",
@@ -68,7 +133,23 @@
       "iconColour": "#FF2929",
       "gutterIcon": true
     },
+    ":!": {
+      "icon": "circle-slash",
+      "type": "whole-line",
+      "background": "#541313",
+      "foreground": "#F75C5C",
+      "iconColour": "#FF2929",
+      "gutterIcon": true
+    },
     "PLACEHOLDER": {
+      "icon": "circle-slash",
+      "type": "line",
+      "background": "#2A2E20",
+      "foreground": "#C9D6A9",
+      "iconColour": "#DDF2AA",
+      "gutterIcon": true
+    },
+    ":*": {
       "icon": "circle-slash",
       "type": "line",
       "background": "#2A2E20",
