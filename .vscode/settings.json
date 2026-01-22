@@ -20,6 +20,30 @@
       "iconColour": "#B39CB8",
       "gutterIcon": true
     },
+    "INFO": {
+      "icon": "info",
+      "type": "line",
+      "background": "#142942",
+      "foreground": "#4088DE",
+      "iconColour": "#2E8CFF",
+      "gutterIcon": true
+    },
+    "QUESTION": {
+      "icon": "question",
+      "type": "line",
+      "background": "#184232",
+      "foreground": "#53E6AF",
+      "iconColour": "#36FFB5",
+      "gutterIcon": true
+    },
+    "HELP": {
+      "icon": "broadcast",
+      "type": "whole-line",
+      "background": "#171642",
+      "foreground": "#7D7BE8",
+      "iconColour": "#4D4AE0",
+      "gutterIcon": true
+    },
     "FIXME": {
       "icon": "tools",
       "type": "whole-line",
@@ -42,6 +66,14 @@
       "background": "#541313",
       "foreground": "#F75C5C",
       "iconColour": "#FF2929",
+      "gutterIcon": true
+    },
+    "PLACEHOLDER": {
+      "icon": "circle-slash",
+      "type": "line",
+      "background": "#2A2E20",
+      "foreground": "#C9D6A9",
+      "iconColour": "#DDF2AA",
       "gutterIcon": true
     },
   }
