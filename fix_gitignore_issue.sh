@@ -1,0 +1,1 @@
+git ls-files -i -c --exclude-standard -z |xargs -0 --no-run-if-empty git rm --cached --
