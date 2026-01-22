@@ -47,7 +47,7 @@
     "HELP": ["HELP", ":<"],
     "FIXME": ["FIXME", ":#"],
     "WARNING": ["WARNING", ":%"],
-    "ERROR": ["ERROR", ":!"],
+    "ERROR": ["ERROR", ":!", "BUG"],
     "PLACEHOLDER": ["PLACEHOLDER", ":*"],
     "RESOURCE": ["RESOURCE", ":@", "DOCUMENTATION", "DOCS", "WIKI"],
     "INACTIVE": ["INACTIVE", "DONT DELETE"],
