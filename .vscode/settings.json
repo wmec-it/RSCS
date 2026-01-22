@@ -38,7 +38,8 @@
     "#|",
     "HOW TO USE",
     "USAGE",
-    "INSERT"
+    "INSERT",
+    "BUG"
   ],
   "todo-tree.general.tagGroups": {
     "TODO": ["TODO", ":>"],
