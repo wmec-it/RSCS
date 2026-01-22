@@ -1,4 +1,4 @@
-//:& https://winutil.christitus.com/dev/tweaks/z--advanced-tweaks---caution/removehomegallery/
+// DOCS: https://winutil.christitus.com/dev/tweaks/z--advanced-tweaks---caution/removehomegallery/
 
 use crate::system::tweaks::templates;
 

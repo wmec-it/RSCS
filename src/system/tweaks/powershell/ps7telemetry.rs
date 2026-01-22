@@ -1,4 +1,4 @@
-//:& https://winutil.christitus.com/dev/tweaks/essential-tweaks/powershell7tele/
+// DOCS: https://winutil.christitus.com/dev/tweaks/essential-tweaks/powershell7tele/
 
 use crate::system::tweaks::templates;
 

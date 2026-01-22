@@ -1,4 +1,4 @@
-//:& https://winutil.christitus.com/dev/tweaks/customize-preferences/darkmode/
+// DOCS: https://winutil.christitus.com/dev/tweaks/customize-preferences/darkmode/
 
 use crate::system::tweaks::templates;
 

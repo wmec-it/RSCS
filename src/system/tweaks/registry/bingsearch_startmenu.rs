@@ -1,4 +1,4 @@
-//:& https://winutil.christitus.com/dev/tweaks/customize-preferences/bingsearch/
+// DOCS: https://winutil.christitus.com/dev/tweaks/customize-preferences/bingsearch/
 
 use crate::system::tweaks::templates;
 

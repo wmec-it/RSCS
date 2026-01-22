@@ -1,4 +1,4 @@
-//:& https://winutil.christitus.com/dev/tweaks/z--advanced-tweaks---caution/display/
+// DOCS: https://winutil.christitus.com/dev/tweaks/z--advanced-tweaks---caution/display/
 
 use crate::system::tweaks::templates;
 

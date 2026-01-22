@@ -1,4 +1,4 @@
-//:& https://winutil.christitus.com/dev/tweaks/customize-preferences/taskview/
+// DOCS: https://winutil.christitus.com/dev/tweaks/customize-preferences/taskview/
 
 use crate::system::tweaks::templates;
 

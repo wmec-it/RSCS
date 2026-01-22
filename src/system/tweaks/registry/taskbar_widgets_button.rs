@@ -1,4 +1,4 @@
-//:& https://winutil.christitus.com/dev/tweaks/customize-preferences/taskbarwidgets/
+// DOCS: https://winutil.christitus.com/dev/tweaks/customize-preferences/taskbarwidgets/
 
 use crate::system::tweaks::templates;
 

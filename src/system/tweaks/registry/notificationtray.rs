@@ -1,4 +1,4 @@
-//:& https://winutil.christitus.com/dev/tweaks/z--advanced-tweaks---caution/disablenotifications/
+// DOCS: https://winutil.christitus.com/dev/tweaks/z--advanced-tweaks---caution/disablenotifications/
 
 use crate::system::tweaks::templates;
 

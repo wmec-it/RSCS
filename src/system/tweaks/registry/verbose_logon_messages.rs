@@ -1,4 +1,4 @@
-//:& https://winutil.christitus.com/dev/tweaks/customize-preferences/verboselogon/
+// DOCS: https://winutil.christitus.com/dev/tweaks/customize-preferences/verboselogon/
 
 use crate::system::tweaks::templates;
 

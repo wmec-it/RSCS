@@ -32,13 +32,13 @@
     ":.",
     "SECTION_LAYER_1",
     "##",
+    "SECTION_LAYER_2",
     "###",
     "HEADER",
     "#|",
     "HOW TO USE",
     "USAGE",
-    "INSERT",
-    "**"
+    "INSERT"
   ],
   "todo-tree.general.tagGroups": {
     "TODO": ["TODO", ":>"],

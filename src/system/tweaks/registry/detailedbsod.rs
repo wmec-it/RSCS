@@ -1,4 +1,4 @@
-//:& https://winutil.christitus.com/dev/tweaks/customize-preferences/detailedbsod/
+// DOCS: https://winutil.christitus.com/dev/tweaks/customize-preferences/detailedbsod/
 
 use crate::system::tweaks::templates;
 

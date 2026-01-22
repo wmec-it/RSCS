@@ -1,4 +1,4 @@
-//:& https://winutil.christitus.com/dev/tweaks/customize-preferences/stickykeys/
+// DOCS: https://winutil.christitus.com/dev/tweaks/customize-preferences/stickykeys/
 
 use crate::system::tweaks::templates;
 

@@ -1,4 +1,4 @@
-//:& https://winutil.christitus.com/dev/tweaks/essential-tweaks/ipv46/
+// DOCS: https://winutil.christitus.com/dev/tweaks/essential-tweaks/ipv46/
 
 use crate::system::tweaks::templates;
 

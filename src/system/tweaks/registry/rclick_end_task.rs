@@ -1,4 +1,4 @@
-//:& https://winutil.christitus.com/dev/tweaks/essential-tweaks/endtaskontaskbar/
+// DOCS: https://winutil.christitus.com/dev/tweaks/essential-tweaks/endtaskontaskbar/
 
 use crate::system::tweaks::templates;
 

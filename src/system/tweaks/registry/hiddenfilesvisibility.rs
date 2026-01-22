@@ -1,4 +1,4 @@
-//:& https://winutil.christitus.com/dev/tweaks/customize-preferences/hiddenfiles/
+// DOCS: https://winutil.christitus.com/dev/tweaks/customize-preferences/hiddenfiles/
 
 use crate::system::tweaks::templates;
 

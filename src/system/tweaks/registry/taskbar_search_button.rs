@@ -1,4 +1,4 @@
-//:& https://winutil.christitus.com/dev/tweaks/customize-preferences/taskbarsearch/
+// DOCS: https://winutil.christitus.com/dev/tweaks/customize-preferences/taskbarsearch/
 
 use crate::system::tweaks::templates;
 
