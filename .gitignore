@@ -1,3 +1,9 @@
 /target
 
+# Allow
+!*.bat
+!*.sh
+!custom_files/
+!custom_files/**
 !.vscode/**
+!.github/**
