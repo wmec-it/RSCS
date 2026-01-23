@@ -1,6 +1,8 @@
 use crate::conf::{enums::DelimiterType, enums::MessageType, vars::DELIMITERS, vars::MAIN_THEME};
 use colored_text::Colorize;
 
+// TODO: Fix the entire message display system since it too hard to use
+
 #[allow(dead_code)]
 pub fn normal(normal_type: MessageType, value: &str) -> Option<String> {
     match normal_type {

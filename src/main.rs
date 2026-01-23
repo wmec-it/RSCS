@@ -60,6 +60,7 @@ fn main() -> Result<(), io::Error> {
 
 //:& Opens menu
 fn open_menu(operation_type: &str) -> Result<(), io::Error> {
+    // TODO: Find a better way to run tests and stuff
     match operation_type {
         "testing" => {
             //:& Lets you use the PROJECT_ROOT/src/testing/testing.rs file for testing stuff

@@ -1,6 +1,8 @@
 use crate::conf::enums::{DelimiterType, MessageType};
 use crate::utils::message;
 
+// TODO: Add more error types
+
 #[allow(dead_code)]
 pub fn idk() -> () {
     message::error(
