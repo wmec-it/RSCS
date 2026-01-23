@@ -4,6 +4,7 @@
 #|---------------------------------------------------|
 
 #| Setting Variables |
+TEST_VAR="TEST_VAR"
 ## Basic stuff needed
 ESC="\e"           # USAGE **  \e  **[0;31mEscape Sequence**  \e  **[0m
 CLOSE="[0m"        # USAGE \e[0;31mClosing Sequence\e**  [0m  **

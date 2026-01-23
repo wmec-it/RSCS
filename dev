@@ -1,5 +1,10 @@
 #!/bin/bash
 
+#:& Import lib
+cd lib
+source lib.sh
+cd ../
+
 #:& Check if user installed rustup / cargo
 if ! command -v cargo >/dev/null 2>&1; then
     echo -e "\033[33mTrying to install rustup...\033[0m"
@@ -44,18 +49,28 @@ echo "Set!"
 
 # TODO: Make this better
 PS3='Please enter your choice: '
-options=("Normal Build" "No LTO Build" "Normal Build with Bambu Labs" "No LTO Build with Bambu Labs" "Quit")
+options=(
+    "Normal Build"
+    "No LTO Build"
+    "Normal Build with Bambu Labs"
+    "No LTO Build with Bambu Labs"
+    "Quit"
+)
 select opt in "${options[@]}"
 do
     case $opt in
         "Normal Build")
-            cargo build --release;;
+            cargo build --release
+             break;;
         "No LTO Build")
-            cargo build --release --profile no-lto-release;;
+            cargo build --release --profile no-lto-release
+             break;;
         "Normal Build with Bambu Labs")
-            cargo build --release --features bambulabs;;
+            cargo build --release --features bambulabs
+             break;;
         "No LTO Build with Bambu Labs")
-            cargo build --release --profile no-lto-release --features bambulabs;;
+            cargo build --release --profile no-lto-release --features bambulabs
+             break;;
         "Quit")
             echo "We're done"
             break;;
