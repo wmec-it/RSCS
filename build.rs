@@ -3,6 +3,7 @@ use {
     winresource::WindowsResource,
 };
 
+// TODO: Add Linux configuration too (make it work on both)
 fn main() -> io::Result<()> {
     println!("cargo:rerun-if-changed=build.rs");
     println!("cargo:rerun-if-changed=assets/punchdown_paul.ico");
