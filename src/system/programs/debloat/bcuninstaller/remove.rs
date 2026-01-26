@@ -2,8 +2,15 @@
 
 use crate::system::utils::commands::templates;
 
+// TODO: Find the path to executable dynamically
 // TODO: Add other removal methods
+// TODO: Handle errors when app is already installed
 
 pub fn storehelper(program_id: &str) {
-    templates::admin("run", "success", "error", format!("$env:Path = [System.Environment]::GetEnvironmentVariable(\"Path\",\"Machine\") + \";\" + [System.Environment]::GetEnvironmentVariable(\"Path\",\"User\") || StoreAppHelper.exe /uninstall {}", program_id).as_str());
+    templates::admin(
+        "run",
+        "success",
+        "error",
+        format!("StoreAppHelper /uninstall {}", program_id).as_str(),
+    );
 }

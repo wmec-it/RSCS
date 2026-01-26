@@ -120,5 +120,7 @@ pub const INSTALL_PROGRAMS: &[&str] = &[
     "Microsoft.DotNet.SDK.10",
     "TigerVNC.TigerVNC",
 ];
-pub const REMOVE_PROGRAMS_STOREHELPER: &[&str] =
-    &["Microsoft.StartExperiencesApp_1.195.0.0_x64__8wekyb3d8bbwe"];
+pub const REMOVE_PROGRAMS_STOREHELPER: &[&str] = &[
+    "Microsoft.StartExperiencesApp_1.195.0.0_x64__8wekyb3d8bbwe",
+    "Microsoft.PowerAutomateDesktop_1.0.2058.0_x64__8wekyb3d8bbwe",
+];

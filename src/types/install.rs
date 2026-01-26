@@ -20,6 +20,8 @@ pub fn full() {
 
     system::programs::install_programs();
     message::seperator();
+    system::programs::debloat::start();
+    message::seperator();
     system::tweaks::handles::run_tweaks();
 
     // TODO: Finish this shit
