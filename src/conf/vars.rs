@@ -123,4 +123,7 @@ pub const INSTALL_PROGRAMS: &[&str] = &[
 pub const REMOVE_PROGRAMS_STOREHELPER: &[&str] = &[
     "Microsoft.StartExperiencesApp_1.195.0.0_x64__8wekyb3d8bbwe",
     "Microsoft.PowerAutomateDesktop_1.0.2058.0_x64__8wekyb3d8bbwe",
+    "Microsoft.BioEnrollment_10.0.19587.1000_neutral__cw5n1h2txyewy",
+    "Microsoft.Win32WebViewHost_10.0.26100.1_neutral_neutral_cw5n1h2txyewy",
+    "MicrosoftWindows.Client.CoreAI_1000.26100.7623.0_x64__cw5n1h2txyewy",
 ];
