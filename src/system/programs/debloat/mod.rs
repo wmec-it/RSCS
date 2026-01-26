@@ -1,10 +1,11 @@
 use crate::conf;
 
 pub mod bcuninstaller;
+pub mod powershell;
 
 pub fn start() {
-    for program_id in conf::vars::REMOVE_PROGRAMS_STOREHELPER {
-        bcuninstaller::remove::storehelper(program_id);
+    for program_id in conf::vars::DEBLOAT_UNINSTALL_APPX_PACKAGES.appx_packages {
+        powershell::appx_package(program_id);
     }
     // TODO: Add the other removal/debloat methods
 }

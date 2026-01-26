@@ -6,6 +6,7 @@ use crate::system::utils::commands::templates;
 // TODO: Add other removal methods
 // TODO: Handle errors when app is already installed
 
+#[allow(dead_code)]
 pub fn storehelper(program_id: &str) {
     templates::admin(
         "run",

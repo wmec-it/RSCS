@@ -1,0 +1,801 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationEntrySerializer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Items>
+    <ApplicationUninstallerEntry>
+      <CacheIdOverride>Microsoft.XboxGamingOverlay_7.325.11061.0_x64__8wekyb3d8bbwe</CacheIdOverride>
+      <DisplayName>Game Bar</DisplayName>
+      <BundleProviderKey>00000000-0000-0000-0000-000000000000</BundleProviderKey>
+      <Comment>Microsoft.XboxGamingOverlay_7.325.11061.0_x64__8wekyb3d8bbwe</Comment>
+      <DisplayIcon>C:\Program Files\WindowsApps\Microsoft.XboxGamingOverlay_7.325.11061.0_x64__8wekyb3d8bbwe\GameBar.exe</DisplayIcon>
+      <DisplayVersion>7.325.11061.0</DisplayVersion>
+      <EstimatedSize>31073</EstimatedSize>
+      <InstallDate>2025-12-08T13:27:33.0638556-07:00</InstallDate>
+      <InstallLocation>C:\Program Files\WindowsApps\Microsoft.XboxGamingOverlay_7.325.11061.0_x64__8wekyb3d8bbwe</InstallLocation>
+      <Is64Bit>X64</Is64Bit>
+      <IsProtected>false</IsProtected>
+      <IsRegistered>false</IsRegistered>
+      <IsOrphaned>false</IsOrphaned>
+      <IsUpdate>false</IsUpdate>
+      <IsValid>true</IsValid>
+      <IsWebBrowser>false</IsWebBrowser>
+      <Publisher>Microsoft Corporation</Publisher>
+      <QuietUninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "Microsoft.XboxGamingOverlay_7.325.11061.0_x64__8wekyb3d8bbwe"</QuietUninstallString>
+      <RatingId>Microsoft.XboxGamingOverlay</RatingId>
+      <SystemComponent>false</SystemComponent>
+      <UninstallerFullFilename>C:\Program Files\BCUninstaller\StoreAppHelper.exe</UninstallerFullFilename>
+      <UninstallerKind>StoreApp</UninstallerKind>
+      <UninstallerLocation>C:\Program Files\BCUninstaller</UninstallerLocation>
+      <UninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "Microsoft.XboxGamingOverlay_7.325.11061.0_x64__8wekyb3d8bbwe"</UninstallString>
+    </ApplicationUninstallerEntry>
+    <ApplicationUninstallerEntry>
+      <CacheIdOverride>Microsoft.WindowsFeedbackHub_1.2512.16303.0_x64__8wekyb3d8bbwe</CacheIdOverride>
+      <DisplayName>Feedback Hub</DisplayName>
+      <BundleProviderKey>00000000-0000-0000-0000-000000000000</BundleProviderKey>
+      <Comment>Microsoft.WindowsFeedbackHub_1.2512.16303.0_x64__8wekyb3d8bbwe</Comment>
+      <DisplayIcon>C:\Program Files\WindowsApps\Microsoft.WindowsFeedbackHub_1.2512.16303.0_x64__8wekyb3d8bbwe\PilotshubApp.exe</DisplayIcon>
+      <DisplayVersion>0.0.0.0</DisplayVersion>
+      <EstimatedSize>40851</EstimatedSize>
+      <InstallDate>2026-01-12T13:49:58.4106769-07:00</InstallDate>
+      <InstallLocation>C:\Program Files\WindowsApps\Microsoft.WindowsFeedbackHub_1.2512.16303.0_x64__8wekyb3d8bbwe</InstallLocation>
+      <Is64Bit>X64</Is64Bit>
+      <IsProtected>false</IsProtected>
+      <IsRegistered>false</IsRegistered>
+      <IsOrphaned>false</IsOrphaned>
+      <IsUpdate>false</IsUpdate>
+      <IsValid>true</IsValid>
+      <IsWebBrowser>false</IsWebBrowser>
+      <Publisher>Microsoft Corporation</Publisher>
+      <QuietUninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "Microsoft.WindowsFeedbackHub_1.2512.16303.0_x64__8wekyb3d8bbwe"</QuietUninstallString>
+      <RatingId>Microsoft.WindowsFeedbackHub</RatingId>
+      <SystemComponent>false</SystemComponent>
+      <UninstallerFullFilename>C:\Program Files\BCUninstaller\StoreAppHelper.exe</UninstallerFullFilename>
+      <UninstallerKind>StoreApp</UninstallerKind>
+      <UninstallerLocation>C:\Program Files\BCUninstaller</UninstallerLocation>
+      <UninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "Microsoft.WindowsFeedbackHub_1.2512.16303.0_x64__8wekyb3d8bbwe"</UninstallString>
+    </ApplicationUninstallerEntry>
+    <ApplicationUninstallerEntry>
+      <CacheIdOverride>Microsoft.GetHelp_10.2409.33293.0_x64__8wekyb3d8bbwe</CacheIdOverride>
+      <DisplayName>Get Help</DisplayName>
+      <BundleProviderKey>00000000-0000-0000-0000-000000000000</BundleProviderKey>
+      <Comment>Microsoft.GetHelp_10.2409.33293.0_x64__8wekyb3d8bbwe</Comment>
+      <DisplayIcon>C:\Program Files\WindowsApps\Microsoft.GetHelp_10.2409.33293.0_x64__8wekyb3d8bbwe\Assets\GetHelpStoreLogo.scale-100.png</DisplayIcon>
+      <DisplayVersion>10.2409.251125003-StoreMaster</DisplayVersion>
+      <EstimatedSize>254202</EstimatedSize>
+      <InstallDate>2025-12-18T15:16:28.8976962-07:00</InstallDate>
+      <InstallLocation>C:\Program Files\WindowsApps\Microsoft.GetHelp_10.2409.33293.0_x64__8wekyb3d8bbwe</InstallLocation>
+      <Is64Bit>X64</Is64Bit>
+      <IsProtected>false</IsProtected>
+      <IsRegistered>false</IsRegistered>
+      <IsOrphaned>false</IsOrphaned>
+      <IsUpdate>false</IsUpdate>
+      <IsValid>true</IsValid>
+      <IsWebBrowser>false</IsWebBrowser>
+      <Publisher>Microsoft Corporation</Publisher>
+      <QuietUninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "Microsoft.GetHelp_10.2409.33293.0_x64__8wekyb3d8bbwe"</QuietUninstallString>
+      <RatingId>Microsoft.GetHelp</RatingId>
+      <SystemComponent>false</SystemComponent>
+      <UninstallerFullFilename>C:\Program Files\BCUninstaller\StoreAppHelper.exe</UninstallerFullFilename>
+      <UninstallerKind>StoreApp</UninstallerKind>
+      <UninstallerLocation>C:\Program Files\BCUninstaller</UninstallerLocation>
+      <UninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "Microsoft.GetHelp_10.2409.33293.0_x64__8wekyb3d8bbwe"</UninstallString>
+    </ApplicationUninstallerEntry>
+    <ApplicationUninstallerEntry>
+      <CacheIdOverride>microsoft.windowscommunicationsapps_16005.14326.22342.0_x64__8wekyb3d8bbwe</CacheIdOverride>
+      <DisplayName>Mail and Calendar</DisplayName>
+      <BundleProviderKey>00000000-0000-0000-0000-000000000000</BundleProviderKey>
+      <Comment>microsoft.windowscommunicationsapps_16005.14326.22342.0_x64__8wekyb3d8bbwe</Comment>
+      <DisplayIcon>C:\Program Files\WindowsApps\microsoft.windowscommunicationsapps_16005.14326.22342.0_x64__8wekyb3d8bbwe\images\HxMailAppList.scale-100.png</DisplayIcon>
+      <DisplayVersion>16.0.14326.22342</DisplayVersion>
+      <EstimatedSize>211616</EstimatedSize>
+      <InstallDate>2025-05-08T14:04:35.3284279-07:00</InstallDate>
+      <InstallLocation>C:\Program Files\WindowsApps\microsoft.windowscommunicationsapps_16005.14326.22342.0_x64__8wekyb3d8bbwe</InstallLocation>
+      <Is64Bit>X64</Is64Bit>
+      <IsProtected>false</IsProtected>
+      <IsRegistered>false</IsRegistered>
+      <IsOrphaned>false</IsOrphaned>
+      <IsUpdate>false</IsUpdate>
+      <IsValid>true</IsValid>
+      <IsWebBrowser>false</IsWebBrowser>
+      <Publisher>Microsoft Corporation</Publisher>
+      <QuietUninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "microsoft.windowscommunicationsapps_16005.14326.22342.0_x64__8wekyb3d8bbwe"</QuietUninstallString>
+      <RatingId>microsoft.windowscommunicationsapps</RatingId>
+      <SystemComponent>false</SystemComponent>
+      <UninstallerFullFilename>C:\Program Files\BCUninstaller\StoreAppHelper.exe</UninstallerFullFilename>
+      <UninstallerKind>StoreApp</UninstallerKind>
+      <UninstallerLocation>C:\Program Files\BCUninstaller</UninstallerLocation>
+      <UninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "microsoft.windowscommunicationsapps_16005.14326.22342.0_x64__8wekyb3d8bbwe"</UninstallString>
+    </ApplicationUninstallerEntry>
+    <ApplicationUninstallerEntry>
+      <CacheIdOverride>Microsoft.BingSearch_1.1.40.0_x64__8wekyb3d8bbwe</CacheIdOverride>
+      <DisplayName>Microsoft Bing</DisplayName>
+      <BundleProviderKey>00000000-0000-0000-0000-000000000000</BundleProviderKey>
+      <Comment>Microsoft.BingSearch_1.1.40.0_x64__8wekyb3d8bbwe</Comment>
+      <DisplayIcon>C:\Program Files\WindowsApps\Microsoft.BingSearch_1.1.40.0_x64__8wekyb3d8bbwe\MicrosoftBing.exe</DisplayIcon>
+      <EstimatedSize>117</EstimatedSize>
+      <InstallDate>2025-10-15T13:42:35.936466-07:00</InstallDate>
+      <InstallLocation>C:\Program Files\WindowsApps\Microsoft.BingSearch_1.1.40.0_x64__8wekyb3d8bbwe</InstallLocation>
+      <Is64Bit>X64</Is64Bit>
+      <IsProtected>false</IsProtected>
+      <IsRegistered>false</IsRegistered>
+      <IsOrphaned>false</IsOrphaned>
+      <IsUpdate>false</IsUpdate>
+      <IsValid>true</IsValid>
+      <IsWebBrowser>false</IsWebBrowser>
+      <Publisher>Microsoft Corporation</Publisher>
+      <QuietUninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "Microsoft.BingSearch_1.1.40.0_x64__8wekyb3d8bbwe"</QuietUninstallString>
+      <RatingId>Microsoft.BingSearch</RatingId>
+      <SystemComponent>false</SystemComponent>
+      <UninstallerFullFilename>C:\Program Files\BCUninstaller\StoreAppHelper.exe</UninstallerFullFilename>
+      <UninstallerKind>StoreApp</UninstallerKind>
+      <UninstallerLocation>C:\Program Files\BCUninstaller</UninstallerLocation>
+      <UninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "Microsoft.BingSearch_1.1.40.0_x64__8wekyb3d8bbwe"</UninstallString>
+    </ApplicationUninstallerEntry>
+    <ApplicationUninstallerEntry>
+      <CacheIdOverride>Microsoft.Edge.GameAssist_1.0.3590.0_x64__8wekyb3d8bbwe</CacheIdOverride>
+      <DisplayName>Microsoft Edge Game Assist</DisplayName>
+      <BundleProviderKey>00000000-0000-0000-0000-000000000000</BundleProviderKey>
+      <Comment>Microsoft.Edge.GameAssist_1.0.3590.0_x64__8wekyb3d8bbwe</Comment>
+      <DisplayIcon>C:\Program Files\WindowsApps\Microsoft.Edge.GameAssist_1.0.3590.0_x64__8wekyb3d8bbwe\EdgeGameAssist.exe</DisplayIcon>
+      <EstimatedSize>2511</EstimatedSize>
+      <InstallDate>2025-11-21T13:35:15.8224803-07:00</InstallDate>
+      <InstallLocation>C:\Program Files\WindowsApps\Microsoft.Edge.GameAssist_1.0.3590.0_x64__8wekyb3d8bbwe</InstallLocation>
+      <Is64Bit>X64</Is64Bit>
+      <IsProtected>false</IsProtected>
+      <IsRegistered>false</IsRegistered>
+      <IsOrphaned>false</IsOrphaned>
+      <IsUpdate>false</IsUpdate>
+      <IsValid>true</IsValid>
+      <IsWebBrowser>false</IsWebBrowser>
+      <Publisher>Microsoft Corporation</Publisher>
+      <QuietUninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "Microsoft.Edge.GameAssist_1.0.3590.0_x64__8wekyb3d8bbwe"</QuietUninstallString>
+      <RatingId>Microsoft.Edge.GameAssist</RatingId>
+      <SystemComponent>false</SystemComponent>
+      <UninstallerFullFilename>C:\Program Files\BCUninstaller\StoreAppHelper.exe</UninstallerFullFilename>
+      <UninstallerKind>StoreApp</UninstallerKind>
+      <UninstallerLocation>C:\Program Files\BCUninstaller</UninstallerLocation>
+      <UninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "Microsoft.Edge.GameAssist_1.0.3590.0_x64__8wekyb3d8bbwe"</UninstallString>
+    </ApplicationUninstallerEntry>
+    <ApplicationUninstallerEntry>
+      <CacheIdOverride>Microsoft.People_10.2202.100.0_x64__8wekyb3d8bbwe</CacheIdOverride>
+      <DisplayName>Microsoft People</DisplayName>
+      <BundleProviderKey>00000000-0000-0000-0000-000000000000</BundleProviderKey>
+      <Comment>Microsoft.People_10.2202.100.0_x64__8wekyb3d8bbwe</Comment>
+      <DisplayIcon>C:\Program Files\WindowsApps\Microsoft.People_10.2202.100.0_x64__8wekyb3d8bbwe\PeopleApp.exe</DisplayIcon>
+      <DisplayVersion>1.0.0.0</DisplayVersion>
+      <EstimatedSize>23935</EstimatedSize>
+      <InstallDate>2025-05-08T14:02:51.9095508-07:00</InstallDate>
+      <InstallLocation>C:\Program Files\WindowsApps\Microsoft.People_10.2202.100.0_x64__8wekyb3d8bbwe</InstallLocation>
+      <Is64Bit>X64</Is64Bit>
+      <IsProtected>false</IsProtected>
+      <IsRegistered>false</IsRegistered>
+      <IsOrphaned>false</IsOrphaned>
+      <IsUpdate>false</IsUpdate>
+      <IsValid>true</IsValid>
+      <IsWebBrowser>false</IsWebBrowser>
+      <Publisher>Microsoft Corporation</Publisher>
+      <QuietUninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "Microsoft.People_10.2202.100.0_x64__8wekyb3d8bbwe"</QuietUninstallString>
+      <RatingId>Microsoft.People</RatingId>
+      <SystemComponent>false</SystemComponent>
+      <UninstallerFullFilename>C:\Program Files\BCUninstaller\StoreAppHelper.exe</UninstallerFullFilename>
+      <UninstallerKind>StoreApp</UninstallerKind>
+      <UninstallerLocation>C:\Program Files\BCUninstaller</UninstallerLocation>
+      <UninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "Microsoft.People_10.2202.100.0_x64__8wekyb3d8bbwe"</UninstallString>
+    </ApplicationUninstallerEntry>
+    <ApplicationUninstallerEntry>
+      <CacheIdOverride>Microsoft.Todos_0.153.5851.0_x64__8wekyb3d8bbwe</CacheIdOverride>
+      <DisplayName>Microsoft To Do</DisplayName>
+      <BundleProviderKey>00000000-0000-0000-0000-000000000000</BundleProviderKey>
+      <Comment>Microsoft.Todos_0.153.5851.0_x64__8wekyb3d8bbwe</Comment>
+      <DisplayIcon>C:\Program Files\WindowsApps\Microsoft.Todos_0.153.5851.0_x64__8wekyb3d8bbwe\Todo.exe</DisplayIcon>
+      <EstimatedSize>984</EstimatedSize>
+      <InstallDate>2026-01-16T13:53:36.5410105-07:00</InstallDate>
+      <InstallLocation>C:\Program Files\WindowsApps\Microsoft.Todos_0.153.5851.0_x64__8wekyb3d8bbwe</InstallLocation>
+      <Is64Bit>X64</Is64Bit>
+      <IsProtected>false</IsProtected>
+      <IsRegistered>false</IsRegistered>
+      <IsOrphaned>false</IsOrphaned>
+      <IsUpdate>false</IsUpdate>
+      <IsValid>true</IsValid>
+      <IsWebBrowser>false</IsWebBrowser>
+      <Publisher>Microsoft Corporation</Publisher>
+      <QuietUninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "Microsoft.Todos_0.153.5851.0_x64__8wekyb3d8bbwe"</QuietUninstallString>
+      <RatingId>Microsoft.Todos</RatingId>
+      <SystemComponent>false</SystemComponent>
+      <UninstallerFullFilename>C:\Program Files\BCUninstaller\StoreAppHelper.exe</UninstallerFullFilename>
+      <UninstallerKind>StoreApp</UninstallerKind>
+      <UninstallerLocation>C:\Program Files\BCUninstaller</UninstallerLocation>
+      <UninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "Microsoft.Todos_0.153.5851.0_x64__8wekyb3d8bbwe"</UninstallString>
+    </ApplicationUninstallerEntry>
+    <ApplicationUninstallerEntry>
+      <CacheIdOverride>Microsoft.MSPaint_6.2410.13017.0_x64__8wekyb3d8bbwe</CacheIdOverride>
+      <DisplayName>Paint 3D</DisplayName>
+      <BundleProviderKey>00000000-0000-0000-0000-000000000000</BundleProviderKey>
+      <Comment>Microsoft.MSPaint_6.2410.13017.0_x64__8wekyb3d8bbwe</Comment>
+      <DisplayIcon>C:\Program Files\WindowsApps\Microsoft.MSPaint_6.2410.13017.0_x64__8wekyb3d8bbwe\Assets\Logos\StoreLogo\Paint3DStoreLogo.scale-100.png</DisplayIcon>
+      <EstimatedSize>52789</EstimatedSize>
+      <InstallDate>2025-05-08T14:03:27.9589035-07:00</InstallDate>
+      <InstallLocation>C:\Program Files\WindowsApps\Microsoft.MSPaint_6.2410.13017.0_x64__8wekyb3d8bbwe</InstallLocation>
+      <Is64Bit>X64</Is64Bit>
+      <IsProtected>false</IsProtected>
+      <IsRegistered>false</IsRegistered>
+      <IsOrphaned>false</IsOrphaned>
+      <IsUpdate>false</IsUpdate>
+      <IsValid>true</IsValid>
+      <IsWebBrowser>false</IsWebBrowser>
+      <Publisher>Microsoft Corporation</Publisher>
+      <QuietUninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "Microsoft.MSPaint_6.2410.13017.0_x64__8wekyb3d8bbwe"</QuietUninstallString>
+      <RatingId>Microsoft.MSPaint</RatingId>
+      <SystemComponent>false</SystemComponent>
+      <UninstallerFullFilename>C:\Program Files\BCUninstaller\StoreAppHelper.exe</UninstallerFullFilename>
+      <UninstallerKind>StoreApp</UninstallerKind>
+      <UninstallerLocation>C:\Program Files\BCUninstaller</UninstallerLocation>
+      <UninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "Microsoft.MSPaint_6.2410.13017.0_x64__8wekyb3d8bbwe"</UninstallString>
+    </ApplicationUninstallerEntry>
+    <ApplicationUninstallerEntry>
+      <CacheIdOverride>MicrosoftCorporationII.QuickAssist_2.0.29.0_x64__8wekyb3d8bbwe</CacheIdOverride>
+      <DisplayName>Quick Assist</DisplayName>
+      <BundleProviderKey>00000000-0000-0000-0000-000000000000</BundleProviderKey>
+      <Comment>MicrosoftCorporationII.QuickAssist_2.0.29.0_x64__8wekyb3d8bbwe</Comment>
+      <DisplayIcon>C:\Program Files\BCUninstaller\StoreAppHelper.exe</DisplayIcon>
+      <EstimatedSize>3688</EstimatedSize>
+      <InstallDate>2025-10-16T09:08:58.9465185-07:00</InstallDate>
+      <InstallLocation>C:\Program Files\WindowsApps\MicrosoftCorporationII.QuickAssist_2.0.29.0_x64__8wekyb3d8bbwe</InstallLocation>
+      <Is64Bit>Unknown</Is64Bit>
+      <IsProtected>false</IsProtected>
+      <IsRegistered>false</IsRegistered>
+      <IsOrphaned>false</IsOrphaned>
+      <IsUpdate>false</IsUpdate>
+      <IsValid>true</IsValid>
+      <IsWebBrowser>false</IsWebBrowser>
+      <Publisher>Microsoft Corp.</Publisher>
+      <QuietUninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "MicrosoftCorporationII.QuickAssist_2.0.29.0_x64__8wekyb3d8bbwe"</QuietUninstallString>
+      <RatingId>MicrosoftCorporationII.QuickAssist</RatingId>
+      <SystemComponent>false</SystemComponent>
+      <UninstallerFullFilename>C:\Program Files\BCUninstaller\StoreAppHelper.exe</UninstallerFullFilename>
+      <UninstallerKind>StoreApp</UninstallerKind>
+      <UninstallerLocation>C:\Program Files\BCUninstaller</UninstallerLocation>
+      <UninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "MicrosoftCorporationII.QuickAssist_2.0.29.0_x64__8wekyb3d8bbwe"</UninstallString>
+    </ApplicationUninstallerEntry>
+    <ApplicationUninstallerEntry>
+      <CacheIdOverride>Microsoft.SkypeApp_15.150.3125.0_x64__kzf8qxf38zg5c</CacheIdOverride>
+      <DisplayName>Skype</DisplayName>
+      <BundleProviderKey>00000000-0000-0000-0000-000000000000</BundleProviderKey>
+      <Comment>Microsoft.SkypeApp_15.150.3125.0_x64__kzf8qxf38zg5c</Comment>
+      <DisplayIcon>C:\Program Files\WindowsApps\Microsoft.SkypeApp_15.150.3125.0_x64__kzf8qxf38zg5c\Assets\SkypeLogo.scale-100.png</DisplayIcon>
+      <EstimatedSize>326594</EstimatedSize>
+      <InstallDate>2025-05-08T14:18:40.373032-07:00</InstallDate>
+      <InstallLocation>C:\Program Files\WindowsApps\Microsoft.SkypeApp_15.150.3125.0_x64__kzf8qxf38zg5c</InstallLocation>
+      <Is64Bit>Unknown</Is64Bit>
+      <IsProtected>false</IsProtected>
+      <IsRegistered>false</IsRegistered>
+      <IsOrphaned>false</IsOrphaned>
+      <IsUpdate>false</IsUpdate>
+      <IsValid>true</IsValid>
+      <IsWebBrowser>false</IsWebBrowser>
+      <Publisher>Skype</Publisher>
+      <QuietUninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "Microsoft.SkypeApp_15.150.3125.0_x64__kzf8qxf38zg5c"</QuietUninstallString>
+      <RatingId>Microsoft.SkypeApp</RatingId>
+      <SystemComponent>false</SystemComponent>
+      <UninstallerFullFilename>C:\Program Files\BCUninstaller\StoreAppHelper.exe</UninstallerFullFilename>
+      <UninstallerKind>StoreApp</UninstallerKind>
+      <UninstallerLocation>C:\Program Files\BCUninstaller</UninstallerLocation>
+      <UninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "Microsoft.SkypeApp_15.150.3125.0_x64__kzf8qxf38zg5c"</UninstallString>
+    </ApplicationUninstallerEntry>
+    <ApplicationUninstallerEntry>
+      <CacheIdOverride>Microsoft.MicrosoftSolitaireCollection_4.25.1130.0_x64__8wekyb3d8bbwe</CacheIdOverride>
+      <DisplayName>Solitaire &amp; Casual Games</DisplayName>
+      <BundleProviderKey>00000000-0000-0000-0000-000000000000</BundleProviderKey>
+      <Comment>Microsoft.MicrosoftSolitaireCollection_4.25.1130.0_x64__8wekyb3d8bbwe</Comment>
+      <DisplayIcon>C:\Program Files\WindowsApps\Microsoft.MicrosoftSolitaireCollection_4.25.1130.0_x64__8wekyb3d8bbwe\Assets\MicrosoftSolitaireStoreLogo.scale-100.png</DisplayIcon>
+      <EstimatedSize>75234</EstimatedSize>
+      <InstallDate>2026-01-24T17:36:29.8818412-07:00</InstallDate>
+      <InstallLocation>C:\Program Files\WindowsApps\Microsoft.MicrosoftSolitaireCollection_4.25.1130.0_x64__8wekyb3d8bbwe</InstallLocation>
+      <Is64Bit>X64</Is64Bit>
+      <IsProtected>false</IsProtected>
+      <IsRegistered>false</IsRegistered>
+      <IsOrphaned>false</IsOrphaned>
+      <IsUpdate>false</IsUpdate>
+      <IsValid>true</IsValid>
+      <IsWebBrowser>false</IsWebBrowser>
+      <Publisher>Microsoft Studios</Publisher>
+      <QuietUninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "Microsoft.MicrosoftSolitaireCollection_4.25.1130.0_x64__8wekyb3d8bbwe"</QuietUninstallString>
+      <RatingId>Microsoft.MicrosoftSolitaireCollection</RatingId>
+      <SystemComponent>false</SystemComponent>
+      <UninstallerFullFilename>C:\Program Files\BCUninstaller\StoreAppHelper.exe</UninstallerFullFilename>
+      <UninstallerKind>StoreApp</UninstallerKind>
+      <UninstallerLocation>C:\Program Files\BCUninstaller</UninstallerLocation>
+      <UninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "Microsoft.MicrosoftSolitaireCollection_4.25.1130.0_x64__8wekyb3d8bbwe"</UninstallString>
+    </ApplicationUninstallerEntry>
+    <ApplicationUninstallerEntry>
+      <CacheIdOverride>SpotifyAB.SpotifyMusic_1.281.264.0_x64__zpdnekdrzrea0</CacheIdOverride>
+      <DisplayName>Spotify - Music and Podcasts</DisplayName>
+      <BundleProviderKey>00000000-0000-0000-0000-000000000000</BundleProviderKey>
+      <Comment>SpotifyAB.SpotifyMusic_1.281.264.0_x64__zpdnekdrzrea0</Comment>
+      <DisplayIcon>C:\Program Files\WindowsApps\SpotifyAB.SpotifyMusic_1.281.264.0_x64__zpdnekdrzrea0\Assets\StoreLogo.scale-100.png</DisplayIcon>
+      <DisplayVersion>1.2.81.264</DisplayVersion>
+      <EstimatedSize>391446</EstimatedSize>
+      <InstallDate>2026-01-18T15:35:01.9684003-07:00</InstallDate>
+      <InstallLocation>C:\Program Files\WindowsApps\SpotifyAB.SpotifyMusic_1.281.264.0_x64__zpdnekdrzrea0</InstallLocation>
+      <Is64Bit>X64</Is64Bit>
+      <IsProtected>false</IsProtected>
+      <IsRegistered>false</IsRegistered>
+      <IsOrphaned>false</IsOrphaned>
+      <IsUpdate>false</IsUpdate>
+      <IsValid>true</IsValid>
+      <IsWebBrowser>false</IsWebBrowser>
+      <Publisher>Spotify AB</Publisher>
+      <QuietUninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "SpotifyAB.SpotifyMusic_1.281.264.0_x64__zpdnekdrzrea0"</QuietUninstallString>
+      <RatingId>SpotifyAB.SpotifyMusic</RatingId>
+      <SystemComponent>false</SystemComponent>
+      <UninstallerFullFilename>C:\Program Files\BCUninstaller\StoreAppHelper.exe</UninstallerFullFilename>
+      <UninstallerKind>StoreApp</UninstallerKind>
+      <UninstallerLocation>C:\Program Files\BCUninstaller</UninstallerLocation>
+      <UninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "SpotifyAB.SpotifyMusic_1.281.264.0_x64__zpdnekdrzrea0"</UninstallString>
+    </ApplicationUninstallerEntry>
+    <ApplicationUninstallerEntry>
+      <CacheIdOverride>Microsoft.StartExperiencesApp_1.218.0.0_x64__8wekyb3d8bbwe</CacheIdOverride>
+      <DisplayName>Start Experiences App</DisplayName>
+      <BundleProviderKey>00000000-0000-0000-0000-000000000000</BundleProviderKey>
+      <Comment>Microsoft.StartExperiencesApp_1.218.0.0_x64__8wekyb3d8bbwe</Comment>
+      <DisplayIcon>C:\Program Files\WindowsApps\Microsoft.StartExperiencesApp_1.218.0.0_x64__8wekyb3d8bbwe\Images\StoreLogo.png</DisplayIcon>
+      <EstimatedSize>3750</EstimatedSize>
+      <InstallDate>2026-01-23T16:36:19.1692701-07:00</InstallDate>
+      <InstallLocation>C:\Program Files\WindowsApps\Microsoft.StartExperiencesApp_1.218.0.0_x64__8wekyb3d8bbwe</InstallLocation>
+      <Is64Bit>Unknown</Is64Bit>
+      <IsProtected>false</IsProtected>
+      <IsRegistered>false</IsRegistered>
+      <IsOrphaned>false</IsOrphaned>
+      <IsUpdate>false</IsUpdate>
+      <IsValid>true</IsValid>
+      <IsWebBrowser>false</IsWebBrowser>
+      <Publisher>Microsoft Corporation</Publisher>
+      <QuietUninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "Microsoft.StartExperiencesApp_1.218.0.0_x64__8wekyb3d8bbwe"</QuietUninstallString>
+      <RatingId>Microsoft.StartExperiencesApp</RatingId>
+      <SystemComponent>false</SystemComponent>
+      <UninstallerFullFilename>C:\Program Files\BCUninstaller\StoreAppHelper.exe</UninstallerFullFilename>
+      <UninstallerKind>StoreApp</UninstallerKind>
+      <UninstallerLocation>C:\Program Files\BCUninstaller</UninstallerLocation>
+      <UninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "Microsoft.StartExperiencesApp_1.218.0.0_x64__8wekyb3d8bbwe"</UninstallString>
+    </ApplicationUninstallerEntry>
+    <ApplicationUninstallerEntry>
+      <CacheIdOverride>Microsoft.BioEnrollment_10.0.19587.1000_neutral__cw5n1h2txyewy</CacheIdOverride>
+      <DisplayName>Windows Hello Setup</DisplayName>
+      <BundleProviderKey>00000000-0000-0000-0000-000000000000</BundleProviderKey>
+      <Comment>Microsoft.BioEnrollment_10.0.19587.1000_neutral__cw5n1h2txyewy</Comment>
+      <DisplayIcon>C:\Windows\SystemApps\Microsoft.BioEnrollment_cw5n1h2txyewy\BioEnrollmentHost.exe</DisplayIcon>
+      <DisplayVersion>10.0.26100.5074</DisplayVersion>
+      <EstimatedSize>0</EstimatedSize>
+      <InstallDate>2024-04-01T00:26:07.5046636-07:00</InstallDate>
+      <InstallLocation>C:\Windows\SystemApps\Microsoft.BioEnrollment_cw5n1h2txyewy</InstallLocation>
+      <Is64Bit>X64</Is64Bit>
+      <IsProtected>true</IsProtected>
+      <IsRegistered>false</IsRegistered>
+      <IsOrphaned>false</IsOrphaned>
+      <IsUpdate>false</IsUpdate>
+      <IsValid>true</IsValid>
+      <IsWebBrowser>false</IsWebBrowser>
+      <Publisher>Microsoft Corporation</Publisher>
+      <QuietUninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "Microsoft.BioEnrollment_10.0.19587.1000_neutral__cw5n1h2txyewy"</QuietUninstallString>
+      <RatingId>Microsoft.BioEnrollment</RatingId>
+      <SystemComponent>true</SystemComponent>
+      <UninstallerFullFilename>C:\Program Files\BCUninstaller\StoreAppHelper.exe</UninstallerFullFilename>
+      <UninstallerKind>StoreApp</UninstallerKind>
+      <UninstallerLocation>C:\Program Files\BCUninstaller</UninstallerLocation>
+      <UninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "Microsoft.BioEnrollment_10.0.19587.1000_neutral__cw5n1h2txyewy"</UninstallString>
+    </ApplicationUninstallerEntry>
+    <ApplicationUninstallerEntry>
+      <CacheIdOverride>Microsoft.WindowsMaps_1.0.65.0_x64__8wekyb3d8bbwe</CacheIdOverride>
+      <DisplayName>Windows Maps</DisplayName>
+      <BundleProviderKey>00000000-0000-0000-0000-000000000000</BundleProviderKey>
+      <Comment>Microsoft.WindowsMaps_1.0.65.0_x64__8wekyb3d8bbwe</Comment>
+      <DisplayIcon>C:\Program Files\WindowsApps\Microsoft.WindowsMaps_1.0.65.0_x64__8wekyb3d8bbwe\Maps.exe</DisplayIcon>
+      <DisplayVersion>1.0.65.0</DisplayVersion>
+      <EstimatedSize>1071</EstimatedSize>
+      <InstallDate>2025-12-08T13:27:06.9082394-07:00</InstallDate>
+      <InstallLocation>C:\Program Files\WindowsApps\Microsoft.WindowsMaps_1.0.65.0_x64__8wekyb3d8bbwe</InstallLocation>
+      <Is64Bit>X64</Is64Bit>
+      <IsProtected>false</IsProtected>
+      <IsRegistered>false</IsRegistered>
+      <IsOrphaned>false</IsOrphaned>
+      <IsUpdate>false</IsUpdate>
+      <IsValid>true</IsValid>
+      <IsWebBrowser>false</IsWebBrowser>
+      <Publisher>Microsoft Corporation</Publisher>
+      <QuietUninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "Microsoft.WindowsMaps_1.0.65.0_x64__8wekyb3d8bbwe"</QuietUninstallString>
+      <RatingId>Microsoft.WindowsMaps</RatingId>
+      <SystemComponent>false</SystemComponent>
+      <UninstallerFullFilename>C:\Program Files\BCUninstaller\StoreAppHelper.exe</UninstallerFullFilename>
+      <UninstallerKind>StoreApp</UninstallerKind>
+      <UninstallerLocation>C:\Program Files\BCUninstaller</UninstallerLocation>
+      <UninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "Microsoft.WindowsMaps_1.0.65.0_x64__8wekyb3d8bbwe"</UninstallString>
+    </ApplicationUninstallerEntry>
+    <ApplicationUninstallerEntry>
+      <CacheIdOverride>Microsoft.GamingApp_2512.1001.36.0_x64__8wekyb3d8bbwe</CacheIdOverride>
+      <DisplayName>Xbox</DisplayName>
+      <BundleProviderKey>00000000-0000-0000-0000-000000000000</BundleProviderKey>
+      <Comment>Microsoft.GamingApp_2512.1001.36.0_x64__8wekyb3d8bbwe</Comment>
+      <DisplayIcon>C:\Program Files\WindowsApps\Microsoft.GamingApp_2512.1001.36.0_x64__8wekyb3d8bbwe\XboxPcApp.exe</DisplayIcon>
+      <DisplayVersion>2512.1001.36.0</DisplayVersion>
+      <EstimatedSize>447672</EstimatedSize>
+      <InstallDate>2026-01-23T16:36:19.8671778-07:00</InstallDate>
+      <InstallLocation>C:\Program Files\WindowsApps\Microsoft.GamingApp_2512.1001.36.0_x64__8wekyb3d8bbwe</InstallLocation>
+      <Is64Bit>X64</Is64Bit>
+      <IsProtected>false</IsProtected>
+      <IsRegistered>false</IsRegistered>
+      <IsOrphaned>false</IsOrphaned>
+      <IsUpdate>false</IsUpdate>
+      <IsValid>true</IsValid>
+      <IsWebBrowser>false</IsWebBrowser>
+      <Publisher>Microsoft Corporation</Publisher>
+      <QuietUninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "Microsoft.GamingApp_2512.1001.36.0_x64__8wekyb3d8bbwe"</QuietUninstallString>
+      <RatingId>Microsoft.GamingApp</RatingId>
+      <SystemComponent>false</SystemComponent>
+      <UninstallerFullFilename>C:\Program Files\BCUninstaller\StoreAppHelper.exe</UninstallerFullFilename>
+      <UninstallerKind>StoreApp</UninstallerKind>
+      <UninstallerLocation>C:\Program Files\BCUninstaller</UninstallerLocation>
+      <UninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "Microsoft.GamingApp_2512.1001.36.0_x64__8wekyb3d8bbwe"</UninstallString>
+    </ApplicationUninstallerEntry>
+    <ApplicationUninstallerEntry>
+      <CacheIdOverride>Microsoft.XboxApp_48.104.4001.0_x64__8wekyb3d8bbwe</CacheIdOverride>
+      <DisplayName>Xbox Console Companion</DisplayName>
+      <BundleProviderKey>00000000-0000-0000-0000-000000000000</BundleProviderKey>
+      <Comment>Microsoft.XboxApp_48.104.4001.0_x64__8wekyb3d8bbwe</Comment>
+      <DisplayIcon>C:\Program Files\WindowsApps\Microsoft.XboxApp_48.104.4001.0_x64__8wekyb3d8bbwe\Assets\GamesXboxHubStoreLogo.scale-100.png</DisplayIcon>
+      <DisplayVersion>48.104.230804001</DisplayVersion>
+      <EstimatedSize>11437</EstimatedSize>
+      <InstallDate>2025-05-08T14:02:39.5509594-07:00</InstallDate>
+      <InstallLocation>C:\Program Files\WindowsApps\Microsoft.XboxApp_48.104.4001.0_x64__8wekyb3d8bbwe</InstallLocation>
+      <Is64Bit>X64</Is64Bit>
+      <IsProtected>false</IsProtected>
+      <IsRegistered>false</IsRegistered>
+      <IsOrphaned>false</IsOrphaned>
+      <IsUpdate>false</IsUpdate>
+      <IsValid>true</IsValid>
+      <IsWebBrowser>false</IsWebBrowser>
+      <Publisher>Microsoft Corporation</Publisher>
+      <QuietUninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "Microsoft.XboxApp_48.104.4001.0_x64__8wekyb3d8bbwe"</QuietUninstallString>
+      <RatingId>Microsoft.XboxApp</RatingId>
+      <SystemComponent>false</SystemComponent>
+      <UninstallerFullFilename>C:\Program Files\BCUninstaller\StoreAppHelper.exe</UninstallerFullFilename>
+      <UninstallerKind>StoreApp</UninstallerKind>
+      <UninstallerLocation>C:\Program Files\BCUninstaller</UninstallerLocation>
+      <UninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "Microsoft.XboxApp_48.104.4001.0_x64__8wekyb3d8bbwe"</UninstallString>
+    </ApplicationUninstallerEntry>
+    <ApplicationUninstallerEntry>
+      <CacheIdOverride>Microsoft.XboxGameOverlay_1.54.4001.0_x64__8wekyb3d8bbwe</CacheIdOverride>
+      <DisplayName>Xbox Game Bar Plugin</DisplayName>
+      <BundleProviderKey>00000000-0000-0000-0000-000000000000</BundleProviderKey>
+      <Comment>Microsoft.XboxGameOverlay_1.54.4001.0_x64__8wekyb3d8bbwe</Comment>
+      <DisplayIcon>C:\Program Files\WindowsApps\Microsoft.XboxGameOverlay_1.54.4001.0_x64__8wekyb3d8bbwe\GameBar.exe</DisplayIcon>
+      <DisplayVersion>1.54.200604001</DisplayVersion>
+      <EstimatedSize>3066</EstimatedSize>
+      <InstallDate>2023-09-12T10:16:20.9497265-07:00</InstallDate>
+      <InstallLocation>C:\Program Files\WindowsApps\Microsoft.XboxGameOverlay_1.54.4001.0_x64__8wekyb3d8bbwe</InstallLocation>
+      <Is64Bit>X64</Is64Bit>
+      <IsProtected>false</IsProtected>
+      <IsRegistered>false</IsRegistered>
+      <IsOrphaned>false</IsOrphaned>
+      <IsUpdate>false</IsUpdate>
+      <IsValid>true</IsValid>
+      <IsWebBrowser>false</IsWebBrowser>
+      <Publisher>Microsoft Corporation</Publisher>
+      <QuietUninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "Microsoft.XboxGameOverlay_1.54.4001.0_x64__8wekyb3d8bbwe"</QuietUninstallString>
+      <RatingId>Microsoft.XboxGameOverlay</RatingId>
+      <SystemComponent>false</SystemComponent>
+      <UninstallerFullFilename>C:\Program Files\BCUninstaller\StoreAppHelper.exe</UninstallerFullFilename>
+      <UninstallerKind>StoreApp</UninstallerKind>
+      <UninstallerLocation>C:\Program Files\BCUninstaller</UninstallerLocation>
+      <UninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "Microsoft.XboxGameOverlay_1.54.4001.0_x64__8wekyb3d8bbwe"</UninstallString>
+    </ApplicationUninstallerEntry>
+    <ApplicationUninstallerEntry>
+      <CacheIdOverride>Microsoft.XboxSpeechToTextOverlay_1.21.13002.0_x64__8wekyb3d8bbwe</CacheIdOverride>
+      <DisplayName>Xbox Game Speech Window</DisplayName>
+      <BundleProviderKey>00000000-0000-0000-0000-000000000000</BundleProviderKey>
+      <Comment>Microsoft.XboxSpeechToTextOverlay_1.21.13002.0_x64__8wekyb3d8bbwe</Comment>
+      <DisplayIcon>C:\Program Files\WindowsApps\Microsoft.XboxSpeechToTextOverlay_1.21.13002.0_x64__8wekyb3d8bbwe\SpeechToTextOverlay64-Retail.exe</DisplayIcon>
+      <DisplayVersion>1.21.170913002</DisplayVersion>
+      <EstimatedSize>751</EstimatedSize>
+      <InstallDate>2025-05-08T14:03:00.6469481-07:00</InstallDate>
+      <InstallLocation>C:\Program Files\WindowsApps\Microsoft.XboxSpeechToTextOverlay_1.21.13002.0_x64__8wekyb3d8bbwe</InstallLocation>
+      <Is64Bit>X64</Is64Bit>
+      <IsProtected>false</IsProtected>
+      <IsRegistered>false</IsRegistered>
+      <IsOrphaned>false</IsOrphaned>
+      <IsUpdate>false</IsUpdate>
+      <IsValid>true</IsValid>
+      <IsWebBrowser>false</IsWebBrowser>
+      <Publisher>Microsoft Corporation</Publisher>
+      <QuietUninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "Microsoft.XboxSpeechToTextOverlay_1.21.13002.0_x64__8wekyb3d8bbwe"</QuietUninstallString>
+      <RatingId>Microsoft.XboxSpeechToTextOverlay</RatingId>
+      <SystemComponent>false</SystemComponent>
+      <UninstallerFullFilename>C:\Program Files\BCUninstaller\StoreAppHelper.exe</UninstallerFullFilename>
+      <UninstallerKind>StoreApp</UninstallerKind>
+      <UninstallerLocation>C:\Program Files\BCUninstaller</UninstallerLocation>
+      <UninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "Microsoft.XboxSpeechToTextOverlay_1.21.13002.0_x64__8wekyb3d8bbwe"</UninstallString>
+    </ApplicationUninstallerEntry>
+    <ApplicationUninstallerEntry>
+      <CacheIdOverride>Microsoft.XboxGameCallableUI_1000.25128.1000.0_neutral_neutral_cw5n1h2txyewy</CacheIdOverride>
+      <DisplayName>Xbox Game UI</DisplayName>
+      <BundleProviderKey>00000000-0000-0000-0000-000000000000</BundleProviderKey>
+      <Comment>Microsoft.XboxGameCallableUI_1000.25128.1000.0_neutral_neutral_cw5n1h2txyewy</Comment>
+      <DisplayIcon>C:\Windows\SystemApps\Microsoft.XboxGameCallableUI_cw5n1h2txyewy\Assets\StoreLogo.scale-100.png</DisplayIcon>
+      <DisplayVersion>0.0.0.0</DisplayVersion>
+      <EstimatedSize>0</EstimatedSize>
+      <InstallDate>2024-04-01T00:26:07.6140242-07:00</InstallDate>
+      <InstallLocation>C:\Windows\SystemApps\Microsoft.XboxGameCallableUI_cw5n1h2txyewy</InstallLocation>
+      <Is64Bit>X86</Is64Bit>
+      <IsProtected>true</IsProtected>
+      <IsRegistered>false</IsRegistered>
+      <IsOrphaned>false</IsOrphaned>
+      <IsUpdate>false</IsUpdate>
+      <IsValid>true</IsValid>
+      <IsWebBrowser>false</IsWebBrowser>
+      <Publisher>Microsoft Corporation</Publisher>
+      <QuietUninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "Microsoft.XboxGameCallableUI_1000.25128.1000.0_neutral_neutral_cw5n1h2txyewy"</QuietUninstallString>
+      <RatingId>Microsoft.XboxGameCallableUI</RatingId>
+      <SystemComponent>true</SystemComponent>
+      <UninstallerFullFilename>C:\Program Files\BCUninstaller\StoreAppHelper.exe</UninstallerFullFilename>
+      <UninstallerKind>StoreApp</UninstallerKind>
+      <UninstallerLocation>C:\Program Files\BCUninstaller</UninstallerLocation>
+      <UninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "Microsoft.XboxGameCallableUI_1000.25128.1000.0_neutral_neutral_cw5n1h2txyewy"</UninstallString>
+    </ApplicationUninstallerEntry>
+    <ApplicationUninstallerEntry>
+      <CacheIdOverride>Microsoft.XboxIdentityProvider_12.130.16001.0_x64__8wekyb3d8bbwe</CacheIdOverride>
+      <DisplayName>Xbox Identity Provider</DisplayName>
+      <BundleProviderKey>00000000-0000-0000-0000-000000000000</BundleProviderKey>
+      <Comment>Microsoft.XboxIdentityProvider_12.130.16001.0_x64__8wekyb3d8bbwe</Comment>
+      <DisplayIcon>C:\Program Files\WindowsApps\Microsoft.XboxIdentityProvider_12.130.16001.0_x64__8wekyb3d8bbwe\Assets\StoreLogo.scale-100.png</DisplayIcon>
+      <DisplayVersion>1.0.0.0</DisplayVersion>
+      <EstimatedSize>17975</EstimatedSize>
+      <InstallDate>2025-12-04T13:24:11.5238288-07:00</InstallDate>
+      <InstallLocation>C:\Program Files\WindowsApps\Microsoft.XboxIdentityProvider_12.130.16001.0_x64__8wekyb3d8bbwe</InstallLocation>
+      <Is64Bit>X64</Is64Bit>
+      <IsProtected>false</IsProtected>
+      <IsRegistered>false</IsRegistered>
+      <IsOrphaned>false</IsOrphaned>
+      <IsUpdate>false</IsUpdate>
+      <IsValid>true</IsValid>
+      <IsWebBrowser>false</IsWebBrowser>
+      <Publisher>Microsoft Corporation</Publisher>
+      <QuietUninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "Microsoft.XboxIdentityProvider_12.130.16001.0_x64__8wekyb3d8bbwe"</QuietUninstallString>
+      <RatingId>Microsoft.XboxIdentityProvider</RatingId>
+      <SystemComponent>false</SystemComponent>
+      <UninstallerFullFilename>C:\Program Files\BCUninstaller\StoreAppHelper.exe</UninstallerFullFilename>
+      <UninstallerKind>StoreApp</UninstallerKind>
+      <UninstallerLocation>C:\Program Files\BCUninstaller</UninstallerLocation>
+      <UninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "Microsoft.XboxIdentityProvider_12.130.16001.0_x64__8wekyb3d8bbwe"</UninstallString>
+    </ApplicationUninstallerEntry>
+    <ApplicationUninstallerEntry>
+      <CacheIdOverride>Microsoft.Xbox.TCUI_1.24.10001.0_x64__8wekyb3d8bbwe</CacheIdOverride>
+      <DisplayName>Xbox TCUI</DisplayName>
+      <BundleProviderKey>00000000-0000-0000-0000-000000000000</BundleProviderKey>
+      <Comment>Microsoft.Xbox.TCUI_1.24.10001.0_x64__8wekyb3d8bbwe</Comment>
+      <DisplayIcon>C:\Program Files\WindowsApps\Microsoft.Xbox.TCUI_1.24.10001.0_x64__8wekyb3d8bbwe\Assets\PackageLogo.png</DisplayIcon>
+      <DisplayVersion>1.24.181210001-1710</DisplayVersion>
+      <EstimatedSize>11768</EstimatedSize>
+      <InstallDate>2023-09-12T10:16:20.2727531-07:00</InstallDate>
+      <InstallLocation>C:\Program Files\WindowsApps\Microsoft.Xbox.TCUI_1.24.10001.0_x64__8wekyb3d8bbwe</InstallLocation>
+      <Is64Bit>X64</Is64Bit>
+      <IsProtected>false</IsProtected>
+      <IsRegistered>false</IsRegistered>
+      <IsOrphaned>false</IsOrphaned>
+      <IsUpdate>false</IsUpdate>
+      <IsValid>true</IsValid>
+      <IsWebBrowser>false</IsWebBrowser>
+      <Publisher>Microsoft Corporation</Publisher>
+      <QuietUninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "Microsoft.Xbox.TCUI_1.24.10001.0_x64__8wekyb3d8bbwe"</QuietUninstallString>
+      <RatingId>Microsoft.Xbox.TCUI</RatingId>
+      <SystemComponent>false</SystemComponent>
+      <UninstallerFullFilename>C:\Program Files\BCUninstaller\StoreAppHelper.exe</UninstallerFullFilename>
+      <UninstallerKind>StoreApp</UninstallerKind>
+      <UninstallerLocation>C:\Program Files\BCUninstaller</UninstallerLocation>
+      <UninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "Microsoft.Xbox.TCUI_1.24.10001.0_x64__8wekyb3d8bbwe"</UninstallString>
+    </ApplicationUninstallerEntry>
+    <ApplicationUninstallerEntry>
+      <CacheIdOverride>Microsoft.PowerAutomateDesktop_1.0.2058.0_x64__8wekyb3d8bbwe</CacheIdOverride>
+      <DisplayName>Power Automate</DisplayName>
+      <BundleProviderKey>00000000-0000-0000-0000-000000000000</BundleProviderKey>
+      <Comment>Microsoft.PowerAutomateDesktop_1.0.2058.0_x64__8wekyb3d8bbwe</Comment>
+      <DisplayIcon>C:\Program Files\BCUninstaller\StoreAppHelper.exe</DisplayIcon>
+      <EstimatedSize>514</EstimatedSize>
+      <InstallDate>2026-01-24T17:36:30.1298547-07:00</InstallDate>
+      <InstallLocation>C:\Program Files\WindowsApps\Microsoft.PowerAutomateDesktop_1.0.2058.0_x64__8wekyb3d8bbwe</InstallLocation>
+      <Is64Bit>Unknown</Is64Bit>
+      <IsProtected>false</IsProtected>
+      <IsRegistered>false</IsRegistered>
+      <IsOrphaned>false</IsOrphaned>
+      <IsUpdate>false</IsUpdate>
+      <IsValid>true</IsValid>
+      <IsWebBrowser>false</IsWebBrowser>
+      <Publisher>Microsoft Corporation</Publisher>
+      <QuietUninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "Microsoft.PowerAutomateDesktop_1.0.2058.0_x64__8wekyb3d8bbwe"</QuietUninstallString>
+      <RatingId>Microsoft.PowerAutomateDesktop</RatingId>
+      <SystemComponent>false</SystemComponent>
+      <UninstallerFullFilename>C:\Program Files\BCUninstaller\StoreAppHelper.exe</UninstallerFullFilename>
+      <UninstallerKind>StoreApp</UninstallerKind>
+      <UninstallerLocation>C:\Program Files\BCUninstaller</UninstallerLocation>
+      <UninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "Microsoft.PowerAutomateDesktop_1.0.2058.0_x64__8wekyb3d8bbwe"</UninstallString>
+    </ApplicationUninstallerEntry>
+    <ApplicationUninstallerEntry>
+      <CacheIdOverride>Microsoft.YourPhone_1.25112.36.0_x64__8wekyb3d8bbwe</CacheIdOverride>
+      <DisplayName>Phone Link</DisplayName>
+      <BundleProviderKey>00000000-0000-0000-0000-000000000000</BundleProviderKey>
+      <Comment>Microsoft.YourPhone_1.25112.36.0_x64__8wekyb3d8bbwe</Comment>
+      <DisplayIcon>C:\Program Files\WindowsApps\Microsoft.YourPhone_1.25112.36.0_x64__8wekyb3d8bbwe\Assets\AppTiles\StoreLogo.png</DisplayIcon>
+      <DisplayVersion>10.0.125.57005 @Commit: fad253f51b461736dfd3cd9c15977bb7493becef</DisplayVersion>
+      <EstimatedSize>374424</EstimatedSize>
+      <InstallDate>2025-12-19T14:57:34.9860789-07:00</InstallDate>
+      <InstallLocation>C:\Program Files\WindowsApps\Microsoft.YourPhone_1.25112.36.0_x64__8wekyb3d8bbwe</InstallLocation>
+      <Is64Bit>X64</Is64Bit>
+      <IsProtected>false</IsProtected>
+      <IsRegistered>false</IsRegistered>
+      <IsOrphaned>false</IsOrphaned>
+      <IsUpdate>false</IsUpdate>
+      <IsValid>true</IsValid>
+      <IsWebBrowser>false</IsWebBrowser>
+      <Publisher>Microsoft Corporation</Publisher>
+      <QuietUninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "Microsoft.YourPhone_1.25112.36.0_x64__8wekyb3d8bbwe"</QuietUninstallString>
+      <RatingId>Microsoft.YourPhone</RatingId>
+      <SystemComponent>false</SystemComponent>
+      <UninstallerFullFilename>C:\Program Files\BCUninstaller\StoreAppHelper.exe</UninstallerFullFilename>
+      <UninstallerKind>StoreApp</UninstallerKind>
+      <UninstallerLocation>C:\Program Files\BCUninstaller</UninstallerLocation>
+      <UninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "Microsoft.YourPhone_1.25112.36.0_x64__8wekyb3d8bbwe"</UninstallString>
+    </ApplicationUninstallerEntry>
+    <ApplicationUninstallerEntry>
+      <CacheIdOverride>Microsoft.OutlookForWindows_1.2025.1209.0_x64__8wekyb3d8bbwe</CacheIdOverride>
+      <DisplayName>Outlook for Windows</DisplayName>
+      <BundleProviderKey>00000000-0000-0000-0000-000000000000</BundleProviderKey>
+      <Comment>Microsoft.OutlookForWindows_1.2025.1209.0_x64__8wekyb3d8bbwe</Comment>
+      <DisplayIcon>C:\Program Files\WindowsApps\Microsoft.OutlookForWindows_1.2025.1209.0_x64__8wekyb3d8bbwe\Assets\StoreLogo.png</DisplayIcon>
+      <DisplayVersion>1.2025.1209.500</DisplayVersion>
+      <EstimatedSize>50787</EstimatedSize>
+      <InstallDate>2026-01-12T13:49:48.8291559-07:00</InstallDate>
+      <InstallLocation>C:\Program Files\WindowsApps\Microsoft.OutlookForWindows_1.2025.1209.0_x64__8wekyb3d8bbwe</InstallLocation>
+      <Is64Bit>X64</Is64Bit>
+      <IsProtected>false</IsProtected>
+      <IsRegistered>false</IsRegistered>
+      <IsOrphaned>false</IsOrphaned>
+      <IsUpdate>false</IsUpdate>
+      <IsValid>true</IsValid>
+      <IsWebBrowser>false</IsWebBrowser>
+      <Publisher>Microsoft Corporation</Publisher>
+      <QuietUninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "Microsoft.OutlookForWindows_1.2025.1209.0_x64__8wekyb3d8bbwe"</QuietUninstallString>
+      <RatingId>Microsoft.OutlookForWindows</RatingId>
+      <SystemComponent>false</SystemComponent>
+      <UninstallerFullFilename>C:\Program Files\BCUninstaller\StoreAppHelper.exe</UninstallerFullFilename>
+      <UninstallerKind>StoreApp</UninstallerKind>
+      <UninstallerLocation>C:\Program Files\BCUninstaller</UninstallerLocation>
+      <UninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "Microsoft.OutlookForWindows_1.2025.1209.0_x64__8wekyb3d8bbwe"</UninstallString>
+    </ApplicationUninstallerEntry>
+    <ApplicationUninstallerEntry>
+      <CacheIdOverride>Microsoft.Office.OneNote_16.14326.22589.0_x64__8wekyb3d8bbwe</CacheIdOverride>
+      <DisplayName>OneNote for Windows 10</DisplayName>
+      <BundleProviderKey>00000000-0000-0000-0000-000000000000</BundleProviderKey>
+      <Comment>Microsoft.Office.OneNote_16.14326.22589.0_x64__8wekyb3d8bbwe</Comment>
+      <DisplayIcon>C:\Program Files\WindowsApps\Microsoft.Office.OneNote_16.14326.22589.0_x64__8wekyb3d8bbwe\images\OneNotePackageLogo.scale-100.png</DisplayIcon>
+      <EstimatedSize>1445</EstimatedSize>
+      <InstallDate>2025-12-08T13:27:21.0719833-07:00</InstallDate>
+      <InstallLocation>C:\Program Files\WindowsApps\Microsoft.Office.OneNote_16.14326.22589.0_x64__8wekyb3d8bbwe</InstallLocation>
+      <Is64Bit>X64</Is64Bit>
+      <IsProtected>false</IsProtected>
+      <IsRegistered>false</IsRegistered>
+      <IsOrphaned>false</IsOrphaned>
+      <IsUpdate>false</IsUpdate>
+      <IsValid>true</IsValid>
+      <IsWebBrowser>false</IsWebBrowser>
+      <Publisher>Microsoft Corporation</Publisher>
+      <QuietUninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "Microsoft.Office.OneNote_16.14326.22589.0_x64__8wekyb3d8bbwe"</QuietUninstallString>
+      <RatingId>Microsoft.Office.OneNote</RatingId>
+      <SystemComponent>false</SystemComponent>
+      <UninstallerFullFilename>C:\Program Files\BCUninstaller\StoreAppHelper.exe</UninstallerFullFilename>
+      <UninstallerKind>StoreApp</UninstallerKind>
+      <UninstallerLocation>C:\Program Files\BCUninstaller</UninstallerLocation>
+      <UninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "Microsoft.Office.OneNote_16.14326.22589.0_x64__8wekyb3d8bbwe"</UninstallString>
+    </ApplicationUninstallerEntry>
+    <ApplicationUninstallerEntry>
+      <CacheIdOverride>Microsoft.BingNews_4.55.62231.0_x64__8wekyb3d8bbwe</CacheIdOverride>
+      <DisplayName>News</DisplayName>
+      <BundleProviderKey>00000000-0000-0000-0000-000000000000</BundleProviderKey>
+      <Comment>Microsoft.BingNews_4.55.62231.0_x64__8wekyb3d8bbwe</Comment>
+      <DisplayIcon>C:\Program Files\WindowsApps\Microsoft.BingNews_4.55.62231.0_x64__8wekyb3d8bbwe\Microsoft.Msn.News.exe</DisplayIcon>
+      <DisplayVersion>4.55.230811001-migrateToWinUI2.6</DisplayVersion>
+      <EstimatedSize>29501</EstimatedSize>
+      <InstallDate>2025-10-16T11:56:33.8195801-07:00</InstallDate>
+      <InstallLocation>C:\Program Files\WindowsApps\Microsoft.BingNews_4.55.62231.0_x64__8wekyb3d8bbwe</InstallLocation>
+      <Is64Bit>X64</Is64Bit>
+      <IsProtected>false</IsProtected>
+      <IsRegistered>false</IsRegistered>
+      <IsOrphaned>false</IsOrphaned>
+      <IsUpdate>false</IsUpdate>
+      <IsValid>true</IsValid>
+      <IsWebBrowser>false</IsWebBrowser>
+      <Publisher>Microsoft Corporation</Publisher>
+      <QuietUninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "Microsoft.BingNews_4.55.62231.0_x64__8wekyb3d8bbwe"</QuietUninstallString>
+      <RatingId>Microsoft.BingNews</RatingId>
+      <SystemComponent>false</SystemComponent>
+      <UninstallerFullFilename>C:\Program Files\BCUninstaller\StoreAppHelper.exe</UninstallerFullFilename>
+      <UninstallerKind>StoreApp</UninstallerKind>
+      <UninstallerLocation>C:\Program Files\BCUninstaller</UninstallerLocation>
+      <UninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "Microsoft.BingNews_4.55.62231.0_x64__8wekyb3d8bbwe"</UninstallString>
+    </ApplicationUninstallerEntry>
+    <ApplicationUninstallerEntry>
+      <CacheIdOverride>Microsoft.Windows.NarratorQuickStart_10.0.26100.1_neutral_neutral_8wekyb3d8bbwe</CacheIdOverride>
+      <DisplayName>Narrator</DisplayName>
+      <BundleProviderKey>00000000-0000-0000-0000-000000000000</BundleProviderKey>
+      <Comment>Microsoft.Windows.NarratorQuickStart_10.0.26100.1_neutral_neutral_8wekyb3d8bbwe</Comment>
+      <DisplayIcon>C:\Windows\SystemApps\microsoft.windows.narratorquickstart_8wekyb3d8bbwe\assets\NarratorStoreLogo.scale-100.png</DisplayIcon>
+      <DisplayVersion>10.0.26100.5074</DisplayVersion>
+      <EstimatedSize>0</EstimatedSize>
+      <InstallDate>2024-04-01T00:26:07.5983983-07:00</InstallDate>
+      <InstallLocation>C:\Windows\SystemApps\microsoft.windows.narratorquickstart_8wekyb3d8bbwe</InstallLocation>
+      <Is64Bit>X64</Is64Bit>
+      <IsProtected>true</IsProtected>
+      <IsRegistered>false</IsRegistered>
+      <IsOrphaned>false</IsOrphaned>
+      <IsUpdate>false</IsUpdate>
+      <IsValid>true</IsValid>
+      <IsWebBrowser>false</IsWebBrowser>
+      <Publisher>Microsoft</Publisher>
+      <QuietUninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "Microsoft.Windows.NarratorQuickStart_10.0.26100.1_neutral_neutral_8wekyb3d8bbwe"</QuietUninstallString>
+      <RatingId>Microsoft.Windows.NarratorQuickStart</RatingId>
+      <SystemComponent>true</SystemComponent>
+      <UninstallerFullFilename>C:\Program Files\BCUninstaller\StoreAppHelper.exe</UninstallerFullFilename>
+      <UninstallerKind>StoreApp</UninstallerKind>
+      <UninstallerLocation>C:\Program Files\BCUninstaller</UninstallerLocation>
+      <UninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "Microsoft.Windows.NarratorQuickStart_10.0.26100.1_neutral_neutral_8wekyb3d8bbwe"</UninstallString>
+    </ApplicationUninstallerEntry>
+    <ApplicationUninstallerEntry>
+      <CacheIdOverride>MicrosoftWindows.CrossDevice_0.25112.60.0_x64__cw5n1h2txyewy</CacheIdOverride>
+      <DisplayName>Cross Device Experience Host</DisplayName>
+      <BundleProviderKey>00000000-0000-0000-0000-000000000000</BundleProviderKey>
+      <Comment>MicrosoftWindows.CrossDevice_0.25112.60.0_x64__cw5n1h2txyewy</Comment>
+      <DisplayIcon>C:\Program Files\WindowsApps\MicrosoftWindows.CrossDevice_0.25112.60.0_x64__cw5n1h2txyewy\CrossDeviceSettingsHost.exe</DisplayIcon>
+      <DisplayVersion>0.25112.60.0</DisplayVersion>
+      <EstimatedSize>2065</EstimatedSize>
+      <InstallDate>2026-01-12T13:49:49.649189-07:00</InstallDate>
+      <InstallLocation>C:\Program Files\WindowsApps\MicrosoftWindows.CrossDevice_0.25112.60.0_x64__cw5n1h2txyewy</InstallLocation>
+      <Is64Bit>X64</Is64Bit>
+      <IsProtected>false</IsProtected>
+      <IsRegistered>false</IsRegistered>
+      <IsOrphaned>false</IsOrphaned>
+      <IsUpdate>false</IsUpdate>
+      <IsValid>true</IsValid>
+      <IsWebBrowser>false</IsWebBrowser>
+      <Publisher>Microsoft Windows</Publisher>
+      <QuietUninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "MicrosoftWindows.CrossDevice_0.25112.60.0_x64__cw5n1h2txyewy"</QuietUninstallString>
+      <RatingId>MicrosoftWindows.CrossDevice</RatingId>
+      <SystemComponent>false</SystemComponent>
+      <UninstallerFullFilename>C:\Program Files\BCUninstaller\StoreAppHelper.exe</UninstallerFullFilename>
+      <UninstallerKind>StoreApp</UninstallerKind>
+      <UninstallerLocation>C:\Program Files\BCUninstaller</UninstallerLocation>
+      <UninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "MicrosoftWindows.CrossDevice_0.25112.60.0_x64__cw5n1h2txyewy"</UninstallString>
+    </ApplicationUninstallerEntry>
+    <ApplicationUninstallerEntry>
+      <CacheIdOverride>MicrosoftWindows.Client.CoreAI_1000.26100.7623.0_x64__cw5n1h2txyewy</CacheIdOverride>
+      <DisplayName>Click to Do</DisplayName>
+      <BundleProviderKey>00000000-0000-0000-0000-000000000000</BundleProviderKey>
+      <Comment>MicrosoftWindows.Client.CoreAI_1000.26100.7623.0_x64__cw5n1h2txyewy</Comment>
+      <DisplayIcon>C:\Windows\SystemApps\MicrosoftWindows.Client.CoreAI_cw5n1h2txyewy\AIXHost\Assets\ClickToDo\AppList.scale-100.png</DisplayIcon>
+      <DisplayVersion>2125.28901.10.0</DisplayVersion>
+      <EstimatedSize>0</EstimatedSize>
+      <InstallDate>2025-10-16T09:06:34.7568227-07:00</InstallDate>
+      <InstallLocation>C:\Windows\SystemApps\MicrosoftWindows.Client.CoreAI_cw5n1h2txyewy</InstallLocation>
+      <Is64Bit>X64</Is64Bit>
+      <IsProtected>true</IsProtected>
+      <IsRegistered>false</IsRegistered>
+      <IsOrphaned>false</IsOrphaned>
+      <IsUpdate>false</IsUpdate>
+      <IsValid>true</IsValid>
+      <IsWebBrowser>false</IsWebBrowser>
+      <Publisher>Microsoft Windows</Publisher>
+      <QuietUninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "MicrosoftWindows.Client.CoreAI_1000.26100.7623.0_x64__cw5n1h2txyewy"</QuietUninstallString>
+      <RatingId>MicrosoftWindows.Client.CoreAI</RatingId>
+      <SystemComponent>true</SystemComponent>
+      <UninstallerFullFilename>C:\Program Files\BCUninstaller\StoreAppHelper.exe</UninstallerFullFilename>
+      <UninstallerKind>StoreApp</UninstallerKind>
+      <UninstallerLocation>C:\Program Files\BCUninstaller</UninstallerLocation>
+      <UninstallString>"C:\Program Files\BCUninstaller\StoreAppHelper.exe" /uninstall "MicrosoftWindows.Client.CoreAI_1000.26100.7623.0_x64__cw5n1h2txyewy"</UninstallString>
+    </ApplicationUninstallerEntry>
+  </Items>
+</ApplicationEntrySerializer>
