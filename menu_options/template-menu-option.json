@@ -1,224 +1,224 @@
 {
-    "DisplayName": "Full Install",
-    "Verbose": true,
-    "Debug": false,
-    "DoesBackUp": true,
-    "Branding": {
-        "Enabled": true,
-        "DarkModeEnabled": true,
-        "Logo": {
-            "Enabled": true,
-            "GET": [
-                {
-                    "Method": "LocalPath",
-                    "Locator": "",
-                    "Size": "",
-                    "Type": ""
-                },
-                {
-                    "Method": "URL",
-                    "Locator": "",
-                    "Size": "",
-                    "Type": ""
-                }
-            ]
+  "DisplayName": "Full Install",
+  "Verbose": true,
+  "Debug": false,
+  "DoesBackUp": true,
+  "Branding": {
+    "Enabled": true,
+    "DarkModeEnabled": true,
+    "Logo": {
+      "Enabled": true,
+      "GET": [
+        {
+          "Method": "LocalPath",
+          "Locator": "",
+          "Size": "",
+          "Type": ""
         },
-        "Windows": {
-            "Enabled": true,
-            "Wallpapers": {
-                "Enabled": true,
-                "GET": [
-                    {
-                        "Method": "LocalPath",
-                        "Locator": "",
-                        "Size": "",
-                        "Type": ""
-                    },
-                    {
-                        "Method": "URL",
-                        "Locator": "",
-                        "Size": "",
-                        "Type": ""
-                    }
-                ]
-            },
-            "AccentColor": {
-                "Enabled": true,
-                "Color": "#F57E20"
-            }
-        },
-        "Chromium": {
-            "Enabled": true,
-            "Icons": [
-                {
-                    "Replaces": "Logo",
-                    "Method": "LocalPath",
-                    "Locator": "",
-                    "Size": "",
-                    "Type": ""
-                }
-            ]
-        },
-        "SignalRGB": {
-            "Enabled": true,
-            "Configuration": {
-                "Enabled": true,
-                "FULL": {
-                    "Enabled": true,
-                    "Type": "Normal",
-                    "Color": "#F57E20"
-                }
-            }
+        {
+          "Method": "URL",
+          "Locator": "",
+          "Size": "",
+          "Type": ""
         }
+      ]
     },
-    "Programs": {
+    "Windows": {
+      "Enabled": true,
+      "Wallpapers": {
         "Enabled": true,
-        "Install": {
-            "Enabled": true,
-            "Winget": [
-                {
-                    "id": "NZXT.CAM"
-                }
-            ],
-            "Powershell": [
-                {
-                    "id": ""
-                }
-            ],
-            "AppxPackage": [
-                {
-                    "id": "Microsoft.StartExperiencesApp_1.195.0.0_x64__8wekyb3d8bbwe"
-                }
-            ]
-        },
-        "Remove": {
-            "Enabled": true,
-            "Winget": [
-                {
-                    "id": ""
-                }
-            ],
-            "Powershell": [
-                {
-                    "id": ""
-                }
-            ],
-            "AppxPackage": [
-                {
-                    "id": "Microsoft.StartExperiencesApp_1.195.0.0_x64__8wekyb3d8bbwe"
-                }
-            ],
-            "BCUninstaller": {
-                "Enabled": true,
-                "StoreHelper": [
-                    {
-                        "id": ""
-                    }
-                ],
-                "Powershell": [
-                    {
-                        "id": ""
-                    }
-                ]
-            },
-            "Manual": [
-                {
-                    "id": "id"
-                }
-            ]
-        }
-    },
-    "Debloat": {
-        "Enabled": true,
-        "BCUninstaller": {
-            "Enabled": true,
-            "StoreHelper": [
-                {
-                    "id": "Microsoft.StartExperiencesApp_1.195.0.0_x64__8wekyb3d8bbwe"
-                }
-            ]
-        },
-        "Powershell": {
-            "Enabled": true,
-            "AppxPackage": [
-                {
-                    "id": "Microsoft.StartExperiencesApp_1.195.0.0_x64__8wekyb3d8bbwe"
-                }
-            ]
-        }
-    },
-    "Tweaks": {
-        "Enabled": true,
-        "Powershell": [
-            {
-                "id": "install-and-configure-powershell7"
-            }
-        ],
-        "Registry": [
-            {
-                "id": "bingsearch-in-startmenu"
-            }
-        ],
-        "Power": [
-            {
-                "id": "enable-ultimatepowerplan"
-            }
+        "GET": [
+          {
+            "Method": "LocalPath",
+            "Locator": "",
+            "Size": "",
+            "Type": ""
+          },
+          {
+            "Method": "URL",
+            "Locator": "",
+            "Size": "",
+            "Type": ""
+          }
         ]
-    },
-    "PostConfiguration": {
+      },
+      "AccentColor": {
         "Enabled": true,
-        "ExplorerPatcher": {
-            "Enabled": true,
-            "ImportConfig": {
-                "Enabled": true,
-                "Type": "Basic"
-            }
-        },
-        "Chromium": {
-            "Enabled": true,
-            "SaveSessionOnClose": true,
-            "Extensions": [
-                {
-                    "Enabled": true,
-                    "id": ""
-                }
-            ],
-            "Security": {
-                "Level": ""
-            },
-            "Downloads": {
-                "AskToDownload": true,
-                "DefaultDownloadDirectory": "C:\\Users\\user1\\Downloads"
-            }
+        "Color": "#F57E20"
+      }
+    },
+    "Chromium": {
+      "Enabled": true,
+      "Icons": [
+        {
+          "Replaces": "Logo",
+          "Method": "LocalPath",
+          "Locator": "",
+          "Size": "",
+          "Type": ""
         }
+      ]
     },
-    "Extra": {
+    "SignalRGB": {
+      "Enabled": true,
+      "Configuration": {
         "Enabled": true,
-        "Scripts": [
-            {
-                "RunMessage": "Command completed!",
-                "Method": "LocalPath",
-                "Locator": "",
-                "ExecMethod": "Powershell",
-                "Privileges": "Administrator",
-                "CompletionMessage": "Command completed!"
-            },
-            {
-                "RunMessage": "Command completed!",
-                "Method": "URL",
-                "Locator": "",
-                "ExecMethod": "CMD",
-                "Privileges": "User",
-                "CompletionMessage": "Command completed!"
-            }
-        ],
-        "Commands": [
-            {
-                "RunMessage": "Command completed!",
-                "Privileges": "Administrator",
-                "Command": "echo 'I'm administrator now :3'",
-                "CompletionMessage": "Command completed!"
-            }
-        ]
+        "FULL": {
+          "Enabled": true,
+          "Type": "Normal",
+          "Color": "#F57E20"
+        }
+      }
     }
+  },
+  "Programs": {
+    "Enabled": true,
+    "Install": {
+      "Enabled": true,
+      "Winget": [
+        {
+          "id": "NZXT.CAM"
+        }
+      ],
+      "Powershell": [
+        {
+          "id": ""
+        }
+      ],
+      "AppxPackage": [
+        {
+          "id": "Microsoft.StartExperiencesApp_1.195.0.0_x64__8wekyb3d8bbwe"
+        }
+      ]
+    },
+    "Remove": {
+      "Enabled": true,
+      "Winget": [
+        {
+          "id": ""
+        }
+      ],
+      "Powershell": [
+        {
+          "id": ""
+        }
+      ],
+      "AppxPackage": [
+        {
+          "id": "Microsoft.StartExperiencesApp_1.195.0.0_x64__8wekyb3d8bbwe"
+        }
+      ],
+      "BCUninstaller": {
+        "Enabled": true,
+        "StoreHelper": [
+          {
+            "id": ""
+          }
+        ],
+        "Powershell": [
+          {
+            "id": ""
+          }
+        ]
+      },
+      "Manual": [
+        {
+          "id": "id"
+        }
+      ]
+    }
+  },
+  "Debloat": {
+    "Enabled": true,
+    "BCUninstaller": {
+      "Enabled": true,
+      "StoreHelper": [
+        {
+          "id": "Microsoft.StartExperiencesApp_1.195.0.0_x64__8wekyb3d8bbwe"
+        }
+      ]
+    },
+    "Powershell": {
+      "Enabled": true,
+      "AppxPackage": [
+        {
+          "id": "Microsoft.StartExperiencesApp_1.195.0.0_x64__8wekyb3d8bbwe"
+        }
+      ]
+    }
+  },
+  "Tweaks": {
+    "Enabled": true,
+    "Powershell": [
+      {
+        "id": "install-and-configure-powershell7"
+      }
+    ],
+    "Registry": [
+      {
+        "id": "bingsearch-in-startmenu"
+      }
+    ],
+    "Power": [
+      {
+        "id": "enable-ultimatepowerplan"
+      }
+    ]
+  },
+  "PostConfiguration": {
+    "Enabled": true,
+    "ExplorerPatcher": {
+      "Enabled": true,
+      "ImportConfig": {
+        "Enabled": true,
+        "Type": "Basic"
+      }
+    },
+    "Chromium": {
+      "Enabled": true,
+      "SaveSessionOnClose": true,
+      "Extensions": [
+        {
+          "Enabled": true,
+          "id": ""
+        }
+      ],
+      "Security": {
+        "Level": ""
+      },
+      "Downloads": {
+        "AskToDownload": true,
+        "DefaultDownloadDirectory": "C:\\Users\\user1\\Downloads"
+      }
+    }
+  },
+  "Extra": {
+    "Enabled": true,
+    "Scripts": [
+      {
+        "RunMessage": "Command completed!",
+        "Method": "LocalPath",
+        "Locator": "",
+        "ExecMethod": "Powershell",
+        "Privileges": "Administrator",
+        "CompletionMessage": "Command completed!"
+      },
+      {
+        "RunMessage": "Command completed!",
+        "Method": "URL",
+        "Locator": "",
+        "ExecMethod": "CMD",
+        "Privileges": "User",
+        "CompletionMessage": "Command completed!"
+      }
+    ],
+    "Commands": [
+      {
+        "RunMessage": "Command completed!",
+        "Privileges": "Administrator",
+        "Command": "echo 'I'm administrator now :3'",
+        "CompletionMessage": "Command completed!"
+      }
+    ]
+  }
 }
