@@ -18,7 +18,7 @@ mod utils;
 
 fn main() -> Result<(), io::Error> {
     //:& Check if OS is Windows
-    if cfg!(target_os = "linux") {
+    if cfg!(target_os = "windows") {
         //:& Open menu and catch any errors
         match open_menu("") {
             Ok(()) => (),
