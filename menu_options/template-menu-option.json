@@ -8,18 +8,18 @@
     "DarkModeEnabled": true,
     "Logo": {
       "Enabled": true,
-      "GET": [
+      "Get": [
         {
           "Method": "LocalPath",
           "Locator": "",
           "Size": "",
-          "Type": ""
+          "FileType": ""
         },
         {
           "Method": "URL",
           "Locator": "",
           "Size": "",
-          "Type": ""
+          "FileType": ""
         }
       ]
     },
@@ -27,18 +27,18 @@
       "Enabled": true,
       "Wallpapers": {
         "Enabled": true,
-        "GET": [
+        "Get": [
           {
             "Method": "LocalPath",
             "Locator": "",
             "Size": "",
-            "Type": ""
+            "FileType": ""
           },
           {
             "Method": "URL",
             "Locator": "",
             "Size": "",
-            "Type": ""
+            "FileType": ""
           }
         ]
       },
@@ -55,17 +55,17 @@
           "Method": "LocalPath",
           "Locator": "",
           "Size": "",
-          "Type": ""
+          "FileType": ""
         }
       ]
     },
-    "SignalRGB": {
+    "SignalRgb": {
       "Enabled": true,
       "Configuration": {
         "Enabled": true,
-        "FULL": {
+        "Full": {
           "Enabled": true,
-          "Type": "Normal",
+          "ConfigType": "Normal",
           "Color": "#F57E20"
         }
       }
@@ -77,17 +77,17 @@
       "Enabled": true,
       "Winget": [
         {
-          "id": "NZXT.CAM"
+          "Id": "NZXT.CAM"
         }
       ],
       "Powershell": [
         {
-          "id": ""
+          "Id": ""
         }
       ],
       "AppxPackage": [
         {
-          "id": "Microsoft.StartExperiencesApp_1.195.0.0_x64__8wekyb3d8bbwe"
+          "Id": "Microsoft.StartExperiencesApp_1.195.0.0_x64__8wekyb3d8bbwe"
         }
       ]
     },
@@ -95,46 +95,46 @@
       "Enabled": true,
       "Winget": [
         {
-          "id": ""
+          "Id": ""
         }
       ],
       "Powershell": [
         {
-          "id": ""
+          "Id": ""
         }
       ],
       "AppxPackage": [
         {
-          "id": "Microsoft.StartExperiencesApp_1.195.0.0_x64__8wekyb3d8bbwe"
+          "Id": "Microsoft.StartExperiencesApp_1.195.0.0_x64__8wekyb3d8bbwe"
         }
       ],
-      "BCUninstaller": {
+      "BcUninstaller": {
         "Enabled": true,
         "StoreHelper": [
           {
-            "id": ""
+            "Id": ""
           }
         ],
         "Powershell": [
           {
-            "id": ""
+            "Id": ""
           }
         ]
       },
       "Manual": [
         {
-          "id": "id"
+          "Id": "id"
         }
       ]
     }
   },
   "Debloat": {
     "Enabled": true,
-    "BCUninstaller": {
+    "BcUninstaller": {
       "Enabled": true,
       "StoreHelper": [
         {
-          "id": "Microsoft.StartExperiencesApp_1.195.0.0_x64__8wekyb3d8bbwe"
+          "Id": "Microsoft.StartExperiencesApp_1.195.0.0_x64__8wekyb3d8bbwe"
         }
       ]
     },
@@ -142,7 +142,7 @@
       "Enabled": true,
       "AppxPackage": [
         {
-          "id": "Microsoft.StartExperiencesApp_1.195.0.0_x64__8wekyb3d8bbwe"
+          "Id": "Microsoft.StartExperiencesApp_1.195.0.0_x64__8wekyb3d8bbwe"
         }
       ]
     }
@@ -151,17 +151,17 @@
     "Enabled": true,
     "Powershell": [
       {
-        "id": "install-and-configure-powershell7"
+        "Id": "install-and-configure-powershell7"
       }
     ],
     "Registry": [
       {
-        "id": "bingsearch-in-startmenu"
+        "Id": "bingsearch-in-startmenu"
       }
     ],
     "Power": [
       {
-        "id": "enable-ultimatepowerplan"
+        "Id": "enable-ultimatepowerplan"
       }
     ]
   },
@@ -171,7 +171,7 @@
       "Enabled": true,
       "ImportConfig": {
         "Enabled": true,
-        "Type": "Basic"
+        "ConfigType": "Basic"
       }
     },
     "Chromium": {
@@ -180,7 +180,7 @@
       "Extensions": [
         {
           "Enabled": true,
-          "id": ""
+          "Id": ""
         }
       ],
       "Security": {

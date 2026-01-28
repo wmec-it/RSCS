@@ -1,12 +1,16 @@
+use crate::conf::structs::MenuOption;
 use crate::{system::utils::commands::exec::ps1, utils::files::create_temp_file};
+use serde::{Deserialize, Serialize};
+
+use std::error::Error;
+use std::fs::{self, File};
+use std::io::{BufReader, Read};
+use std::path::Path;
 
 pub fn testing() {
-    let script_path =
-        create_temp_file(include_bytes!("../external/scripts/popup.ps1"), "popup.ps1")
-            .expect("Failed to create temp file");
+    let p = Path::new("./menu_options/template-menu-option.json");
+    let text = fs::read_to_string(p).unwrap();
+    let cfg: MenuOption = serde_json::from_str(&text).unwrap();
 
-    match ps1(&script_path) {
-        Ok(()) => println!("\x1b[92mSuccessfully ran script!\x1b[0m"),
-        Err(error) => println!("Error: {}", error),
-    };
+    println!("DisplayName = {}", cfg.display_name);
 }
