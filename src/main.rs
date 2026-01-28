@@ -1,4 +1,5 @@
 use colored_text::Colorize;
+use std::fs::ReadDir;
 use std::{io, process::Command};
 use terminal_menu::*;
 use serde::{Serialize, Deserialize};
@@ -7,6 +8,8 @@ use conf::enums::{DelimiterType, MessageType};
 use conf::vars::{INSTALL_TYPES, MAIN_THEME, PROGRAM_TITLE, PUNCHDOWN_PAUL};
 use testing::testing;
 use utils::{message, user};
+use std::sync::Mutex;
+use std::cell::LazyCell;
 
 mod conf;
 mod external;
@@ -15,6 +18,69 @@ mod system;
 mod testing;
 mod types;
 mod utils;
+
+#[derive(Debug)]
+pub struct CONFIG {
+    path: String,
+    name: String,
+}
+
+#[derive(Debug)]
+pub struct NAMEPATH {
+    paths: Vec<String>,
+    names: Vec<String>,
+}
+
+static HANDLE_CONFIG: std::sync::LazyLock<Mutex<CONFIG>> = std::sync::LazyLock::new(|| Mutex::new(CONFIG {path: "".to_string(), name: "".to_string()}));
+static NAME_PATH_RESOLUTION: std::sync::LazyLock<Mutex<NAMEPATH>> = std::sync::LazyLock::new(|| Mutex::new(NAMEPATH {paths: Vec::new(), names: Vec::new()}));
+
+fn handle_config(give: &str) {
+    match give {
+        "Get Install Types" => {
+            get_install_types();
+        },
+        &_ => {
+            ()
+        }
+    }
+}
+
+fn get_install_types() -> Vec<std::string::String> {
+    let dir: &str = "./menu_options"; // TODO: Make this a command line argument, global config option, or calculated
+    //:& Gets paths
+    let paths: ReadDir = std::fs::read_dir(&dir).unwrap();
+    //:& Created new Vec to store found file paths
+    let mut file_paths: Vec<String> = Vec::new();
+    for path in paths { //:& Iterate through paths
+        //:& Push file paths to previously created Vec
+        NAME_PATH_RESOLUTION.lock().unwrap().paths.push(path.unwrap().file_name().into_string().unwrap());
+    }
+    let paths: ReadDir = std::fs::read_dir(&dir).unwrap();
+    for path in paths { //:& Iterate through paths
+        //:& Push file paths to previously created Vec
+        file_paths.push(path.unwrap().file_name().into_string().unwrap());
+    }
+    //:& Create new Vec to store found entry names with path previously found
+    let mut entry_names: Vec<String> = Vec::new();
+    for file in &file_paths { //:& Iterate through files
+        //:& Write file contents to String
+        let contents = std::fs::read_to_string(format!("{}/{}", dir, file)).expect("Couldn't read file...");
+        //:& Parse file contents
+        let config: Config = serde_json::from_str(contents.as_str()).expect("JSON was not well-formatted");
+        //:& Push DisplayNames from each config to previouslt created Vec
+        entry_names.push(config.display_name);
+    }
+    for file in &file_paths { //:& Iterate through files
+        //:& Write file contents to String
+        let contents = std::fs::read_to_string(format!("{}/{}", dir, file)).expect("Couldn't read file...");
+        //:& Parse file contents
+        let config: Config = serde_json::from_str(contents.as_str()).expect("JSON was not well-formatted");
+        //:& Push DisplayNames from each config to previouslt created Vec
+        NAME_PATH_RESOLUTION.lock().unwrap().names.push(config.display_name);
+    }
+    //:& Return all DisplayNames inside of a Vec
+    return entry_names;
+}
 
 fn main() -> Result<(), io::Error> {
     //:& Check if OS is Windows
@@ -59,36 +125,12 @@ fn main() -> Result<(), io::Error> {
     }
 }
 
-// #[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug)]
 
-// #[serde(rename_all = "PascalCase")]
-// struct Config { // TODO: Add full json structure
-//     display_name: String,
-// }
-
-// fn get_install_types() -> Vec<std::string::String> {
-//     let dir: &str = "./menu_options"; // TODO: Make this a command line argument, global config option, or calculated
-//     //:& Gets paths
-//     let paths = std::fs::read_dir(&dir).unwrap();
-//     //:& Created new Vec to store found file paths
-//     let mut file_paths: Vec<String> = Vec::new();
-//     for path in paths { //:& Iterate through paths
-//         //:& Push file paths to previously created Vec
-//         file_paths.push(path.unwrap().file_name().into_string().unwrap());
-//     }
-//     //:& Create new Vec to store found entry names with path previously found
-//     let mut entry_names: Vec<String> = Vec::new();
-//     for file in file_paths { //:& Iterate through files
-//         //:& Write file contents to String
-//         let contents = std::fs::read_to_string(format!("{}/{}", dir, file)).expect("Couldn't read file...");
-//         //:& Parse file contents
-//         let config: Config = serde_json::from_str(contents.as_str()).expect("JSON was not well-formatted");
-//         //:& Push DisplayNames from each config to previouslt created Vec
-//         entry_names.push(config.display_name);
-//     }
-//     //:& Return all DisplayNames inside of a Vec
-//     return entry_names;
-// }
+#[serde(rename_all = "PascalCase")]
+struct Config { // TODO: Add full json structure
+    display_name: String,
+}
 
 //:& Opens menu
 fn open_menu(operation_type: &str) -> Result<(), io::Error> {
@@ -130,8 +172,7 @@ fn open_menu(operation_type: &str) -> Result<(), io::Error> {
             let menu = menu(vec![
                 label(format!("{}", PROGRAM_TITLE).hex(MAIN_THEME.primary)),
                 label(""),
-                // scroll("Install Type", get_install_types().iter()),
-                scroll("Install Type", INSTALL_TYPES.iter().copied()),
+                scroll("Install Type", get_install_types().iter()),
                 label(""),
                 button("Start Install"),
             ]);
@@ -166,6 +207,14 @@ fn menu_logic(
         user::enable_sudo();
 
         let mm = mut_menu(&menu);
+
+        // TODO: Match selected Install Type with the 2 vecs inside of NAMEPATH to find current path of selected menu option
+        // let mut global_config_storage = HANDLE_CONFIG.lock().unwrap();
+        // *global_config_storage = CONFIG {
+        //     path: 
+        // }
+        // println!("{:#?}", NAME_PATH_RESOLUTION);
+        // use crate::NAME_PATH_RESOLUTION;
         //:& Displays install type
         //:& Using println!("{} {}") So that the selection value is just normal text color but formatting is the same
         println!(
