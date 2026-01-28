@@ -9,9 +9,9 @@ use crate::system::utils::commands::templates;
 #[allow(dead_code)]
 pub fn storehelper(program_id: &str) {
     templates::admin(
-        "run",
-        "success",
-        "error",
+        "Using BCUninstaller to uninstall bloatware...",
+        "Successfully removed Microsoft's viruses off of your PC :3",
+        "Error removing viruses, Microsoft has your current location and is closing in fast OwO",
         format!("StoreAppHelper /uninstall {}", program_id).as_str(),
     );
 }
