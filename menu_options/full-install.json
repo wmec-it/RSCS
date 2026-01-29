@@ -1,4 +1,4 @@
-{
+﻿{
   "DisplayName": "Full Install",
   "Verbose": true,
   "Debug": false,
@@ -79,26 +79,85 @@
         {
           "Id": "NZXT.CAM"
         },
-        { "Name": "", "Id": "WhirlwindFX.SignalRgb" },
-        { "Name": "", "Id": "CrystalRich.LockHunter" },
-        { "Name": "", "Id": "Klocman.BulkCrapUninstaller" },
-        { "Name": "", "Id": "valinet.ExplorerPatcher" },
-        { "Name": "", "Id": "Git.Git" },
-        { "Name": "", "Id": "Hibbiki.Chromium" },
-        { "Name": "", "Id": "GitHub.GitHubDesktop" },
-        { "Name": "", "Id": "Microsoft.VisualStudioCode" },
-        { "Name": "", "Id": "Microsoft.VisualStudio.2019.BuildTools" },
-        { "Name": "", "Id": "AngusJohnson.ResourceHacker" },
-        { "Name": "", "Id": "Genymobile.scrcpy" },
-        { "Name": "", "Id": "Google.PlatformTools" },
-        { "Name": "", "Id": "Rufus.Rufus" },
-        { "Name": "", "Id": "WinsiderSS.SystemInformer" },
-        { "Name": "", "Id": "dorssel.usbipd-win" },
-        { "Name": "", "Id": "Microsoft.DotNet.SDK.10" },
-        { "Name": "", "Id": "TigerVNC.TigerVNC" },
-        { "Name": "", "Id": "jqlang.jq" }
+        {
+          "Name": "",
+          "Id": "WhirlwindFX.SignalRgb"
+        },
+        {
+          "Name": "",
+          "Id": "CrystalRich.LockHunter"
+        },
+        {
+          "Name": "",
+          "Id": "Klocman.BulkCrapUninstaller"
+        },
+        {
+          "Name": "",
+          "Id": "valinet.ExplorerPatcher"
+        },
+        {
+          "Name": "",
+          "Id": "Git.Git"
+        },
+        {
+          "Name": "",
+          "Id": "Hibbiki.Chromium"
+        },
+        {
+          "Name": "",
+          "Id": "GitHub.GitHubDesktop"
+        },
+        {
+          "Name": "",
+          "Id": "Microsoft.VisualStudioCode"
+        },
+        {
+          "Name": "",
+          "Id": "Microsoft.VisualStudio.2019.BuildTools"
+        },
+        {
+          "Name": "",
+          "Id": "AngusJohnson.ResourceHacker"
+        },
+        {
+          "Name": "",
+          "Id": "Genymobile.scrcpy"
+        },
+        {
+          "Name": "",
+          "Id": "Google.PlatformTools"
+        },
+        {
+          "Name": "",
+          "Id": "Rufus.Rufus"
+        },
+        {
+          "Name": "",
+          "Id": "WinsiderSS.SystemInformer"
+        },
+        {
+          "Name": "",
+          "Id": "dorssel.usbipd-win"
+        },
+        {
+          "Name": "",
+          "Id": "Microsoft.DotNet.SDK.10"
+        },
+        {
+          "Name": "",
+          "Id": "TigerVNC.TigerVNC"
+        },
+        {
+          "Name": "",
+          "Id": "jqlang.jq"
+        }
       ],
-      "Powershell": [{ "Name": "", "Id": "" }],
+      "Powershell": [
+        {
+          "Name": "",
+          "Id": ""
+        }
+      ],
       "AppxPackage": [
         {
           "Id": "Microsoft.StartExperiencesApp_1.195.0.0_x64__8wekyb3d8bbwe"
@@ -107,8 +166,18 @@
     },
     "Remove": {
       "Enabled": true,
-      "Winget": [{ "Name": "", "Id": "" }],
-      "Powershell": [{ "Name": "", "Id": "" }],
+      "Winget": [
+        {
+          "Name": "",
+          "Id": ""
+        }
+      ],
+      "Powershell": [
+        {
+          "Name": "",
+          "Id": ""
+        }
+      ],
       "AppxPackage": [
         {
           "Name": "",
@@ -166,7 +235,10 @@
           "Name": "",
           "Id": "Microsoft.MicrosoftStickyNotes_4.0.6104.0_x64__8wekyb3d8bbwe"
         },
-        { "Name": "", "Id": "Microsoft.Todos_0.153.5851.0_x64__8wekyb3d8bbwe" },
+        {
+          "Name": "",
+          "Id": "Microsoft.Todos_0.153.5851.0_x64__8wekyb3d8bbwe"
+        },
         {
           "Name": "",
           "Id": "Microsoft.BingWeather_3.2.3.0_x64__8wekyb3d8bbwe"
@@ -239,7 +311,10 @@
           "Name": "",
           "Id": "Microsoft.MicrosoftOfficeHub_19.2601.56031.0_x64__8wekyb3d8bbwe"
         },
-        { "Name": "", "Id": "MSTeams_26005.204.4249.1621_x64__8wekyb3d8bbwe" },
+        {
+          "Name": "",
+          "Id": "MSTeams_26005.204.4249.1621_x64__8wekyb3d8bbwe"
+        },
         {
           "Name": "",
           "Id": "Microsoft.BingNews_4.55.62231.0_x64__8wekyb3d8bbwe"
@@ -255,10 +330,25 @@
       ],
       "BcUninstaller": {
         "Enabled": true,
-        "StoreHelper": [{ "Name": "", "Id": "" }],
-        "Powershell": [{ "Name": "", "Id": "" }]
+        "StoreHelper": [
+          {
+            "Name": "",
+            "Id": ""
+          }
+        ],
+        "Powershell": [
+          {
+            "Name": "",
+            "Id": ""
+          }
+        ]
       },
-      "Manual": [{ "Name": "", "Id": "" }]
+      "Manual": [
+        {
+          "Name": "",
+          "Id": ""
+        }
+      ]
     }
   },
   "Debloat": {

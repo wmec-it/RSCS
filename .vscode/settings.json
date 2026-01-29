@@ -1,4 +1,4 @@
-{
+﻿{
   "files.exclude": {
     "**/.git": false
   },
@@ -42,23 +42,77 @@
     "BUG"
   ],
   "todo-tree.general.tagGroups": {
-    "TODO": ["TODO", ":>"],
-    "INFO": ["INFO", ":&"],
-    "QUESTION": ["QUESTION", ":?"],
-    "HELP": ["HELP", ":<"],
-    "FIXME": ["FIXME", ":#"],
-    "WARNING": ["WARNING", ":%"],
-    "ERROR": ["ERROR", ":!", "BUG"],
-    "PLACEHOLDER": ["PLACEHOLDER", ":*"],
-    "RESOURCE": ["RESOURCE", ":@", "DOCUMENTATION", "DOCS", "WIKI"],
-    "INACTIVE": ["INACTIVE", "DONT DELETE"],
-    "STOP": ["STOP", "DO NOT TOUCH"],
-    "TITLE": ["TITLE", ":."],
-    "SECTION_LAYER_1": ["SECTION_LAYER_1", "##"],
-    "SECTION_LAYER_2": ["SECTION_LAYER_2", "###"],
-    "HEADER": ["HEADER", "#|"],
-    "USAGE": ["USAGE", "HOW TO USE"],
-    "INSERT": ["INSERT"]
+    "TODO": [
+      "TODO",
+      ":>"
+    ],
+    "INFO": [
+      "INFO",
+      ":&"
+    ],
+    "QUESTION": [
+      "QUESTION",
+      ":?"
+    ],
+    "HELP": [
+      "HELP",
+      ":<"
+    ],
+    "FIXME": [
+      "FIXME",
+      ":#"
+    ],
+    "WARNING": [
+      "WARNING",
+      ":%"
+    ],
+    "ERROR": [
+      "ERROR",
+      ":!",
+      "BUG"
+    ],
+    "PLACEHOLDER": [
+      "PLACEHOLDER",
+      ":*"
+    ],
+    "RESOURCE": [
+      "RESOURCE",
+      ":@",
+      "DOCUMENTATION",
+      "DOCS",
+      "WIKI"
+    ],
+    "INACTIVE": [
+      "INACTIVE",
+      "DONT DELETE"
+    ],
+    "STOP": [
+      "STOP",
+      "DO NOT TOUCH"
+    ],
+    "TITLE": [
+      "TITLE",
+      ":."
+    ],
+    "SECTION_LAYER_1": [
+      "SECTION_LAYER_1",
+      "##"
+    ],
+    "SECTION_LAYER_2": [
+      "SECTION_LAYER_2",
+      "###"
+    ],
+    "HEADER": [
+      "HEADER",
+      "#|"
+    ],
+    "USAGE": [
+      "USAGE",
+      "HOW TO USE"
+    ],
+    "INSERT": [
+      "INSERT"
+    ]
   },
   "todo-tree.highlights.defaultHighlight": {
     "icon": "alert",
