@@ -1,5 +1,6 @@
 use rscs::core::command::powershell;
 
+#[allow(dead_code)]
 pub fn appx_package(program_id: &str) {
     powershell::admin(
         "Deleting Windows APPX Package...",

@@ -349,8 +349,19 @@
       },
       "Manual": [
         {
-          "Name": "",
-          "Id": ""
+          "OfficialUninstaller": true,
+          "Name": "OneDrive",
+          "Id": "",
+          "Command": {
+            "Args": [
+              {
+                "Arg": "\"C:\\Users\\admin\\AppData\\Local\\Microsoft\\OneDrive\\26.002.0105.0001\\OneDriveSetup.exe\""
+              },
+              {
+                "Arg": "/uninstall"
+              }
+            ]
+          }
         }
       ]
     }

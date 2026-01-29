@@ -1,5 +1,6 @@
 use rscs::core::helper::winget;
 
+#[allow(dead_code)]
 pub fn winget_install(program_id: &str) {
     // println!(
     //     "{} {}...",
@@ -60,6 +61,7 @@ pub fn winget_install(program_id: &str) {
     // }
 }
 
+#[allow(dead_code)]
 pub fn winget_remove(program_id: &str) {
     // println!(
     //     "{} {}...",

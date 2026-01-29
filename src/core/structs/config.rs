@@ -200,7 +200,22 @@ pub struct ConfigStructureProgramsRemoveBcUninstallerPowershell {
 #[derive(Debug, Deserialize)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructureProgramsRemoveManual {
+    pub official_uninstaller: bool,
+    pub name: String,
     pub id: String,
+    pub command: ConfigStructureProgramsRemoveManualCommand,
+}
+#[allow(unused)]
+#[derive(Debug, Deserialize)]
+#[serde(rename_all = "PascalCase")]
+pub struct ConfigStructureProgramsRemoveManualCommand {
+    pub args: Vec<ConfigStructureProgramsRemoveManualCommandArgs>,
+}
+#[allow(unused)]
+#[derive(Debug, Deserialize)]
+#[serde(rename_all = "PascalCase")]
+pub struct ConfigStructureProgramsRemoveManualCommandArgs {
+    pub arg: String,
 }
 #[allow(unused)]
 #[derive(Debug, Deserialize)]
