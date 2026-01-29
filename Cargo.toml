@@ -1,5 +1,5 @@
 [package]
-name = "RSCS"
+name = "rscs"
 description = "CLI program for configuring machines in the West-Mec IT Security Repair Shop (Nerd Heard)."
 authors = ["Caden Finkelstein <me@cadenf.com>"]
 version = "0.0.3"

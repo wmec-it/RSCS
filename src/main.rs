@@ -5,8 +5,7 @@ use std::{io, process::Command};
 use terminal_menu::*;
 
 use conf::enums::{DelimiterType, MessageType};
-use conf::vars::{INSTALL_TYPES, MAIN_THEME, PROGRAM_TITLE, PUNCHDOWN_PAUL};
-use std::cell::LazyCell;
+use conf::vars::{MAIN_THEME, PROGRAM_TITLE, PUNCHDOWN_PAUL};
 use std::sync::Mutex;
 use testing::testing;
 use utils::{message, user};
@@ -20,23 +19,10 @@ mod types;
 mod utils;
 
 #[derive(Debug)]
-pub struct CONFIG {
-    path: String,
-    name: String,
-}
-
-#[derive(Debug)]
 pub struct NAMEPATH {
     paths: Vec<String>,
     names: Vec<String>,
 }
-
-static HANDLE_CONFIG: std::sync::LazyLock<Mutex<CONFIG>> = std::sync::LazyLock::new(|| {
-    Mutex::new(CONFIG {
-        path: "".to_string(),
-        name: "".to_string(),
-    })
-});
 static NAME_PATH_RESOLUTION: std::sync::LazyLock<Mutex<NAMEPATH>> =
     std::sync::LazyLock::new(|| {
         Mutex::new(NAMEPATH {
@@ -44,15 +30,6 @@ static NAME_PATH_RESOLUTION: std::sync::LazyLock<Mutex<NAMEPATH>> =
             names: Vec::new(),
         })
     });
-
-fn handle_config(give: &str) {
-    match give {
-        "Get Install Types" => {
-            get_install_types();
-        }
-        &_ => (),
-    }
-}
 
 fn get_install_types() -> Vec<std::string::String> {
     let dir: &str = "./menu_options"; // TODO: Make this a command line argument, global config option, or calculated

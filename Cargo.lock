@@ -3,19 +3,6 @@
 version = 4
 
 [[package]]
-name = "RSCS"
-version = "0.0.3"
-dependencies = [
- "base64",
- "colored_text",
- "crossterm",
- "serde",
- "serde_json",
- "terminal-menu",
- "winresource",
-]
-
-[[package]]
 name = "base64"
 version = "0.22.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -249,6 +236,19 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ed2bf2547551a7053d6fdfafda3f938979645c44812fbfcda098faae3f1a362d"
 dependencies = [
  "bitflags",
+]
+
+[[package]]
+name = "rscs"
+version = "0.0.3"
+dependencies = [
+ "base64",
+ "colored_text",
+ "crossterm",
+ "serde",
+ "serde_json",
+ "terminal-menu",
+ "winresource",
 ]
 
 [[package]]
