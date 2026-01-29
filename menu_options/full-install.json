@@ -284,6 +284,57 @@
       "AppxPackage": [
         {
           "Name": "",
+          "Id": ""
+        }
+      ],
+      "BcUninstaller": {
+        "Enabled": true,
+        "StoreHelper": [
+          {
+            "Name": "",
+            "Id": ""
+          }
+        ],
+        "Powershell": [
+          {
+            "Name": "",
+            "Id": ""
+          }
+        ]
+      },
+      "Manual": [
+        {
+          "OfficialUninstaller": true,
+          "Name": "OneDrive",
+          "Id": "",
+          "Command": {
+            "Program": "\"C:\\Users\\admin\\AppData\\Local\\Microsoft\\OneDrive\\26.002.0105.0001\\OneDriveSetup.exe\"",
+            "Args": [
+              {
+                "Arg": "/uninstall"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "Debloat": {
+    "Enabled": true,
+    "BcUninstaller": {
+      "Enabled": true,
+      "StoreHelper": [
+        {
+          "Name": "",
+          "Id": ""
+        }
+      ]
+    },
+    "Powershell": {
+      "Enabled": true,
+      "AppxPackage": [
+        {
+          "Name": "",
           "Id": "Microsoft.StartExperiencesApp_1.195.0.0_x64__8wekyb3d8bbwe"
         },
         {
@@ -430,57 +481,6 @@
           "Name": "",
           "Id": "Microsoft.YourPhone_0.25122.50.0_x64__8wekyb3d8bbwe"
         }
-      ],
-      "BcUninstaller": {
-        "Enabled": true,
-        "StoreHelper": [
-          {
-            "Name": "",
-            "Id": ""
-          }
-        ],
-        "Powershell": [
-          {
-            "Name": "",
-            "Id": ""
-          }
-        ]
-      },
-      "Manual": [
-        {
-          "OfficialUninstaller": true,
-          "Name": "OneDrive",
-          "Id": "",
-          "Command": {
-            "Program": "\"C:\\Users\\admin\\AppData\\Local\\Microsoft\\OneDrive\\26.002.0105.0001\\OneDriveSetup.exe\"",
-            "Args": [
-              {
-                "Arg": "/uninstall"
-              }
-            ]
-          }
-        }
-      ]
-    }
-  },
-  "Debloat": {
-    "Enabled": true,
-    "BcUninstaller": {
-      "Enabled": true,
-      "StoreHelper": [
-        {
-          "Name": "",
-          "Id": "Microsoft.StartExperiencesApp_1.195.0.0_x64__8wekyb3d8bbwe"
-        }
-      ]
-    },
-    "Powershell": {
-      "Enabled": true,
-      "AppxPackage": [
-        {
-          "Name": "",
-          "Id": "Microsoft.StartExperiencesApp_1.195.0.0_x64__8wekyb3d8bbwe"
-        }
       ]
     }
   },
@@ -528,6 +528,7 @@
         "Level": ""
       },
       "Downloads": {
+        "Enabled": true,
         "AskToDownload": true,
         "DefaultDownloadDirectory": "C:\\Users\\user1\\Downloads"
       }

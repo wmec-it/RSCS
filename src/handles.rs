@@ -1,6 +1,10 @@
 use rscs::core::{command::powershell, helper::winget, structs::config::ConfigStructure};
 
-use crate::{NAME_PATH_RESOLUTION, function, utils};
+use crate::{
+    NAME_PATH_RESOLUTION,
+    function::{self, tweaks},
+    utils,
+};
 
 pub fn find_selected_type(install_type: &str) -> String {
     let npr = NAME_PATH_RESOLUTION.lock().unwrap();
@@ -148,6 +152,132 @@ pub fn start(config: ConfigStructure) -> Result<(), std::io::Error> {
                         .args(program.command.args.iter().map(|a| a.arg.as_str()));
                 }
             }
+        }
+    }
+
+    if config.debloat.enabled {
+        if config.debloat.bc_uninstaller.enabled {
+            for program in config.debloat.bc_uninstaller.store_helper {
+                //  TODO: Implement
+            }
+        }
+        if config.debloat.powershell.enabled {
+            for program in config.debloat.powershell.appx_package {
+                let run_message = format!("Deleting {} APPX Package...", program.name);
+                let success_message =
+                    format!("Successfully deleted {} APPX Package!", program.name);
+                let error_message = format!("Error deleting {} APPX Package...", program.name);
+                powershell::admin(
+                    if !program.name.is_empty() {
+                        run_message.as_str()
+                    } else {
+                        "Deleting Unknown APPX Package..."
+                    },
+                    if !program.name.is_empty() {
+                        success_message.as_str()
+                    } else {
+                        "Successfully deleted Unknown APPX Package!"
+                    },
+                    if !program.name.is_empty() {
+                        error_message.as_str()
+                    } else {
+                        "Error deleting Unknown APPX Package..."
+                    },
+                    format!("Remove-AppxPackage -package {} -confirm:$false", program.id).as_str(),
+                );
+            }
+        }
+    }
+
+    if config.tweaks.enabled {
+        for tweak in config.tweaks.powershell {
+            match tweak.id.as_str() {
+                "install-and-configure-powershell7" => {
+                    println!("Installing and configuring powershell 7...");
+                    tweaks::powershell::ps7::full();
+                }
+                &_ => (),
+            }
+        }
+        for tweak in config.tweaks.registry {
+            match tweak.id.as_str() {
+                "bingsearch-in-startmenu" => {
+                    println!("Removing bin from start menu...");
+                    tweaks::registry::bingsearch_startmenu::disable();
+                }
+                &_ => (),
+            }
+        }
+        for tweak in config.tweaks.power {
+            match tweak.id.as_str() {
+                "enable-ultimatepowerplan" => {
+                    println!("Enabling ultimate power plan...");
+                    tweaks::power::ultimate_powerplan::enable();
+                }
+                &_ => (),
+            }
+        }
+    }
+
+    if config.post_configuration.enabled {
+        if config.post_configuration.explorer_patcher.enabled {
+            if config
+                .post_configuration
+                .explorer_patcher
+                .import_config
+                .enabled
+            {
+                match config
+                    .post_configuration
+                    .explorer_patcher
+                    .import_config
+                    .config_type
+                    .as_str()
+                {
+                    "Basic" => {
+                        tweaks::registry::explorerpatcher_config::enable();
+                    }
+                    &_ => (),
+                }
+            }
+        }
+        if config.post_configuration.chromium.enabled {
+            if config.post_configuration.chromium.save_session_on_close {
+                // TODO: Handle save session on close
+            }
+            for extention in config.post_configuration.chromium.extensions {
+                // TODO: Handle extentions
+            }
+            if !config.post_configuration.chromium.security.level.is_empty() {
+                // TODO: Handle security
+            }
+            if config.post_configuration.chromium.downloads.enabled {
+                if config.post_configuration.chromium.downloads.ask_to_download {
+                    // TODO: Handle ask to download
+                }
+                if !config
+                    .post_configuration
+                    .chromium
+                    .downloads
+                    .default_download_directory
+                    .is_empty()
+                {
+                    // TODO: Handle default download directory
+                }
+            }
+        }
+    }
+
+    if config.extra.enabled {
+        for script in config.extra.scripts {
+            println!("{}", script.run_message);
+            // TODO: Handle method, locator, execMethod, and privileges
+            println!("{}", script.completion_message);
+        }
+        for command in config.extra.commands {
+            println!("{}", command.run_message);
+            // TODO: Handle privileges and command
+            println!("{}", command.completion_message);
         }
     }
 

@@ -344,6 +344,7 @@ pub struct ConfigStructurePostConfigurationChromiumSecurity {
 #[derive(Debug, Deserialize)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructurePostConfigurationChromiumDownloads {
+    pub enabled: bool,
     pub ask_to_download: bool,
     pub default_download_directory: String,
 }
