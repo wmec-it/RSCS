@@ -159,6 +159,58 @@
         {
           "Name": "Reko decompiler",
           "Id": "uxmal.reko"
+        },
+        {
+          "Name": "yt-dlp",
+          "Id": "yt-dlp.yt-dlp"
+        },
+        {
+          "Name": "Wireshark",
+          "Id": "WiresharkFoundation.Wireshark"
+        },
+        {
+          "Name": "WinSCP",
+          "Id": "WinSCP.WinSCP"
+        },
+        {
+          "Name": "WinDirStat",
+          "Id": "WinDirStat.WinDirStat"
+        },
+        {
+          "Name": "ImHex",
+          "Id": "WerWolv.ImHex"
+        },
+        {
+          "Name": "Display Driver Uninstaller",
+          "Id": "Wagnardsoft.DisplayDriverUninstaller"
+        },
+        {
+          "Name": "Everything",
+          "Id": "voidtools.Everything"
+        },
+        {
+          "Name": "Ventoy",
+          "Id": "ventoy.Ventoy"
+        },
+        {
+          "Name": "Vysor",
+          "Id": "Vysor.Vysor"
+        },
+        {
+          "Name": "Virus Total Uploader",
+          "Id": "VirusTotal.VirusTotalUploader"
+        },
+        {
+          "Name": "VLC Media Player",
+          "Id": "VideoLAN.VLC"
+        },
+        {
+          "Name": "Velociraptor",
+          "Id": "Velocidex.Velociraptor"
+        },
+        {
+          "Name": "VMware Workstation Pro",
+          "Id": "VMware.WorkstationPro"
         }
       ],
       "Powershell": [
