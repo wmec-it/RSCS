@@ -5,3 +5,6 @@ rustup target add x86_64-pc-windows-msvc
 
 @REM Build is outputted to PROJECT_ROOT/target/debug/*
 cargo build --target x86_64-pc-windows-msvc
+
+@REM Move JSON files into built release folder
+powershell ./lib/move_json_files.ps1

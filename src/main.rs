@@ -140,27 +140,6 @@ fn open_menu(operation_type: &str) -> Result<(), io::Error> {
         "skip" => {
             //:& Enables sudo
             sudo::enable();
-            //:& Run prerequisites and catch errors
-            match prerequisites() {
-                Ok(()) => (),
-                Err(error) => {
-                    message::error(
-                        MessageType::Print,
-                        message::add_delimiter(
-                            DelimiterType::Layer1Error,
-                            "You cannot run this script on Linux!".to_string(),
-                            Some(true),
-                            None,
-                            Some(true),
-                        )
-                        .unwrap()
-                        .as_str(),
-                    );
-                    return Err(error);
-                }
-            }
-            //:& Handle install type selection
-            handles::handle_install_type("Skip all tweaks");
             Ok(())
         }
         _ => {
@@ -231,18 +210,11 @@ fn menu_logic(
             mm.selection_value("Install Type")
         );
 
-        //:& Run prerequisites and catch errors
-        match prerequisites() {
-            Ok(()) => (),
-            Err(error) => {
-                //:& Display error message
-                utils::errors::function("Prerequisites failed to run...");
-                return Err(error);
-            }
-        }
-
         //:& Handle install type selection
-        handles::handle_install_type(mm.selection_value("Install Type"));
+        match handles::handle_install_type(mm.selection_value("Install Type")) {
+            Ok(()) => (),
+            Err(error) => return Err(error),
+        };
 
         // Everything is fine :3
         Ok(())
@@ -252,18 +224,5 @@ fn menu_logic(
             io::ErrorKind::Other,
             "Failed to handle menu logic...",
         ))
-    }
-}
-
-fn prerequisites() -> Result<(), io::Error> {
-    //:& Handle errors from restore point
-    match function::backups::create_restore_point() {
-        // Everything is ok
-        Ok(()) => Ok(()),
-        Err(error) => {
-            //:& Display error message
-            utils::errors::function("Failed to handle menu logic...");
-            return Err(error);
-        }
     }
 }

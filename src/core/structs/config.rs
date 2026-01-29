@@ -133,18 +133,21 @@ pub struct ConfigStructureProgramsInstall {
 #[derive(Debug, Deserialize)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructureProgramsInstallWinget {
+    pub name: String,
     pub id: String,
 }
 #[allow(unused)]
 #[derive(Debug, Deserialize)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructureProgramsInstallPowershell {
+    pub name: String,
     pub id: String,
 }
 #[allow(unused)]
 #[derive(Debug, Deserialize)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructureProgramsInstallAppxPackage {
+    pub name: String,
     pub id: String,
 }
 #[allow(unused)]
@@ -162,18 +165,21 @@ pub struct ConfigStructureProgramsRemove {
 #[derive(Debug, Deserialize)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructureProgramsRemoveWinget {
+    pub name: String,
     pub id: String,
 }
 #[allow(unused)]
 #[derive(Debug, Deserialize)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructureProgramsRemovePowershell {
+    pub name: String,
     pub id: String,
 }
 #[allow(unused)]
 #[derive(Debug, Deserialize)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructureProgramsRemoveAppxPackage {
+    pub name: String,
     pub id: String,
 }
 #[allow(unused)]
@@ -188,12 +194,14 @@ pub struct ConfigStructureProgramsRemoveBcUninstaller {
 #[derive(Debug, Deserialize)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructureProgramsRemoveBcUninstallerStoreHelper {
+    pub name: String,
     pub id: String,
 }
 #[allow(unused)]
 #[derive(Debug, Deserialize)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructureProgramsRemoveBcUninstallerPowershell {
+    pub name: String,
     pub id: String,
 }
 #[allow(unused)]
@@ -236,6 +244,7 @@ pub struct ConfigStructureDebloatBcUninstaller {
 #[derive(Debug, Deserialize)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructureDebloatBcUninstallerStoreHelper {
+    pub name: String,
     pub id: String,
 }
 #[allow(unused)]
@@ -249,6 +258,7 @@ pub struct ConfigStructureDebloatPowershell {
 #[derive(Debug, Deserialize)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructureDebloatPowershellAppxPackage {
+    pub name: String,
     pub id: String,
 }
 #[allow(unused)]
@@ -264,18 +274,21 @@ pub struct ConfigStructureTweaks {
 #[derive(Debug, Deserialize)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructureTweaksPowershell {
+    pub name: String,
     pub id: String,
 }
 #[allow(unused)]
 #[derive(Debug, Deserialize)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructureTweaksRegistry {
+    pub name: String,
     pub id: String,
 }
 #[allow(unused)]
 #[derive(Debug, Deserialize)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructureTweaksPower {
+    pub name: String,
     pub id: String,
 }
 #[allow(unused)]
@@ -315,6 +328,7 @@ pub struct ConfigStructurePostConfigurationChromium {
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructurePostConfigurationChromiumExtensions {
     pub enabled: bool,
+    pub name: String,
     pub id: String,
 }
 #[allow(unused)]

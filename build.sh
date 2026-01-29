@@ -7,3 +7,7 @@ rustup target add x86_64-pc-windows-gnu
 # WARNING:  This needs to be changed if we are going to make this utility configure Linux machines.
 #:& Build is outputted to PROJECT_ROOT/target/debug/*
 cargo build --target x86_64-pc-windows-gnu
+
+# WARNING:  This needs to be changed if we are going to make this utility configure Linux machines.
+#:& Move JSON files into built release folder
+bash ./lib/move_json_files.sh
