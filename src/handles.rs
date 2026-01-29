@@ -196,14 +196,90 @@ pub fn start(config: ConfigStructure) -> Result<(), std::io::Error> {
                     println!("Installing and configuring powershell 7...");
                     tweaks::powershell::ps7::full();
                 }
+                "remove-powershell7-telemetry" => {
+                    println!("Removing powershell 7 telemetry...");
+                    tweaks::powershell::ps7telemetry::disable();
+                }
                 &_ => (),
             }
         }
         for tweak in config.tweaks.registry {
             match tweak.id.as_str() {
-                "bingsearch-in-startmenu" => {
+                "disable-bingsearch-in-startmenu" => {
                     println!("Removing bin from start menu...");
                     tweaks::registry::bingsearch_startmenu::disable();
+                }
+                "enable-dark-mode" => {
+                    println!("Enabling dark mode...");
+                    tweaks::registry::darkmode::enable();
+                }
+                "enable-detailed-bsod" => {
+                    println!("Enabling detailed bsod...");
+                    tweaks::registry::detailedbsod::enable();
+                }
+                "enable-display-performance-mode" => {
+                    println!("Enabling display performance mode...");
+                    tweaks::registry::displayperformance_mode::enable();
+                }
+                "disable-explorer-home-gallery" => {
+                    println!("Disabling explorer home gallery...");
+                    tweaks::registry::explorer_homegallery::disable();
+                }
+                "enable-file-extension-visibility" => {
+                    println!("Enabling file extension visibility...");
+                    tweaks::registry::fileextensionvisibility::enable();
+                }
+                "enable-hidden-files-visibility" => {
+                    println!("Enabling hidden files visibility...");
+                    tweaks::registry::hiddenfilesvisibility::enable();
+                }
+                "disable-intel-mm-lms" => {
+                    println!("Disabling Intel MM LMS...");
+                    tweaks::registry::intel_mm_lms::disable();
+                }
+                "disable-microsoft-copilot" => {
+                    println!("Disabling Microsoft Copilot...");
+                    tweaks::registry::microsoftcopilot::disable();
+                }
+                "disable-notification-tray" => {
+                    println!("Disabling notification tray...");
+                    tweaks::registry::notificationtray::disable();
+                }
+                "disable-onedrive" => {
+                    println!("Disabling OneDrive...");
+                    tweaks::registry::onedrive::disable();
+                }
+                "enable-prefer-ipv4" => {
+                    println!("Enabling prefer IPv4...");
+                    tweaks::registry::prefer_ipv4::enable();
+                }
+                "enable-rclick-end-task" => {
+                    println!("Enabling right click to end task...");
+                    tweaks::registry::rclick_end_task::enable();
+                }
+                "disable-stickykeys-startup" => {
+                    println!("Disabling stickykeys startup...");
+                    tweaks::registry::stickykeys_startup::disable();
+                }
+                "taskbar-alignment-left" => {
+                    println!("Setting taskbar alignment to left...");
+                    tweaks::registry::taskbar_alignment::left();
+                }
+                "enable-taskbar-search-button" => {
+                    println!("Enabling taskbar search button...");
+                    tweaks::registry::taskbar_search_button::enable();
+                }
+                "disable-taskbar-taskview-button" => {
+                    println!("Disabling taskbar taskview button...");
+                    tweaks::registry::taskbar_taskview_button::disable();
+                }
+                "disable-taskbar-widget-button" => {
+                    println!("Disabling taskbar widget button...");
+                    tweaks::registry::taskbar_widgets_button::disable();
+                }
+                "enable-verbose-logon-messages" => {
+                    println!("Enabling verbose logon messages...");
+                    tweaks::registry::verbose_logon_messages::enable();
                 }
                 &_ => (),
             }

@@ -490,12 +490,88 @@
       {
         "Name": "",
         "Id": "install-and-configure-powershell7"
+      },
+      {
+        "Name": "",
+        "Id": "remove-powershell7-telemetry"
       }
     ],
     "Registry": [
       {
         "Name": "",
-        "Id": "bingsearch-in-startmenu"
+        "Id": "disable-bingsearch-in-startmenu"
+      },
+      {
+        "Name": "",
+        "Id": "enable-dark-mode"
+      },
+      {
+        "Name": "",
+        "Id": "enable-detailed-bsod"
+      },
+      {
+        "Name": "",
+        "Id": "enable-display-performance-mode"
+      },
+      {
+        "Name": "",
+        "Id": "disable-explorer-home-gallery"
+      },
+      {
+        "Name": "",
+        "Id": "enable-file-extension-visibility"
+      },
+      {
+        "Name": "",
+        "Id": "enable-hidden-files-visibility"
+      },
+      {
+        "Name": "",
+        "Id": "disable-intel-mm-lms"
+      },
+      {
+        "Name": "",
+        "Id": "disable-microsoft-copilot"
+      },
+      {
+        "Name": "",
+        "Id": "disable-notification-tray"
+      },
+      {
+        "Name": "",
+        "Id": "disable-onedrive"
+      },
+      {
+        "Name": "",
+        "Id": "enable-prefer-ipv4"
+      },
+      {
+        "Name": "",
+        "Id": "enable-rclick-end-task"
+      },
+      {
+        "Name": "",
+        "Id": "disable-stickykeys-startup"
+      },
+      {
+        "Name": "",
+        "Id": "taskbar-alignment-left"
+      },
+      {
+        "Name": "",
+        "Id": "enable-taskbar-search-button"
+      },
+      {
+        "Name": "",
+        "Id": "disable-taskbar-taskview-button"
+      },
+      {
+        "Name": "",
+        "Id": "disable-taskbar-widget-button"
+      },
+      {
+        "Name": "",
+        "Id": "enable-verbose-logon-messages"
       }
     ],
     "Power": [
