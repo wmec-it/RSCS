@@ -151,7 +151,6 @@ pub static DEBLOAT_UNINSTALL_APPX_PACKAGES: DebloatUninstallProgramsObject =
             "Microsoft.MicrosoftSolitaireCollection_4.25.1130.0_x64__8wekyb3d8bbwe",
             "SpotifyAB.SpotifyMusic_1.281.264.0_x64__zpdnekdrzrea0",
             "Microsoft.StartExperiencesApp_1.218.0.0_x64__8wekyb3d8bbwe",
-            "Microsoft.BioEnrollment_10.0.19587.1000_neutral__cw5n1h2txyewy",
             "Microsoft.WindowsMaps_1.0.65.0_x64__8wekyb3d8bbwe",
             "Microsoft.GamingApp_2512.1001.36.0_x64__8wekyb3d8bbwe",
             "Microsoft.XboxApp_48.104.4001.0_x64__8wekyb3d8bbwe",
@@ -160,5 +159,12 @@ pub static DEBLOAT_UNINSTALL_APPX_PACKAGES: DebloatUninstallProgramsObject =
             "Microsoft.XboxGameCallableUI_1000.25128.1000.0_neutral_neutral_cw5n1h2txyewy",
             "Microsoft.XboxIdentityProvider_12.130.16001.0_x64__8wekyb3d8bbwe",
             "Microsoft.Xbox.TCUI_1.24.10001.0_x64__8wekyb3d8bbwe",
+            "MicrosoftWindows.CrossDevice_0.25112.60.0_x64__cw5n1h2txyewy",
+            "Microsoft.Windows.DevHome_0.0.0.0_x64__8wekyb3d8bbwe",
+            "Microsoft.MicrosoftOfficeHub_19.2601.56031.0_x64__8wekyb3d8bbwe",
+            "MSTeams_26005.204.4249.1621_x64__8wekyb3d8bbwe",
+            "Microsoft.BingNews_4.55.62231.0_x64__8wekyb3d8bbwe",
+            "Microsoft.OutlookForWindows_1.2026.114.100_x64__8wekyb3d8bbwe",
+            "Microsoft.YourPhone_0.25122.50.0_x64__8wekyb3d8bbwe"
         ],
     };
