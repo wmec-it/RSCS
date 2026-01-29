@@ -2,6 +2,7 @@ use std::env;
 use std::fs::File;
 use std::io::Write;
 
+#[allow(dead_code)]
 pub fn create_temp_file(
     local_file_path_bytes: &[u8],
     output_file_name: &str,

@@ -224,6 +224,7 @@ pub fn add_delimiter(
     Some(result)
 }
 
+#[allow(dead_code)]
 pub fn seperator() {
     println!(
         "{}",

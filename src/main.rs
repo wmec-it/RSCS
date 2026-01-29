@@ -6,8 +6,9 @@ use terminal_menu::*;
 
 use conf::enums::{DelimiterType, MessageType};
 use conf::vars::{MAIN_THEME, PROGRAM_TITLE, PUNCHDOWN_PAUL};
+use rscs::core::user::sudo;
 use std::sync::Mutex;
-use utils::{message, user};
+use utils::message;
 
 mod conf;
 mod external;
@@ -138,7 +139,7 @@ fn open_menu(operation_type: &str) -> Result<(), io::Error> {
     match operation_type {
         "skip" => {
             //:& Enables sudo
-            user::enable_sudo();
+            sudo::enable();
             //:& Run prerequisites and catch errors
             match prerequisites() {
                 Ok(()) => (),
@@ -199,7 +200,7 @@ fn menu_logic(
         );
 
         //:& Obviously enables sudo
-        user::enable_sudo();
+        sudo::enable();
 
         let mm = mut_menu(&menu);
 
