@@ -7,15 +7,12 @@ use terminal_menu::*;
 use conf::enums::{DelimiterType, MessageType};
 use conf::vars::{MAIN_THEME, PROGRAM_TITLE, PUNCHDOWN_PAUL};
 use std::sync::Mutex;
-use testing::testing;
 use utils::{message, user};
 
 mod conf;
 mod external;
+mod function;
 mod handles;
-mod system;
-mod testing;
-mod types;
 mod utils;
 
 #[derive(Debug)]
@@ -30,6 +27,13 @@ static NAME_PATH_RESOLUTION: std::sync::LazyLock<Mutex<NAMEPATH>> =
             names: Vec::new(),
         })
     });
+
+#[derive(Serialize, Deserialize, Debug)]
+#[serde(rename_all = "PascalCase")]
+struct Config {
+    // TODO: Add full json structure
+    display_name: String,
+}
 
 fn get_install_types() -> Vec<std::string::String> {
     let dir: &str = "./menu_options"; // TODO: Make this a command line argument, global config option, or calculated
@@ -128,22 +132,10 @@ fn main() -> Result<(), io::Error> {
     }
 }
 
-#[derive(Serialize, Deserialize, Debug)]
-#[serde(rename_all = "PascalCase")]
-struct Config {
-    // TODO: Add full json structure
-    display_name: String,
-}
-
 //:& Opens menu
 fn open_menu(operation_type: &str) -> Result<(), io::Error> {
     // TODO: Find a better way to run tests and stuff
     match operation_type {
-        "testing" => {
-            //:& Lets you use the PROJECT_ROOT/src/testing/testing.rs file for testing stuff
-            testing();
-            Ok(())
-        }
         "skip" => {
             //:& Enables sudo
             user::enable_sudo();
@@ -264,7 +256,7 @@ fn menu_logic(
 
 fn prerequisites() -> Result<(), io::Error> {
     //:& Handle errors from restore point
-    match system::manage::backups::create_restore_point() {
+    match function::backups::create_restore_point() {
         // Everything is ok
         Ok(()) => Ok(()),
         Err(error) => {

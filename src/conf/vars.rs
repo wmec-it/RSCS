@@ -1,4 +1,6 @@
-use crate::conf::structs::{Delimiters, Theme};
+use rscs::core::structs::theme::Theme;
+
+use crate::conf::structs::Delimiters;
 
 // TODO: Make all ts read from a config file or something, this is getting too cluttered
 

@@ -1,0 +1,23 @@
+//:& Link to script (if applicable)
+
+use crate::system::tweaks::templates;
+
+#[allow(dead_code)]
+pub fn enable() {
+    powershell::default(
+        run_message,
+        success_message,
+        error_message,
+        command
+    );
+}
+
+#[allow(dead_code)]
+pub fn disable() {
+    powershell::default(
+        run_message,
+        success_message,
+        error_message,
+        command
+    );
+}

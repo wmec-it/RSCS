@@ -1,20 +1,16 @@
 use crate::conf::enums::{DelimiterType, MessageType};
 use crate::utils::message::{add_delimiter, error, info};
-use std::process::Command;
+use rscs::core::user::sudo::enable;
 
 pub fn enable_sudo() {
-    let enable_sudo_command_output = Command::new("powershell")
-        .arg("-Command")
-        .arg("sudo config --enable normal")
-        .output()
-        .expect("Failed to enable Sudo...");
+    let result = enable();
 
-    if !enable_sudo_command_output.status.success() {
+    if !result.status.success() {
         error(
             MessageType::Print,
             add_delimiter(
                 DelimiterType::Layer1Error,
-                String::from_utf8_lossy(&enable_sudo_command_output.stdout).to_string(),
+                String::from_utf8_lossy(&result.stdout).to_string(),
                 Some(true),
                 None,
                 Some(true),
@@ -27,7 +23,7 @@ pub fn enable_sudo() {
             MessageType::Print,
             add_delimiter(
                 DelimiterType::Layer1Info,
-                String::from_utf8_lossy(&enable_sudo_command_output.stdout).to_string(),
+                String::from_utf8_lossy(&result.stdout).to_string(),
                 Some(true),
                 None,
                 Some(true),

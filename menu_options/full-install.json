@@ -1,4 +1,4 @@
-﻿{
+{
   "DisplayName": "Full Install",
   "Verbose": true,
   "Debug": false,
@@ -150,6 +150,10 @@
         {
           "Name": "",
           "Id": "jqlang.jq"
+        },
+        {
+          "Name": "",
+          "Id": "waterlan.dos2unix"
         }
       ],
       "Powershell": [
