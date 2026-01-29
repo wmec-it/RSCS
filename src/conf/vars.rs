@@ -165,6 +165,6 @@ pub static DEBLOAT_UNINSTALL_APPX_PACKAGES: DebloatUninstallProgramsObject =
             "MSTeams_26005.204.4249.1621_x64__8wekyb3d8bbwe",
             "Microsoft.BingNews_4.55.62231.0_x64__8wekyb3d8bbwe",
             "Microsoft.OutlookForWindows_1.2026.114.100_x64__8wekyb3d8bbwe",
-            "Microsoft.YourPhone_0.25122.50.0_x64__8wekyb3d8bbwe"
+            "Microsoft.YourPhone_0.25122.50.0_x64__8wekyb3d8bbwe",
         ],
     };
