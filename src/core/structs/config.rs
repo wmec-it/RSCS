@@ -135,6 +135,7 @@ pub struct ConfigStructureProgramsInstall {
 pub struct ConfigStructureProgramsInstallWinget {
     pub name: String,
     pub id: String,
+    pub source: String,
 }
 #[allow(unused)]
 #[derive(Debug, Deserialize)]

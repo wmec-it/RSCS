@@ -53,8 +53,16 @@ pub fn start(config: ConfigStructure) -> Result<(), std::io::Error> {
         if config.programs.install.enabled {
             for program in config.programs.install.winget {
                 if !program.id.as_str().is_empty() {
-                    println!("Installing {}", program.name.as_str());
-                    winget::install::official_repo(program.id.as_str());
+                    match program.source.as_str() {
+                        "msstore" => {
+                            println!("Installing {}", program.name.as_str());
+                            winget::install::msstore(program.id.as_str());
+                        }
+                        &_ => {
+                            println!("Installing {}", program.name.as_str());
+                            winget::install::official_repo(program.id.as_str());
+                        }
+                    }
                 }
             }
         }

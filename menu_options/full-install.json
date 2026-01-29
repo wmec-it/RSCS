@@ -78,139 +78,178 @@
       "Winget": [
         {
           "Name": "",
-          "Id": "NZXT.CAM"
+          "Id": "NZXT.CAM",
+          "Source": ""
         },
         {
           "Name": "",
-          "Id": "WhirlwindFX.SignalRgb"
+          "Id": "WhirlwindFX.SignalRgb",
+          "Source": ""
         },
         {
           "Name": "",
-          "Id": "CrystalRich.LockHunter"
+          "Id": "CrystalRich.LockHunter",
+          "Source": ""
         },
         {
           "Name": "",
-          "Id": "Klocman.BulkCrapUninstaller"
+          "Id": "Klocman.BulkCrapUninstaller",
+          "Source": ""
         },
         {
           "Name": "",
-          "Id": "valinet.ExplorerPatcher"
+          "Id": "valinet.ExplorerPatcher",
+          "Source": ""
         },
         {
           "Name": "",
-          "Id": "Git.Git"
+          "Id": "Git.Git",
+          "Source": ""
         },
         {
           "Name": "",
-          "Id": "Hibbiki.Chromium"
+          "Id": "Hibbiki.Chromium",
+          "Source": ""
         },
         {
           "Name": "",
-          "Id": "GitHub.GitHubDesktop"
+          "Id": "GitHub.GitHubDesktop",
+          "Source": ""
         },
         {
           "Name": "",
-          "Id": "Microsoft.VisualStudioCode"
+          "Id": "Microsoft.VisualStudioCode",
+          "Source": ""
         },
         {
           "Name": "",
-          "Id": "Microsoft.VisualStudio.2019.BuildTools"
+          "Id": "Microsoft.VisualStudio.2019.BuildTools",
+          "Source": ""
         },
         {
           "Name": "",
-          "Id": "AngusJohnson.ResourceHacker"
+          "Id": "AngusJohnson.ResourceHacker",
+          "Source": ""
         },
         {
           "Name": "",
-          "Id": "Genymobile.scrcpy"
+          "Id": "Genymobile.scrcpy",
+          "Source": ""
         },
         {
           "Name": "",
-          "Id": "Google.PlatformTools"
+          "Id": "Google.PlatformTools",
+          "Source": ""
         },
         {
           "Name": "",
-          "Id": "Rufus.Rufus"
+          "Id": "Rufus.Rufus",
+          "Source": ""
         },
         {
           "Name": "",
-          "Id": "WinsiderSS.SystemInformer"
+          "Id": "WinsiderSS.SystemInformer",
+          "Source": ""
         },
         {
           "Name": "",
-          "Id": "dorssel.usbipd-win"
+          "Id": "dorssel.usbipd-win",
+          "Source": ""
         },
         {
           "Name": "",
-          "Id": "Microsoft.DotNet.SDK.10"
+          "Id": "Microsoft.DotNet.SDK.10",
+          "Source": ""
         },
         {
           "Name": "",
-          "Id": "TigerVNC.TigerVNC"
+          "Id": "TigerVNC.TigerVNC",
+          "Source": ""
         },
         {
           "Name": "",
-          "Id": "jqlang.jq"
+          "Id": "jqlang.jq",
+          "Source": ""
         },
         {
           "Name": "",
-          "Id": "waterlan.dos2unix"
+          "Id": "waterlan.dos2unix",
+          "Source": ""
         },
         {
           "Name": "Reko decompiler",
-          "Id": "uxmal.reko"
+          "Id": "uxmal.reko",
+          "Source": ""
         },
         {
           "Name": "yt-dlp",
-          "Id": "yt-dlp.yt-dlp"
+          "Id": "yt-dlp.yt-dlp",
+          "Source": ""
         },
         {
           "Name": "Wireshark",
-          "Id": "WiresharkFoundation.Wireshark"
+          "Id": "WiresharkFoundation.Wireshark",
+          "Source": ""
         },
         {
           "Name": "WinSCP",
-          "Id": "WinSCP.WinSCP"
+          "Id": "WinSCP.WinSCP",
+          "Source": ""
         },
         {
           "Name": "WinDirStat",
-          "Id": "WinDirStat.WinDirStat"
+          "Id": "WinDirStat.WinDirStat",
+          "Source": ""
         },
         {
           "Name": "ImHex",
-          "Id": "WerWolv.ImHex"
+          "Id": "WerWolv.ImHex",
+          "Source": ""
         },
         {
           "Name": "Display Driver Uninstaller",
-          "Id": "Wagnardsoft.DisplayDriverUninstaller"
+          "Id": "Wagnardsoft.DisplayDriverUninstaller",
+          "Source": ""
         },
         {
           "Name": "Everything",
-          "Id": "voidtools.Everything"
+          "Id": "voidtools.Everything",
+          "Source": ""
         },
         {
           "Name": "Ventoy",
-          "Id": "ventoy.Ventoy"
+          "Id": "ventoy.Ventoy",
+          "Source": ""
         },
         {
           "Name": "Vysor",
-          "Id": "Vysor.Vysor"
+          "Id": "Vysor.Vysor",
+          "Source": ""
         },
         {
           "Name": "Virus Total Uploader",
-          "Id": "VirusTotal.VirusTotalUploader"
+          "Id": "VirusTotal.VirusTotalUploader",
+          "Source": ""
         },
         {
           "Name": "VLC Media Player",
-          "Id": "VideoLAN.VLC"
+          "Id": "VideoLAN.VLC",
+          "Source": ""
         },
         {
           "Name": "Velociraptor",
-          "Id": "Velocidex.Velociraptor"
+          "Id": "Velocidex.Velociraptor",
+          "Source": ""
         },
         {
           "Name": "VMware Workstation Pro",
-          "Id": "VMware.WorkstationPro"
+          "Id": "VMware.WorkstationPro",
+          "Source": ""
+        },
+        {
+          "Name": "PuTTY",
+          "Id": "XPFNZKSKLBP7RJ",
+          "Source": "msstore"
         }
       ],
       "Powershell": [
@@ -222,7 +261,7 @@
       "AppxPackage": [
         {
           "Name": "",
-          "Id": "Microsoft.StartExperiencesApp_1.195.0.0_x64__8wekyb3d8bbwe"
+          "Id": ""
         }
       ]
     },
