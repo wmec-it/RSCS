@@ -41,6 +41,7 @@ pub struct ConfigStructureBrandingLogoGet {
     pub locator: String,
     pub size: String,
     pub file_type: String,
+    pub replaces: String,
 }
 #[allow(unused)]
 #[derive(Debug, Deserialize)]
@@ -218,6 +219,7 @@ pub struct ConfigStructureProgramsRemoveManual {
 #[derive(Debug, Deserialize)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructureProgramsRemoveManualCommand {
+    pub program: String,
     pub args: Vec<ConfigStructureProgramsRemoveManualCommandArgs>,
 }
 #[allow(unused)]
