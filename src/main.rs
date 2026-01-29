@@ -164,7 +164,7 @@ fn open_menu(operation_type: &str) -> Result<(), io::Error> {
                 }
             }
             //:& Handle install type selection
-            handles::install_type("Skip all tweaks");
+            handles::handle_install_type("Skip all tweaks");
             Ok(())
         }
         _ => {
@@ -246,7 +246,7 @@ fn menu_logic(
         }
 
         //:& Handle install type selection
-        handles::install_type(mm.selection_value("Install Type"));
+        handles::handle_install_type(mm.selection_value("Install Type"));
 
         // Everything is fine :3
         Ok(())
