@@ -15,3 +15,7 @@ bash ./lib/move_json_files.sh
 # WARNING:  This needs to be changed if we are going to make this utility configure Linux machines.
 #:& Move assets into built release folder
 bash ./lib/move_assets.sh
+
+# WARNING:  This needs to be changed if we are going to make this utility configure Linux machines.
+#:& Move vc_runtime.bat into built release folder
+bash ./lib/move_vc_runtime.sh

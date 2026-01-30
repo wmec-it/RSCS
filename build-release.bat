@@ -11,3 +11,6 @@ powershell ./lib/move_json_files.ps1
 
 @REM Move assets into built release folder
 powershell ./lib/move_assets.ps1
+
+@REM Move vc_runtime.bat into built release folder
+powershell ./lib/move_vc_runtime.ps1
