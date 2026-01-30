@@ -56,112 +56,6 @@ pub fn start(config: ConfigStructure) -> Result<(), std::io::Error> {
         }
     }
 
-    if config.branding.enabled {
-        if config.branding.dark_mode_enabled {
-            tweaks::registry::darkmode::enable();
-        }
-        if config.branding.custom_taskbar_selection {
-            // TODO: Handle custom taskbar selection
-        }
-        if config.branding.clear_desktop {
-            let username = whoami::username().unwrap_or_else(|_| "<unknown>".to_string());
-
-            let path = format!("C:\\Users\\{}\\Desktop", username);
-            remove_dir_contents(path).unwrap();
-            // TODO: Make this backup shortcuts instead of just deleting them
-            remove_dir_contents("C:\\Users\\Public\\Desktop").unwrap();
-        }
-        if config.branding.logo.enabled {
-            for file in config.branding.logo.get {
-                // TODO: Handle logo setting
-                match file.replaces.as_str() {
-                    "Chromium" => (),
-                    &_ => {
-                        let username =
-                            whoami::username().unwrap_or_else(|_| "<unknown>".to_string());
-
-                        println!("{}", username);
-
-                        let desktop_shortcut_path =
-                            format!("C:\\Users\\{}{}", username, file.desktop_shortcut_path);
-
-                        println!("{}", desktop_shortcut_path);
-
-                        if std::path::Path::new(desktop_shortcut_path.as_str()).exists() {
-                            std::fs::remove_file(&desktop_shortcut_path)?;
-                        }
-
-                        // TODO: Implement taskbar path too
-
-                        let ps_script = format!(
-                            r#"
-                            $target = "{}"
-                            $shortcutPath = "{}"
-                            $icon = "{}"
-                            $icon_filename = Split-Path $icon -leaf
-                            $iconsDir = "C:\\Users\\{username}\\Branding\\"
-
-                            if (-not (Test-Path $iconsDir)) {{
-                                New-Item -Path $iconsDir -ItemType Directory
-                            }}
-
-                            cp -r "$icon" "$iconsDir$icon_filename"
-
-                            $shell = New-Object -ComObject WScript.Shell
-                            $lnk = $shell.CreateShortcut($shortcutPath)
-
-                            $lnk.TargetPath = $target
-                            $lnk.IconLocation = "$iconsDir$icon_filename"
-                            $lnk.Arguments = "{}"
-                            $lnk.Save()
-                            "#,
-                            format!("C:\\Users\\{}{}", username, file.executable_path),
-                            desktop_shortcut_path,
-                            file.icon_path,
-                            if !file.args.is_empty() {
-                                file.args
-                            } else {
-                                "".to_string()
-                            },
-                            username = username
-                        );
-
-                        println!("{}", ps_script);
-
-                        std::process::Command::new("powershell")
-                            .arg("-NoProfile")
-                            .arg("-Command")
-                            .arg(ps_script)
-                            .output()
-                            .expect("Failed to run PowerShell");
-                    }
-                }
-            }
-        }
-        if config.branding.windows.enabled {
-            if config.branding.windows.wallpapers.enabled {
-                for file in config.branding.windows.wallpapers.get {
-                    // TODO: Handle windows wallpaper setting
-                }
-            }
-            if config.branding.windows.accent_color.enabled {
-                // TODO: Handle color
-            }
-        }
-        if config.branding.chromium.enabled {
-            for file in config.branding.chromium.icons {
-                // TODO: Handle icons
-            }
-        }
-        if config.branding.signal_rgb.enabled {
-            if config.branding.signal_rgb.configuration.enabled {
-                if config.branding.signal_rgb.configuration.full.enabled {
-                    // TODO: Handle SignalRGB colors
-                }
-            }
-        }
-    }
-
     if config.programs.enabled {
         //:& Install
         if config.programs.install.enabled {
@@ -419,6 +313,112 @@ pub fn start(config: ConfigStructure) -> Result<(), std::io::Error> {
                     .is_empty()
                 {
                     // TODO: Handle default download directory
+                }
+            }
+        }
+    }
+
+    if config.branding.enabled {
+        if config.branding.dark_mode_enabled {
+            tweaks::registry::darkmode::enable();
+        }
+        if config.branding.custom_taskbar_selection {
+            // TODO: Handle custom taskbar selection
+        }
+        if config.branding.clear_desktop {
+            let username = whoami::username().unwrap_or_else(|_| "<unknown>".to_string());
+
+            let path = format!("C:\\Users\\{}\\Desktop", username);
+            remove_dir_contents(path).unwrap();
+            // TODO: Make this backup shortcuts instead of just deleting them
+            remove_dir_contents("C:\\Users\\Public\\Desktop").unwrap();
+        }
+        if config.branding.logo.enabled {
+            for file in config.branding.logo.get {
+                // TODO: Handle logo setting
+                match file.replaces.as_str() {
+                    "Chromium" => (),
+                    &_ => {
+                        let username =
+                            whoami::username().unwrap_or_else(|_| "<unknown>".to_string());
+
+                        println!("{}", username);
+
+                        let desktop_shortcut_path =
+                            format!("C:\\Users\\{}{}", username, file.desktop_shortcut_path);
+
+                        println!("{}", desktop_shortcut_path);
+
+                        if std::path::Path::new(desktop_shortcut_path.as_str()).exists() {
+                            std::fs::remove_file(&desktop_shortcut_path)?;
+                        }
+
+                        // TODO: Implement taskbar path too
+
+                        let ps_script = format!(
+                            r#"
+                            $target = "{}"
+                            $shortcutPath = "{}"
+                            $icon = "{}"
+                            $icon_filename = Split-Path $icon -leaf
+                            $iconsDir = "C:\\Users\\{username}\\Branding\\"
+
+                            if (-not (Test-Path $iconsDir)) {{
+                                New-Item -Path $iconsDir -ItemType Directory
+                            }}
+
+                            cp -r "$icon" "$iconsDir$icon_filename"
+
+                            $shell = New-Object -ComObject WScript.Shell
+                            $lnk = $shell.CreateShortcut($shortcutPath)
+
+                            $lnk.TargetPath = $target
+                            $lnk.IconLocation = "$iconsDir$icon_filename"
+                            $lnk.Arguments = "{}"
+                            $lnk.Save()
+                            "#,
+                            format!("C:\\Users\\{}{}", username, file.executable_path),
+                            desktop_shortcut_path,
+                            file.icon_path,
+                            if !file.args.is_empty() {
+                                file.args
+                            } else {
+                                "".to_string()
+                            },
+                            username = username
+                        );
+
+                        println!("{}", ps_script);
+
+                        std::process::Command::new("powershell")
+                            .arg("-NoProfile")
+                            .arg("-Command")
+                            .arg(ps_script)
+                            .output()
+                            .expect("Failed to run PowerShell");
+                    }
+                }
+            }
+        }
+        if config.branding.windows.enabled {
+            if config.branding.windows.wallpapers.enabled {
+                for file in config.branding.windows.wallpapers.get {
+                    // TODO: Handle windows wallpaper setting
+                }
+            }
+            if config.branding.windows.accent_color.enabled {
+                // TODO: Handle color
+            }
+        }
+        if config.branding.chromium.enabled {
+            for file in config.branding.chromium.icons {
+                // TODO: Handle icons
+            }
+        }
+        if config.branding.signal_rgb.enabled {
+            if config.branding.signal_rgb.configuration.enabled {
+                if config.branding.signal_rgb.configuration.full.enabled {
+                    // TODO: Handle SignalRGB colors
                 }
             }
         }
