@@ -58,7 +58,7 @@ pub fn start(config: ConfigStructure) -> Result<(), std::io::Error> {
 
     if config.branding.enabled {
         if config.branding.dark_mode_enabled {
-            // TODO: Handle Branding dark mode
+            tweaks::registry::darkmode::enable();
         }
         if config.branding.custom_taskbar_selection {
             // TODO: Handle custom taskbar selection
