@@ -4,9 +4,10 @@
   "Debug": false,
   "DoesBackUp": true,
   "Branding": {
-    "Enabled": false,
+    "Enabled": true,
     "DarkModeEnabled": true,
     "CustomTaskbarSelection": true,
+    "ClearDesktop": true,
     "Logo": {
       "Enabled": true,
       "Get": [

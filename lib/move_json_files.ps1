@@ -1,2 +1,2 @@
 # TODO: Add test for if regular release directory exists, and if it should be copied to both dirs, or just one
-Copy-Item -Path "./menu_options" -Destination "./target/x86_64-pc-windows-msvc/release/menu_options" -Force -Recurse
+Copy-Item -Path "./menu_options" -Destination "./target/x86_64-pc-windows-msvc/release/" -Force -Recurse

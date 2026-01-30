@@ -35,6 +35,13 @@ pub fn handle_install_type(install_type: &str) -> Result<(), std::io::Error> {
     Ok(())
 }
 
+pub fn remove_dir_contents<P: AsRef<std::path::Path>>(path: P) -> std::io::Result<()> {
+    for entry in std::fs::read_dir(path)? {
+        std::fs::remove_file(entry?.path())?;
+    }
+    Ok(())
+}
+
 pub fn start(config: ConfigStructure) -> Result<(), std::io::Error> {
     if config.does_back_up {
         match function::backups::create_restore_point() {
@@ -55,6 +62,12 @@ pub fn start(config: ConfigStructure) -> Result<(), std::io::Error> {
         }
         if config.branding.custom_taskbar_selection {
             // TODO: Handle custom taskbar selection
+        }
+        if config.branding.clear_desktop {
+            let username = whoami::username().unwrap_or_else(|_| "<unknown>".to_string());
+
+            let path = format!("C:\\Users\\{}\\Desktop", username);
+            remove_dir_contents(path).unwrap();
         }
         if config.branding.logo.enabled {
             for file in config.branding.logo.get {
