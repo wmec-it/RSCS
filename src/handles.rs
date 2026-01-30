@@ -1,4 +1,4 @@
-use rscs::core::{command::powershell, helper::winget, structs::config::ConfigStructure};
+use rscs::core::{command::powershell, helper::winget, process, structs::config::ConfigStructure};
 
 use winres_edit;
 
@@ -63,6 +63,17 @@ pub fn start(config: ConfigStructure) -> Result<(), std::io::Error> {
                         let username =
                             whoami::username().unwrap_or_else(|_| "<unknown>".to_string());
 
+                        println!("{}", username);
+
+                        let desktop_shortcut_path =
+                            format!("C:\\Users\\{}{}", username, file.desktop_shortcut_path);
+
+                        println!("{}", desktop_shortcut_path);
+
+                        if std::path::Path::new(desktop_shortcut_path.as_str()).exists() {
+                            std::fs::remove_file(&desktop_shortcut_path)?;
+                        }
+
                         let ps_script = format!(
                             r#"
                             $target = "{}"
@@ -74,12 +85,20 @@ pub fn start(config: ConfigStructure) -> Result<(), std::io::Error> {
 
                             $lnk.TargetPath = $target
                             $lnk.IconLocation = $icon
+                            $lnk.Arguments = "{}"
                             $lnk.Save()
                             "#,
                             format!("C:\\Users\\{}{}", username, file.executable_path),
-                            file.desktop_shortcut_path,
-                            file.icon_path
+                            desktop_shortcut_path,
+                            file.icon_path,
+                            if !file.args.is_empty() {
+                                file.args
+                            } else {
+                                "".to_string()
+                            }
                         );
+
+                        println!("{}", ps_script);
 
                         std::process::Command::new("powershell")
                             .arg("-NoProfile")
@@ -390,6 +409,8 @@ pub fn start(config: ConfigStructure) -> Result<(), std::io::Error> {
             println!("{}", command.completion_message);
         }
     }
+
+    process::explorer::restart();
 
     Ok(())
 }

@@ -10,13 +10,14 @@
       "Enabled": true,
       "Get": [
         {
-          "IconPath": "\\Documents\\Code\\icon.ico",
+          "IconPath": "C:\\Users\\Root\\Documents\\Code\\icon.ico",
           "Size": "",
           "FileType": "",
           "Replaces": "Chromium",
           "ExecutablePath": "\\AppData\\Local\\Chromium\\Application\\chrome.exe",
-          "DesktopShortcutPath": "C:\\Users\\Root\\Desktop\\Chromium.lnk",
-          "TaskbarShortcutPath": ""
+          "DesktopShortcutPath": "\\Desktop\\Chromium.lnk",
+          "TaskbarShortcutPath": "",
+          "Args": ""
         }
       ]
     },

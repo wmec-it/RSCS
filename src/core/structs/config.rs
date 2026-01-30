@@ -44,6 +44,7 @@ pub struct ConfigStructureBrandingLogoGet {
     pub executable_path: String,
     pub desktop_shortcut_path: String,
     pub taskbar_shortcut_path: String,
+    pub args: String,
 }
 #[allow(unused)]
 #[derive(Debug, Deserialize)]
