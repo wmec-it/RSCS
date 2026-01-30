@@ -1,5 +1,7 @@
 use rscs::core::{command::powershell, helper::winget, structs::config::ConfigStructure};
 
+use winres_edit;
+
 use crate::{
     NAME_PATH_RESOLUTION,
     function::{self, tweaks},
@@ -56,6 +58,39 @@ pub fn start(config: ConfigStructure) -> Result<(), std::io::Error> {
         if config.branding.logo.enabled {
             for file in config.branding.logo.get {
                 // TODO: Handle logo setting
+                match file.replaces.as_str() {
+                    "Chromium" => {
+                        let username = whoami::username().unwrap_or_else(|_| "<unknown>".to_string());
+
+                        let ps_script = format!(
+                            r#"
+                            $target = "{}"
+                            $shortcutPath = "{}"
+                            $icon = "{}"
+
+                            $shell = New-Object -ComObject WScript.Shell
+                            $lnk = $shell.CreateShortcut($shortcutPath)
+
+                            $lnk.TargetPath = $target
+                            $lnk.IconLocation = $icon
+                            $lnk.Save()
+                            "#,
+                            format!("C:\\Users\\{}{}", username, file.executable_path),
+                            file.desktop_shortcut_path,
+                            file.icon_path
+                        );
+
+                        std::process::Command::new("powershell")
+                            .arg("-NoProfile")
+                            .arg("-Command")
+                            .arg(ps_script)
+                            .output()
+                            .expect("Failed to run PowerShell");
+                    }
+                    &_ => {
+                        ()
+                    }
+                }
             }
         }
         if config.branding.windows.enabled {

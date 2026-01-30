@@ -37,11 +37,13 @@ pub struct ConfigStructureBrandingLogo {
 #[derive(Debug, Deserialize)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructureBrandingLogoGet {
-    pub method: String,
-    pub locator: String,
+    pub icon_path: String,
     pub size: String,
     pub file_type: String,
     pub replaces: String,
+    pub executable_path: String,
+    pub desktop_shortcut_path: String,
+    pub taskbar_shortcut_path: String,
 }
 #[allow(unused)]
 #[derive(Debug, Deserialize)]
