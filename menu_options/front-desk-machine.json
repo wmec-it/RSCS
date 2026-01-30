@@ -6,22 +6,29 @@
   "Branding": {
     "Enabled": false,
     "DarkModeEnabled": true,
+    "CustomTaskbarSelection": true,
     "Logo": {
       "Enabled": true,
       "Get": [
         {
-          "Method": "LocalPath",
-          "Locator": "",
+          "IconPath": "./assets/chromium.ico",
           "Size": "",
           "FileType": "",
-          "Replaces": ""
+          "Replaces": "",
+          "ExecutablePath": "\\AppData\\Local\\Chromium\\Application\\chrome.exe",
+          "DesktopShortcutPath": "\\Desktop\\Chromium.lnk",
+          "TaskbarShortcutPath": "",
+          "Args": ""
         },
         {
-          "Method": "URL",
-          "Locator": "",
+          "IconPath": "./assets/punchdown_paul.ico",
           "Size": "",
           "FileType": "",
-          "Replaces": ""
+          "Replaces": "",
+          "ExecutablePath": "\\AppData\\Local\\Chromium\\Application\\chrome.exe",
+          "DesktopShortcutPath": "\\Desktop\\Ticketing System.lnk",
+          "TaskbarShortcutPath": "",
+          "Args": "https://on.spiceworks.com/"
         }
       ]
     },

@@ -1,7 +1,5 @@
 use rscs::core::{command::powershell, helper::winget, process, structs::config::ConfigStructure};
 
-use winres_edit;
-
 use crate::{
     NAME_PATH_RESOLUTION,
     function::{self, tweaks},
@@ -55,11 +53,15 @@ pub fn start(config: ConfigStructure) -> Result<(), std::io::Error> {
         if config.branding.dark_mode_enabled {
             // TODO: Handle Branding dark mode
         }
+        if config.branding.custom_taskbar_selection {
+            // TODO: Handle custom taskbar selection
+        }
         if config.branding.logo.enabled {
             for file in config.branding.logo.get {
                 // TODO: Handle logo setting
                 match file.replaces.as_str() {
-                    "Chromium" => {
+                    "Chromium" => (),
+                    &_ => {
                         let username =
                             whoami::username().unwrap_or_else(|_| "<unknown>".to_string());
 
@@ -74,17 +76,27 @@ pub fn start(config: ConfigStructure) -> Result<(), std::io::Error> {
                             std::fs::remove_file(&desktop_shortcut_path)?;
                         }
 
+                        // TODO: Implement taskbar path too
+
                         let ps_script = format!(
                             r#"
                             $target = "{}"
                             $shortcutPath = "{}"
                             $icon = "{}"
+                            $icon_filename = Split-Path $icon -leaf
+                            $iconsDir = "C:\\Users\\{username}\\Branding\\"
+
+                            if (-not (Test-Path $iconsDir)) {{
+                                New-Item -Path $iconsDir -ItemType Directory
+                            }}
+
+                            cp -r "$icon" "$iconsDir$icon_filename"
 
                             $shell = New-Object -ComObject WScript.Shell
                             $lnk = $shell.CreateShortcut($shortcutPath)
 
                             $lnk.TargetPath = $target
-                            $lnk.IconLocation = $icon
+                            $lnk.IconLocation = "$iconsDir$icon_filename"
                             $lnk.Arguments = "{}"
                             $lnk.Save()
                             "#,
@@ -95,7 +107,8 @@ pub fn start(config: ConfigStructure) -> Result<(), std::io::Error> {
                                 file.args
                             } else {
                                 "".to_string()
-                            }
+                            },
+                            username = username
                         );
 
                         println!("{}", ps_script);
@@ -107,7 +120,6 @@ pub fn start(config: ConfigStructure) -> Result<(), std::io::Error> {
                             .output()
                             .expect("Failed to run PowerShell");
                     }
-                    &_ => (),
                 }
             }
         }

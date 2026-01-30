@@ -21,6 +21,7 @@ pub struct ConfigStructure {
 pub struct ConfigStructureBranding {
     pub enabled: bool,
     pub dark_mode_enabled: bool,
+    pub custom_taskbar_selection: bool,
     pub logo: ConfigStructureBrandingLogo,
     pub windows: ConfigStructureBrandingWindows,
     pub chromium: ConfigStructureBrandingChromium,

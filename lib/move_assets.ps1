@@ -1,0 +1,2 @@
+# TODO: Add test for if regular release directory exists, and if it should be copied to both dirs, or just one
+Copy-Item -Path "./assets" -Destination "./target/x86_64-pc-windows-msvc/release/assets" -Force -Recurse

@@ -6,6 +6,7 @@
   "Branding": {
     "Enabled": true,
     "DarkModeEnabled": true,
+    "CustomTaskbarSelection": true,
     "Logo": {
       "Enabled": true,
       "Get": [
@@ -13,7 +14,7 @@
           "IconPath": "C:\\Users\\Root\\Documents\\Code\\icon.ico",
           "Size": "",
           "FileType": "",
-          "Replaces": "Chromium",
+          "Replaces": "",
           "ExecutablePath": "\\AppData\\Local\\Chromium\\Application\\chrome.exe",
           "DesktopShortcutPath": "\\Desktop\\Chromium.lnk",
           "TaskbarShortcutPath": "",
