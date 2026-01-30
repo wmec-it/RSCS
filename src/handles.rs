@@ -60,7 +60,8 @@ pub fn start(config: ConfigStructure) -> Result<(), std::io::Error> {
                 // TODO: Handle logo setting
                 match file.replaces.as_str() {
                     "Chromium" => {
-                        let username = whoami::username().unwrap_or_else(|_| "<unknown>".to_string());
+                        let username =
+                            whoami::username().unwrap_or_else(|_| "<unknown>".to_string());
 
                         let ps_script = format!(
                             r#"
@@ -87,9 +88,7 @@ pub fn start(config: ConfigStructure) -> Result<(), std::io::Error> {
                             .output()
                             .expect("Failed to run PowerShell");
                     }
-                    &_ => {
-                        ()
-                    }
+                    &_ => (),
                 }
             }
         }
