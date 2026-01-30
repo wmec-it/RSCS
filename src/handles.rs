@@ -68,6 +68,8 @@ pub fn start(config: ConfigStructure) -> Result<(), std::io::Error> {
 
             let path = format!("C:\\Users\\{}\\Desktop", username);
             remove_dir_contents(path).unwrap();
+            // TODO: Make this backup shortcuts instead of just deleting them
+            remove_dir_contents("C:\\Users\\Public\\Desktop").unwrap();
         }
         if config.branding.logo.enabled {
             for file in config.branding.logo.get {
