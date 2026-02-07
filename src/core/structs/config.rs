@@ -1,7 +1,8 @@
-use serde::Deserialize;
+use serde::{Serialize, Deserialize};
 
 #[allow(unused)]
-#[derive(Debug, Deserialize)]
+#[serde_with::skip_serializing_none]
+#[derive(Debug, Serialize, Deserialize, Default)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructure {
     pub display_name: String,
@@ -16,7 +17,8 @@ pub struct ConfigStructure {
     pub extra: ConfigStructureExtra,
 }
 #[allow(unused)]
-#[derive(Debug, Deserialize)]
+#[serde_with::skip_serializing_none]
+#[derive(Debug, Serialize, Deserialize, Default)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructureBranding {
     pub enabled: bool,
@@ -29,14 +31,16 @@ pub struct ConfigStructureBranding {
     pub signal_rgb: ConfigStructureBrandingSignalRgb,
 }
 #[allow(unused)]
-#[derive(Debug, Deserialize)]
+#[serde_with::skip_serializing_none]
+#[derive(Debug, Serialize, Deserialize, Default)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructureBrandingLogo {
     pub enabled: bool,
     pub get: Vec<ConfigStructureBrandingLogoGet>,
 }
 #[allow(unused)]
-#[derive(Debug, Deserialize)]
+#[serde_with::skip_serializing_none]
+#[derive(Debug, Serialize, Deserialize, Default)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructureBrandingLogoGet {
     pub icon_path: String,
@@ -49,7 +53,8 @@ pub struct ConfigStructureBrandingLogoGet {
     pub args: String,
 }
 #[allow(unused)]
-#[derive(Debug, Deserialize)]
+#[serde_with::skip_serializing_none]
+#[derive(Debug, Serialize, Deserialize, Default)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructureBrandingWindows {
     pub enabled: bool,
@@ -57,14 +62,16 @@ pub struct ConfigStructureBrandingWindows {
     pub accent_color: ConfigStructureBrandingWindowsAccentColor,
 }
 #[allow(unused)]
-#[derive(Debug, Deserialize)]
+#[serde_with::skip_serializing_none]
+#[derive(Debug, Serialize, Deserialize, Default)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructureBrandingWindowsWallpapers {
     pub enabled: bool,
     pub get: Vec<ConfigStructureBrandingWindowsWallpapersGet>,
 }
 #[allow(unused)]
-#[derive(Debug, Deserialize)]
+#[serde_with::skip_serializing_none]
+#[derive(Debug, Serialize, Deserialize, Default)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructureBrandingWindowsWallpapersGet {
     pub method: String,
@@ -73,21 +80,24 @@ pub struct ConfigStructureBrandingWindowsWallpapersGet {
     pub file_type: String,
 }
 #[allow(unused)]
-#[derive(Debug, Deserialize)]
+#[serde_with::skip_serializing_none]
+#[derive(Debug, Serialize, Deserialize, Default)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructureBrandingWindowsAccentColor {
     pub enabled: bool,
     pub color: String,
 }
 #[allow(unused)]
-#[derive(Debug, Deserialize)]
+#[serde_with::skip_serializing_none]
+#[derive(Debug, Serialize, Deserialize, Default)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructureBrandingChromium {
     pub enabled: bool,
     pub icons: Vec<ConfigStructureBrandingChromiumIcons>,
 }
 #[allow(unused)]
-#[derive(Debug, Deserialize)]
+#[serde_with::skip_serializing_none]
+#[derive(Debug, Serialize, Deserialize, Default)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructureBrandingChromiumIcons {
     pub replaces: String,
@@ -97,21 +107,24 @@ pub struct ConfigStructureBrandingChromiumIcons {
     pub file_type: String,
 }
 #[allow(unused)]
-#[derive(Debug, Deserialize)]
+#[serde_with::skip_serializing_none]
+#[derive(Debug, Serialize, Deserialize, Default)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructureBrandingSignalRgb {
     pub enabled: bool,
     pub configuration: ConfigStructureBrandingSignalRgbConfiguration,
 }
 #[allow(unused)]
-#[derive(Debug, Deserialize)]
+#[serde_with::skip_serializing_none]
+#[derive(Debug, Serialize, Deserialize, Default)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructureBrandingSignalRgbConfiguration {
     pub enabled: bool,
     pub full: ConfigStructureBrandingSignalRgbConfigurationFull,
 }
 #[allow(unused)]
-#[derive(Debug, Deserialize)]
+#[serde_with::skip_serializing_none]
+#[derive(Debug, Serialize, Deserialize, Default)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructureBrandingSignalRgbConfigurationFull {
     pub enabled: bool,
@@ -119,7 +132,8 @@ pub struct ConfigStructureBrandingSignalRgbConfigurationFull {
     pub color: String,
 }
 #[allow(unused)]
-#[derive(Debug, Deserialize)]
+#[serde_with::skip_serializing_none]
+#[derive(Debug, Serialize, Deserialize, Default)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructurePrograms {
     pub enabled: bool,
@@ -127,7 +141,8 @@ pub struct ConfigStructurePrograms {
     pub remove: ConfigStructureProgramsRemove,
 }
 #[allow(unused)]
-#[derive(Debug, Deserialize)]
+#[serde_with::skip_serializing_none]
+#[derive(Debug, Serialize, Deserialize, Default)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructureProgramsInstall {
     pub enabled: bool,
@@ -136,7 +151,8 @@ pub struct ConfigStructureProgramsInstall {
     pub appx_package: Vec<ConfigStructureProgramsInstallAppxPackage>,
 }
 #[allow(unused)]
-#[derive(Debug, Deserialize)]
+#[serde_with::skip_serializing_none]
+#[derive(Debug, Serialize, Deserialize, Default)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructureProgramsInstallWinget {
     pub name: String,
@@ -144,21 +160,24 @@ pub struct ConfigStructureProgramsInstallWinget {
     pub source: String,
 }
 #[allow(unused)]
-#[derive(Debug, Deserialize)]
+#[serde_with::skip_serializing_none]
+#[derive(Debug, Serialize, Deserialize, Default)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructureProgramsInstallPowershell {
     pub name: String,
     pub id: String,
 }
 #[allow(unused)]
-#[derive(Debug, Deserialize)]
+#[serde_with::skip_serializing_none]
+#[derive(Debug, Serialize, Deserialize, Default)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructureProgramsInstallAppxPackage {
     pub name: String,
     pub id: String,
 }
 #[allow(unused)]
-#[derive(Debug, Deserialize)]
+#[serde_with::skip_serializing_none]
+#[derive(Debug, Serialize, Deserialize, Default)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructureProgramsRemove {
     pub enabled: bool,
@@ -169,28 +188,32 @@ pub struct ConfigStructureProgramsRemove {
     pub manual: Vec<ConfigStructureProgramsRemoveManual>,
 }
 #[allow(unused)]
-#[derive(Debug, Deserialize)]
+#[serde_with::skip_serializing_none]
+#[derive(Debug, Serialize, Deserialize, Default)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructureProgramsRemoveWinget {
     pub name: String,
     pub id: String,
 }
 #[allow(unused)]
-#[derive(Debug, Deserialize)]
+#[serde_with::skip_serializing_none]
+#[derive(Debug, Serialize, Deserialize, Default)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructureProgramsRemovePowershell {
     pub name: String,
     pub id: String,
 }
 #[allow(unused)]
-#[derive(Debug, Deserialize)]
+#[serde_with::skip_serializing_none]
+#[derive(Debug, Serialize, Deserialize, Default)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructureProgramsRemoveAppxPackage {
     pub name: String,
     pub id: String,
 }
 #[allow(unused)]
-#[derive(Debug, Deserialize)]
+#[serde_with::skip_serializing_none]
+#[derive(Debug, Serialize, Deserialize, Default)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructureProgramsRemoveBcUninstaller {
     pub enabled: bool,
@@ -198,21 +221,24 @@ pub struct ConfigStructureProgramsRemoveBcUninstaller {
     pub powershell: Vec<ConfigStructureProgramsRemoveBcUninstallerPowershell>,
 }
 #[allow(unused)]
-#[derive(Debug, Deserialize)]
+#[serde_with::skip_serializing_none]
+#[derive(Debug, Serialize, Deserialize, Default)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructureProgramsRemoveBcUninstallerStoreHelper {
     pub name: String,
     pub id: String,
 }
 #[allow(unused)]
-#[derive(Debug, Deserialize)]
+#[serde_with::skip_serializing_none]
+#[derive(Debug, Serialize, Deserialize, Default)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructureProgramsRemoveBcUninstallerPowershell {
     pub name: String,
     pub id: String,
 }
 #[allow(unused)]
-#[derive(Debug, Deserialize)]
+#[serde_with::skip_serializing_none]
+#[derive(Debug, Serialize, Deserialize, Default)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructureProgramsRemoveManual {
     pub official_uninstaller: bool,
@@ -221,20 +247,23 @@ pub struct ConfigStructureProgramsRemoveManual {
     pub command: ConfigStructureProgramsRemoveManualCommand,
 }
 #[allow(unused)]
-#[derive(Debug, Deserialize)]
+#[serde_with::skip_serializing_none]
+#[derive(Debug, Serialize, Deserialize, Default)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructureProgramsRemoveManualCommand {
     pub program: String,
     pub args: Vec<ConfigStructureProgramsRemoveManualCommandArgs>,
 }
 #[allow(unused)]
-#[derive(Debug, Deserialize)]
+#[serde_with::skip_serializing_none]
+#[derive(Debug, Serialize, Deserialize, Default)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructureProgramsRemoveManualCommandArgs {
     pub arg: String,
 }
 #[allow(unused)]
-#[derive(Debug, Deserialize)]
+#[serde_with::skip_serializing_none]
+#[derive(Debug, Serialize, Deserialize, Default)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructureDebloat {
     pub enabled: bool,
@@ -242,35 +271,40 @@ pub struct ConfigStructureDebloat {
     pub powershell: ConfigStructureDebloatPowershell,
 }
 #[allow(unused)]
-#[derive(Debug, Deserialize)]
+#[serde_with::skip_serializing_none]
+#[derive(Debug, Serialize, Deserialize, Default)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructureDebloatBcUninstaller {
     pub enabled: bool,
     pub store_helper: Vec<ConfigStructureDebloatBcUninstallerStoreHelper>,
 }
 #[allow(unused)]
-#[derive(Debug, Deserialize)]
+#[serde_with::skip_serializing_none]
+#[derive(Debug, Serialize, Deserialize, Default)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructureDebloatBcUninstallerStoreHelper {
     pub name: String,
     pub id: String,
 }
 #[allow(unused)]
-#[derive(Debug, Deserialize)]
+#[serde_with::skip_serializing_none]
+#[derive(Debug, Serialize, Deserialize, Default)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructureDebloatPowershell {
     pub enabled: bool,
     pub appx_package: Vec<ConfigStructureDebloatPowershellAppxPackage>,
 }
 #[allow(unused)]
-#[derive(Debug, Deserialize)]
+#[serde_with::skip_serializing_none]
+#[derive(Debug, Serialize, Deserialize, Default)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructureDebloatPowershellAppxPackage {
     pub name: String,
     pub id: String,
 }
 #[allow(unused)]
-#[derive(Debug, Deserialize)]
+#[serde_with::skip_serializing_none]
+#[derive(Debug, Serialize, Deserialize, Default)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructureTweaks {
     pub enabled: bool,
@@ -279,28 +313,32 @@ pub struct ConfigStructureTweaks {
     pub power: Vec<ConfigStructureTweaksPower>,
 }
 #[allow(unused)]
-#[derive(Debug, Deserialize)]
+#[serde_with::skip_serializing_none]
+#[derive(Debug, Serialize, Deserialize, Default)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructureTweaksPowershell {
     pub name: String,
     pub id: String,
 }
 #[allow(unused)]
-#[derive(Debug, Deserialize)]
+#[serde_with::skip_serializing_none]
+#[derive(Debug, Serialize, Deserialize, Default)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructureTweaksRegistry {
     pub name: String,
     pub id: String,
 }
 #[allow(unused)]
-#[derive(Debug, Deserialize)]
+#[serde_with::skip_serializing_none]
+#[derive(Debug, Serialize, Deserialize, Default)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructureTweaksPower {
     pub name: String,
     pub id: String,
 }
 #[allow(unused)]
-#[derive(Debug, Deserialize)]
+#[serde_with::skip_serializing_none]
+#[derive(Debug, Serialize, Deserialize, Default)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructurePostConfiguration {
     pub enabled: bool,
@@ -308,21 +346,24 @@ pub struct ConfigStructurePostConfiguration {
     pub chromium: ConfigStructurePostConfigurationChromium,
 }
 #[allow(unused)]
-#[derive(Debug, Deserialize)]
+#[serde_with::skip_serializing_none]
+#[derive(Debug, Serialize, Deserialize, Default)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructurePostConfigurationExplorerPatcher {
     pub enabled: bool,
     pub import_config: ConfigStructurePostConfigurationExplorerPatcherImportConfig,
 }
 #[allow(unused)]
-#[derive(Debug, Deserialize)]
+#[serde_with::skip_serializing_none]
+#[derive(Debug, Serialize, Deserialize, Default)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructurePostConfigurationExplorerPatcherImportConfig {
     pub enabled: bool,
     pub config_type: String,
 }
 #[allow(unused)]
-#[derive(Debug, Deserialize)]
+#[serde_with::skip_serializing_none]
+#[derive(Debug, Serialize, Deserialize, Default)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructurePostConfigurationChromium {
     pub enabled: bool,
@@ -332,7 +373,8 @@ pub struct ConfigStructurePostConfigurationChromium {
     pub downloads: ConfigStructurePostConfigurationChromiumDownloads,
 }
 #[allow(unused)]
-#[derive(Debug, Deserialize)]
+#[serde_with::skip_serializing_none]
+#[derive(Debug, Serialize, Deserialize, Default)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructurePostConfigurationChromiumExtensions {
     pub enabled: bool,
@@ -340,13 +382,15 @@ pub struct ConfigStructurePostConfigurationChromiumExtensions {
     pub id: String,
 }
 #[allow(unused)]
-#[derive(Debug, Deserialize)]
+#[serde_with::skip_serializing_none]
+#[derive(Debug, Serialize, Deserialize, Default)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructurePostConfigurationChromiumSecurity {
     pub level: String,
 }
 #[allow(unused)]
-#[derive(Debug, Deserialize)]
+#[serde_with::skip_serializing_none]
+#[derive(Debug, Serialize, Deserialize, Default)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructurePostConfigurationChromiumDownloads {
     pub enabled: bool,
@@ -354,7 +398,8 @@ pub struct ConfigStructurePostConfigurationChromiumDownloads {
     pub default_download_directory: String,
 }
 #[allow(unused)]
-#[derive(Debug, Deserialize)]
+#[serde_with::skip_serializing_none]
+#[derive(Debug, Serialize, Deserialize, Default)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructureExtra {
     pub enabled: bool,
@@ -362,7 +407,8 @@ pub struct ConfigStructureExtra {
     pub commands: Vec<ConfigStructureExtraCommands>,
 }
 #[allow(unused)]
-#[derive(Debug, Deserialize)]
+#[serde_with::skip_serializing_none]
+#[derive(Debug, Serialize, Deserialize, Default)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructureExtraScripts {
     pub run_message: String,
@@ -373,7 +419,8 @@ pub struct ConfigStructureExtraScripts {
     pub completion_message: String,
 }
 #[allow(unused)]
-#[derive(Debug, Deserialize)]
+#[serde_with::skip_serializing_none]
+#[derive(Debug, Serialize, Deserialize, Default)]
 #[serde(rename_all = "PascalCase")]
 pub struct ConfigStructureExtraCommands {
     pub run_message: String,
