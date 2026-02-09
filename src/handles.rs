@@ -66,6 +66,10 @@ pub fn start(config: ConfigStructure) -> Result<(), std::io::Error> {
                             println!("Installing {}", program.name.as_str());
                             winget::install::msstore(program.id.as_str());
                         }
+                        "winget" => {
+                            println!("Installing {}", program.name.as_str());
+                            winget::install::winget(program.id.as_str());
+                        }
                         &_ => {
                             println!("Installing {}", program.name.as_str());
                             winget::install::official_repo(program.id.as_str());

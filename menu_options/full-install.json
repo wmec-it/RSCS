@@ -250,6 +250,11 @@
           "Name": "PuTTY",
           "Id": "XPFNZKSKLBP7RJ",
           "Source": "msstore"
+        },
+        {
+          "Name": "Docker Desktop",
+          "Id": "Docker.DockerDesktop",
+          "Source": "winget"
         }
       ],
       "Powershell": [
