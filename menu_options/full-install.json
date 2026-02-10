@@ -255,6 +255,11 @@
           "Name": "Docker Desktop",
           "Id": "Docker.DockerDesktop",
           "Source": "winget"
+        },
+        {
+          "Name": "Wget2",
+          "Id": "GNU.Wget2",
+          "Source": "winget"
         }
       ],
       "Powershell": [
