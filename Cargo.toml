@@ -2,7 +2,7 @@
 name = "rscs"
 description = "CLI program for configuring machines in the West-Mec IT Security Repair Shop (Nerd Heard)."
 authors = ["Caden Finkelstein <me@cadenf.com>"]
-version = "0.0.3"
+version = "0.0.4"
 edition = "2024"
 homepage = "https://github.com/wmec-it/RSCS"
 repository = "https://github.com/wmec-it/RSCS"
@@ -22,6 +22,10 @@ serde_json = "1.0.149"
 winres-edit = "0.2.0"
 whoami = "2.1.0"
 serde_with = "3.16.1"
+reqwest = { version = "0.11", features = ["json"] }
+futures = "0.3"
+tokio = { version = "1.12.0", features = ["full"] }
+regex = "1.12.3"
 
 [build-dependencies]
 winresource = "0.1.30"

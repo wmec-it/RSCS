@@ -9,18 +9,14 @@ use crate::{
 pub fn find_selected_type(install_type: &str) -> String {
     let npr = NAME_PATH_RESOLUTION.lock().unwrap();
     let names = &npr.names;
-    println!("{:#?}", names);
     let found_index = names.iter().position(|r| *r == install_type).unwrap();
-    println!("Found Index: {}", found_index);
     let paths = &npr.paths;
-    println!("{:#?}", paths);
     let path = paths[found_index].as_str();
     println!("Path: {}", format!("./menu_options/{}", path));
     return format!("./menu_options/{}", path);
 }
 
 pub fn handle_install_type(install_type: &str) -> Result<(), std::io::Error> {
-    println!("{}", install_type);
     let config_path = find_selected_type(install_type);
     println!("Finding selected type... {}", config_path);
     let json_file = std::fs::read_to_string(&config_path)
@@ -171,11 +167,9 @@ pub fn start(config: ConfigStructure) -> Result<(), std::io::Error> {
         for tweak in config.tweaks.powershell {
             match tweak.id.as_str() {
                 "install-and-configure-powershell7" => {
-                    println!("Installing and configuring powershell 7...");
                     tweaks::powershell::ps7::full();
                 }
                 "remove-powershell7-telemetry" => {
-                    println!("Removing powershell 7 telemetry...");
                     tweaks::powershell::ps7telemetry::disable();
                 }
                 &_ => (),
@@ -184,79 +178,60 @@ pub fn start(config: ConfigStructure) -> Result<(), std::io::Error> {
         for tweak in config.tweaks.registry {
             match tweak.id.as_str() {
                 "disable-bingsearch-in-startmenu" => {
-                    println!("Removing bin from start menu...");
                     tweaks::registry::bingsearch_startmenu::disable();
                 }
                 "enable-dark-mode" => {
-                    println!("Enabling dark mode...");
                     tweaks::registry::darkmode::enable();
                 }
                 "enable-detailed-bsod" => {
-                    println!("Enabling detailed bsod...");
                     tweaks::registry::detailedbsod::enable();
                 }
                 "enable-display-performance-mode" => {
-                    println!("Enabling display performance mode...");
                     tweaks::registry::displayperformance_mode::enable();
                 }
                 "disable-explorer-home-gallery" => {
-                    println!("Disabling explorer home gallery...");
                     tweaks::registry::explorer_homegallery::disable();
                 }
                 "enable-file-extension-visibility" => {
-                    println!("Enabling file extension visibility...");
                     tweaks::registry::fileextensionvisibility::enable();
                 }
                 "enable-hidden-files-visibility" => {
-                    println!("Enabling hidden files visibility...");
                     tweaks::registry::hiddenfilesvisibility::enable();
                 }
                 "disable-intel-mm-lms" => {
-                    println!("Disabling Intel MM LMS...");
                     tweaks::registry::intel_mm_lms::disable();
                 }
                 "disable-microsoft-copilot" => {
-                    println!("Disabling Microsoft Copilot...");
                     tweaks::registry::microsoftcopilot::disable();
                 }
                 "disable-notification-tray" => {
-                    println!("Disabling notification tray...");
                     tweaks::registry::notificationtray::disable();
                 }
                 "disable-onedrive" => {
-                    println!("Disabling OneDrive...");
                     tweaks::registry::onedrive::disable();
                 }
                 "enable-prefer-ipv4" => {
-                    println!("Enabling prefer IPv4...");
                     tweaks::registry::prefer_ipv4::enable();
                 }
                 "enable-rclick-end-task" => {
-                    println!("Enabling right click to end task...");
                     tweaks::registry::rclick_end_task::enable();
                 }
                 "disable-stickykeys-startup" => {
-                    println!("Disabling stickykeys startup...");
                     tweaks::registry::stickykeys_startup::disable();
                 }
                 "taskbar-alignment-left" => {
-                    println!("Setting taskbar alignment to left...");
                     tweaks::registry::taskbar_alignment::left();
                 }
                 "enable-taskbar-search-button" => {
-                    println!("Enabling taskbar search button...");
                     tweaks::registry::taskbar_search_button::enable();
                 }
                 "disable-taskbar-taskview-button" => {
-                    println!("Disabling taskbar taskview button...");
                     tweaks::registry::taskbar_taskview_button::disable();
                 }
                 "disable-taskbar-widget-button" => {
-                    println!("Disabling taskbar widget button...");
                     tweaks::registry::taskbar_widgets_button::disable();
                 }
                 "enable-verbose-logon-messages" => {
-                    println!("Enabling verbose logon messages...");
                     tweaks::registry::verbose_logon_messages::enable();
                 }
                 &_ => (),
@@ -265,7 +240,6 @@ pub fn start(config: ConfigStructure) -> Result<(), std::io::Error> {
         for tweak in config.tweaks.power {
             match tweak.id.as_str() {
                 "enable-ultimatepowerplan" => {
-                    println!("Enabling ultimate power plan...");
                     tweaks::power::ultimate_powerplan::enable();
                 }
                 &_ => (),
@@ -333,9 +307,19 @@ pub fn start(config: ConfigStructure) -> Result<(), std::io::Error> {
             let username = whoami::username().unwrap_or_else(|_| "<unknown>".to_string());
 
             let path = format!("C:\\Users\\{}\\Desktop", username);
-            remove_dir_contents(path).unwrap();
+            remove_dir_contents(&path).unwrap();
+            match remove_dir_contents(&path) {
+                Ok(()) => (),
+                Err(error) => println!("Error deleting {} contents: {}", &path, error),
+            }
             // TODO: Make this backup shortcuts instead of just deleting them
-            remove_dir_contents("C:\\Users\\Public\\Desktop").unwrap();
+            match remove_dir_contents("C:\\Users\\Public\\Desktop") {
+                Ok(()) => (),
+                Err(error) => println!(
+                    "Error deleting C:\\Users\\Public\\Desktop contents: {}",
+                    error
+                ),
+            }
         }
         if config.branding.logo.enabled {
             for file in config.branding.logo.get {
@@ -346,12 +330,8 @@ pub fn start(config: ConfigStructure) -> Result<(), std::io::Error> {
                         let username =
                             whoami::username().unwrap_or_else(|_| "<unknown>".to_string());
 
-                        println!("{}", username);
-
                         let desktop_shortcut_path =
                             format!("C:\\Users\\{}{}", username, file.desktop_shortcut_path);
-
-                        println!("{}", desktop_shortcut_path);
 
                         if std::path::Path::new(desktop_shortcut_path.as_str()).exists() {
                             std::fs::remove_file(&desktop_shortcut_path)?;
@@ -391,8 +371,6 @@ pub fn start(config: ConfigStructure) -> Result<(), std::io::Error> {
                             },
                             username = username
                         );
-
-                        println!("{}", ps_script);
 
                         std::process::Command::new("powershell")
                             .arg("-NoProfile")

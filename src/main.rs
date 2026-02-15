@@ -1,4 +1,6 @@
 use colored_text::Colorize;
+use regex::Regex;
+use reqwest;
 use serde::{Deserialize, Serialize};
 use std::fs::ReadDir;
 use std::{io, process::Command};
@@ -9,6 +11,8 @@ use conf::vars::{MAIN_THEME, PROGRAM_TITLE, PUNCHDOWN_PAUL};
 use rscs::core::user::sudo;
 use std::sync::Mutex;
 use utils::message;
+
+use crate::utils::update::pre_run_checks;
 
 mod conf;
 mod external;
@@ -90,9 +94,12 @@ fn get_install_types() -> Vec<std::string::String> {
     return entry_names;
 }
 
-fn main() -> Result<(), io::Error> {
+#[tokio::main]
+async fn main() -> Result<(), io::Error> {
+    // TODO: Remove hardcoded api endpoint
+    // WARNING: Not good to hardcode this api endpoint
     //:& Check if OS is Windows
-    if cfg!(target_os = "windows") {
+    if cfg!(target_os = "windows") && (pre_run_checks().await) {
         //:& Open menu and catch any errors
         match open_menu("") {
             Ok(()) => (),
@@ -213,8 +220,10 @@ fn menu_logic(
         //:& Handle install type selection
         match handles::handle_install_type(mm.selection_value("Install Type")) {
             Ok(()) => (),
-            Err(error) => return Err(error),
-        };
+            Err(error) => {
+                return Err(error);
+            }
+        }
 
         // Everything is fine :3
         Ok(())

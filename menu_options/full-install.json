@@ -77,102 +77,102 @@
       "Enabled": true,
       "Winget": [
         {
-          "Name": "",
+          "Name": "NZXT CAM",
           "Id": "NZXT.CAM",
           "Source": ""
         },
         {
-          "Name": "",
+          "Name": "SignalRGB",
           "Id": "WhirlwindFX.SignalRgb",
           "Source": ""
         },
         {
-          "Name": "",
+          "Name": "LockHunter",
           "Id": "CrystalRich.LockHunter",
           "Source": ""
         },
         {
-          "Name": "",
+          "Name": "BulkCrapUninstaller",
           "Id": "Klocman.BulkCrapUninstaller",
           "Source": ""
         },
         {
-          "Name": "",
+          "Name": "ExplorerPatcher",
           "Id": "valinet.ExplorerPatcher",
           "Source": ""
         },
         {
-          "Name": "",
+          "Name": "Git",
           "Id": "Git.Git",
           "Source": ""
         },
         {
-          "Name": "",
+          "Name": "Chromium",
           "Id": "Hibbiki.Chromium",
           "Source": ""
         },
         {
-          "Name": "",
+          "Name": "GitHub Desktop",
           "Id": "GitHub.GitHubDesktop",
           "Source": ""
         },
         {
-          "Name": "",
+          "Name": "Visual Studio Code",
           "Id": "Microsoft.VisualStudioCode",
           "Source": ""
         },
         {
-          "Name": "",
+          "Name": "Visual Studio 2019 Build Tools",
           "Id": "Microsoft.VisualStudio.2019.BuildTools",
           "Source": ""
         },
         {
-          "Name": "",
+          "Name": "Resource Hacker",
           "Id": "AngusJohnson.ResourceHacker",
           "Source": ""
         },
         {
-          "Name": "",
+          "Name": "scrcpy",
           "Id": "Genymobile.scrcpy",
           "Source": ""
         },
         {
-          "Name": "",
+          "Name": "Platform Tools",
           "Id": "Google.PlatformTools",
           "Source": ""
         },
         {
-          "Name": "",
+          "Name": "Rufus",
           "Id": "Rufus.Rufus",
           "Source": ""
         },
         {
-          "Name": "",
+          "Name": "System Informer",
           "Id": "WinsiderSS.SystemInformer",
           "Source": ""
         },
         {
-          "Name": "",
+          "Name": "usbipd-win",
           "Id": "dorssel.usbipd-win",
           "Source": ""
         },
         {
-          "Name": "",
+          "Name": "Microsoft DotNet SDK 10",
           "Id": "Microsoft.DotNet.SDK.10",
           "Source": ""
         },
         {
-          "Name": "",
+          "Name": "TigerVNC",
           "Id": "TigerVNC.TigerVNC",
           "Source": ""
         },
         {
-          "Name": "",
+          "Name": "jq",
           "Id": "jqlang.jq",
           "Source": ""
         },
         {
-          "Name": "",
+          "Name": "dos2unix",
           "Id": "waterlan.dos2unix",
           "Source": ""
         },
@@ -342,151 +342,151 @@
       "Enabled": true,
       "AppxPackage": [
         {
-          "Name": "",
+          "Name": "Start Experiences",
           "Id": "Microsoft.StartExperiencesApp_1.195.0.0_x64__8wekyb3d8bbwe"
         },
         {
-          "Name": "",
+          "Name": "Power Automate",
           "Id": "Microsoft.PowerAutomateDesktop_1.0.2058.0_x64__8wekyb3d8bbwe"
         },
         {
-          "Name": "",
+          "Name": "Bio Enrollment",
           "Id": "Microsoft.BioEnrollment_10.0.19587.1000_neutral__cw5n1h2txyewy"
         },
         {
-          "Name": "",
+          "Name": "Web View Host Win32",
           "Id": "Microsoft.Win32WebViewHost_10.0.26100.1_neutral_neutral_cw5n1h2txyewy"
         },
         {
-          "Name": "",
+          "Name": "Windows CoreAI",
           "Id": "MicrosoftWindows.Client.CoreAI_1000.26100.7623.0_x64__cw5n1h2txyewy"
         },
         {
-          "Name": "",
+          "Name": "Xbox Gaming Overlay",
           "Id": "Microsoft.XboxGamingOverlay_7.325.11061.0_x64__8wekyb3d8bbwe"
         },
         {
-          "Name": "",
+          "Name": "Feedback Hub",
           "Id": "Microsoft.WindowsFeedbackHub_1.2512.16303.0_x64__8wekyb3d8bbwe"
         },
         {
-          "Name": "",
+          "Name": "Get Help",
           "Id": "Microsoft.GetHelp_10.2409.33293.0_x64__8wekyb3d8bbwe"
         },
         {
-          "Name": "",
+          "Name": "Microsoft Windows Communication Apps",
           "Id": "microsoft.windowscommunicationsapps_16005.14326.22342.0_x64__8wekyb3d8bbwe"
         },
         {
-          "Name": "",
+          "Name": "Bing Search",
           "Id": "Microsoft.BingSearch_1.1.40.0_x64__8wekyb3d8bbwe"
         },
         {
-          "Name": "",
+          "Name": "Clipchamp",
           "Id": "Clipchamp.Clipchamp_4.5.10020.0_x64__yxz26nhyzhsrt"
         },
         {
-          "Name": "",
+          "Name": "Game Assist",
           "Id": "Microsoft.Edge.GameAssist_1.0.3590.0_x64__8wekyb3d8bbwe"
         },
         {
-          "Name": "",
+          "Name": "Microsoft People",
           "Id": "Microsoft.People_10.2202.100.0_x64__8wekyb3d8bbwe"
         },
         {
-          "Name": "",
+          "Name": "Sticky Notes",
           "Id": "Microsoft.MicrosoftStickyNotes_4.0.6104.0_x64__8wekyb3d8bbwe"
         },
         {
-          "Name": "",
+          "Name": "Todos",
           "Id": "Microsoft.Todos_0.153.5851.0_x64__8wekyb3d8bbwe"
         },
         {
-          "Name": "",
+          "Name": "Bing Weather",
           "Id": "Microsoft.BingWeather_3.2.3.0_x64__8wekyb3d8bbwe"
         },
         {
-          "Name": "",
+          "Name": "MS Paint",
           "Id": "Microsoft.MSPaint_6.2410.13017.0_x64__8wekyb3d8bbwe"
         },
         {
-          "Name": "",
+          "Name": "Quick Assist",
           "Id": "MicrosoftCorporationII.QuickAssist_2.0.29.0_x64__8wekyb3d8bbwe"
         },
         {
-          "Name": "",
+          "Name": "Skype App",
           "Id": "Microsoft.SkypeApp_15.150.3125.0_x64__kzf8qxf38zg5c"
         },
         {
-          "Name": "",
+          "Name": "Solitaire Collection",
           "Id": "Microsoft.MicrosoftSolitaireCollection_4.25.1130.0_x64__8wekyb3d8bbwe"
         },
         {
-          "Name": "",
+          "Name": "Spotify Music",
           "Id": "SpotifyAB.SpotifyMusic_1.281.264.0_x64__zpdnekdrzrea0"
         },
         {
-          "Name": "",
+          "Name": "Start Experiences App",
           "Id": "Microsoft.StartExperiencesApp_1.218.0.0_x64__8wekyb3d8bbwe"
         },
         {
-          "Name": "",
+          "Name": "Windows Maps",
           "Id": "Microsoft.WindowsMaps_1.0.65.0_x64__8wekyb3d8bbwe"
         },
         {
-          "Name": "",
+          "Name": "Gaming App",
           "Id": "Microsoft.GamingApp_2512.1001.36.0_x64__8wekyb3d8bbwe"
         },
         {
-          "Name": "",
+          "Name": "Xbox App",
           "Id": "Microsoft.XboxApp_48.104.4001.0_x64__8wekyb3d8bbwe"
         },
         {
-          "Name": "",
+          "Name": "Xbox Gaming Overlay",
           "Id": "Microsoft.XboxGameOverlay_1.54.4001.0_x64__8wekyb3d8bbwe"
         },
         {
-          "Name": "",
+          "Name": "Xbox Speech To Text Overlay",
           "Id": "Microsoft.XboxSpeechToTextOverlay_1.21.13002.0_x64__8wekyb3d8bbwe"
         },
         {
-          "Name": "",
+          "Name": "Xbox Game UI",
           "Id": "Microsoft.XboxGameCallableUI_1000.25128.1000.0_neutral_neutral_cw5n1h2txyewy"
         },
         {
-          "Name": "",
+          "Name": "Xbox Identity Provider",
           "Id": "Microsoft.XboxIdentityProvider_12.130.16001.0_x64__8wekyb3d8bbwe"
         },
         {
-          "Name": "",
+          "Name": "Xbox App",
           "Id": "Microsoft.Xbox.TCUI_1.24.10001.0_x64__8wekyb3d8bbwe"
         },
         {
-          "Name": "",
+          "Name": "Cross Device",
           "Id": "MicrosoftWindows.CrossDevice_0.25112.60.0_x64__cw5n1h2txyewy"
         },
         {
-          "Name": "",
+          "Name": "Dev Home",
           "Id": "Microsoft.Windows.DevHome_0.0.0.0_x64__8wekyb3d8bbwe"
         },
         {
-          "Name": "",
+          "Name": "Office Hub",
           "Id": "Microsoft.MicrosoftOfficeHub_19.2601.56031.0_x64__8wekyb3d8bbwe"
         },
         {
-          "Name": "",
+          "Name": "Microsoft Teams",
           "Id": "MSTeams_26005.204.4249.1621_x64__8wekyb3d8bbwe"
         },
         {
-          "Name": "",
+          "Name": "Bing News",
           "Id": "Microsoft.BingNews_4.55.62231.0_x64__8wekyb3d8bbwe"
         },
         {
-          "Name": "",
+          "Name": "Outlook",
           "Id": "Microsoft.OutlookForWindows_1.2026.114.100_x64__8wekyb3d8bbwe"
         },
         {
-          "Name": "",
+          "Name": "Your Phone",
           "Id": "Microsoft.YourPhone_0.25122.50.0_x64__8wekyb3d8bbwe"
         }
       ]
@@ -496,95 +496,95 @@
     "Enabled": true,
     "Powershell": [
       {
-        "Name": "",
+        "Name": "Install and configure Powershell 7",
         "Id": "install-and-configure-powershell7"
       },
       {
-        "Name": "",
+        "Name": "Remove Powershell 7 telemetry",
         "Id": "remove-powershell7-telemetry"
       }
     ],
     "Registry": [
       {
-        "Name": "",
+        "Name": "Disbale Bing Search in the Start Menu",
         "Id": "disable-bingsearch-in-startmenu"
       },
       {
-        "Name": "",
+        "Name": "Enable dark mode",
         "Id": "enable-dark-mode"
       },
       {
-        "Name": "",
+        "Name": "Enable detailed BSOD",
         "Id": "enable-detailed-bsod"
       },
       {
-        "Name": "",
+        "Name": "Enable display performance mode",
         "Id": "enable-display-performance-mode"
       },
       {
-        "Name": "",
+        "Name": "Disable Windows Explorer home gallery",
         "Id": "disable-explorer-home-gallery"
       },
       {
-        "Name": "",
+        "Name": "Enable file extension visibility",
         "Id": "enable-file-extension-visibility"
       },
       {
-        "Name": "",
+        "Name": "Enable hidden files visibility",
         "Id": "enable-hidden-files-visibility"
       },
       {
-        "Name": "",
+        "Name": "Disable Intel MM LMS",
         "Id": "disable-intel-mm-lms"
       },
       {
-        "Name": "",
+        "Name": "Disable Microsoft Copilot",
         "Id": "disable-microsoft-copilot"
       },
       {
-        "Name": "",
+        "Name": "Disable notification tray",
         "Id": "disable-notification-tray"
       },
       {
-        "Name": "",
+        "Name": "Disable OneDrive",
         "Id": "disable-onedrive"
       },
       {
-        "Name": "",
+        "Name": "Enable prefer IPv4",
         "Id": "enable-prefer-ipv4"
       },
       {
-        "Name": "",
+        "Name": "Enable Right-Click to end task",
         "Id": "enable-rclick-end-task"
       },
       {
-        "Name": "",
+        "Name": "Disable Sticky Keys on Windows startup",
         "Id": "disable-stickykeys-startup"
       },
       {
-        "Name": "",
+        "Name": "Set Taskbar alignment to left side",
         "Id": "taskbar-alignment-left"
       },
       {
-        "Name": "",
+        "Name": "Enable Taskbar search button",
         "Id": "enable-taskbar-search-button"
       },
       {
-        "Name": "",
+        "Name": "Disable Taskbar Taskview button",
         "Id": "disable-taskbar-taskview-button"
       },
       {
-        "Name": "",
+        "Name": "Disable Taskbar widget button",
         "Id": "disable-taskbar-widget-button"
       },
       {
-        "Name": "",
+        "Name": "Enable verbose logon messages",
         "Id": "enable-verbose-logon-messages"
       }
     ],
     "Power": [
       {
-        "Name": "",
+        "Name": "Enable Ultimate Power Plan",
         "Id": "enable-ultimatepowerplan"
       }
     ]
@@ -622,28 +622,28 @@
     "Enabled": true,
     "Scripts": [
       {
-        "RunMessage": "Command completed!",
+        "RunMessage": "Running test command...",
         "Method": "LocalPath",
         "Locator": "",
         "ExecMethod": "Powershell",
         "Privileges": "Administrator",
-        "CompletionMessage": "Command completed!"
+        "CompletionMessage": "Test command completed!"
       },
       {
-        "RunMessage": "Command completed!",
+        "RunMessage": "Running test command...",
         "Method": "URL",
         "Locator": "",
         "ExecMethod": "CMD",
         "Privileges": "User",
-        "CompletionMessage": "Command completed!"
+        "CompletionMessage": "Test command completed!"
       }
     ],
     "Commands": [
       {
-        "RunMessage": "Command completed!",
+        "RunMessage": "Running test command...",
         "Privileges": "Administrator",
         "Command": "echo 'I'm administrator now :3'",
-        "CompletionMessage": "Command completed!"
+        "CompletionMessage": "Test command completed!"
       }
     ]
   }
