@@ -92,24 +92,27 @@ pub fn start(config: ConfigStructure) -> Result<(), std::io::Error> {
                 let success_message =
                     format!("Successfully deleted {} APPX Package!", program.name);
                 let error_message = format!("Error deleting {} APPX Package...", program.name);
-                powershell::admin(
-                    if !program.name.is_empty() {
-                        run_message.as_str()
-                    } else {
-                        "Deleting Unknown APPX Package..."
-                    },
-                    if !program.name.is_empty() {
-                        success_message.as_str()
-                    } else {
-                        "Successfully deleted Unknown APPX Package!"
-                    },
-                    if !program.name.is_empty() {
-                        error_message.as_str()
-                    } else {
-                        "Error deleting Unknown APPX Package..."
-                    },
-                    format!("Remove-AppxPackage -package {} -confirm:$false", program.id).as_str(),
-                );
+                if !program.id.is_empty() {
+                    powershell::admin(
+                        if !program.name.is_empty() {
+                            run_message.as_str()
+                        } else {
+                            "Deleting Unknown APPX Package..."
+                        },
+                        if !program.name.is_empty() {
+                            success_message.as_str()
+                        } else {
+                            "Successfully deleted Unknown APPX Package!"
+                        },
+                        if !program.name.is_empty() {
+                            error_message.as_str()
+                        } else {
+                            "Error deleting Unknown APPX Package..."
+                        },
+                        format!("Remove-AppxPackage -package {} -confirm:$false", program.id)
+                            .as_str(),
+                    );
+                }
             }
             if config.programs.remove.bc_uninstaller.enabled {
                 for program in config.programs.remove.bc_uninstaller.store_helper {
