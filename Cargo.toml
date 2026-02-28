@@ -21,7 +21,7 @@ serde = { version = "1.0.228", features = ["derive"] }
 serde_json = "1.0.149"
 winres-edit = "0.2.0"
 whoami = "2.1.0"
-serde_with = "3.16.1"
+serde_with = "3.17.0"
 reqwest = { version = "0.11", features = ["json"] }
 futures = "0.3"
 tokio = { version = "1.12.0", features = ["full"] }
