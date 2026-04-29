@@ -7,7 +7,10 @@ use std::{io, process::Command};
 use terminal_menu::*;
 
 use conf::enums::{DelimiterType, MessageType};
+#[cfg(not(feature = "unbranded"))]
 use conf::vars::{MAIN_THEME, PROGRAM_TITLE, PUNCHDOWN_PAUL};
+#[cfg(feature = "unbranded")]
+use conf::vars::{MAIN_THEME, PROGRAM_TITLE};
 use rscs::core::user::sudo;
 use std::sync::Mutex;
 use utils::message;
@@ -177,9 +180,11 @@ fn menu_logic(
 ) -> Result<(), io::Error> {
     if !mut_menu(&menu).canceled() == true {
         //:& Prints the orange god
+        #[cfg(not(feature = "unbranded"))]
         println!("{}", format!("{}", PUNCHDOWN_PAUL).hex(MAIN_THEME.primary));
 
         //:& Warning banner to make sure Mr. Getz doesn't smite you
+        #[cfg(not(feature = "unbranded"))]
         message::error_banner(
             MessageType::Print,
             "   Make sure you have permission from Mr. Getz if you are using this program...    ",

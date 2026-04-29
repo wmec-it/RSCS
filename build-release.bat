@@ -6,11 +6,11 @@ CALL install_deps.bat
 
 @REM Makes sure you have the right target installed
 powershell Write-Host "Adding correct target..."
-rustup target add x86_64-pc-windows-msvc
+rustup target add x86_64-pc-windows-gnu
 
 @REM Release build is outputted to PROJECT_ROOT/target/release/*
 powershell Write-Host "Building target..."
-cargo build --release --target x86_64-pc-windows-msvc
+cargo build --release --target x86_64-pc-windows-gnu
 
 @REM Move JSON files into built release folder
 setlocal

@@ -11,6 +11,7 @@ fn main() -> io::Result<()> {
     let version = env::var("CARGO_PKG_VERSION").unwrap();
 
     if env::var_os("CARGO_CFG_WINDOWS").is_some() {
+        #[cfg(not(feature = "unbranded"))]
         WindowsResource::new()
             .set_icon("assets/punchdown_paul.ico")
             .set(

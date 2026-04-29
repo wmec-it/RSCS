@@ -1,9 +1,7 @@
 #!/bin/bash
 
 #:& Import lib
-cd lib
-source lib.sh
-cd ../
+source ./lib/lib.sh
 
 #:& Check if user installed rustup / cargo
 if ! command -v cargo >/dev/null 2>&1; then
@@ -51,8 +49,8 @@ fi
 
 # WARNING: This should be moved to a conditional
 echo -e "\e[0;33mSetting Rustup Toolchain version...\e[0m"
-rustup default stable >/dev/null 2>&1
-echo "Set!"
+rustup default stable >/dev/null 2>&1 || exit 1
+echo -e "\e[38;2;25;150;25mSet!\e[0m"
 
 # TODO: Make this better
 PS3='Please enter your choice: '
@@ -61,27 +59,43 @@ options=(
     "No LTO Build"
     "Normal Build with Bambu Labs"
     "No LTO Build with Bambu Labs"
+    "Unbranded Build"
     "Quit"
 )
 select opt in "${options[@]}"
 do
     case $opt in
         "Normal Build")
-            cargo build --release
-             break;;
+            cargo build --release --target x86_64-pc-windows-gnu
+            break;;
         "No LTO Build")
-            cargo build --release --profile no-lto-release
-             break;;
+            cargo build --release --target x86_64-pc-windows-gnu --profile no-lto-release
+            break;;
         "Normal Build with Bambu Labs")
-            cargo build --release --features bambulabs
-             break;;
+            cargo build --release --target x86_64-pc-windows-gnu --features bambulabs
+            break;;
         "No LTO Build with Bambu Labs")
-            cargo build --release --profile no-lto-release --features bambulabs
-             break;;
+            cargo build --release --target x86_64-pc-windows-gnu --profile no-lto-release --features bambulabs
+            break;;
+        "Unbranded Build")
+            cargo build --release --target x86_64-pc-windows-gnu --features unbranded
+            break;;
         "Quit")
             echo "We're done"
             break;;
         *)
-            echo "Ooops" $REPLY;;
+            echo "Ooops" "${REPLY}";;
     esac
 done
+
+# WARNING:  This needs to be changed if we are going to make this utility configure Linux machines.
+#:& Move JSON files into built release folder
+bash ./lib/move_json_files.sh
+
+# WARNING:  This needs to be changed if we are going to make this utility configure Linux machines.
+#:& Move assets into built release folder
+bash ./lib/move_assets.sh
+
+# WARNING:  This needs to be changed if we are going to make this utility configure Linux machines.
+#:& Move vc_runtime.bat into built release folder
+bash ./lib/move_vc_runtime.sh
