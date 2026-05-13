@@ -9,26 +9,66 @@
 </div>
 
 <div align="center">
+<br />
+<div align="center">
+<img src="https://img.shields.io/github/languages/top/wmec-it/RSCS?style=plastic&logo=rust&logoColor=%23f57e20&color=%23f57e20" />
+<img src="https://img.shields.io/github/languages/count/wmec-it/RSCS?style=plastic" />
+</div>
+<div align="center">
+<img src="https://img.shields.io/github/commit-activity/w/wmec-it/RSCS?style=plastic" />
+<img src="https://img.shields.io/github/contributors/wmec-it/RSCS?style=plastic" />
+</div>
+</div>
+
+<div align="left">
+<h1>Table of Contents</h1>
    <div id="toc">
       <ul style="list-style: none;">
-         <summary>
-            <h2 align="center">Dev Setup on Windows</h2>
-         </summary>
+         <li>
+			 <a href="#section--development">Development</a>
+			 <ul>
+				 <li>
+					 <a href="#section--development-setup">Setup</a>
+					 <ul>
+						 <li>
+							 <a href="#section--development-setup-dependencies">Dependencies</a>
+							 <ul>
+								 <li>
+									 <a href="#section--development-setup-dependencies-windows">Windows</a>
+								 </li>
+								 <li>
+									 <a href="#section--development-setup-dependencies-linux">Linux</a>
+								 </li>
+							 </ul>
+						 </li>
+					 </ul>
+				 </li>
+			 </ul>
+		 </li>
       </ul>
    </div>
 </div>
 
+<section id="section--development">
+<h1>Development</h1>
+<section id="section--development-setup">
+<h2>Setup</h2>
+<section id="section--development-setup-dependencies">
+<h3>Dependencies</h3>
+<section id="section--development-setup-dependencies-windows">
+<h4>Windows</h4>
 <ol>
    <li>
       <div>
-         <a href="https://rustup.rs/">
+		<span>Install </span>
+         <a href="https://rustup.rs/" id="def--rustup">
             <span>Rustup</span>
-            <img src="https://developer.fedoraproject.org/static/logo/rust.png" alt="" width=15 />
          </a>
+		  <span><sup><a href="#def--rustup">[1]</a></sup> from their website<sup><a href="#def--rustup">[1]</a></sup>.</span>
          <ul>
             <li>
                <p>
-                  Or run: <pre><code>winget install -e --id Rustlang.Rustup</code></pre>
+                  Or install via <a href="https://github.com/microsoft/winget-cli">Winget</a>: <pre><code>winget install -e --id Rustlang.Rustup</code></pre>
                </p>
             </li>
          </ul>
@@ -48,23 +88,10 @@
       </div>
    </li>
 </ol>
+</section>
 
-<div align="center">
-   <div id="toc">
-      <ul style="list-style: none;">
-         <summary>
-            <h2 align="center">Dev Setup on Linux</h2>
-         </summary>
-      </ul>
-   </div>
-</div>
-
-> [!TIP]
-> After setting it up, you should also install `tokei` to see the repo's code stats.
-> ```sh
-> tokei .
-> ```
-
+<section id="section--development-setup-dependencies-linux">
+<h4>Linux</h4>
 <table align="center">
    <thead>
       <tr>
@@ -125,6 +152,17 @@ sudo apt install mingw-w64</code></pre>
 </tr>
 </tbody>
 </table>
+</section>
+</section>
+
+> [!TIP]
+> After setting it up, you should also install `tokei` to see the repo's code stats.
+> ```sh
+> tokei .
+> ```
+
+</section>
+</section>
 
 ## Builds
 
